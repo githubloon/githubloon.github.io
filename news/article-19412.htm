@@ -1,0 +1,327 @@
+<!doctype html>
+<html lang="zh-CN">
+
+<head>
+        <link rel="canonical" href="https://githubloon.github.io/news/article-19412.htm" />
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Java8 接口新特性</title>
+        <meta name="description" content="接口改动一下就要修改对应的实现类，为了兼容老接口，Java8新增了默认方法和静态方法；  对于已经发布的版本，是没法在给接口添加新方法的同时不影响已有的实现 1)静态方法可以直接调用，不能被重写 2)" />
+        <link rel="icon" href="__ADDON__/img/githubloon/favicon.ico" type="image/x-icon"/>
+    <!-- Google fonts -->
+    <link href="//fonts.googleapis.com/css2?family=DM+Sans:wght@400;700&display=swap" rel="stylesheet">
+    <!-- Template CSS -->
+    <link rel="stylesheet" href="/assets/website/css/githubloon/style-starter.css">
+    <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-9MPH6JPQCT"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-9MPH6JPQCT');
+</script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3332997411212854"
+     crossorigin="anonymous"></script>
+</head>
+
+<body data-page="detail">
+        <div class="header-saas">
+        <!-- header -->
+        <header id="site-header" class="fixed-top">
+            <div class="container">
+                <nav class="navbar navbar-expand-lg stroke">
+                                        <a class="navbar-brand" href="/">
+                        <span>Github Loon</span>
+                    </a>
+                                        <button class="navbar-toggler  collapsed bg-gradient" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon fa icon-expand fa-bars"></span>
+                        <span class="navbar-toggler-icon fa icon-close fa-times"></span>
+                        </span>
+                    </button>
+                    <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
+                        <ul class="navbar-nav ml-auto">
+                                                        <li class="nav-item">
+                                <a class="nav-link" href="/">首页</a>
+                            </li>
+                                                        <li class="nav-item">
+                                <a class="nav-link" href="/free-nodes/">免费节点</a>
+                            </li>
+                                                        <li class="nav-item">
+                                <a class="nav-link" href="/paid-subscribe/">推荐机场</a>
+                            </li>
+                                                        <li class="nav-item">
+                                <a class="nav-link" href="/news/">新闻资讯</a>
+                            </li>
+                                                        <li class="nav-item">
+                                <a class="nav-link" href="#">关于</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="#">联系</a>
+                            </li>
+                        </ul>
+                    </div>
+                    <!-- toggle switch for light and dark theme -->
+                    <div class="mobile-position">
+                        <nav class="navigation">
+                            <div class="theme-switch-wrapper">
+                                <label class="theme-switch" for="checkbox">
+                                    <input type="checkbox" id="checkbox">
+                                    <div class="mode-container">
+                                        <i class="gg-sun"></i>
+                                        <i class="gg-moon"></i>
+                                    </div>
+                                </label>
+                            </div>
+                        </nav>
+                    </div>
+                    <!-- //toggle switch for light and dark theme -->
+                </nav>
+            </div>
+        </header>
+        <!-- //header -->
+    </div>
+    <div class="innerblock">
+    </div>
+    <!-- contact-form 2 -->
+    <section class="w3l-contact-2 py-5" id="contact">
+        <div class="container py-lg-4 py-md-3 py-2">
+            <div class="title-content text-center">
+                <h1 class="title-toobig">Java8 接口新特性</h1>
+                <p class="mt-md-4 mt-3 mx-lg-5 px-lg-5">
+                    <a href="/">首页</a> / <a href="/news/">新闻资讯</a> / 正文
+                </p>
+            </div>
+    </section>
+    <!-- section -->
+    <section class="w3l-index3" id="about">
+        <div class="midd-w3 py-5">
+            <div class="container py-lg-5 py-md-3 py-2">
+                <div class="row">
+                    <div class="col-md-9">
+                                          				  				  				<div id="content_views" class="markdown_views prism-tomorrow-night-eighties"> </h1> <p>接口改动一下就要修改对应的实现类，为了兼容老接口，Java8新增了<strong>默认方法</strong>和<strong>静态方法</strong>；</p> <blockquote> <p>对于已经发布的版本，是没法在给接口添加新方法的同时不影响已有的实现<br /> 1)静态方法可以直接调用，不能被重写<br /> 2)默认方法需要通过实现类，重写后实例化后调用</p> </blockquote> <p>一个例子，演示默认方法、静态方法和实现类中对它们的重写，抽象方法doSomthing()就不赘述：</p> <pre><code class="language-java"><code class="prism  language-java"><span class="token comment">//一个有多个默认方法和静态方法的接口CommonInterface</span> <span class="token keyword">public</span> <span class="token keyword">interface</span> <span class="token class-name">CommonInterface</span> <span class="token punctuation">{<!-- --></span>     <span class="token comment">//抽象方法</span>     <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">doSomthing</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>     <span class="token comment">//默认方法</span>     <span class="token keyword">default</span> <span class="token keyword">void</span> <span class="token function">defaultMehtod</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{<!-- --></span>         System<span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">"CommonInterface's default method　is running..."</span><span class="token punctuation">)</span><span class="token punctuation">;</span>     <span class="token punctuation">}</span>     <span class="token comment">//默认方法可以有多个</span>     <span class="token keyword">default</span> <span class="token keyword">void</span> <span class="token function">anotherDefaultMehtod</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{<!-- --></span>         System<span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">"CommonInterface's second default method is running..."</span><span class="token punctuation">)</span><span class="token punctuation">;</span>     <span class="token punctuation">}</span>     <span class="token comment">//静态方法</span>     <span class="token keyword">static</span> <span class="token keyword">void</span> <span class="token function">staticMethod</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{<!-- --></span>         System<span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">"CommonInterface's static method is running..."</span><span class="token punctuation">)</span><span class="token punctuation">;</span>     <span class="token punctuation">}</span>     <span class="token comment">//静态方法也可以有多个</span>     <span class="token keyword">static</span> <span class="token keyword">void</span> <span class="token function">anotherStaticMethod</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{<!-- --></span>         System<span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">"CommonInterface's second static method is running..."</span><span class="token punctuation">)</span><span class="token punctuation">;</span>     <span class="token punctuation">}</span> <span class="token punctuation">}</span> </code></code></pre> <pre><code class="language-java"><code class="prism  language-java"><span class="token comment">//　一个跟上边一模一样的接口CommonInterface1</span> <span class="token keyword">public</span> <span class="token keyword">interface</span> <span class="token class-name">CommonInterface1</span> <span class="token punctuation">{<!-- --></span>      <span class="token comment">//抽象方法</span>     <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">doSomthing</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>      <span class="token comment">//默认方法</span>     <span class="token keyword">default</span> <span class="token keyword">void</span> <span class="token function">defaultMehtod</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{<!-- --></span>         System<span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">"CommonInterface1's default method is running..."</span><span class="token punctuation">)</span><span class="token punctuation">;</span>     <span class="token punctuation">}</span>      <span class="token comment">//默认方法可以有多个</span>     <span class="token keyword">default</span> <span class="token keyword">void</span> <span class="token function">anotherDefaultMehtod</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{<!-- --></span>         System<span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">"CommonInterface1's second default method is running..."</span><span class="token punctuation">)</span><span class="token punctuation">;</span>     <span class="token punctuation">}</span>      <span class="token comment">//静态方法</span>     <span class="token keyword">static</span> <span class="token keyword">void</span> <span class="token function">staticMethod</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{<!-- --></span>         System<span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">"CommonInterface1's static method is running..."</span><span class="token punctuation">)</span><span class="token punctuation">;</span>     <span class="token punctuation">}</span>      <span class="token comment">//静态方法也可以有多个</span>     <span class="token keyword">static</span> <span class="token keyword">void</span> <span class="token function">anotherStaticMethod</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{<!-- --></span>         System<span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">"CommonInterface1's second static method is running..."</span><span class="token punctuation">)</span><span class="token punctuation">;</span>     <span class="token punctuation">}</span> <span class="token punctuation">}</span> </code></code></pre> <p>实现类在尝试重写静态方法时报错，可见静态方法不允许重写：</p> <pre><code class="language-java"><code class="prism  language-java"><span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">CommonInterfaceImpl</span> <span class="token keyword">implements</span> <span class="token class-name">CommonInterface</span><span class="token punctuation">,</span> CommonInterface1 <span class="token punctuation">{<!-- --></span>     <span class="token annotation punctuation">@Override</span>     <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">doSomthing</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{<!-- --></span>         System<span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">"CommonInterfaceImpl.doSomthing(): 我们来学习Java8新特性吧！"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>     <span class="token punctuation">}</span>     <span class="token annotation punctuation">@Override</span>     <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">defaultMehtod</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{<!-- --></span>         System<span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">"CommonInterfaceImpl.defaultMehtod()-------------start"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>         CommonInterface<span class="token punctuation">.</span><span class="token keyword">super</span><span class="token punctuation">.</span><span class="token function">defaultMehtod</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>         CommonInterface1<span class="token punctuation">.</span><span class="token keyword">super</span><span class="token punctuation">.</span><span class="token function">defaultMehtod</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>         System<span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">"CommonInterfaceImpl.defaultMehtod()-------------end"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>     <span class="token punctuation">}</span>     <span class="token annotation punctuation">@Override</span>     <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">anotherDefaultMehtod</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{<!-- --></span>         System<span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">"CommonInterfaceImpl.anotherDefaultMehtod()-------------start"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>         CommonInterface<span class="token punctuation">.</span><span class="token keyword">super</span><span class="token punctuation">.</span><span class="token function">anotherDefaultMehtod</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>         CommonInterface1<span class="token punctuation">.</span><span class="token keyword">super</span><span class="token punctuation">.</span><span class="token function">anotherDefaultMehtod</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>         System<span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">"CommonInterfaceImpl.anotherDefaultMehtod()-------------end"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>     <span class="token punctuation">}</span> <span class="token punctuation">}</span> </code></code></pre> <p>客户端调用：</p> <pre><code class="language-java"><code class="prism  language-java"><span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">Client</span> <span class="token punctuation">{<!-- --></span>     <span class="token keyword">public</span> <span class="token keyword">static</span> <span class="token keyword">void</span> <span class="token function">main</span><span class="token punctuation">(</span>String<span class="token punctuation">[</span><span class="token punctuation">]</span> args<span class="token punctuation">)</span> <span class="token punctuation">{<!-- --></span> 		<span class="token comment">//默认方法　和　抽象方法需实现类实例化后调用</span>         CommonInterface commonInterface <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">CommonInterfaceImpl</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>         <span class="token comment">//抽象方法重写后调用</span>         commonInterface<span class="token punctuation">.</span><span class="token function">doSomthing</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>         <span class="token comment">//默认方法重写后调用</span>         commonInterface<span class="token punctuation">.</span><span class="token function">defaultMehtod</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>         commonInterface<span class="token punctuation">.</span><span class="token function">anotherDefaultMehtod</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>   ｝       </code></code></pre> <p>结果：</p> <pre class="language-shell"><code class="prism  language-shell">CommonInterface<span class="token string">'s static method is running... CommonInterface'</span>s second static method is running<span class="token punctuation">..</span>. CommonInterface1<span class="token string">'s static method is running... CommonInterface1'</span>s second static method is running<span class="token punctuation">..</span>.  CommonInterfaceImpl.doSomthing<span class="token punctuation">(</span><span class="token punctuation">)</span>: 我们来学习Java8新特性吧！  CommonInterfaceImpl.defaultMehtod<span class="token punctuation">(</span><span class="token punctuation">)</span>-------------start CommonInterface<span class="token string">'s default method　is running... CommonInterface1'</span>s default method is running<span class="token punctuation">..</span>. CommonInterfaceImpl.defaultMehtod<span class="token punctuation">(</span><span class="token punctuation">)</span>-------------end  CommonInterfaceImpl.anotherDefaultMehtod<span class="token punctuation">(</span><span class="token punctuation">)</span>-------------start CommonInterface<span class="token string">'s second default method is running... CommonInterface1'</span>s second default method is running<span class="token punctuation">..</span>. CommonInterfaceImpl.anotherDefaultMehtod<span class="token punctuation">(</span><span class="token punctuation">)</span>-------------end </code></pre> </h1> <p>函数式接口(Functional Interface)是只有一个抽象方法的接口。</p> <ol> <li>函数式接口中的抽象函数就是为了支持 lambda表达式；</li> <li>函数式接口可以被隐式转换为lambda表达式；</li> <li>为确保函数式接口符合语法，可以添加@FunctionalInterface注解；</li> </ol> <pre><code class="language-java"><code class="prism  language-java"><span class="token annotation punctuation">@FunctionalInterface</span> <span class="token keyword">public</span> <span class="token keyword">interface</span> <span class="token class-name">FuncInterface</span> <span class="token punctuation">{<!-- --></span>      <span class="token comment">//只有一个抽象方法</span>     <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">reference</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span> 	 	<span class="token comment">//还可以有其他方法</span>     <span class="token comment">//interface default method</span>     <span class="token keyword">default</span> <span class="token keyword">void</span> <span class="token function">defaultMehtod</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{<!-- --></span>         System<span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">"This is a default method~"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>     <span class="token punctuation">}</span>      <span class="token comment">//interface second default method</span>     <span class="token keyword">default</span> <span class="token keyword">void</span> <span class="token function">anotherDefaultMehtod</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{<!-- --></span>         System<span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">"This is the second default method~"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>     <span class="token punctuation">}</span>      <span class="token comment">//interface static method</span>     <span class="token keyword">static</span> <span class="token keyword">void</span> <span class="token function">staticMethod</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{<!-- --></span>         System<span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">"This is a static method~"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>      <span class="token punctuation">}</span>      <span class="token comment">//interface second static method</span>     <span class="token keyword">default</span> <span class="token keyword">void</span> <span class="token function">anotherStaticMethod</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{<!-- --></span>         System<span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">"This is the second static method~"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>     <span class="token punctuation">}</span> <span class="token punctuation">}</span> </code></code></pre> </h1> <p>Java 8添加一个新的包"java.util.function"，通常用于lambda表达式和方法引用，包下有很多通用接口：<br /><img decoding="async" src="http://img.555519.xyz/uploads/20230118/af6afb676e47e6578665314e720749e3.jpg" alt="Java8 接口新特性"><br /> 大致可以分为这几类：<br /><img decoding="async" src="http://img.555519.xyz/uploads/20230118/dbc3a52e1b8087b4622bd5c204daabd8.jpg" alt="Java8 接口新特性"><br /> 3.1 消费型接口<br /><em>Consumer</em> 有一个accept(T t) 方法接受一个入参没有返回，只要符合这个格式的参数，无需再写函数式接口，可以直接写lambda表达式：<br /><img decoding="async" src="http://img.555519.xyz/uploads/20230118/f823a8d9e5cdadb66e101cd65ba6a372.jpg" alt="Java8 接口新特性"><br /> 方法：</p> <pre><code class="language-java"><code class="prism  language-java"><span class="token comment">/**      * buy方法有个Consumer&lt;Integer&gt;的入参      * @param money      * @param consumer      */</span>     <span class="token keyword">public</span> <span class="token keyword">static</span> <span class="token keyword">void</span> <span class="token function">buy</span><span class="token punctuation">(</span>Integer money<span class="token punctuation">,</span> Consumer<span class="token generics function"><span class="token punctuation">&lt;</span>Integer<span class="token punctuation">&gt;</span></span> consumer<span class="token punctuation">)</span> <span class="token punctuation">{<!-- --></span>         consumer<span class="token punctuation">.</span><span class="token function">accept</span><span class="token punctuation">(</span>money<span class="token punctuation">)</span><span class="token punctuation">;</span>     <span class="token punctuation">}</span> </code></code></pre> <p>客户端调用：</p> <pre><code class="language-java"><code class="prism  language-java">	<span class="token keyword">public</span> <span class="token keyword">static</span> <span class="token keyword">void</span> <span class="token function">main</span><span class="token punctuation">(</span>String<span class="token punctuation">[</span><span class="token punctuation">]</span> args<span class="token punctuation">)</span> <span class="token punctuation">{<!-- --></span>         <span class="token comment">//消费型：第二个参数为实现了Consumer&lt;T&gt;接口accept(T t)方法的lambda表达式</span>         <span class="token function">buy</span><span class="token punctuation">(</span><span class="token number">1000</span><span class="token punctuation">,</span> money <span class="token operator">-</span><span class="token operator">&gt;</span> System<span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">"消费型--&gt;我买面包花了:"</span> <span class="token operator">+</span> money <span class="token operator">+</span> <span class="token string">"元"</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span> ｝             </code></code></pre> <p>结果：</p> <pre><code class="language-java"><code class="prism  language-java">消费型<span class="token operator">--</span><span class="token operator">&gt;</span>我买面包花了<span class="token operator">:</span><span class="token number">1000</span>元 </code></code></pre> <p>3.2 供给型接口<br /><em>Supplier</em> 有一个get()方法无入参一个返回：<br /><img decoding="async" src="http://img.555519.xyz/uploads/20230118/8e26ac76327c63bac065c103115ec5e6.jpg" alt="Java8 接口新特性"><br /> 方法：</p> <pre><code class="language-java"><code class="prism  language-java"><span class="token comment">/**      * factory方法有个Supplier&lt;Integer&gt;的入参      * @param supplier      * @return      */</span>     <span class="token keyword">public</span> <span class="token keyword">static</span> String <span class="token function">factory</span><span class="token punctuation">(</span>Supplier<span class="token generics function"><span class="token punctuation">&lt;</span>String<span class="token punctuation">&gt;</span></span> supplier<span class="token punctuation">)</span> <span class="token punctuation">{<!-- --></span>         <span class="token keyword">return</span> supplier<span class="token punctuation">.</span><span class="token function">get</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>     <span class="token punctuation">}</span> </code></code></pre> <p>客户端调用：</p> <pre><code class="language-java"><code class="prism  language-java"><span class="token keyword">public</span> <span class="token keyword">static</span> <span class="token keyword">void</span> <span class="token function">main</span><span class="token punctuation">(</span>String<span class="token punctuation">[</span><span class="token punctuation">]</span> args<span class="token punctuation">)</span> <span class="token punctuation">{<!-- --></span>         <span class="token comment">//供给型：参数为实现了Supplier&lt;Integer&gt;接口get()方法的lambda表达式</span>         String phone <span class="token operator">=</span> <span class="token function">factory</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">-</span><span class="token operator">&gt;</span> <span class="token punctuation">{<!-- --></span><span class="token keyword">return</span> <span class="token string">"Apple8"</span><span class="token punctuation">;</span><span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>         System<span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">"供给型--&gt;富士康生产的有名的手机是:"</span> <span class="token operator">+</span> phone<span class="token punctuation">)</span><span class="token punctuation">;</span> ｝             </code></code></pre> <p>结果：</p> <pre><code class="language-java"><code class="prism  language-java">供给型<span class="token operator">--</span><span class="token operator">&gt;</span>富士康生产的有名的手机是<span class="token operator">:</span>Apple8 </code></code></pre> <p>3.3 函数型接口<br /><em>Function接口</em>有一个apply(T t)方法接受入参有一个返回：<br /><img decoding="async" src="http://img.555519.xyz/uploads/20230118/7ff585517d21d7db5da2cd0d7ce40305.jpg" alt="Java8 接口新特性"><br /> 方法：</p> <pre><code class="language-java"><code class="prism  language-java"><span class="token comment">/**      * convert方法有个Function&lt;String, Integer&gt;的入参      * @param str      * @param function      * @return      */</span>     <span class="token keyword">public</span> <span class="token keyword">static</span> Integer <span class="token function">convert</span><span class="token punctuation">(</span>String str<span class="token punctuation">,</span> Function<span class="token generics function"><span class="token punctuation">&lt;</span>String<span class="token punctuation">,</span> Integer<span class="token punctuation">&gt;</span></span> function<span class="token punctuation">)</span> <span class="token punctuation">{<!-- --></span>         <span class="token keyword">return</span> function<span class="token punctuation">.</span><span class="token function">apply</span><span class="token punctuation">(</span>str<span class="token punctuation">)</span><span class="token punctuation">;</span>     <span class="token punctuation">}</span> </code></code></pre> <p>客户端调用：</p> <pre><code class="language-java"><code class="prism  language-java"><span class="token keyword">public</span> <span class="token keyword">static</span> <span class="token keyword">void</span> <span class="token function">main</span><span class="token punctuation">(</span>String<span class="token punctuation">[</span><span class="token punctuation">]</span> args<span class="token punctuation">)</span> <span class="token punctuation">{<!-- --></span>         <span class="token comment">//函数型：参数为实现了Function&lt;String, Integer&gt;接口apply(T t)方法的lambda表达式</span>         Integer num <span class="token operator">=</span> <span class="token function">convert</span><span class="token punctuation">(</span><span class="token string">"666"</span><span class="token punctuation">,</span> x <span class="token operator">-</span><span class="token operator">&gt;</span> Integer<span class="token punctuation">.</span><span class="token function">parseInt</span><span class="token punctuation">(</span>x<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>         System<span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">"函数型--&gt;字符型666被转换成了数字: "</span><span class="token operator">+</span> num<span class="token punctuation">)</span><span class="token punctuation">;</span> ｝             </code></code></pre> <p>结果：</p> <pre><code class="language-java"><code class="prism  language-java">函数型<span class="token operator">--</span><span class="token operator">&gt;</span>字符型<span class="token number">666</span>被转换成了数字<span class="token operator">:</span> <span class="token number">666</span> </code></code></pre> <p>3.4 断言型接口<br /><em>Predicate</em> 有一个test(T t)方法有一个入参并返回一个boolean：<br /><img decoding="async" src="http://img.555519.xyz/uploads/20230118/9d657ac954da053e5d06832567339925.jpg" alt="Java8 接口新特性"><br /> 方法：</p> <pre><code class="language-java"><code class="prism  language-java"><span class="token comment">/**      * isNoble方法有个Predicate&lt;String&gt;的入参      *      * @param name      * @param predicate      * @return      */</span>     <span class="token keyword">public</span> <span class="token keyword">static</span> String <span class="token function">isNoble</span><span class="token punctuation">(</span>String name<span class="token punctuation">,</span> Predicate<span class="token generics function"><span class="token punctuation">&lt;</span>String<span class="token punctuation">&gt;</span></span> predicate<span class="token punctuation">)</span> <span class="token punctuation">{<!-- --></span>         <span class="token keyword">if</span> <span class="token punctuation">(</span>predicate<span class="token punctuation">.</span><span class="token function">test</span><span class="token punctuation">(</span>name<span class="token punctuation">)</span><span class="token punctuation">)</span>             <span class="token keyword">return</span> <span class="token string">"贵族"</span><span class="token punctuation">;</span>         <span class="token keyword">return</span> <span class="token string">"平民"</span><span class="token punctuation">;</span>     <span class="token punctuation">}</span> </code></code></pre> <p>客户端调用：</p> <pre><code class="language-java"><code class="prism  language-java"><span class="token keyword">public</span> <span class="token keyword">static</span> <span class="token keyword">void</span> <span class="token function">main</span><span class="token punctuation">(</span>String<span class="token punctuation">[</span><span class="token punctuation">]</span> args<span class="token punctuation">)</span> <span class="token punctuation">{<!-- --></span>         <span class="token comment">//断言型：参数为实现了Predicate&lt;String&gt;接口test(T t)方法的lambda表达式</span>         String na <span class="token operator">=</span> <span class="token string">"尼古拉斯赵四"</span><span class="token punctuation">;</span>         String noble <span class="token operator">=</span> <span class="token function">isNoble</span><span class="token punctuation">(</span>na<span class="token punctuation">,</span> <span class="token punctuation">(</span>name<span class="token punctuation">)</span> <span class="token operator">-</span><span class="token operator">&gt;</span> <span class="token operator">!</span><span class="token string">""</span><span class="token punctuation">.</span><span class="token function">equals</span><span class="token punctuation">(</span>name<span class="token punctuation">)</span> <span class="token operator">&amp;&amp;</span> name<span class="token punctuation">.</span><span class="token function">contains</span><span class="token punctuation">(</span><span class="token string">"尼古拉斯"</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>         System<span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">"断言型--&gt;从你的名字就可以看出你是个："</span> <span class="token operator">+</span> noble<span class="token punctuation">)</span><span class="token punctuation">;</span> ｝             </code></code></pre> <p>结果：</p> <pre><code class="language-java"><code class="prism  language-java">断言型<span class="token operator">--</span><span class="token operator">&gt;</span>从你的名字就可以看出你是个：贵族 </code></code></pre> <p>涉及代码：–&gt;<a href="http://www.m6000.cn/wp-content/themes/begin%20lts/inc/go.php?url=https://github.com/Weision/java8-new-features"  rel="nofollow">GitHub</a></p> <hr/> <blockquote> <p>参考文献：<br /> [ 1 ]Java8函数式编程/(英)Richard Warburton著;王群锋译。–北京:人民邮电出版社，2015-03-01.<br /> [ 2 ] <a href="http://www.m6000.cn/wp-content/themes/begin%20lts/inc/go.php?url=http://www.importnew.com/26080.html"  rel="nofollow">http://www.importnew.com/26080.html</a><br /> [ 3 ] <a href="http://www.m6000.cn/wp-content/themes/begin%20lts/inc/go.php?url=http://java8.in/java-8-lambda-expression/"  rel="nofollow">http://java8.in/java-8-lambda-expression/</a><br /> [ 4 ] <a href="http://www.m6000.cn/wp-content/themes/begin%20lts/inc/go.php?url=https://docs.oracle.com/javase/tutorial/java/javaOO/lambdaexpressions.html#approach6"  rel="nofollow">https://docs.oracle.com/javase/tutorial/java/javaOO/lambdaexpressions.html#approach6</a><br /> [ 5 ] <a href="http://www.m6000.cn/wp-content/themes/begin%20lts/inc/go.php?url=https://winterbe.com/posts/2014/03/16/java-8-tutorial/"  rel="nofollow">https://winterbe.com/posts/2014/03/16/java-8-tutorial/</a></p> </blockquote></div> 			                <div class="clearfix"></div>
+                <div class="col-md-12 mt-5">
+                                        <p>上一个：<a href="/news/article-18963.htm">大人让猫抓了怎么办啊（大人让猫抓了怎么办啊）</a></p>
+                                        <p>下一个：<a href="/news/article-19413.htm">通过实例程序验证与优化谈谈网上很多对于Java DCL的一些误解以及为何要理解Java内存模型</a></p>
+                                    </div>
+                                    </div>
+                    <div class="col-md-3">
+                        <div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">热门文章</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2"><a href="/free-nodes/2024-9-22-loon-node-github.htm" title="「9月22日」最高速度22.5M/S，2024年Github Loon每天更新免费机场订阅节点链接">「9月22日」最高速度22.5M/S，2024年Github Loon每天更新免费机场订阅节点链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-8-31-loon-node-share.htm" title="「8月31日」最高速度21.6M/S，2024年Github Loon每天更新免费机场订阅节点链接">「8月31日」最高速度21.6M/S，2024年Github Loon每天更新免费机场订阅节点链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-11-29-loon-node-github.htm" title="「11月29日」最高速度18M/S，2024年Github Loon每天更新免费机场订阅节点链接">「11月29日」最高速度18M/S，2024年Github Loon每天更新免费机场订阅节点链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-11-9-free-high-speed-nodes.htm" title="「11月9日」最高速度18.1M/S，2024年Github Loon每天更新免费机场订阅节点链接">「11月9日」最高速度18.1M/S，2024年Github Loon每天更新免费机场订阅节点链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-9-17-loon-node-share.htm" title="「9月17日」最高速度18.4M/S，2024年Github Loon每天更新免费机场订阅节点链接">「9月17日」最高速度18.4M/S，2024年Github Loon每天更新免费机场订阅节点链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-10-31-free-high-speed-nodes.htm" title="「10月31日」最高速度18.3M/S，2024年Github Loon每天更新免费机场订阅节点链接">「10月31日」最高速度18.3M/S，2024年Github Loon每天更新免费机场订阅节点链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-9-28-loon-node.htm" title="「9月28日」最高速度20.8M/S，2024年Github Loon每天更新免费机场订阅节点链接">「9月28日」最高速度20.8M/S，2024年Github Loon每天更新免费机场订阅节点链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-11-17-latest-loon-node.htm" title="「11月17日」最高速度19.5M/S，2024年Github Loon每天更新免费机场订阅节点链接">「11月17日」最高速度19.5M/S，2024年Github Loon每天更新免费机场订阅节点链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-11-28-free-loon-node.htm" title="「11月28日」最高速度21M/S，2024年Github Loon每天更新免费机场订阅节点链接">「11月28日」最高速度21M/S，2024年Github Loon每天更新免费机场订阅节点链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-9-21-free-node-subscribe.htm" title="「9月21日」最高速度19.2M/S，2024年Github Loon每天更新免费机场订阅节点链接">「9月21日」最高速度19.2M/S，2024年Github Loon每天更新免费机场订阅节点链接</a></li>
+                    </ul>
+    </div>
+</div>
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">归纳</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">3</span> <a href="/date/2024-12/" title="2024-12 归档">2024-12</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">34</span> <a href="/date/2024-11/" title="2024-11 归档">2024-11</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">31</span> <a href="/date/2024-10/" title="2024-10 归档">2024-10</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">30</span> <a href="/date/2024-09/" title="2024-09 归档">2024-09</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">12</span> <a href="/date/2024-08/" title="2024-08 归档">2024-08</a></h4>
+            </li>
+                    </ul>
+    </div>
+</div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- //section -->    
+        <!-- footer17 -->
+    <section class="footer-17">
+        <div class="footer17_sur py-5">
+            <div class="copyright text-center">
+                <div class="container">
+                    <p class="copy-footer-29">Github Loon节点订阅官网 版权所有 Powered by WordPress</p>
+                </div>
+            </div>
+            <!-- move top -->
+            <button onclick="topFunction()" id="movetop" title="Go to top">
+                &#10548;
+            </button>
+            <script>
+            // When the user scrolls down 20px from the top of the document, show the button
+            window.onscroll = function() {
+                scrollFunction()
+            };
+
+            function scrollFunction() {
+                if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+                    document.getElementById("movetop").style.display = "block";
+                } else {
+                    document.getElementById("movetop").style.display = "none";
+                }
+            }
+
+            // When the user clicks on the button, scroll to the top of the document
+            function topFunction() {
+                document.body.scrollTop = 0;
+                document.documentElement.scrollTop = 0;
+            }
+            </script>
+            <!-- /move top -->
+        </div>
+    </section>
+    <!-- //footer17 -->
+    <!-- Template JavaScript -->
+    <script src="/assets/website/js/frontend/githubloon/jquery-3.5.1.min.js"></script>
+    <script src="/assets/website/js/frontend/githubloon/theme-change.js"></script><!-- theme switch js (light and dark)-->
+    <!-- pricing tabs js -->
+    <script src="/assets/website/js/frontend/githubloon/tabs.js"></script>
+    <!-- owlcarousel -->
+    <script src="/assets/website/js/frontend/githubloon/owl.carousel.js"></script>
+    <!-- script for tesimonials carousel slider -->
+    <script>
+    $(document).ready(function() {
+        $("#owl-demo1").owlCarousel({
+            loop: true,
+            nav: false,
+            margin: 50,
+            responsiveClass: true,
+            responsive: {
+                0: {
+                    items: 1,
+                    nav: false
+                },
+                736: {
+                    items: 2,
+                    nav: false
+                }
+            }
+        })
+    })
+    </script>
+    <!-- //script for tesimonials carousel slider -->
+    <!-- script for tesimonials agency carousel slider -->
+    <script>
+    $(document).ready(function() {
+        $("#owl-agency").owlCarousel({
+            loop: true,
+            nav: false,
+            margin: 50,
+            responsiveClass: true,
+            responsive: {
+                0: {
+                    items: 1,
+                    nav: false
+                },
+                736: {
+                    items: 1,
+                    nav: false
+                }
+            }
+        })
+    })
+    </script>
+    <!-- //script for tesimonials agency carousel slider -->
+    <!-- magnific popup -->
+    <script src="/assets/website/js/frontend/githubloon/jquery.magnific-popup.min.js"></script>
+    <script>
+    $(document).ready(function() {
+        $('.popup-with-zoom-anim').magnificPopup({
+            type: 'inline',
+
+            fixedContentPos: false,
+            fixedBgPos: true,
+
+            overflowY: 'auto',
+
+            closeBtnInside: true,
+            preloader: false,
+
+            midClick: true,
+            removalDelay: 300,
+            mainClass: 'my-mfp-zoom-in'
+        });
+
+        $('.popup-with-move-anim').magnificPopup({
+            type: 'inline',
+
+            fixedContentPos: false,
+            fixedBgPos: true,
+
+            overflowY: 'auto',
+
+            closeBtnInside: true,
+            preloader: false,
+
+            midClick: true,
+            removalDelay: 300,
+            mainClass: 'my-mfp-slide-bottom'
+        });
+    });
+    </script>
+    <!-- //magnific popup -->
+    <!-- disable body scroll which navbar is in active -->
+    <script>
+    $(function() {
+        $('.navbar-toggler').click(function() {
+            $('body').toggleClass('noscroll');
+        })
+    });
+    </script>
+    <!-- disable body scroll which navbar is in active -->
+    <!--/MENU-JS-->
+    <script>
+    $(window).on("scroll", function() {
+        var scroll = $(window).scrollTop();
+
+        if (scroll >= 80) {
+            $("#site-header").addClass("nav-fixed");
+        } else {
+            $("#site-header").removeClass("nav-fixed");
+        }
+    });
+
+    //Main navigation Active Class Add Remove
+    $(".navbar-toggler").on("click", function() {
+        $("header").toggleClass("active");
+    });
+    $(document).on("ready", function() {
+        if ($(window).width() > 991) {
+            $("header").removeClass("active");
+        }
+        $(window).on("resize", function() {
+            if ($(window).width() > 991) {
+                $("header").removeClass("active");
+            }
+        });
+    });
+    </script>
+    <!--//MENU-JS-->
+    <script src="/assets/website/js/frontend/githubloon/bootstrap.min.js"></script>
+    <script src="https://www.freeclashnode.com/assets/js/frontend/invite-url.js"></script><script src="/assets/website/js/frontend/G.js"></script>
+</body>
+
+</html>
