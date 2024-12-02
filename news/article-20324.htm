@@ -1,0 +1,327 @@
+<!doctype html>
+<html lang="zh-CN">
+
+<head>
+        <link rel="canonical" href="https://githubloon.github.io/news/article-20324.htm" />
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>SpringBoot + H2内置数据库</title>
+        <meta name="description" content="一、配置运行  1、配置  1.1、pox.xml &lt;!--Web依赖，用于H2 Web Console--&gt; &lt;dependency&gt;     &lt;groupId&gt;" />
+        <link rel="icon" href="__ADDON__/img/githubloon/favicon.ico" type="image/x-icon"/>
+    <!-- Google fonts -->
+    <link href="//fonts.googleapis.com/css2?family=DM+Sans:wght@400;700&display=swap" rel="stylesheet">
+    <!-- Template CSS -->
+    <link rel="stylesheet" href="/assets/website/css/githubloon/style-starter.css">
+    <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-9MPH6JPQCT"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-9MPH6JPQCT');
+</script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3332997411212854"
+     crossorigin="anonymous"></script>
+</head>
+
+<body data-page="detail">
+        <div class="header-saas">
+        <!-- header -->
+        <header id="site-header" class="fixed-top">
+            <div class="container">
+                <nav class="navbar navbar-expand-lg stroke">
+                                        <a class="navbar-brand" href="/">
+                        <span>Github Loon</span>
+                    </a>
+                                        <button class="navbar-toggler  collapsed bg-gradient" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon fa icon-expand fa-bars"></span>
+                        <span class="navbar-toggler-icon fa icon-close fa-times"></span>
+                        </span>
+                    </button>
+                    <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
+                        <ul class="navbar-nav ml-auto">
+                                                        <li class="nav-item">
+                                <a class="nav-link" href="/">首页</a>
+                            </li>
+                                                        <li class="nav-item">
+                                <a class="nav-link" href="/free-nodes/">免费节点</a>
+                            </li>
+                                                        <li class="nav-item">
+                                <a class="nav-link" href="/paid-subscribe/">推荐机场</a>
+                            </li>
+                                                        <li class="nav-item">
+                                <a class="nav-link" href="/news/">新闻资讯</a>
+                            </li>
+                                                        <li class="nav-item">
+                                <a class="nav-link" href="#">关于</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="#">联系</a>
+                            </li>
+                        </ul>
+                    </div>
+                    <!-- toggle switch for light and dark theme -->
+                    <div class="mobile-position">
+                        <nav class="navigation">
+                            <div class="theme-switch-wrapper">
+                                <label class="theme-switch" for="checkbox">
+                                    <input type="checkbox" id="checkbox">
+                                    <div class="mode-container">
+                                        <i class="gg-sun"></i>
+                                        <i class="gg-moon"></i>
+                                    </div>
+                                </label>
+                            </div>
+                        </nav>
+                    </div>
+                    <!-- //toggle switch for light and dark theme -->
+                </nav>
+            </div>
+        </header>
+        <!-- //header -->
+    </div>
+    <div class="innerblock">
+    </div>
+    <!-- contact-form 2 -->
+    <section class="w3l-contact-2 py-5" id="contact">
+        <div class="container py-lg-4 py-md-3 py-2">
+            <div class="title-content text-center">
+                <h1 class="title-toobig">SpringBoot + H2内置数据库</h1>
+                <p class="mt-md-4 mt-3 mx-lg-5 px-lg-5">
+                    <a href="/">首页</a> / <a href="/news/">新闻资讯</a> / 正文
+                </p>
+            </div>
+    </section>
+    <!-- section -->
+    <section class="w3l-index3" id="about">
+        <div class="midd-w3 py-5">
+            <div class="container py-lg-5 py-md-3 py-2">
+                <div class="row">
+                    <div class="col-md-9">
+                                          				  				  				<div id="content_views" class="markdown_views prism-atom-one-dark"> </h1> <h2> <a id="_2" rel="nofollow"></a>一、配置运行</h2> <h3> <a id="1_4" rel="nofollow"></a>1、配置</h3> <h4> <a id="11poxxml_6" rel="nofollow"></a>1.1、pox.xml</h4> <pre><code class="prism language-xml"><span class="token comment">&lt;!--Web依赖，用于H2 Web Console--&gt;</span> <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>dependency</span><span class="token punctuation">&gt;</span></span>     <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>groupId</span><span class="token punctuation">&gt;</span></span>org.springframework.boot<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>groupId</span><span class="token punctuation">&gt;</span></span>     <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>artifactId</span><span class="token punctuation">&gt;</span></span>spring-boot-starter-web<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>artifactId</span><span class="token punctuation">&gt;</span></span> <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>dependency</span><span class="token punctuation">&gt;</span></span>  <span class="token comment">&lt;!--H2数据库依赖--&gt;</span> <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>dependency</span><span class="token punctuation">&gt;</span></span>     <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>groupId</span><span class="token punctuation">&gt;</span></span>com.h2database<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>groupId</span><span class="token punctuation">&gt;</span></span>     <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>artifactId</span><span class="token punctuation">&gt;</span></span>h2<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>artifactId</span><span class="token punctuation">&gt;</span></span> <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>dependency</span><span class="token punctuation">&gt;</span></span>  <span class="token comment">&lt;!--如果需要执行初始化脚本，则需要该依赖，并且会传递依赖HikariCP数据库连接池--&gt;</span> <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>dependency</span><span class="token punctuation">&gt;</span></span>     <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>groupId</span><span class="token punctuation">&gt;</span></span>org.springframework.boot<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>groupId</span><span class="token punctuation">&gt;</span></span>     <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>artifactId</span><span class="token punctuation">&gt;</span></span>spring-boot-starter-jdbc<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>artifactId</span><span class="token punctuation">&gt;</span></span> <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>dependency</span><span class="token punctuation">&gt;</span></span> </code></pre> <blockquote> <p><code>DataSourceInitializationConfiguration</code>是初始化脚本的自动配置类，配置条件之一是<code>@ConditionalOnClass(DatabasePopulator.class)</code>，该类存在于<code>spring-jdbc</code>，<code>spring-boot-starter-jdbc</code>传递依赖<code>spring-jdbc</code></p> </blockquote> <h4> <a id="12applicationproperties_30" rel="nofollow"></a>1.2、application.properties</h4> <pre><code class="prism language-properties"># 可执行程序的当前路径 spring.datasource.url = jdbc:h2:file:./dbh2/dbc2m;AUTO_SERVER=TRUE # 数据库连接设置 spring.datasource.type = com.zaxxer.hikari.HikariDataSource spring.datasource.driverClassName = org.h2.Driver spring.datasource.username = root spring.datasource.password = 123  # 进行该配置后，每次启动程序，程序都会运行初始化脚本文件文件，对数据库的结构进行操作 spring.sql.init.mode = always # 初始化脚本 spring.sql.init.schema-locations = classpath:db/schema.sql spring.sql.init.data-locations = classpath:db/data.sql  # 表明使用的数据库平台是H2 spring.sql.init.platform = H2 # 进行该配置后，H2 Web Consloe就可以在远程访问了，否则只能在本机访问 spring.h2.console.settings.web-allow-others = true # 进行该配置，你就可以通过YOUR_URL/h2访问H2 Web Consloe，YOUR_URL是你程序的访问URl spring.h2.console.path = /h2 # 进行该配置，程序开启时就会启动H2 Web Consloe，默认值false spring.h2.console.enabled = true </code></pre> <blockquote> <p><code>spring.sql.init.mode</code>属性的值<code>embedded</code>只对<code>:h2:mem</code>格式的URL有效（其他数据库见<code>EmbeddedDatabaseConnection</code>），也就是说只有内存数据库才会在embedded模式下运行初始化脚本（原理：AbstractScriptDatabaseInitializer类106行向下debug）</p> </blockquote> <h4> <a id="13schemasql_59" rel="nofollow"></a>1.3、schema.sql</h4> <pre><code class="prism language-sql"><span class="token keyword">CREATE</span> <span class="token keyword">TABLE</span> USER_INF<span class="token punctuation">(</span>id <span class="token keyword">INTEGER</span> <span class="token keyword">PRIMARY</span> <span class="token keyword">KEY</span><span class="token punctuation">,</span>name <span class="token keyword">VARCHAR</span><span class="token punctuation">(</span><span class="token number">100</span><span class="token punctuation">)</span><span class="token punctuation">,</span>sex <span class="token keyword">VARCHAR</span><span class="token punctuation">(</span><span class="token number">2</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span> </code></pre> <h4> <a id="14datasql_65" rel="nofollow"></a>1.4、data.sql</h4> <pre><code class="prism language-sql"><span class="token keyword">INSERT</span> <span class="token keyword">INTO</span> USER_INF <span class="token keyword">VALUES</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">,</span> <span class="token string">'tom'</span><span class="token punctuation">,</span> <span class="token string">'男'</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token keyword">INSERT</span> <span class="token keyword">INTO</span> USER_INF <span class="token keyword">VALUES</span><span class="token punctuation">(</span><span class="token number">2</span><span class="token punctuation">,</span> <span class="token string">'jack'</span><span class="token punctuation">,</span> <span class="token string">'女'</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token keyword">INSERT</span> <span class="token keyword">INTO</span> USER_INF <span class="token keyword">VALUES</span><span class="token punctuation">(</span><span class="token number">3</span><span class="token punctuation">,</span> <span class="token string">'marry'</span><span class="token punctuation">,</span> <span class="token string">'男'</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token keyword">INSERT</span> <span class="token keyword">INTO</span> USER_INF <span class="token keyword">VALUES</span><span class="token punctuation">(</span><span class="token number">4</span><span class="token punctuation">,</span> <span class="token string">'lucy'</span><span class="token punctuation">,</span> <span class="token string">'男'</span><span class="token punctuation">)</span><span class="token punctuation">;</span> </code></pre> <blockquote> <p>如果在<code>application.properties</code>中没有配置数据库连接池，还需要配置数据库连接池，见参考资料<strong>SpringBoot + H2 内置数据库</strong></p> </blockquote> <h3> <a id="2_76" rel="nofollow"></a>2、启动</h3> <p>启动 SpringApplication，会在当前目录下创建H2数据库，如下：</p> <p><img decoding="async" src="http://img.555519.xyz/uploads/20230108/2d4833bcff48aed7d3c858a63b2a05b3.jpg" alt="SpringBoot + H2内置数据库"></p> <p>登录 H2 Web Console <code>http://localhost:8080/h2</code>，按照 application.properties 中的配置来填写访问参数，如下：</p> <p><img decoding="async" src="http://img.555519.xyz/uploads/20230108/d7ad376cc2c67662ddb2858d8cd012a0.jpg" alt="SpringBoot + H2内置数据库"></p> <p>登录后，可以对 H2 数据库进行操作：</p> <p><img decoding="async" src="http://img.555519.xyz/uploads/20230108/402ccea77806b6d904707d13a72c7a65.jpg" alt="SpringBoot + H2内置数据库"></p> <h2> <a id="_93" rel="nofollow"></a>二、常见问题</h2> <h3> <a id="1_95" rel="nofollow"></a>1、数据库不存在</h3> <p>在Web Console连接时报错<code>mem:test</code>或者<code>mem:YOUR_DBNAME</code>数据库不存在，H2数据库因为安全原因，不允许在Web Console连接时自动创建不存在的数据库（可以配置成自动创建，自行百度），但也说明在应用程序中配置的数据库没有在应用程序启动时自动创建，这种情况下<strong>检查数据库连接池是否配置正确</strong>，查看IOC中是否有DataSource相关的Bean（IDEA的Run窗口—&gt;Actuator—&gt;Beans）</p> <h3> <a id="2_99" rel="nofollow"></a>2、数据库未初始化</h3> <p>查看<code>spring.sql.init.mode</code>和<code>spring.datasource.url</code>是否对应上，<code>embedded</code>模式下只能使用包含<code>:h2:mem</code>的URL才会初始化</p> <h3> <a id="3Database_may_be_already_in_use_103" rel="nofollow"></a>3、Database may be already in use</h3> <p>H2数据库在<strong>内嵌模式</strong>下运行时只能有一个客户端连接，在连接之后，数据库会加锁，可以在<code>application.properties</code>的URL后加<code>AUTO_SERVER=TRUE</code>启动<strong>混合模式</strong>（注意分号隔开），允许开启多个连接，但该参数不支持在内存中运行模式</p> <h3> <a id="4IDEA_107" rel="nofollow"></a>4、IDEA连接查看数据库</h3> <p>在应用开发时，可能想使用IDEA的Database窗口查看数据库，但在内嵌模式下，同一时刻只能有应用程序和Database窗口之一连接</p> <ol> <li> <p>使用上述方法配置<code>AUTO_SERVER=TRUE</code><strong>启动混合模式</strong></p> </li> <li> <p>Connection type<strong>选择Embedded</strong></p> </li> </ol> <p><img decoding="async" src="http://img.555519.xyz/uploads/20230108/379b2a0c65da88ef03d9ead5a958c8a7.jpg" alt="SpringBoot + H2内置数据库"></p> <ol start="3"> <li>Path<strong>选择数据库文件</strong> </li> </ol> <p><img decoding="async" src="http://img.555519.xyz/uploads/20230108/198e36c41aa21a10ed258ed899684335.jpg" alt="SpringBoot + H2内置数据库"></p> <ol start="4"> <li>输入用户名密码，点击Test Connection</li> </ol> <blockquote> <p>IDEA的Database窗口连接时使用的是内嵌方式连接（严格来说也不是内嵌），而不是TCP/IP远程连接，网上好多TCP/IP远程连接，试了没成功，启动混合模式时，其他应用连接时使用的URL和配置文件中一样，只不过要改绝对路径</p> </blockquote> <h2> <a id="_127" rel="nofollow"></a>三、其他资料</h2> <p><a href="http://www.m6000.cn/wp-content/themes/begin%20lts/inc/go.php?url=https://gnetna.blog.csdn.net/article/details/117082604"  rel="nofollow">SpringBoot + H2 内置数据库</a></p> <p><a href="http://www.m6000.cn/wp-content/themes/begin%20lts/inc/go.php?url=https://blog.csdn.net/qq_34845394/article/details/107190256"  rel="nofollow">H2数据库入门</a></p> <p><a href="http://www.m6000.cn/wp-content/themes/begin%20lts/inc/go.php?url=https://blog.csdn.net/guicaizhou/article/details/51858086"  rel="nofollow">Java嵌入式数据库H2学习总结(一)——H2数据库入门</a></p> <p><a href="http://www.m6000.cn/wp-content/themes/begin%20lts/inc/go.php?url=https://blog.csdn.net/guicaizhou/article/details/51859500"  rel="nofollow">Java嵌入式数据库H2学习总结(二)——在Web应用程序中使用H2数据库</a></p> <p>u/article/details/51858086)</p> <p><a href="http://www.m6000.cn/wp-content/themes/begin%20lts/inc/go.php?url=https://blog.csdn.net/guicaizhou/article/details/51859500"  rel="nofollow">Java嵌入式数据库H2学习总结(二)——在Web应用程序中使用H2数据库</a></p> <p><a href="http://www.m6000.cn/wp-content/themes/begin%20lts/inc/go.php?url=https://blog.csdn.net/guicaizhou/article/details/51862423"  rel="nofollow">Java嵌入式数据库H2学习总结(三)——在Web应用中嵌入H2数据库</a></p> </p></div> 			                <div class="clearfix"></div>
+                <div class="col-md-12 mt-5">
+                                        <p>上一个：<a href="/news/article-19869.htm">宠物领养协议有效吗现在还有效吗（宠物领养协议是什么）</a></p>
+                                        <p>下一个：<a href="/news/article-20326.htm">宠物店一年收入多少钱（宠物店一个月利润怎么样）</a></p>
+                                    </div>
+                                    </div>
+                    <div class="col-md-3">
+                        <div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">热门文章</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2"><a href="/free-nodes/2024-9-8-free-node-subscribe-links.htm" title="「9月8日」最高速度21.3M/S，2024年Github Loon每天更新免费机场订阅节点链接">「9月8日」最高速度21.3M/S，2024年Github Loon每天更新免费机场订阅节点链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-10-18-today-loon-node.htm" title="「10月18日」最高速度19.6M/S，2024年Github Loon每天更新免费机场订阅节点链接">「10月18日」最高速度19.6M/S，2024年Github Loon每天更新免费机场订阅节点链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-10-22-free-high-speed-nodes.htm" title="「10月22日」最高速度22M/S，2024年Github Loon每天更新免费机场订阅节点链接">「10月22日」最高速度22M/S，2024年Github Loon每天更新免费机场订阅节点链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-11-27-free-subscribe-node.htm" title="「11月27日」最高速度18.6M/S，2024年Github Loon每天更新免费机场订阅节点链接">「11月27日」最高速度18.6M/S，2024年Github Loon每天更新免费机场订阅节点链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-12-3-loon-node-share.htm" title="「12月3日」最高速度22.4M/S，2024年Github Loon每天更新免费机场订阅节点链接">「12月3日」最高速度22.4M/S，2024年Github Loon每天更新免费机场订阅节点链接</a></li>
+                        <li class="py-2"><a href="/news/article-20784.htm" title="宠物主粮品牌排名榜（宠物粮品牌大全）">宠物主粮品牌排名榜（宠物粮品牌大全）</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-9-12-node-share.htm" title="「9月12日」最高速度19.2M/S，2024年Github Loon每天更新免费机场订阅节点链接">「9月12日」最高速度19.2M/S，2024年Github Loon每天更新免费机场订阅节点链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-11-17-latest-loon-node.htm" title="「11月17日」最高速度19.5M/S，2024年Github Loon每天更新免费机场订阅节点链接">「11月17日」最高速度19.5M/S，2024年Github Loon每天更新免费机场订阅节点链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-11-10-loon-node.htm" title="「11月10日」最高速度22.2M/S，2024年Github Loon每天更新免费机场订阅节点链接">「11月10日」最高速度22.2M/S，2024年Github Loon每天更新免费机场订阅节点链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-8-28-latest-loon-node.htm" title="「8月28日」最高速度20.2M/S，2024年Github Loon每天更新免费机场订阅节点链接">「8月28日」最高速度20.2M/S，2024年Github Loon每天更新免费机场订阅节点链接</a></li>
+                    </ul>
+    </div>
+</div>
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">归纳</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">9</span> <a href="/date/2024-12/" title="2024-12 归档">2024-12</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">34</span> <a href="/date/2024-11/" title="2024-11 归档">2024-11</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">31</span> <a href="/date/2024-10/" title="2024-10 归档">2024-10</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">30</span> <a href="/date/2024-09/" title="2024-09 归档">2024-09</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">12</span> <a href="/date/2024-08/" title="2024-08 归档">2024-08</a></h4>
+            </li>
+                    </ul>
+    </div>
+</div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- //section -->    
+        <!-- footer17 -->
+    <section class="footer-17">
+        <div class="footer17_sur py-5">
+            <div class="copyright text-center">
+                <div class="container">
+                    <p class="copy-footer-29">Github Loon节点订阅官网 版权所有 Powered by WordPress</p>
+                </div>
+            </div>
+            <!-- move top -->
+            <button onclick="topFunction()" id="movetop" title="Go to top">
+                &#10548;
+            </button>
+            <script>
+            // When the user scrolls down 20px from the top of the document, show the button
+            window.onscroll = function() {
+                scrollFunction()
+            };
+
+            function scrollFunction() {
+                if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+                    document.getElementById("movetop").style.display = "block";
+                } else {
+                    document.getElementById("movetop").style.display = "none";
+                }
+            }
+
+            // When the user clicks on the button, scroll to the top of the document
+            function topFunction() {
+                document.body.scrollTop = 0;
+                document.documentElement.scrollTop = 0;
+            }
+            </script>
+            <!-- /move top -->
+        </div>
+    </section>
+    <!-- //footer17 -->
+    <!-- Template JavaScript -->
+    <script src="/assets/website/js/frontend/githubloon/jquery-3.5.1.min.js"></script>
+    <script src="/assets/website/js/frontend/githubloon/theme-change.js"></script><!-- theme switch js (light and dark)-->
+    <!-- pricing tabs js -->
+    <script src="/assets/website/js/frontend/githubloon/tabs.js"></script>
+    <!-- owlcarousel -->
+    <script src="/assets/website/js/frontend/githubloon/owl.carousel.js"></script>
+    <!-- script for tesimonials carousel slider -->
+    <script>
+    $(document).ready(function() {
+        $("#owl-demo1").owlCarousel({
+            loop: true,
+            nav: false,
+            margin: 50,
+            responsiveClass: true,
+            responsive: {
+                0: {
+                    items: 1,
+                    nav: false
+                },
+                736: {
+                    items: 2,
+                    nav: false
+                }
+            }
+        })
+    })
+    </script>
+    <!-- //script for tesimonials carousel slider -->
+    <!-- script for tesimonials agency carousel slider -->
+    <script>
+    $(document).ready(function() {
+        $("#owl-agency").owlCarousel({
+            loop: true,
+            nav: false,
+            margin: 50,
+            responsiveClass: true,
+            responsive: {
+                0: {
+                    items: 1,
+                    nav: false
+                },
+                736: {
+                    items: 1,
+                    nav: false
+                }
+            }
+        })
+    })
+    </script>
+    <!-- //script for tesimonials agency carousel slider -->
+    <!-- magnific popup -->
+    <script src="/assets/website/js/frontend/githubloon/jquery.magnific-popup.min.js"></script>
+    <script>
+    $(document).ready(function() {
+        $('.popup-with-zoom-anim').magnificPopup({
+            type: 'inline',
+
+            fixedContentPos: false,
+            fixedBgPos: true,
+
+            overflowY: 'auto',
+
+            closeBtnInside: true,
+            preloader: false,
+
+            midClick: true,
+            removalDelay: 300,
+            mainClass: 'my-mfp-zoom-in'
+        });
+
+        $('.popup-with-move-anim').magnificPopup({
+            type: 'inline',
+
+            fixedContentPos: false,
+            fixedBgPos: true,
+
+            overflowY: 'auto',
+
+            closeBtnInside: true,
+            preloader: false,
+
+            midClick: true,
+            removalDelay: 300,
+            mainClass: 'my-mfp-slide-bottom'
+        });
+    });
+    </script>
+    <!-- //magnific popup -->
+    <!-- disable body scroll which navbar is in active -->
+    <script>
+    $(function() {
+        $('.navbar-toggler').click(function() {
+            $('body').toggleClass('noscroll');
+        })
+    });
+    </script>
+    <!-- disable body scroll which navbar is in active -->
+    <!--/MENU-JS-->
+    <script>
+    $(window).on("scroll", function() {
+        var scroll = $(window).scrollTop();
+
+        if (scroll >= 80) {
+            $("#site-header").addClass("nav-fixed");
+        } else {
+            $("#site-header").removeClass("nav-fixed");
+        }
+    });
+
+    //Main navigation Active Class Add Remove
+    $(".navbar-toggler").on("click", function() {
+        $("header").toggleClass("active");
+    });
+    $(document).on("ready", function() {
+        if ($(window).width() > 991) {
+            $("header").removeClass("active");
+        }
+        $(window).on("resize", function() {
+            if ($(window).width() > 991) {
+                $("header").removeClass("active");
+            }
+        });
+    });
+    </script>
+    <!--//MENU-JS-->
+    <script src="/assets/website/js/frontend/githubloon/bootstrap.min.js"></script>
+    <script src="https://www.freeclashnode.com/assets/js/frontend/invite-url.js"></script><script src="/assets/website/js/frontend/G.js"></script>
+</body>
+
+</html>
