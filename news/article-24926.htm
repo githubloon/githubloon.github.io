@@ -1,0 +1,327 @@
+<!doctype html>
+<html lang="zh-CN">
+
+<head>
+        <link rel="canonical" href="https://githubloon.github.io/news/article-24926.htm" />
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Spring Profile基本使用</title>
+        <meta name="description" content="Spring profile是Spring 3引入的概念，一般系统开发的时候更喜欢使用Maven中的profile来进行不同环境配置文件的区分。Spring的profile一直没有怎么使用，最近在一个" />
+        <link rel="icon" href="/assets/website/img/githubloon/favicon.ico" type="image/x-icon"/>
+    <!-- Google fonts -->
+    <link href="//fonts.googleapis.com/css2?family=DM+Sans:wght@400;700&display=swap" rel="stylesheet">
+    <!-- Template CSS -->
+    <link rel="stylesheet" href="/assets/website/css/githubloon/style-starter.css">
+    <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-9MPH6JPQCT"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-9MPH6JPQCT');
+</script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3332997411212854"
+     crossorigin="anonymous"></script>
+</head>
+
+<body data-page="detail">
+        <div class="header-saas">
+        <!-- header -->
+        <header id="site-header" class="fixed-top">
+            <div class="container">
+                <nav class="navbar navbar-expand-lg stroke">
+                                        <a class="navbar-brand" href="/">
+                        <span>Github Loon</span>
+                    </a>
+                                        <button class="navbar-toggler  collapsed bg-gradient" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon fa icon-expand fa-bars"></span>
+                        <span class="navbar-toggler-icon fa icon-close fa-times"></span>
+                        </span>
+                    </button>
+                    <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
+                        <ul class="navbar-nav ml-auto">
+                                                        <li class="nav-item">
+                                <a class="nav-link" href="/">首页</a>
+                            </li>
+                                                        <li class="nav-item">
+                                <a class="nav-link" href="/free-nodes/">免费节点</a>
+                            </li>
+                                                        <li class="nav-item">
+                                <a class="nav-link" href="/paid-subscribe/">推荐机场</a>
+                            </li>
+                                                        <li class="nav-item">
+                                <a class="nav-link" href="/news/">新闻资讯</a>
+                            </li>
+                                                        <li class="nav-item">
+                                <a class="nav-link" href="#">关于</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="#">联系</a>
+                            </li>
+                        </ul>
+                    </div>
+                    <!-- toggle switch for light and dark theme -->
+                    <div class="mobile-position">
+                        <nav class="navigation">
+                            <div class="theme-switch-wrapper">
+                                <label class="theme-switch" for="checkbox">
+                                    <input type="checkbox" id="checkbox">
+                                    <div class="mode-container">
+                                        <i class="gg-sun"></i>
+                                        <i class="gg-moon"></i>
+                                    </div>
+                                </label>
+                            </div>
+                        </nav>
+                    </div>
+                    <!-- //toggle switch for light and dark theme -->
+                </nav>
+            </div>
+        </header>
+        <!-- //header -->
+    </div>
+    <div class="innerblock">
+    </div>
+    <!-- contact-form 2 -->
+    <section class="w3l-contact-2 py-5" id="contact">
+        <div class="container py-lg-4 py-md-3 py-2">
+            <div class="title-content text-center">
+                <h1 class="title-toobig">Spring Profile基本使用</h1>
+                <p class="mt-md-4 mt-3 mx-lg-5 px-lg-5">
+                    <a href="/">首页</a> / <a href="/news/">新闻资讯</a> / 正文
+                </p>
+            </div>
+    </section>
+    <!-- section -->
+    <section class="w3l-index3" id="about">
+        <div class="midd-w3 py-5">
+            <div class="container py-lg-5 py-md-3 py-2">
+                <div class="row">
+                    <div class="col-md-9">
+                                          				  				  				<div id="content_views" class="markdown_views prism-atom-one-dark"> <p>Spring profile是Spring 3引入的概念，一般系统开发的时候更喜欢使用Maven中的profile来进行不同环境配置文件的区分。Spring的profile一直没有怎么使用，最近在一个公司系统开发过程中同事使用了Spring profile。可是在设置default profile上遇到了麻烦。跟着一起研究了半天，才发现了问题所在。</p> <p>Spring profile在我们系统中的使用非常简单，并没有使用runtime的特性，只是在xml中定义了不同profile环境中的beans</p> <pre class="prettyprint"><code class="hljs xml"><span class="hljs-comment">&lt;!-- other beans --&gt;</span>     <span class="hljs-tag">&lt;<span class="hljs-title">bean</span> <span class="hljs-attribute">id</span>=<span class="hljs-value">"validator"</span> <span class="hljs-attribute">class</span>=<span class="hljs-value">"org.springframework.validation.beanvalidation.LocalValidatorFactoryBean"</span>/&gt;</span>     .......     <span class="hljs-comment">&lt;!-- production环境 --&gt;</span>     <span class="hljs-tag">&lt;<span class="hljs-title">beans</span> <span class="hljs-attribute">profile</span>=<span class="hljs-value">"production"</span>&gt;</span>         <span class="hljs-tag">&lt;<span class="hljs-title">context:property-placeholder</span> <span class="hljs-attribute">ignore-resource-not-found</span>=<span class="hljs-value">"true"</span>             <span class="hljs-attribute">location</span>=<span class="hljs-value">"classpath*:/application.properties"</span> /&gt;</span>         ....     <span class="hljs-tag">&lt;/<span class="hljs-title">beans</span>&gt;</span>     <span class="hljs-comment">&lt;!-- local环境 --&gt;</span>     <span class="hljs-tag">&lt;<span class="hljs-title">beans</span> <span class="hljs-attribute">profile</span>=<span class="hljs-value">"local"</span>&gt;</span>         <span class="hljs-tag">&lt;<span class="hljs-title">context:property-placeholder</span> <span class="hljs-attribute">ignore-resource-not-found</span>=<span class="hljs-value">"true"</span>             <span class="hljs-attribute">location</span>=<span class="hljs-value">"classpath*:/application.properties             ,classpath*:/application.development.properties"</span>/&gt;</span>       ....     <span class="hljs-tag">&lt;/<span class="hljs-title">beans</span>&gt;</span></code></pre> <p>接下来我们一般可以通过在web.xml，在properties中来选择使用什么环境的profile，例如</p> <pre class="prettyprint"><code class="hljs xml">    <span class="hljs-comment">&lt;!-- web.xml --&gt;</span>     <span class="hljs-tag">&lt;<span class="hljs-title">context-param</span>&gt;</span>             <span class="hljs-tag">&lt;<span class="hljs-title">param-name</span>&gt;</span>spring.profiles.default<span class="hljs-tag">&lt;/<span class="hljs-title">param-name</span>&gt;</span>             <span class="hljs-tag">&lt;<span class="hljs-title">param-value</span>&gt;</span>production<span class="hljs-tag">&lt;/<span class="hljs-title">param-value</span>&gt;</span>     <span class="hljs-tag">&lt;/<span class="hljs-title">context-param</span>&gt;</span>     <span class="hljs-comment">&lt;!-- properties选择 --&gt;</span>     System.setProperty("spring.profiles.active", "development");</code></pre> <p>我们的问题出在哪里呢？出在了我们想通过jndi而不是jvm参数来选择默认的profile，首先我们知道spring profile的设置不能在properties文件里，因为spring的加载顺序。我们不想改变系统的启动参数，所以选择了jndi的方式来读取profile的默认启动，关键来了，在配置jndi的时候我们进行了以下设置</p> <pre class="prettyprint"><code class="hljs ocaml"> &lt;Environment name=<span class="hljs-string">"spring.profiles.active"</span> <span class="hljs-class"><span class="hljs-keyword">type</span>=</span><span class="hljs-string">"java.lang.String"</span> <span class="hljs-keyword">value</span>=<span class="hljs-string">"local"</span>&gt;</code></pre> <p>悲哀的发现不起作用，spring的log里面也没有任何有用的提示，还没到获取profile相关的log就因为读取不到bean挂了。只好去掉了profile相关的xml文件重启启动一次系统才发现spring默认读取的jndi名字是<strong>spring.profiles.default</strong>而不是<strong>spring.profiles.active</strong>。</p> </p></div> 			                <div class="clearfix"></div>
+                <div class="col-md-12 mt-5">
+                                        <p>上一个：<a href="/news/article-24407.htm">办宠物医院需要什么资质（宠物医院开办批准手续）</a></p>
+                                        <p>下一个：<a href="/news/article-24927.htm">宠物店利润和成本分析图（宠物店的利润率）</a></p>
+                                    </div>
+                                    </div>
+                    <div class="col-md-3">
+                        <div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">热门文章</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2"><a href="/free-nodes/2024-9-23-node-share-links.htm" title="「9月23日」最高速度22.8M/S，2024年Github Loon每天更新免费机场订阅节点链接">「9月23日」最高速度22.8M/S，2024年Github Loon每天更新免费机场订阅节点链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-10-27-node-share.htm" title="「10月27日」最高速度22.4M/S，2024年Github Loon每天更新免费机场订阅节点链接">「10月27日」最高速度22.4M/S，2024年Github Loon每天更新免费机场订阅节点链接</a></li>
+                        <li class="py-2"><a href="/news/article-24407.htm" title="办宠物医院需要什么资质（宠物医院开办批准手续）">办宠物医院需要什么资质（宠物医院开办批准手续）</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-11-17-latest-loon-node.htm" title="「11月17日」最高速度19.5M/S，2024年Github Loon每天更新免费机场订阅节点链接">「11月17日」最高速度19.5M/S，2024年Github Loon每天更新免费机场订阅节点链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-9-29-loon-node-github.htm" title="「9月29日」最高速度22.6M/S，2024年Github Loon每天更新免费机场订阅节点链接">「9月29日」最高速度22.6M/S，2024年Github Loon每天更新免费机场订阅节点链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-9-9-loon-node-github.htm" title="「9月9日」最高速度20M/S，2024年Github Loon每天更新免费机场订阅节点链接">「9月9日」最高速度20M/S，2024年Github Loon每天更新免费机场订阅节点链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-9-10-loon-github.htm" title="「9月10日」最高速度18.9M/S，2024年Github Loon每天更新免费机场订阅节点链接">「9月10日」最高速度18.9M/S，2024年Github Loon每天更新免费机场订阅节点链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-9-1-free-node-subscribe-links.htm" title="「9月1日」最高速度22.9M/S，2024年Github Loon每天更新免费机场订阅节点链接">「9月1日」最高速度22.9M/S，2024年Github Loon每天更新免费机场订阅节点链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-12-12-latest-loon-node.htm" title="「12月12日」最高速度19.3M/S，2024年Github Loon每天更新免费机场订阅节点链接">「12月12日」最高速度19.3M/S，2024年Github Loon每天更新免费机场订阅节点链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-11-6-today-loon-node.htm" title="「11月6日」最高速度20.5M/S，2024年Github Loon每天更新免费机场订阅节点链接">「11月6日」最高速度20.5M/S，2024年Github Loon每天更新免费机场订阅节点链接</a></li>
+                    </ul>
+    </div>
+</div>
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">归纳</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">39</span> <a href="/date/2024-12/" title="2024-12 归档">2024-12</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">34</span> <a href="/date/2024-11/" title="2024-11 归档">2024-11</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">31</span> <a href="/date/2024-10/" title="2024-10 归档">2024-10</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">30</span> <a href="/date/2024-09/" title="2024-09 归档">2024-09</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">12</span> <a href="/date/2024-08/" title="2024-08 归档">2024-08</a></h4>
+            </li>
+                    </ul>
+    </div>
+</div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- //section -->    
+        <!-- footer17 -->
+    <section class="footer-17">
+        <div class="footer17_sur py-5">
+            <div class="copyright text-center">
+                <div class="container">
+                    <p class="copy-footer-29">Github Loon节点订阅官网 版权所有 Powered by WordPress</p>
+                </div>
+            </div>
+            <!-- move top -->
+            <button onclick="topFunction()" id="movetop" title="Go to top">
+                &#10548;
+            </button>
+            <script>
+            // When the user scrolls down 20px from the top of the document, show the button
+            window.onscroll = function() {
+                scrollFunction()
+            };
+
+            function scrollFunction() {
+                if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+                    document.getElementById("movetop").style.display = "block";
+                } else {
+                    document.getElementById("movetop").style.display = "none";
+                }
+            }
+
+            // When the user clicks on the button, scroll to the top of the document
+            function topFunction() {
+                document.body.scrollTop = 0;
+                document.documentElement.scrollTop = 0;
+            }
+            </script>
+            <!-- /move top -->
+        </div>
+    </section>
+    <!-- //footer17 -->
+    <!-- Template JavaScript -->
+    <script src="/assets/website/js/frontend/githubloon/jquery-3.5.1.min.js"></script>
+    <script src="/assets/website/js/frontend/githubloon/theme-change.js"></script><!-- theme switch js (light and dark)-->
+    <!-- pricing tabs js -->
+    <script src="/assets/website/js/frontend/githubloon/tabs.js"></script>
+    <!-- owlcarousel -->
+    <script src="/assets/website/js/frontend/githubloon/owl.carousel.js"></script>
+    <!-- script for tesimonials carousel slider -->
+    <script>
+    $(document).ready(function() {
+        $("#owl-demo1").owlCarousel({
+            loop: true,
+            nav: false,
+            margin: 50,
+            responsiveClass: true,
+            responsive: {
+                0: {
+                    items: 1,
+                    nav: false
+                },
+                736: {
+                    items: 2,
+                    nav: false
+                }
+            }
+        })
+    })
+    </script>
+    <!-- //script for tesimonials carousel slider -->
+    <!-- script for tesimonials agency carousel slider -->
+    <script>
+    $(document).ready(function() {
+        $("#owl-agency").owlCarousel({
+            loop: true,
+            nav: false,
+            margin: 50,
+            responsiveClass: true,
+            responsive: {
+                0: {
+                    items: 1,
+                    nav: false
+                },
+                736: {
+                    items: 1,
+                    nav: false
+                }
+            }
+        })
+    })
+    </script>
+    <!-- //script for tesimonials agency carousel slider -->
+    <!-- magnific popup -->
+    <script src="/assets/website/js/frontend/githubloon/jquery.magnific-popup.min.js"></script>
+    <script>
+    $(document).ready(function() {
+        $('.popup-with-zoom-anim').magnificPopup({
+            type: 'inline',
+
+            fixedContentPos: false,
+            fixedBgPos: true,
+
+            overflowY: 'auto',
+
+            closeBtnInside: true,
+            preloader: false,
+
+            midClick: true,
+            removalDelay: 300,
+            mainClass: 'my-mfp-zoom-in'
+        });
+
+        $('.popup-with-move-anim').magnificPopup({
+            type: 'inline',
+
+            fixedContentPos: false,
+            fixedBgPos: true,
+
+            overflowY: 'auto',
+
+            closeBtnInside: true,
+            preloader: false,
+
+            midClick: true,
+            removalDelay: 300,
+            mainClass: 'my-mfp-slide-bottom'
+        });
+    });
+    </script>
+    <!-- //magnific popup -->
+    <!-- disable body scroll which navbar is in active -->
+    <script>
+    $(function() {
+        $('.navbar-toggler').click(function() {
+            $('body').toggleClass('noscroll');
+        })
+    });
+    </script>
+    <!-- disable body scroll which navbar is in active -->
+    <!--/MENU-JS-->
+    <script>
+    $(window).on("scroll", function() {
+        var scroll = $(window).scrollTop();
+
+        if (scroll >= 80) {
+            $("#site-header").addClass("nav-fixed");
+        } else {
+            $("#site-header").removeClass("nav-fixed");
+        }
+    });
+
+    //Main navigation Active Class Add Remove
+    $(".navbar-toggler").on("click", function() {
+        $("header").toggleClass("active");
+    });
+    $(document).on("ready", function() {
+        if ($(window).width() > 991) {
+            $("header").removeClass("active");
+        }
+        $(window).on("resize", function() {
+            if ($(window).width() > 991) {
+                $("header").removeClass("active");
+            }
+        });
+    });
+    </script>
+    <!--//MENU-JS-->
+    <script src="/assets/website/js/frontend/githubloon/bootstrap.min.js"></script>
+    <script src="https://www.freeclashnode.com/assets/js/frontend/invite-url.js"></script><script src="/assets/website/js/frontend/G.js"></script>
+</body>
+
+</html>
