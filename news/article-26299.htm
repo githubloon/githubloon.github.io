@@ -1,0 +1,327 @@
+<!doctype html>
+<html lang="zh-CN">
+
+<head>
+        <link rel="canonical" href="https://githubloon.github.io/news/article-26299.htm" />
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Java map详解 &#8211; 用法、遍历、排序、常用API等</title>
+        <meta name="description" content="博客来自：http://baike.xsoftlab.net/view/250.html   javamap遍历用法排序 概要： java.util 中的集合类包含 Java 中某些最常用的类。最常用" />
+        <link rel="icon" href="/assets/website/img/githubloon/favicon.ico" type="image/x-icon"/>
+    <!-- Google fonts -->
+    <link href="//fonts.googleapis.com/css2?family=DM+Sans:wght@400;700&display=swap" rel="stylesheet">
+    <!-- Template CSS -->
+    <link rel="stylesheet" href="/assets/website/css/githubloon/style-starter.css">
+    <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-9MPH6JPQCT"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-9MPH6JPQCT');
+</script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3332997411212854"
+     crossorigin="anonymous"></script>
+</head>
+
+<body data-page="detail">
+        <div class="header-saas">
+        <!-- header -->
+        <header id="site-header" class="fixed-top">
+            <div class="container">
+                <nav class="navbar navbar-expand-lg stroke">
+                                        <a class="navbar-brand" href="/">
+                        <span>Github Loon</span>
+                    </a>
+                                        <button class="navbar-toggler  collapsed bg-gradient" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon fa icon-expand fa-bars"></span>
+                        <span class="navbar-toggler-icon fa icon-close fa-times"></span>
+                        </span>
+                    </button>
+                    <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
+                        <ul class="navbar-nav ml-auto">
+                                                        <li class="nav-item">
+                                <a class="nav-link" href="/">首页</a>
+                            </li>
+                                                        <li class="nav-item">
+                                <a class="nav-link" href="/free-nodes/">免费节点</a>
+                            </li>
+                                                        <li class="nav-item">
+                                <a class="nav-link" href="/paid-subscribe/">推荐机场</a>
+                            </li>
+                                                        <li class="nav-item">
+                                <a class="nav-link" href="/news/">新闻资讯</a>
+                            </li>
+                                                        <li class="nav-item">
+                                <a class="nav-link" href="#">关于</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="#">联系</a>
+                            </li>
+                        </ul>
+                    </div>
+                    <!-- toggle switch for light and dark theme -->
+                    <div class="mobile-position">
+                        <nav class="navigation">
+                            <div class="theme-switch-wrapper">
+                                <label class="theme-switch" for="checkbox">
+                                    <input type="checkbox" id="checkbox">
+                                    <div class="mode-container">
+                                        <i class="gg-sun"></i>
+                                        <i class="gg-moon"></i>
+                                    </div>
+                                </label>
+                            </div>
+                        </nav>
+                    </div>
+                    <!-- //toggle switch for light and dark theme -->
+                </nav>
+            </div>
+        </header>
+        <!-- //header -->
+    </div>
+    <div class="innerblock">
+    </div>
+    <!-- contact-form 2 -->
+    <section class="w3l-contact-2 py-5" id="contact">
+        <div class="container py-lg-4 py-md-3 py-2">
+            <div class="title-content text-center">
+                <h1 class="title-toobig">Java map详解 &#8211; 用法、遍历、排序、常用API等</h1>
+                <p class="mt-md-4 mt-3 mx-lg-5 px-lg-5">
+                    <a href="/">首页</a> / <a href="/news/">新闻资讯</a> / 正文
+                </p>
+            </div>
+    </section>
+    <!-- section -->
+    <section class="w3l-index3" id="about">
+        <div class="midd-w3 py-5">
+            <div class="container py-lg-5 py-md-3 py-2">
+                <div class="row">
+                    <div class="col-md-9">
+                                          				  				  				<div id="content_views" class="htmledit_views"> <div class="code-name"> </h1> <div><span style="font-family:Microsoft YaHei; font-size:18px">博客来自：<a target="_blank" href="http://www.m6000.cn/wp-content/themes/begin%20lts/inc/go.php?url=http://baike.xsoftlab.net/view/250.html"  rel="nofollow">http://baike.xsoftlab.net/view/250.html</a></span></div> <div><span style="font-family:Microsoft YaHei; font-size:18px"><br /></span></div> </div> <div class="code-tag"><span style="font-family:Microsoft YaHei; font-size:18px"><a target="_blank" href="/tag?tags=java" rel="nofollow">java</a><a target="_blank" href="/tag?tags=map" rel="nofollow">map</a><a target="_blank" href="/tag?tags=%E9%81%8D%E5%8E%86" rel="nofollow">遍历</a><a target="_blank" href="/tag?tags=%E7%94%A8%E6%B3%95" rel="nofollow">用法</a><a target="_blank" href="/tag?tags=%E6%8E%92%E5%BA%8F" rel="nofollow">排序</a></span></div> <div class="code-intro"><span style="font-family:Microsoft YaHei; font-size:18px">概要：</span></p> <p style="text-indent:2em"><span style="font-family:Microsoft YaHei; font-size:18px">java.util 中的集合类包含 Java 中某些最常用的类。最常用的集合类是 List 和 Map。</span></p> <p style="text-indent:2em"><span style="font-family:Microsoft YaHei; font-size:18px">Map 提供了一个更通用的元素存储方法。Map 集合类用于存储元素对（称作“键”和“值”），其中每个键映射到一个值。</span></p> <p style="text-indent:2em"><span style="font-family:Microsoft YaHei; font-size:18px">本文主要介绍java map的初始化、用法、map的四种常用的遍历方式、map的排序以及常用api。</span></p> </div> <div class="code-catalog"> <h2><span style="font-family:Microsoft YaHei; font-size:18px"><span class="index">| |</span><span class="content">目录</span></span></h2> <ul class="catalog-body"></ul> </div> <div id="code-content-body" class="code col-sm-12"> <h2><span style="font-family:Microsoft YaHei; font-size:18px">Map用法</span></h2> <h3 style="text-indent:0em"><span style="font-family:Microsoft YaHei; font-size:18px">类型介绍<br /></span></h3> <p style="text-indent:2em"><span style="font-family:Microsoft YaHei; font-size:18px">Java 自带了各种 Map 类。这些 Map 类可归为三种类型：</span></p> <p style="text-indent:0em"><span style="font-family:Microsoft YaHei; font-size:18px">1. 通用Map，用于在应用程序中管理映射，通常在 java.util 程序包中实现</span></p> <ul class="list-paddingleft-2" style="list-style-type:disc"> <li> <p style="text-indent:0em"><span style="font-family:Microsoft YaHei; font-size:18px">HashMap</span></p> </li> <li> <p style="text-indent:0em"><span style="font-family:Microsoft YaHei; font-size:18px">Hashtable</span></p> </li> <li> <p style="text-indent:0em"><span style="font-family:Microsoft YaHei; font-size:18px">Properties</span></p> </li> <li> <p style="text-indent:0em"><span style="font-family:Microsoft YaHei; font-size:18px">LinkedHashMap</span></p> </li> <li> <p style="text-indent:0em"><span style="font-family:Microsoft YaHei; font-size:18px">IdentityHashMap</span></p> </li> <li> <p style="text-indent:0em"><span style="font-family:Microsoft YaHei; font-size:18px">TreeMap</span></p> </li> <li> <p style="text-indent:0em"><span style="font-family:Microsoft YaHei; font-size:18px">WeakHashMap</span></p> </li> <li> <p style="text-indent:0em"><span style="font-family:Microsoft YaHei; font-size:18px">ConcurrentHashMap</span></p> </li> </ul> <p style="text-indent:0em"><span style="font-family:Microsoft YaHei; font-size:18px">2. 专用Map，通常我们不必亲自创建此类Map，而是通过某些其他类对其进行访问</span></p> <ul class="list-paddingleft-2" style="list-style-type:disc"> <li> <p><span style="font-family:Microsoft YaHei; font-size:18px">java.util.jar.Attributes</span></p> </li> <li> <p><span style="font-family:Microsoft YaHei; font-size:18px">javax.print.attribute.standard.PrinterStateReasons</span></p> </li> <li> <p><span style="font-family:Microsoft YaHei; font-size:18px">java.security.Provider</span></p> </li> <li> <p><span style="font-family:Microsoft YaHei; font-size:18px">java.awt.RenderingHints</span></p> </li> <li> <p><span style="font-family:Microsoft YaHei; font-size:18px">javax.swing.UIDefaults</span></p> </li> </ul> <p><span style="font-family:Microsoft YaHei; font-size:18px">3. 一个用于帮助我们实现自己的Map类的抽象类<br /></span></p> <ul class="list-paddingleft-2" style="list-style-type:disc"> <li> <p><span style="font-family:Microsoft YaHei; font-size:18px">AbstractMap</span></p> </li> </ul> <h3><span style="font-family:Microsoft YaHei; font-size:18px">类型区别</span></h3> <p><strong><span style="font-family:Microsoft YaHei; font-size:18px">HashMap</span></strong></p> <p style="text-indent:2em"><span style="font-family:Microsoft YaHei; font-size:18px">最常用的Map,它根据键的HashCode 值存储数据,根据键可以直接获取它的值，具有很快的访问速度。HashMap最多只允许一条记录的键为Null(多条会覆盖);允许多条记录的值为 Null。非同步的。</span></p> <p style="text-indent:0em"><strong><span style="font-family:Microsoft YaHei; font-size:18px">TreeMap</span></strong></p> <p style="text-indent:2em"><span style="font-family:Microsoft YaHei; font-size:18px">能够把它保存的记录根据键(key)排序,默认是按升序排序，也可以指定排序的比较器，当用Iterator 遍历TreeMap时，得到的记录是排过序的。TreeMap不允许key的值为null。非同步的。<br /><strong>Hashtable</strong></span></p> <p style="text-indent:2em"><span style="font-family:Microsoft YaHei; font-size:18px">与 HashMap类似,不同的是:key和value的值均不允许为null;它支持线程的同步，即任一时刻只有一个线程能写Hashtable,因此也导致了Hashtale在写入时会比较慢。<br /><strong>LinkedHashMap</strong></span></p> <p style="text-indent:2em"><span style="font-family:Microsoft YaHei; font-size:18px">保存了记录的插入顺序，在用Iterator遍历LinkedHashMap时，先得到的记录肯定是先插入的.在遍历的时候会比HashMap慢。key和value均允许为空，非同步的。</span></p> <h3><span style="font-family:Microsoft YaHei; font-size:18px">Map 初始化</span></h3> <pre class="brush:Java"><span style="font-family:Microsoft YaHei; font-size:18px">Map&lt;String, String&gt; map = new HashMap&lt;String, String&gt;();</span></pre> <h3><span style="font-family:Microsoft YaHei; font-size:18px">插入元素</span></h3> <pre class="brush:Java"><span style="font-family:Microsoft YaHei; font-size:18px">map.put("key1", "value1");</span></pre> <h3><span style="font-family:Microsoft YaHei; font-size:18px">获取元素</span></h3> <pre class="brush:Java"><span style="font-family:Microsoft YaHei; font-size:18px">map.get("key1")</span></pre> <h3><span style="font-family:Microsoft YaHei; font-size:18px">移除元素</span></h3> <pre class="brush:Java"><span style="font-family:Microsoft YaHei; font-size:18px">map.remove("key1");</span></pre> <h3><span style="font-family:Microsoft YaHei; font-size:18px">清空map</span></h3> <pre class="brush:Java"><span style="font-family:Microsoft YaHei; font-size:18px">map.clear();</span></pre> <h2><span style="font-family:Microsoft YaHei; font-size:18px">Map 遍历</span></h2> <h3><span style="font-family:Microsoft YaHei; font-size:18px">初始化数据</span></h3> <pre class="brush:Java"><span style="font-family:Microsoft YaHei; font-size:18px">Map&lt;String, String&gt; map = new HashMap&lt;String, String&gt;(); map.put("key1", "value1"); map.put("key2", "value2");</span></pre> <h3><span style="font-family:Microsoft YaHei; font-size:18px">增强for循环遍历<br /></span></h3> <p><span style="font-family:Microsoft YaHei; font-size:18px"><strong>使用keySet()遍历</strong><br /></span></p> <pre class="brush:Java"><span style="font-family:Microsoft YaHei; font-size:18px">for (String key : map.keySet()) { 	System.out.println(key + " ：" + map.get(key)); }</span></pre> <p><strong><span style="font-family:Microsoft YaHei; font-size:18px">使用entrySet()遍历</span></strong></p> <pre class="brush:Java"><span style="font-family:Microsoft YaHei; font-size:18px">for (Map.Entry&lt;String, String&gt; entry : map.entrySet()) { 	System.out.println(entry.getKey() + " ：" + entry.getValue()); }</span></pre> <h3><span style="font-family:Microsoft YaHei; font-size:18px">迭代器遍历</span></h3> <p><strong><span style="font-family:Microsoft YaHei; font-size:18px">使用keySet()遍历</span></strong></p> <pre class="brush:Java"><span style="font-family:Microsoft YaHei; font-size:18px">Iterator&lt;String&gt; iterator = map.keySet().iterator(); while (iterator.hasNext()) { 	String key = iterator.next(); 	System.out.println(key + "　：" + map.get(key)); }</span></pre> <p><strong><span style="font-family:Microsoft YaHei; font-size:18px">使用entrySet()遍历</span></strong></p> <pre class="brush:Java"><span style="font-family:Microsoft YaHei; font-size:18px">Iterator&lt;Map.Entry&lt;String, String&gt;&gt; iterator = map.entrySet().iterator(); while (iterator.hasNext()) { 	Map.Entry&lt;String, String&gt; entry = iterator.next(); 	System.out.println(entry.getKey() + "　：" + entry.getValue()); }</span></pre> <h3><span style="font-family:Microsoft YaHei; font-size:18px">性能比较<br /></span></h3> <p style="text-indent:0em"><strong><span style="font-family:Microsoft YaHei; font-size:18px">比较方式</span></strong></p> <p style="text-indent:2em"><span style="font-family:Microsoft YaHei; font-size:18px">分别对四种遍历方式进行10W次迭代，比较用时。</span></p> <p style="text-indent:0em"><strong><span style="text-indent:2em"><span style="font-family:Microsoft YaHei; font-size:18px">代码</span></span></strong></p> <pre class="brush:Java"><span style="font-family:Microsoft YaHei; font-size:18px">package net.xsoftlab.baike;  import java.util.HashMap; import java.util.Iterator; import java.util.Map; import java.util.Map.Entry;  public class TestMap {  	public static void main(String[] args) { 		// 初始化，10W次赋值 		Map&lt;Integer, Integer&gt; map = new HashMap&lt;Integer, Integer&gt;(); 		for (int i = 0; i &lt; 100000; i++) 			map.put(i, i);  		/** 增强for循环，keySet迭代 */ 		long start = System.currentTimeMillis(); 		for (Integer key : map.keySet()) { 			map.get(key); 		} 		long end = System.currentTimeMillis(); 		System.out.println("增强for循环，keySet迭代 -&gt; " + (end - start) + " ms");  		/** 增强for循环，entrySet迭代 */ 		start = System.currentTimeMillis(); 		for (Entry&lt;Integer, Integer&gt; entry : map.entrySet()) { 			entry.getKey(); 			entry.getValue(); 		} 		end = System.currentTimeMillis(); 		System.out.println("增强for循环，entrySet迭代 -&gt; " + (end - start) + " ms");  		/** 迭代器，keySet迭代 */ 		start = System.currentTimeMillis(); 		Iterator&lt;Integer&gt; iterator = map.keySet().iterator(); 		Integer key; 		while (iterator.hasNext()) { 			key = iterator.next(); 			map.get(key); 		} 		end = System.currentTimeMillis(); 		System.out.println("迭代器，keySet迭代 -&gt; " + (end - start) + " ms");  		/** 迭代器，entrySet迭代 */ 		start = System.currentTimeMillis(); 		Iterator&lt;Map.Entry&lt;Integer, Integer&gt;&gt; iterator1 = map.entrySet().iterator(); 		Map.Entry&lt;Integer, Integer&gt; entry; 		while (iterator1.hasNext()) { 			entry = iterator1.next(); 			entry.getKey(); 			entry.getValue(); 		} 		end = System.currentTimeMillis();  		System.out.println("迭代器，entrySet迭代 -&gt; " + (end - start) + " ms"); 	} }</span></pre> <p style="text-indent:0em"><strong><span style="font-family:Microsoft YaHei; font-size:18px">运行三次，比较结果</span></strong></p> <p style="text-indent:0em"><em><strong><span style="font-family:Microsoft YaHei; font-size:18px">第一次</span></strong></em></p> <pre class="brush:Text"><span style="font-family:Microsoft YaHei; font-size:18px">增强for循环，keySet迭代 -&gt; 37 ms 增强for循环，entrySet迭代 -&gt; 19 ms 迭代器，keySet迭代 -&gt; 14 ms 迭代器，entrySet迭代 -&gt; 9 ms</span></pre> <p><em><strong><span style="font-family:Microsoft YaHei; font-size:18px">第二次</span></strong></em></p> <pre class="brush:Text"><span style="font-family:Microsoft YaHei; font-size:18px">增强for循环，keySet迭代 -&gt; 29 ms 增强for循环，entrySet迭代 -&gt; 22 ms 迭代器，keySet迭代 -&gt; 19 ms 迭代器，entrySet迭代 -&gt; 12 ms</span></pre> <p><strong><em><span style="font-family:Microsoft YaHei; font-size:18px">第三次</span></em></strong></p> <pre class="brush:Text"><span style="font-family:Microsoft YaHei; font-size:18px">增强for循环，keySet迭代 -&gt; 27 ms 增强for循环，entrySet迭代 -&gt; 19 ms 迭代器，keySet迭代 -&gt; 18 ms 迭代器，entrySet迭代 -&gt; 10 ms</span></pre> <p style="text-indent:0em"><span style="font-family:Microsoft YaHei; font-size:18px"><em><strong>平均值</strong></em><br /></span></p> <pre class="brush:Text"><span style="font-family:Microsoft YaHei; font-size:18px">增强for循环，keySet迭代 -&gt; 31 ms 增强for循环，entrySet迭代 -&gt; 20 ms 迭代器，keySet迭代 -&gt; 17 ms 迭代器，entrySet迭代 -&gt; 10.33 ms</span></pre> <p style="text-indent:0em"><strong><span style="font-family:Microsoft YaHei; font-size:18px">总结</span></strong></p> <ol class="list-paddingleft-2" style="list-style-type:decimal"> <li> <p style="text-indent:0em"><span style="font-family:Microsoft YaHei; font-size:18px">增强for循环使用方便，但性能较差，不适合处理超大量级的数据。</span></p> </li> <li> <p><span style="font-family:Microsoft YaHei; font-size:18px">迭代器的遍历速度要比增强for循环快很多，是增强for循环的2倍左右。</span></p> </li> <li> <p style="text-indent:0em"><span style="font-family:Microsoft YaHei; font-size:18px">使用entrySet遍历的速度要比keySet快很多，是keySet的1.5倍左右。</span></p> </li> </ol> <h2><span style="font-family:Microsoft YaHei; font-size:18px">Map 排序</span></h2> <h3><span style="font-family:Microsoft YaHei; font-size:18px">HashMap、Hashtable、LinkedHashMap排序</span></h3> <p><span style="font-family:Microsoft YaHei; font-size:18px"><strong>注：</strong><br /></span></p> <p style="text-indent:2em"><span style="font-family:Microsoft YaHei; font-size:18px">TreeMap也可以使用此方法进行排序，但是更推荐下面的方法。</span></p> <pre class="brush:Java"><span style="font-family:Microsoft YaHei; font-size:18px">Map&lt;String, String&gt; map = new HashMap&lt;String, String&gt;(); map.put("a", "c"); map.put("b", "b"); map.put("c", "a");  // 通过ArrayList构造函数把map.entrySet()转换成list List&lt;Map.Entry&lt;String, String&gt;&gt; list = new ArrayList&lt;Map.Entry&lt;String, String&gt;&gt;(map.entrySet()); // 通过比较器实现比较排序 Collections.sort(list, new Comparator&lt;Map.Entry&lt;String, String&gt;&gt;() { 	public int compare(Map.Entry&lt;String, String&gt; mapping1, Map.Entry&lt;String, String&gt; mapping2) { 		return mapping1.getKey().compareTo(mapping2.getKey()); 	} });  for (Map.Entry&lt;String, String&gt; mapping : list) { 	System.out.println(mapping.getKey() + " ：" + mapping.getValue()); }</span></pre> <h3><span style="font-family:Microsoft YaHei; font-size:18px">TreeMap排序</span></h3> <p style="text-indent:2em"><span style="font-family:Microsoft YaHei; font-size:18px">TreeMap默认按key进行升序排序，如果想改变默认的顺序，可以使用比较器:</span></p> <pre class="brush:Java"><span style="font-family:Microsoft YaHei; font-size:18px">Map&lt;String, String&gt; map = new TreeMap&lt;String, String&gt;(new Comparator&lt;String&gt;() { 	public int compare(String obj1, String obj2) { 		return obj2.compareTo(obj1);// 降序排序 	} }); map.put("a", "c"); map.put("b", "b"); map.put("c", "a");  for (String key : map.keySet()) { 	System.out.println(key + " ：" + map.get(key)); }</span></pre> <h3><span style="font-family:Microsoft YaHei; font-size:18px">按value排序(通用)</span></h3> <pre class="brush:Java"><span style="font-family:Microsoft YaHei; font-size:18px">Map&lt;String, String&gt; map = new TreeMap&lt;String, String&gt;(); 		map.put("a", "c"); 		map.put("b", "b"); 		map.put("c", "a");  		// 通过ArrayList构造函数把map.entrySet()转换成list 		List&lt;Map.Entry&lt;String, String&gt;&gt; list = new ArrayList&lt;Map.Entry&lt;String, String&gt;&gt;(map.entrySet()); 		// 通过比较器实现比较排序 		Collections.sort(list, new Comparator&lt;Map.Entry&lt;String, String&gt;&gt;() { 			public int compare(Map.Entry&lt;String, String&gt; mapping1, Map.Entry&lt;String, String&gt; mapping2) { 				return mapping1.getValue().compareTo(mapping2.getValue()); 			} 		});  		for (String key : map.keySet()) { 			System.out.println(key + " ：" + map.get(key)); 		}</span></pre> <h2 style="text-indent:0em"><span style="font-family:Microsoft YaHei; font-size:18px">常用API</span></h2> <p><span style="font-family:Microsoft YaHei; font-size:18px"><br /></span></p> <table> <tbody> <tr class="firstRow"> <td width="234"><span style="font-family:Microsoft YaHei; font-size:18px">clear()</span></td> <td width="425"><span style="font-family:Microsoft YaHei; font-size:18px">从 Map 中删除所有映射</span></td> </tr> <tr> <td width="234"><span style="font-family:Microsoft YaHei; font-size:18px">remove(Object key)</span></td> <td width="425"><span style="font-family:Microsoft YaHei; font-size:18px">从 Map 中删除键和关联的值</span></td> </tr> <tr> <td width="234"><span style="font-family:Microsoft YaHei; font-size:18px">put(Object key, Object value)</span></td> <td width="425"><span style="font-family:Microsoft YaHei; font-size:18px">将指定值与指定键相关联</span></td> </tr> <tr> <td width="234"><span style="font-family:Microsoft YaHei; font-size:18px">putAll(Map t)</span></td> <td width="425"><span style="font-family:Microsoft YaHei; font-size:18px">将指定 Map 中的所有映射复制到此 map</span></td> </tr> <tr> <td width="234"><span style="font-family:Microsoft YaHei; font-size:18px">entrySet()</span></td> <td width="425"><span style="font-family:Microsoft YaHei; font-size:18px">返回 Map 中所包含映射的 Set 视图。Set 中的每个元素都是一个 Map.Entry 对象，可以使用 getKey() 和 getValue() 方法（还有一个 setValue() 方法）访问后者的键元素和值元素</span></td> </tr> <tr> <td width="234"><span style="font-family:Microsoft YaHei; font-size:18px">keySet()</span></td> <td width="425"><span style="font-family:Microsoft YaHei; font-size:18px">返回 Map 中所包含键的 Set 视图。删除 Set 中的元素还将删除 Map 中相应的映射（键和值）</span></td> </tr> <tr> <td width="234"><span style="font-family:Microsoft YaHei; font-size:18px">values()</span></td> <td width="425"><span style="font-family:Microsoft YaHei; font-size:18px">返回 map 中所包含值的 Collection 视图。删除 Collection 中的元素还将删除 Map 中相应的映射（键和值）</span></td> </tr> <tr> <td width="234"><span style="font-family:Microsoft YaHei; font-size:18px">get(Object key)</span></td> <td width="425"><span style="font-family:Microsoft YaHei; font-size:18px">返回与指定键关联的值</span></td> </tr> <tr> <td width="234"><span style="font-family:Microsoft YaHei; font-size:18px">containsKey(Object key)</span></td> <td width="425"><span style="font-family:Microsoft YaHei; font-size:18px">如果 Map 包含指定键的映射，则返回 true</span></td> </tr> <tr> <td width="234"><span style="font-family:Microsoft YaHei; font-size:18px">containsValue(Object value)</span></td> <td width="425"><span style="font-family:Microsoft YaHei; font-size:18px">如果此 Map 将一个或多个键映射到指定值，则返回 true</span></td> </tr> <tr> <td width="18"><span style="font-family:Microsoft YaHei; font-size:18px">isEmpty()</span></td> <td width="425"><span style="font-family:Microsoft YaHei; font-size:18px">如果 Map 不包含键-值映射，则返回 true</span></td> </tr> <tr> <td width="18"><span style="font-family:Microsoft YaHei; font-size:18px">size()</span></td> <td width="425"><span style="font-family:Microsoft YaHei; font-size:18px">返回 Map 中的键-值映射的数目</span></td> </tr> </tbody> </table> </div> </div> 			                <div class="clearfix"></div>
+                <div class="col-md-12 mt-5">
+                                        <p>上一个：<a href="/news/article-25854.htm">中国十大宠物粮厂家排名前十（宠物粮公司排名）</a></p>
+                                        <p>下一个：<a href="/news/article-26301.htm">广州宠物领养中心在哪里有 广州宠物领养中心在哪里有啊</a></p>
+                                    </div>
+                                    </div>
+                    <div class="col-md-3">
+                        <div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">热门文章</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2"><a href="/free-nodes/2024-10-22-free-high-speed-nodes.htm" title="「10月22日」最高速度22M/S，2024年Github Loon每天更新免费机场订阅节点链接">「10月22日」最高速度22M/S，2024年Github Loon每天更新免费机场订阅节点链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-12-3-loon-node-share.htm" title="「12月3日」最高速度22.4M/S，2024年Github Loon每天更新免费机场订阅节点链接">「12月3日」最高速度22.4M/S，2024年Github Loon每天更新免费机场订阅节点链接</a></li>
+                        <li class="py-2"><a href="/news/article-21675.htm" title="开一家宠物食品加工厂赚钱吗多少钱（开一个宠物零食工厂）">开一家宠物食品加工厂赚钱吗多少钱（开一个宠物零食工厂）</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-12-16-loon-node-github.htm" title="「12月16日」最高速度19.1M/S，2024年Github Loon每天更新免费机场订阅节点链接">「12月16日」最高速度19.1M/S，2024年Github Loon每天更新免费机场订阅节点链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-9-3-loon-node-github.htm" title="「9月3日」最高速度18.7M/S，2024年Github Loon每天更新免费机场订阅节点链接">「9月3日」最高速度18.7M/S，2024年Github Loon每天更新免费机场订阅节点链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-12-13-loon-node-share.htm" title="「12月13日」最高速度22.7M/S，2024年Github Loon每天更新免费机场订阅节点链接">「12月13日」最高速度22.7M/S，2024年Github Loon每天更新免费机场订阅节点链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-9-13-linux-loon-github.htm" title="「9月13日」最高速度22.8M/S，2024年Github Loon每天更新免费机场订阅节点链接">「9月13日」最高速度22.8M/S，2024年Github Loon每天更新免费机场订阅节点链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-12-14-free-node-subscribe-links.htm" title="「12月14日」最高速度19M/S，2024年Github Loon每天更新免费机场订阅节点链接">「12月14日」最高速度19M/S，2024年Github Loon每天更新免费机场订阅节点链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-11-29-loon-node-github.htm" title="「11月29日」最高速度18M/S，2024年Github Loon每天更新免费机场订阅节点链接">「11月29日」最高速度18M/S，2024年Github Loon每天更新免费机场订阅节点链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-11-23-free-subscribe-node.htm" title="「11月23日」最高速度20.1M/S，2024年Github Loon每天更新免费机场订阅节点链接">「11月23日」最高速度20.1M/S，2024年Github Loon每天更新免费机场订阅节点链接</a></li>
+                    </ul>
+    </div>
+</div>
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">归纳</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">48</span> <a href="/date/2024-12/" title="2024-12 归档">2024-12</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">34</span> <a href="/date/2024-11/" title="2024-11 归档">2024-11</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">31</span> <a href="/date/2024-10/" title="2024-10 归档">2024-10</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">30</span> <a href="/date/2024-09/" title="2024-09 归档">2024-09</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">12</span> <a href="/date/2024-08/" title="2024-08 归档">2024-08</a></h4>
+            </li>
+                    </ul>
+    </div>
+</div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- //section -->    
+        <!-- footer17 -->
+    <section class="footer-17">
+        <div class="footer17_sur py-5">
+            <div class="copyright text-center">
+                <div class="container">
+                    <p class="copy-footer-29">Github Loon节点订阅官网 版权所有 Powered by WordPress</p>
+                </div>
+            </div>
+            <!-- move top -->
+            <button onclick="topFunction()" id="movetop" title="Go to top">
+                &#10548;
+            </button>
+            <script>
+            // When the user scrolls down 20px from the top of the document, show the button
+            window.onscroll = function() {
+                scrollFunction()
+            };
+
+            function scrollFunction() {
+                if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+                    document.getElementById("movetop").style.display = "block";
+                } else {
+                    document.getElementById("movetop").style.display = "none";
+                }
+            }
+
+            // When the user clicks on the button, scroll to the top of the document
+            function topFunction() {
+                document.body.scrollTop = 0;
+                document.documentElement.scrollTop = 0;
+            }
+            </script>
+            <!-- /move top -->
+        </div>
+    </section>
+    <!-- //footer17 -->
+    <!-- Template JavaScript -->
+    <script src="/assets/website/js/frontend/githubloon/jquery-3.5.1.min.js"></script>
+    <script src="/assets/website/js/frontend/githubloon/theme-change.js"></script><!-- theme switch js (light and dark)-->
+    <!-- pricing tabs js -->
+    <script src="/assets/website/js/frontend/githubloon/tabs.js"></script>
+    <!-- owlcarousel -->
+    <script src="/assets/website/js/frontend/githubloon/owl.carousel.js"></script>
+    <!-- script for tesimonials carousel slider -->
+    <script>
+    $(document).ready(function() {
+        $("#owl-demo1").owlCarousel({
+            loop: true,
+            nav: false,
+            margin: 50,
+            responsiveClass: true,
+            responsive: {
+                0: {
+                    items: 1,
+                    nav: false
+                },
+                736: {
+                    items: 2,
+                    nav: false
+                }
+            }
+        })
+    })
+    </script>
+    <!-- //script for tesimonials carousel slider -->
+    <!-- script for tesimonials agency carousel slider -->
+    <script>
+    $(document).ready(function() {
+        $("#owl-agency").owlCarousel({
+            loop: true,
+            nav: false,
+            margin: 50,
+            responsiveClass: true,
+            responsive: {
+                0: {
+                    items: 1,
+                    nav: false
+                },
+                736: {
+                    items: 1,
+                    nav: false
+                }
+            }
+        })
+    })
+    </script>
+    <!-- //script for tesimonials agency carousel slider -->
+    <!-- magnific popup -->
+    <script src="/assets/website/js/frontend/githubloon/jquery.magnific-popup.min.js"></script>
+    <script>
+    $(document).ready(function() {
+        $('.popup-with-zoom-anim').magnificPopup({
+            type: 'inline',
+
+            fixedContentPos: false,
+            fixedBgPos: true,
+
+            overflowY: 'auto',
+
+            closeBtnInside: true,
+            preloader: false,
+
+            midClick: true,
+            removalDelay: 300,
+            mainClass: 'my-mfp-zoom-in'
+        });
+
+        $('.popup-with-move-anim').magnificPopup({
+            type: 'inline',
+
+            fixedContentPos: false,
+            fixedBgPos: true,
+
+            overflowY: 'auto',
+
+            closeBtnInside: true,
+            preloader: false,
+
+            midClick: true,
+            removalDelay: 300,
+            mainClass: 'my-mfp-slide-bottom'
+        });
+    });
+    </script>
+    <!-- //magnific popup -->
+    <!-- disable body scroll which navbar is in active -->
+    <script>
+    $(function() {
+        $('.navbar-toggler').click(function() {
+            $('body').toggleClass('noscroll');
+        })
+    });
+    </script>
+    <!-- disable body scroll which navbar is in active -->
+    <!--/MENU-JS-->
+    <script>
+    $(window).on("scroll", function() {
+        var scroll = $(window).scrollTop();
+
+        if (scroll >= 80) {
+            $("#site-header").addClass("nav-fixed");
+        } else {
+            $("#site-header").removeClass("nav-fixed");
+        }
+    });
+
+    //Main navigation Active Class Add Remove
+    $(".navbar-toggler").on("click", function() {
+        $("header").toggleClass("active");
+    });
+    $(document).on("ready", function() {
+        if ($(window).width() > 991) {
+            $("header").removeClass("active");
+        }
+        $(window).on("resize", function() {
+            if ($(window).width() > 991) {
+                $("header").removeClass("active");
+            }
+        });
+    });
+    </script>
+    <!--//MENU-JS-->
+    <script src="/assets/website/js/frontend/githubloon/bootstrap.min.js"></script>
+    <script src="https://www.freeclashnode.com/assets/js/frontend/invite-url.js"></script><script src="/assets/website/js/frontend/G.js"></script>
+</body>
+
+</html>
