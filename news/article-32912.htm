@@ -2,11 +2,12 @@
 <html lang="zh-CN">
 
 <head>
-        <link rel="canonical" href="https://githubloon.github.io/free-nodes/page-14.htm" />
+        <link rel="canonical" href="https://githubloon.github.io/news/article-32912.htm" />
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <title>免费节点 - Github Loon节点订阅官网 - 第13页</title>
+    <title>pymysql增删改查之insert操作</title>
+        <meta name="description" content="做事讲究方式方法，写程序也一样，现有思路，然后再去实现，如果没有思路，那就多学习学习他人的分享经验，优化后总结成自己的方法 第一步：建立数据库链接，Pymysql和mysql都可以实现，本章用的是Py" />
         <link rel="icon" href="/assets/website/img/githubloon/favicon.ico" type="image/x-icon"/>
     <!-- Google fonts -->
     <link href="//fonts.googleapis.com/css2?family=DM+Sans:wght@400;700&display=swap" rel="stylesheet">
@@ -25,7 +26,7 @@
      crossorigin="anonymous"></script>
 </head>
 
-<body data-page="category">
+<body data-page="detail">
         <div class="header-saas">
         <!-- header -->
         <header id="site-header" class="fixed-top">
@@ -87,9 +88,10 @@
     <section class="w3l-contact-2 py-5" id="contact">
         <div class="container py-lg-4 py-md-3 py-2">
             <div class="title-content text-center">
-                <h1 class="title-toobig">免费节点</h1>
+                <h1 class="title-toobig">pymysql增删改查之insert操作</h1>
                 <p class="mt-md-4 mt-3 mx-lg-5 px-lg-5">
-                    <a href="/">首页</a> / 免费节点                </p>
+                    <a href="/">首页</a> / <a href="/news/">新闻资讯</a> / 正文
+                </p>
             </div>
     </section>
     <!-- section -->
@@ -98,36 +100,13 @@
             <div class="container py-lg-5 py-md-3 py-2">
                 <div class="row">
                     <div class="col-md-9">
-                        <div class="xcblog-blog-list">
-                                                        <div class="row item xcblog-blog-item" data-date="2024-08-21">
-                                <div class="col-md-3">
-                                    <a href="/free-nodes/2024-8-21-loon-node.htm" class="xcblog-blog-url">
-                                        <img src="/uploads/20240820/45295a54c9a80138e2f5c7c014d0a9dd.webp" alt="「8月21日」最高速度20.8M/S，2024年Github Loon每天更新免费机场订阅节点链接" class="radius-image-full img-fluid">
-                                    </a>
-                                </div>
-                                <div class="col-md-9">
-                                    <a href="/free-nodes/2024-8-21-loon-node.htm" class="xcblog-blog-url">
-                                        <h3 class="xcblog-blog-title">「8月21日」最高速度20.8M/S，2024年Github Loon每天更新免费机场订阅节点链接</h3>
-                                    </a>
-                                    <p class="mt-1">这一次的节点更新覆盖了美国、香港、日本、韩国、加拿大、新加坡、欧洲等地区,最高速度可达20.8 M/S。只需复制下方的Clash/v2ray订阅链接,在客户端添加后即可正常使用。</p>
-                                </div>
-                            </div>
-                                                        <div class="row item xcblog-blog-item" data-date="2024-08-20">
-                                <div class="col-md-3">
-                                    <a href="/free-nodes/2024-8-20-free-loon-node.htm" class="xcblog-blog-url">
-                                        <img src="/uploads/20240820/1620c170354839d105a503f8d4af9b98.webp" alt="「8月20日」最高速度22.2M/S，2024年Github Loon每天更新免费机场订阅节点链接" class="radius-image-full img-fluid">
-                                    </a>
-                                </div>
-                                <div class="col-md-9">
-                                    <a href="/free-nodes/2024-8-20-free-loon-node.htm" class="xcblog-blog-url">
-                                        <h3 class="xcblog-blog-title">「8月20日」最高速度22.2M/S，2024年Github Loon每天更新免费机场订阅节点链接</h3>
-                                    </a>
-                                    <p class="mt-1">这一次的节点更新覆盖了香港、美国、欧洲、日本、韩国、加拿大、新加坡等地区,最高速度可达22.2 M/S。只需复制下方的Clash/v2ray订阅链接,在客户端添加后即可正常使用。</p>
-                                </div>
-                            </div>
-                            
-                            <ul class="pagination"><li><a href="/free-nodes/page-13.htm">&laquo;</a></li> <li><a href="/free-nodes/">1</a></li><li><a href="/free-nodes/page-2.htm">2</a></li><li class="disabled"><span>...</span></li><li><a href="/free-nodes/page-6.htm">6</a></li><li><a href="/free-nodes/page-7.htm">7</a></li><li><a href="/free-nodes/page-8.htm">8</a></li><li><a href="/free-nodes/page-9.htm">9</a></li><li><a href="/free-nodes/page-10.htm">10</a></li><li><a href="/free-nodes/page-11.htm">11</a></li><li><a href="/free-nodes/page-12.htm">12</a></li><li><a href="/free-nodes/page-13.htm">13</a></li><li class="active"><span>14</span></li> <li class="disabled"><span>&raquo;</span></li></ul>                        </div>
-                    </div>
+                                        <input type="hidden" id="share-website-info" data-name="" data-url="">
+                  				  				  				<div id="content_views" class="htmledit_views"> <p>做事讲究方式方法，写程序也一样，现有思路，然后再去实现，如果没有思路，那就多学习学习他人的分享经验，优化后总结成自己的方法</p> <p>第一步：建立数据库链接，Pymysql和mysql都可以实现，本章用的是PyMySql实现</p> <p>第二部：sql语句的定义&nbsp; insert into 表明 value(字段1值，字段2值...)</p> <p>第三部：和查询语句区别，插入语句执行后，链接对象需要执行commit提交方法，此方法需要放在try ：except里面运行，如果发生异常，链接对象需要回滚，并关闭</p> <p>官方代码如下</p> <p>链接对象不写了，前两章都有，每个人数据库配置也不一定相同，省略了，直接从游标建立 开始</p> <pre>cur = conn.cursor() # 生成游标对象 #sql插入语句=================== sql= "INSERT INTO student VALUES ('w','五栋','23')" #=================================================== try:     cur.execute(sql) # 执行sql语句     conn.commit() # 提交事务执行     #print('try===')测试 执行语句模块 except:     conn.rollback()# 异常回滚     conn.close() # 关闭数据库连接     #print('except===')测试 执行语句模块</pre> </p></div> 			                <div class="clearfix"></div>
+                <div class="col-md-12 mt-5">
+                                        <p>上一个：<a href="/news/article-32449.htm">宠物粮食店名称大全集 宠物粮食店名称大全集图片</a></p>
+                                        <p>下一个：<a href="/news/article-32914.htm">动物医院科室布局 动物医院科室布局原则</a></p>
+                                    </div>
+                                    </div>
                     <div class="col-md-3">
                         <div class="panel panel-default">
     <div class="panel-heading">
@@ -135,16 +114,16 @@
     </div>
     <div class="panel-body">
         <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
-                        <li class="py-2"><a href="/free-nodes/2024-12-27-node-share-links.htm" title="「12月27日」最高速度20.3M/S，2024年Github Loon每天更新免费机场订阅节点链接">「12月27日」最高速度20.3M/S，2024年Github Loon每天更新免费机场订阅节点链接</a></li>
-                        <li class="py-2"><a href="/free-nodes/2024-12-28-node-share-links.htm" title="「12月28日」最高速度21.8M/S，2024年Github Loon每天更新免费机场订阅节点链接">「12月28日」最高速度21.8M/S，2024年Github Loon每天更新免费机场订阅节点链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-10-14-free-subscribe-node.htm" title="「10月14日」最高速度18.5M/S，2024年Github Loon每天更新免费机场订阅节点链接">「10月14日」最高速度18.5M/S，2024年Github Loon每天更新免费机场订阅节点链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-11-17-latest-loon-node.htm" title="「11月17日」最高速度19.5M/S，2024年Github Loon每天更新免费机场订阅节点链接">「11月17日」最高速度19.5M/S，2024年Github Loon每天更新免费机场订阅节点链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-11-2-loon-node-github.htm" title="「11月2日」最高速度20.7M/S，2024年Github Loon每天更新免费机场订阅节点链接">「11月2日」最高速度20.7M/S，2024年Github Loon每天更新免费机场订阅节点链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-9-5-node-share.htm" title="「9月5日」最高速度19M/S，2024年Github Loon每天更新免费机场订阅节点链接">「9月5日」最高速度19M/S，2024年Github Loon每天更新免费机场订阅节点链接</a></li>
                         <li class="py-2"><a href="/free-nodes/2024-9-29-loon-node-github.htm" title="「9月29日」最高速度22.6M/S，2024年Github Loon每天更新免费机场订阅节点链接">「9月29日」最高速度22.6M/S，2024年Github Loon每天更新免费机场订阅节点链接</a></li>
-                        <li class="py-2"><a href="/news/article-29104.htm" title="女人养猫会怎么样呢（女人养猫咪会命不好吗）">女人养猫会怎么样呢（女人养猫咪会命不好吗）</a></li>
-                        <li class="py-2"><a href="/free-nodes/2024-11-4-today-loon-node.htm" title="「11月4日」最高速度18.3M/S，2024年Github Loon每天更新免费机场订阅节点链接">「11月4日」最高速度18.3M/S，2024年Github Loon每天更新免费机场订阅节点链接</a></li>
-                        <li class="py-2"><a href="/news/article-32912.htm" title="pymysql增删改查之insert操作">pymysql增删改查之insert操作</a></li>
-                        <li class="py-2"><a href="/news/article-25852.htm" title="如何使用画布HTML5元素从底部中心角度旋转图像？">如何使用画布HTML5元素从底部中心角度旋转图像？</a></li>
-                        <li class="py-2"><a href="/news/article-23076.htm" title="哈尔滨王春生判刑多少年（哈尔滨王春生有期徒刑20）">哈尔滨王春生判刑多少年（哈尔滨王春生有期徒刑20）</a></li>
-                        <li class="py-2"><a href="/free-nodes/2024-12-11-loon-node-share.htm" title="「12月11日」最高速度20.9M/S，2024年Github Loon每天更新免费机场订阅节点链接">「12月11日」最高速度20.9M/S，2024年Github Loon每天更新免费机场订阅节点链接</a></li>
-                        <li class="py-2"><a href="/free-nodes/2024-11-29-loon-node-github.htm" title="「11月29日」最高速度18M/S，2024年Github Loon每天更新免费机场订阅节点链接">「11月29日」最高速度18M/S，2024年Github Loon每天更新免费机场订阅节点链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-11-3-node-share.htm" title="「11月3日」最高速度20.2M/S，2024年Github Loon每天更新免费机场订阅节点链接">「11月3日」最高速度20.2M/S，2024年Github Loon每天更新免费机场订阅节点链接</a></li>
+                        <li class="py-2"><a href="/news/article-30009.htm" title="附近领养猫的地方（附近领养猫的地方电话）">附近领养猫的地方（附近领养猫的地方电话）</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-12-6-loon-windows.htm" title="「12月6日」最高速度21.2M/S，2024年Github Loon每天更新免费机场订阅节点链接">「12月6日」最高速度21.2M/S，2024年Github Loon每天更新免费机场订阅节点链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-11-7-linux-loon-github.htm" title="「11月7日」最高速度22.7M/S，2024年Github Loon每天更新免费机场订阅节点链接">「11月7日」最高速度22.7M/S，2024年Github Loon每天更新免费机场订阅节点链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-9-14-latest-loon-node.htm" title="「9月14日」最高速度19.6M/S，2024年Github Loon每天更新免费机场订阅节点链接">「9月14日」最高速度19.6M/S，2024年Github Loon每天更新免费机场订阅节点链接</a></li>
                     </ul>
     </div>
 </div>
