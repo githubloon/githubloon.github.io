@@ -1,0 +1,342 @@
+<!doctype html>
+<html lang="zh-CN">
+
+<head>
+        <link rel="canonical" href="https://githubloon.github.io/news/article-35084.htm" />
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>在CentOS安装CMake</title>
+        <meta name="description" content="你或许听过好几种 Make 工具，例如GNU Make&nbsp;，QT 的qmake&nbsp;，微软的MS nmake，BSD Make（pmake），Makepp，等等。这些 Make 工具遵循" />
+        <link rel="icon" href="/assets/website/img/githubloon/favicon.ico" type="image/x-icon"/>
+    <!-- Google fonts -->
+    <link href="//fonts.googleapis.com/css2?family=DM+Sans:wght@400;700&display=swap" rel="stylesheet">
+    <!-- Template CSS -->
+    <link rel="stylesheet" href="/assets/website/css/githubloon/style-starter.css">
+    <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-9MPH6JPQCT"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-9MPH6JPQCT');
+</script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3332997411212854"
+     crossorigin="anonymous"></script>
+</head>
+
+<body data-page="detail">
+        <div class="header-saas">
+        <!-- header -->
+        <header id="site-header" class="fixed-top">
+            <div class="container">
+                <nav class="navbar navbar-expand-lg stroke">
+                                        <a class="navbar-brand" href="/">
+                        <span>Github Loon</span>
+                    </a>
+                                        <button class="navbar-toggler  collapsed bg-gradient" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon fa icon-expand fa-bars"></span>
+                        <span class="navbar-toggler-icon fa icon-close fa-times"></span>
+                        </span>
+                    </button>
+                    <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
+                        <ul class="navbar-nav ml-auto">
+                                                        <li class="nav-item">
+                                <a class="nav-link" href="/">首页</a>
+                            </li>
+                                                        <li class="nav-item">
+                                <a class="nav-link" href="/free-nodes/">免费节点</a>
+                            </li>
+                                                        <li class="nav-item">
+                                <a class="nav-link" href="/paid-subscribe/">推荐机场</a>
+                            </li>
+                                                        <li class="nav-item">
+                                <a class="nav-link" href="/news/">新闻资讯</a>
+                            </li>
+                                                        <li class="nav-item">
+                                <a class="nav-link" href="#">关于</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="#">联系</a>
+                            </li>
+                        </ul>
+                    </div>
+                    <!-- toggle switch for light and dark theme -->
+                    <div class="mobile-position">
+                        <nav class="navigation">
+                            <div class="theme-switch-wrapper">
+                                <label class="theme-switch" for="checkbox">
+                                    <input type="checkbox" id="checkbox">
+                                    <div class="mode-container">
+                                        <i class="gg-sun"></i>
+                                        <i class="gg-moon"></i>
+                                    </div>
+                                </label>
+                            </div>
+                        </nav>
+                    </div>
+                    <!-- //toggle switch for light and dark theme -->
+                </nav>
+            </div>
+        </header>
+        <!-- //header -->
+    </div>
+    <div class="innerblock">
+    </div>
+    <!-- contact-form 2 -->
+    <section class="w3l-contact-2 py-5" id="contact">
+        <div class="container py-lg-4 py-md-3 py-2">
+            <div class="title-content text-center">
+                <h1 class="title-toobig">在CentOS安装CMake</h1>
+                <p class="mt-md-4 mt-3 mx-lg-5 px-lg-5">
+                    <a href="/">首页</a> / <a href="/news/">新闻资讯</a> / 正文
+                </p>
+            </div>
+    </section>
+    <!-- section -->
+    <section class="w3l-index3" id="about">
+        <div class="midd-w3 py-5">
+            <div class="container py-lg-5 py-md-3 py-2">
+                <div class="row">
+                    <div class="col-md-9">
+                                        <input type="hidden" id="share-website-info" data-name="" data-url="">
+                  				  				  				<div id="content_views" class="htmledit_views"> <p>你或许听过好几种 Make 工具，例如<a href="http://www.m6000.cn/wp-content/themes/begin%20lts/inc/go.php?url=https://www.hahack.com/wiki/tools-makefile.html"  rel="nofollow">GNU Make</a>&nbsp;，QT 的<a href="http://www.m6000.cn/wp-content/themes/begin%20lts/inc/go.php?url=http://qt-project.org/doc/qt-4.8/qmake-manual.html"  rel="nofollow">qmake</a>&nbsp;，微软的<a href="http://www.m6000.cn/wp-content/themes/begin%20lts/inc/go.php?url=http://msdn.microsoft.com/en-us/library/ms930369.aspx"  rel="nofollow">MS nmake</a>，BSD Make（<a href="http://www.m6000.cn/wp-content/themes/begin%20lts/inc/go.php?url=http://www.freebsd.org/doc/en/books/pmake/"  rel="nofollow">pmake</a>），<a href="http://www.m6000.cn/wp-content/themes/begin%20lts/inc/go.php?url=http://makepp.sourceforge.net/"  rel="nofollow">Makepp</a>，等等。这些 Make 工具遵循着不同的规范和标准，所执行的 Makefile 格式也千差万别。这样就带来了一个严峻的问题：如果软件想跨平台，必须要保证能够在不同平台编译。而如果使用上面的 Make 工具，就得为每一种标准写一次 Makefile ，这将是一件让人抓狂的工作。<a id="more" rel="nofollow"></a></p> <p>CMake就是针对上面问题所设计的工具：它首先允许开发者编写一种平台无关的 CMakeLists.txt 文件来定制整个编译流程，然后再根据目标用户的平台进一步生成所需的本地化 Makefile 和工程文件，如 Unix 的 Makefile 或 Windows 的 Visual Studio 工程。从而做到“Write once, run everywhere”。显然，CMake 是一个比上述几种 make 更高级的编译配置工具。一些使用 CMake 作为项目架构系统的知名开源项目有<a href="http://www.m6000.cn/wp-content/themes/begin%20lts/inc/go.php?url=http://www.vtk.org/"  rel="nofollow">VTK</a>、<a href="http://www.m6000.cn/wp-content/themes/begin%20lts/inc/go.php?url=http://www.itk.org/"  rel="nofollow">ITK</a>、<a href="http://www.m6000.cn/wp-content/themes/begin%20lts/inc/go.php?url=http://kde.org/"  rel="nofollow">KDE</a>、<a href="http://www.m6000.cn/wp-content/themes/begin%20lts/inc/go.php?url=http://www.opencv.org.cn/opencvdoc/2.3.2/html/modules/core/doc/intro.html"  rel="nofollow">OpenCV</a>、<a href="http://www.m6000.cn/wp-content/themes/begin%20lts/inc/go.php?url=http://www.openscenegraph.org/"  rel="nofollow">OSG</a>&nbsp;等<a href="http://www.m6000.cn/wp-content/themes/begin%20lts/inc/go.php?url=https://www.hahack.com/codes/cmake/#fn1"  id="fnref1" rel="nofollow">[1]</a>。</p> <p>CMake是一个跨平台的安装(编译)工具，cmake命令生成相应的makefile（在Unix like系统下）或者 project文件（指定用window下的相应编程工具编译时）。</p> <p>&nbsp;CMake 是一个比 automake 更加容易使用的工具，能够使程序员从复杂的编译连接过程中解脱出来</p> <p>CMake 提供了比 autoconfig 更简洁的语法。在<a href="http://www.m6000.cn/wp-content/themes/begin%20lts/inc/go.php?url=http://linux.chinaitlab.com/"  rel="nofollow">linux</a>&nbsp;平台下使用 CMake 生成 Makefile 并编译的流程如下:</p> <p>&nbsp;&nbsp;&nbsp; 1.编写 CMakeLists.txt。<br /> &nbsp;&nbsp;&nbsp; 2.执行命令 “cmake PATH” 或者 “ccmake PATH” 生成 Makefile ( PATH 是 CMakeLists.txt 所在的目录 )。<br /> &nbsp;&nbsp;&nbsp; 3.使用 make 命令进行编译。</p> <p>&nbsp;ccmake 与命令 cmake 的不同之处在于 ccmake 提供了一个图形化的操作界面</p> <p><strong>一、环境描述</strong></p> <p>1、系统：<a href="http://www.m6000.cn/wp-content/themes/begin%20lts/inc/go.php?url=http://www.linuxidc.com/topicnews.aspx?tid=14"  rel="nofollow">CentOS</a>&nbsp;6.4 i386 (min)</p> <p>2、登录用户：root</p> <p>3、版本：CMake 2.8.10.2</p> <p>4、虚拟机：<a href="http://www.m6000.cn/wp-content/themes/begin%20lts/inc/go.php?url=http://www.linuxidc.com/topicnews.aspx?tid=12"  rel="nofollow">Oracle</a>&nbsp;VM VirtualBox</p> <p><strong>二、安装步骤</strong></p> <p>步骤一、安装gcc等必备程序包（已安装则略过此步）</p> <pre class="has"><code class="language-html">yum install -y gcc gcc-c++ make automake</code></pre> <p>步骤二、安装wget （已安装则略过此步）</p> <pre class="has"><code class="language-html">yum install -y wget</code></pre> <p>步骤三、获取CMake源码包</p> <pre class="has"><code class="language-html">wget http://www.cmake.org/files/v2.8/cmake-2.8.10.2.tar.gz</code></pre> <p>步骤四、解压CMake源码包</p> <pre class="has"><code class="language-html">tar -zxvf cmake-2.8.10.2.tar.gz</code></pre> <p>步骤五、进入目录</p> <pre class="has"><code class="language-html">cd cmake-2.8.10.2</code></pre> <p>步骤六</p> <pre class="has"><code class="language-html">./bootstrap</code></pre> <p><img decoding="async" alt="" class="has" src="http://img.555519.xyz/uploads/20221117/194aa040d10f206dac8134123313dc55.jpg"></p> <p>步骤七</p> <pre class="has"><code class="language-html">gmake</code></pre> <p><img decoding="async" alt="" class="has" src="http://img.555519.xyz/uploads/20221117/097cb4f5bfdbf13b8feef735c2ad9a0e.jpg"></p> <p>步骤八</p> <pre class="has"><code class="language-html">gmake install</code></pre> <p>安装完成，可阅读install_manifest.txt查看具体都安装了什么。</p> <p><strong>三、异常情况</strong></p> <p>如果步骤六报错，可能原因是关联的程序包未安装。解决方法：安装所需的程序包后，将cmake-2.8.10.2/目录下的CMakeCache.txt删掉，再从步骤六开始。</p> <p><img decoding="async" alt="" class="has" src="http://img.555519.xyz/uploads/20221117/430213a17f1b01bf5371ee32e912dd4a.jpg"></p> </div> 			                <div class="clearfix"></div>
+                <div class="col-md-12 mt-5">
+                                        <p>上一个：<a href="/news/article-34822.htm">动物疫苗的作用原理是什么 动物疫苗的作用原理是什么呢</a></p>
+                                        <p>下一个：<a href="/news/article-35085.htm">被猫抓伤了多久过安全期打疫苗有用（被猫抓伤多久打疫苗有效）</a></p>
+                                    </div>
+                                    </div>
+                    <div class="col-md-3">
+                        <div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">热门文章</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2"><a href="/free-nodes/2025-1-3-free-node-subscribe.htm" title="「1月3日」最高速度20.6M/S，2025年Github Loon每天更新免费机场订阅节点链接">「1月3日」最高速度20.6M/S，2025年Github Loon每天更新免费机场订阅节点链接</a></li>
+                        <li class="py-2"><a href="/news/article-35085.htm" title="被猫抓伤了多久过安全期打疫苗有用（被猫抓伤多久打疫苗有效）">被猫抓伤了多久过安全期打疫苗有用（被猫抓伤多久打疫苗有效）</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-12-12-latest-loon-node.htm" title="「12月12日」最高速度19.3M/S，2024年Github Loon每天更新免费机场订阅节点链接">「12月12日」最高速度19.3M/S，2024年Github Loon每天更新免费机场订阅节点链接</a></li>
+                        <li class="py-2"><a href="/news/article-31007.htm" title="潍坊收狗的电话号码（潍坊流浪狗收养中心）">潍坊收狗的电话号码（潍坊流浪狗收养中心）</a></li>
+                        <li class="py-2"><a href="/news/article-30008.htm" title="python代码模板">python代码模板</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-12-7-free-loon-node.htm" title="「12月7日」最高速度21.6M/S，2024年Github Loon每天更新免费机场订阅节点链接">「12月7日」最高速度21.6M/S，2024年Github Loon每天更新免费机场订阅节点链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-11-2-loon-node-github.htm" title="「11月2日」最高速度20.7M/S，2024年Github Loon每天更新免费机场订阅节点链接">「11月2日」最高速度20.7M/S，2024年Github Loon每天更新免费机场订阅节点链接</a></li>
+                        <li class="py-2"><a href="/news/article-21674.htm" title="动物医院单位性质代码（动物医院资质级别有哪些）">动物医院单位性质代码（动物医院资质级别有哪些）</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-11-4-today-loon-node.htm" title="「11月4日」最高速度18.3M/S，2024年Github Loon每天更新免费机场订阅节点链接">「11月4日」最高速度18.3M/S，2024年Github Loon每天更新免费机场订阅节点链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-9-12-node-share.htm" title="「9月12日」最高速度19.2M/S，2024年Github Loon每天更新免费机场订阅节点链接">「9月12日」最高速度19.2M/S，2024年Github Loon每天更新免费机场订阅节点链接</a></li>
+                    </ul>
+    </div>
+</div>
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">归纳</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">9</span> <a href="/date/2025-01/" title="2025-01 归档">2025-01</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">93</span> <a href="/date/2024-12/" title="2024-12 归档">2024-12</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">34</span> <a href="/date/2024-11/" title="2024-11 归档">2024-11</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">31</span> <a href="/date/2024-10/" title="2024-10 归档">2024-10</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">30</span> <a href="/date/2024-09/" title="2024-09 归档">2024-09</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">12</span> <a href="/date/2024-08/" title="2024-08 归档">2024-08</a></h4>
+            </li>
+                    </ul>
+    </div>
+</div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- //section -->    
+        <!-- footer17 -->
+    <section class="footer-17">
+        <div class="footer17_sur py-5">
+            <div class="copyright text-center">
+                <div class="container">
+                    <p class="copy-footer-29">
+                            <p>
+                                <a href="/">首页</a> | 
+                                <a href="/free-node/">免费节点</a> | 
+                                <a href="/news/">新闻资讯</a> |
+                                <a href="/about-us.htm">关于我们</a> |
+                                <a href="/disclaimer.htm">免责申明</a> |
+                                <a href="/privacy.htm">隐私申明</a> |
+                                <a href="/sitemap.xml">网站地图</a>
+                            </p>
+                        Github Loon节点订阅官网 版权所有 Powered by WordPress
+                    </p>
+                </div>
+            </div>
+            <!-- move top -->
+            <button onclick="topFunction()" id="movetop" title="Go to top">
+                &#10548;
+            </button>
+            <script>
+            // When the user scrolls down 20px from the top of the document, show the button
+            window.onscroll = function() {
+                scrollFunction()
+            };
+
+            function scrollFunction() {
+                if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+                    document.getElementById("movetop").style.display = "block";
+                } else {
+                    document.getElementById("movetop").style.display = "none";
+                }
+            }
+
+            // When the user clicks on the button, scroll to the top of the document
+            function topFunction() {
+                document.body.scrollTop = 0;
+                document.documentElement.scrollTop = 0;
+            }
+            </script>
+            <!-- /move top -->
+        </div>
+    </section>
+    <!-- //footer17 -->
+    <!-- Template JavaScript -->
+    <script src="/assets/website/js/frontend/githubloon/jquery-3.5.1.min.js"></script>
+    <script src="/assets/website/js/frontend/githubloon/theme-change.js"></script><!-- theme switch js (light and dark)-->
+    <!-- pricing tabs js -->
+    <script src="/assets/website/js/frontend/githubloon/tabs.js"></script>
+    <!-- owlcarousel -->
+    <script src="/assets/website/js/frontend/githubloon/owl.carousel.js"></script>
+    <!-- script for tesimonials carousel slider -->
+    <script>
+    $(document).ready(function() {
+        $("#owl-demo1").owlCarousel({
+            loop: true,
+            nav: false,
+            margin: 50,
+            responsiveClass: true,
+            responsive: {
+                0: {
+                    items: 1,
+                    nav: false
+                },
+                736: {
+                    items: 2,
+                    nav: false
+                }
+            }
+        })
+    })
+    </script>
+    <!-- //script for tesimonials carousel slider -->
+    <!-- script for tesimonials agency carousel slider -->
+    <script>
+    $(document).ready(function() {
+        $("#owl-agency").owlCarousel({
+            loop: true,
+            nav: false,
+            margin: 50,
+            responsiveClass: true,
+            responsive: {
+                0: {
+                    items: 1,
+                    nav: false
+                },
+                736: {
+                    items: 1,
+                    nav: false
+                }
+            }
+        })
+    })
+    </script>
+    <!-- //script for tesimonials agency carousel slider -->
+    <!-- magnific popup -->
+    <script src="/assets/website/js/frontend/githubloon/jquery.magnific-popup.min.js"></script>
+    <script>
+    $(document).ready(function() {
+        $('.popup-with-zoom-anim').magnificPopup({
+            type: 'inline',
+
+            fixedContentPos: false,
+            fixedBgPos: true,
+
+            overflowY: 'auto',
+
+            closeBtnInside: true,
+            preloader: false,
+
+            midClick: true,
+            removalDelay: 300,
+            mainClass: 'my-mfp-zoom-in'
+        });
+
+        $('.popup-with-move-anim').magnificPopup({
+            type: 'inline',
+
+            fixedContentPos: false,
+            fixedBgPos: true,
+
+            overflowY: 'auto',
+
+            closeBtnInside: true,
+            preloader: false,
+
+            midClick: true,
+            removalDelay: 300,
+            mainClass: 'my-mfp-slide-bottom'
+        });
+    });
+    </script>
+    <!-- //magnific popup -->
+    <!-- disable body scroll which navbar is in active -->
+    <script>
+    $(function() {
+        $('.navbar-toggler').click(function() {
+            $('body').toggleClass('noscroll');
+        })
+    });
+    </script>
+    <!-- disable body scroll which navbar is in active -->
+    <!--/MENU-JS-->
+    <script>
+    $(window).on("scroll", function() {
+        var scroll = $(window).scrollTop();
+
+        if (scroll >= 80) {
+            $("#site-header").addClass("nav-fixed");
+        } else {
+            $("#site-header").removeClass("nav-fixed");
+        }
+    });
+
+    //Main navigation Active Class Add Remove
+    $(".navbar-toggler").on("click", function() {
+        $("header").toggleClass("active");
+    });
+    $(document).on("ready", function() {
+        if ($(window).width() > 991) {
+            $("header").removeClass("active");
+        }
+        $(window).on("resize", function() {
+            if ($(window).width() > 991) {
+                $("header").removeClass("active");
+            }
+        });
+    });
+    </script>
+    <!--//MENU-JS-->
+    <script src="/assets/website/js/frontend/githubloon/bootstrap.min.js"></script>
+    <script src="https://www.freeclashnode.com/assets/js/frontend/invite-url.js"></script><script src="/assets/website/js/frontend/G.js"></script>
+</body>
+
+</html>
