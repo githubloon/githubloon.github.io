@@ -104,6 +104,7 @@
                   				  				  				<div id="content_views" class="markdown_views prism-tomorrow-night"> <h2><a id="_0" rel="nofollow"></a>效果图</h2> <p><img decoding="async" src="http://img.555519.xyz/uploads3/20220608/429a82df17da8d95e1dee9ebf29320d7.jpg" alt="VUE excel 特殊表格处理"></p> <h2><a id="code_3" rel="nofollow"></a>code</h2> <pre><code>&lt;script&gt; import XLSX from 'xlsx' export default {   data () {     return {       dialogVisible: false,       monitorData: [],     }   },   methods: {     exportExcel () {       // header1 一行九列       // header2 第二行2列       // header3 第三行9列       let wsMerge = [         {           s: { r: 0, c: 0 },           e: { r: 0, c: 8 }         },         {           s: { r: 1, c: 0 },           e: { r: 1, c: 2 }         },         {           s: { r: 1, c: 3 },           e: { r: 1, c: 5 }         },         {           s: { r: 1, c: 6 },           e: { r: 1, c: 8 }         }       ]       let headers = [         [this.monitorData[0].title],         ['人数', '', '', '次数', '', '', '同时在线峰值', '', ''],         ['总共', 'APP', 'PC', '总共', 'APP', 'PC', '总共', 'APP', 'PC']       ]       let filterVal = ['count', 'count', 'count', 'count', 'count', 'count', 'count', 'count', 'count']       let list = this.monitorData       let data = this.formatJson(filterVal, list)       let ws = XLSX.utils.aoa_to_sheet(headers)       XLSX.utils.sheet_add_aoa(ws, data, { origin: 'A4' })       let wb = XLSX.utils.book_new()       XLSX.utils.book_append_sheet(wb, ws, 'Sheet1')       ws['!merges'] = wsMerge       XLSX.writeFile(wb, new Date().getTime() + '.xlsx')     },     formatJson (filterVal, jsonData) {       return jsonData.map(v =&gt; filterVal.map(j =&gt; {         // 个性化数据处理         return v[j]       }))     }   } } &lt;/script&gt;</code></pre> </div> 			                <div class="clearfix"></div>
                 <div class="col-md-12 mt-5">
                                         <p>上一个：<a href="/news/article-37215.htm">MySQL之内连接、外连接的含义和具体使用</a></p>
+                                        <p>下一个：<a href="/news/article-37766.htm">动物免疫接种应注意什么问题 动物免疫接种应注意什么问题呢</a></p>
                                     </div>
                                     </div>
                     <div class="col-md-3">
@@ -113,16 +114,16 @@
     </div>
     <div class="panel-body">
         <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
-                        <li class="py-2"><a href="/news/article-18961.htm" title="dellbios检测不到固态硬盘（dell识别不了固态硬盘）">dellbios检测不到固态硬盘（dell识别不了固态硬盘）</a></li>
-                        <li class="py-2"><a href="/news/article-30528.htm" title="pyqt5入门到基本按钮弹窗，多窗口实现等">pyqt5入门到基本按钮弹窗，多窗口实现等</a></li>
-                        <li class="py-2"><a href="/free-nodes/2024-12-31-linux-loon-github.htm" title="「12月31日」最高速度22.7M/S，2025年Github Loon每天更新免费机场订阅节点链接">「12月31日」最高速度22.7M/S，2025年Github Loon每天更新免费机场订阅节点链接</a></li>
-                        <li class="py-2"><a href="/free-nodes/2024-12-23-latest-loon-node.htm" title="「12月23日」最高速度22.8M/S，2024年Github Loon每天更新免费机场订阅节点链接">「12月23日」最高速度22.8M/S，2024年Github Loon每天更新免费机场订阅节点链接</a></li>
-                        <li class="py-2"><a href="/free-nodes/2024-11-9-free-high-speed-nodes.htm" title="「11月9日」最高速度18.1M/S，2024年Github Loon每天更新免费机场订阅节点链接">「11月9日」最高速度18.1M/S，2024年Github Loon每天更新免费机场订阅节点链接</a></li>
-                        <li class="py-2"><a href="/free-nodes/2024-12-25-latest-loon-node.htm" title="「12月25日」最高速度22.4M/S，2024年Github Loon每天更新免费机场订阅节点链接">「12月25日」最高速度22.4M/S，2024年Github Loon每天更新免费机场订阅节点链接</a></li>
-                        <li class="py-2"><a href="/news/article-28177.htm" title="一个Shell小脚本精准统计Mysql每张表的行数实现">一个Shell小脚本精准统计Mysql每张表的行数实现</a></li>
-                        <li class="py-2"><a href="/free-nodes/2024-12-1-linux-loon-github.htm" title="「12月1日」最高速度19.1M/S，2024年Github Loon每天更新免费机场订阅节点链接">「12月1日」最高速度19.1M/S，2024年Github Loon每天更新免费机场订阅节点链接</a></li>
-                        <li class="py-2"><a href="/news/article-23996.htm" title="动物疫苗种类及研究进展情况怎么写（动物疫苗的发展现状）">动物疫苗种类及研究进展情况怎么写（动物疫苗的发展现状）</a></li>
-                        <li class="py-2"><a href="/free-nodes/2024-11-14-loon-windows.htm" title="「11月14日」最高速度21.8M/S，2024年Github Loon每天更新免费机场订阅节点链接">「11月14日」最高速度21.8M/S，2024年Github Loon每天更新免费机场订阅节点链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-10-10-free-high-speed-nodes.htm" title="「10月10日」最高速度19.5M/S，2024年Github Loon每天更新免费机场订阅节点链接">「10月10日」最高速度19.5M/S，2024年Github Loon每天更新免费机场订阅节点链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-10-21-linux-loon-github.htm" title="「10月21日」最高速度22.3M/S，2024年Github Loon每天更新免费机场订阅节点链接">「10月21日」最高速度22.3M/S，2024年Github Loon每天更新免费机场订阅节点链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-11-22-loon-node-share.htm" title="「11月22日」最高速度19.7M/S，2024年Github Loon每天更新免费机场订阅节点链接">「11月22日」最高速度19.7M/S，2024年Github Loon每天更新免费机场订阅节点链接</a></li>
+                        <li class="py-2"><a href="/news/article-21675.htm" title="开一家宠物食品加工厂赚钱吗多少钱（开一个宠物零食工厂）">开一家宠物食品加工厂赚钱吗多少钱（开一个宠物零食工厂）</a></li>
+                        <li class="py-2"><a href="/news/article-34345.htm" title="广州宠物猫领养中心在哪里有（广州哪里有宠物领养机构）">广州宠物猫领养中心在哪里有（广州哪里有宠物领养机构）</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-12-21-free-high-speed-nodes.htm" title="「12月21日」最高速度21.3M/S，2024年Github Loon每天更新免费机场订阅节点链接">「12月21日」最高速度21.3M/S，2024年Github Loon每天更新免费机场订阅节点链接</a></li>
+                        <li class="py-2"><a href="/news/article-38691.htm" title="宠物猫咪打疫苗多久打一次（宠物猫多久打一次预防针）">宠物猫咪打疫苗多久打一次（宠物猫多久打一次预防针）</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-12-26-latest-loon-node.htm" title="「12月26日」最高速度20.6M/S，2024年Github Loon每天更新免费机场订阅节点链接">「12月26日」最高速度20.6M/S，2024年Github Loon每天更新免费机场订阅节点链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-1-7-free-high-speed-nodes.htm" title="「1月7日」最高速度19.9M/S，2025年Github Loon每天更新免费机场订阅节点链接">「1月7日」最高速度19.9M/S，2025年Github Loon每天更新免费机场订阅节点链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-11-3-node-share.htm" title="「11月3日」最高速度20.2M/S，2024年Github Loon每天更新免费机场订阅节点链接">「11月3日」最高速度20.2M/S，2024年Github Loon每天更新免费机场订阅节点链接</a></li>
                     </ul>
     </div>
 </div>
@@ -134,7 +135,7 @@
     <div class="panel-body">
         <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
                         <li class="py-2">
-                <h4><span class="badge" style="float: right;">21</span> <a href="/date/2025-01/" title="2025-01 归档">2025-01</a></h4>
+                <h4><span class="badge" style="float: right;">30</span> <a href="/date/2025-01/" title="2025-01 归档">2025-01</a></h4>
             </li>
                         <li class="py-2">
                 <h4><span class="badge" style="float: right;">93</span> <a href="/date/2024-12/" title="2024-12 归档">2024-12</a></h4>
