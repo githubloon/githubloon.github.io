@@ -1,0 +1,364 @@
+<!doctype html>
+<html xml:lang="zh-CN" lang="zh-CN">
+
+<head>
+        <link rel="canonical" href="https://githubloon.github.io/news/article-47137.htm" />
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>python神经网络使用Keras构建RNN训练_python</title>
+        <meta name="description" content="目录  Keras中构建RNN的重要函数  1、SimpleRNN 2、model.train_on_batch  全部代码     Keras中构建RNN的重要函数  1、SimpleRNN Sim" />
+        <link rel="icon" href="/assets/website/img/githubloon/favicon.ico" type="image/x-icon"/>
+
+    <meta name="author" content="Github Loon节点订阅官网">
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://githubloon.github.io/news/article-47137.htm" />
+    <meta property="og:site_name" content="Github Loon节点订阅官网" />
+    <meta property="og:title" content="python神经网络使用Keras构建RNN训练_python" />
+    <meta property="og:image" content="https://githubloon.github.io/uploads/20240820/c06f83e14f22adf7153c305da375393f.webp" />
+        <meta property="og:release_date" content="2025-01-27T08:19:18" />
+    <meta property="og:updated_time" content="2025-01-27T08:19:18" />
+        <meta property="og:description" content="目录  Keras中构建RNN的重要函数  1、SimpleRNN 2、model.train_on_batch  全部代码     Keras中构建RNN的重要函数  1、SimpleRNN Sim" />
+        
+    <meta name="applicable-device" content="pc,mobile" />
+    <meta name="renderer" content="webkit" />
+    <meta name="force-rendering" content="webkit" />
+    <meta http-equiv="Cache-Control" content="no-transform" />
+    <meta name="robots" content="max-image-preview:large" />
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-title" content="python神经网络使用Keras构建RNN训练_python">
+    <meta name="format-detection" content="telephone=no">
+
+    <link rel="dns-prefetch" href="https:/www.googletagmanager.com">
+    <link rel="dns-prefetch" href="https://www.googleadservices.com">
+    <link rel="dns-prefetch" href="https://www.google-analytics.com">
+    <link rel="dns-prefetch" href="https://pagead2.googlesyndication.com">
+    <link rel="dns-prefetch" href="https://cm.g.doubleclick.net">
+    <link rel="dns-prefetch" href="https://fonts.googleapis.com">
+
+    <!-- Google fonts -->
+    <link href="//fonts.googleapis.com/css2?family=DM+Sans:wght@400;700&display=swap" rel="stylesheet">
+    <!-- Template CSS -->
+    <link rel="stylesheet" href="/assets/website/css/githubloon/style-starter.css">
+    <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-9MPH6JPQCT"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-9MPH6JPQCT');
+</script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3332997411212854"
+     crossorigin="anonymous"></script>
+</head>
+
+<body data-page="detail">
+        <div class="header-saas">
+        <!-- header -->
+        <header id="site-header" class="fixed-top">
+            <div class="container">
+                <nav class="navbar navbar-expand-lg stroke">
+                                        <a class="navbar-brand" href="/">
+                        <span>Github Loon</span>
+                    </a>
+                                        <button class="navbar-toggler  collapsed bg-gradient" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon fa icon-expand fa-bars"></span>
+                        <span class="navbar-toggler-icon fa icon-close fa-times"></span>
+                        </span>
+                    </button>
+                    <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
+                        <ul class="navbar-nav ml-auto">
+                                                        <li class="nav-item">
+                                <a class="nav-link" href="/">首页</a>
+                            </li>
+                                                        <li class="nav-item">
+                                <a class="nav-link" href="/free-nodes/">免费节点</a>
+                            </li>
+                                                        <li class="nav-item">
+                                <a class="nav-link" href="/paid-subscribe/">推荐机场</a>
+                            </li>
+                                                        <li class="nav-item">
+                                <a class="nav-link" href="/news/">新闻资讯</a>
+                            </li>
+                                                        <li class="nav-item">
+                                <a class="nav-link" href="#">关于</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="#">联系</a>
+                            </li>
+                        </ul>
+                    </div>
+                    <!-- toggle switch for light and dark theme -->
+                    <div class="mobile-position">
+                        <nav class="navigation">
+                            <div class="theme-switch-wrapper">
+                                <label class="theme-switch" for="checkbox">
+                                    <input type="checkbox" id="checkbox">
+                                    <div class="mode-container">
+                                        <i class="gg-sun"></i>
+                                        <i class="gg-moon"></i>
+                                    </div>
+                                </label>
+                            </div>
+                        </nav>
+                    </div>
+                    <!-- //toggle switch for light and dark theme -->
+                </nav>
+            </div>
+        </header>
+        <!-- //header -->
+    </div>
+    <div class="innerblock">
+    </div>
+    <!-- contact-form 2 -->
+    <section class="w3l-contact-2 py-5" id="contact">
+        <div class="container py-lg-4 py-md-3 py-2">
+            <div class="title-content text-center">
+                <h1 class="title-toobig">python神经网络使用Keras构建RNN训练_python</h1>
+                <p class="mt-md-4 mt-3 mx-lg-5 px-lg-5">
+                    <a href="/">首页</a> / <a href="/news/">新闻资讯</a> / 正文
+                </p>
+            </div>
+    </section>
+    <!-- section -->
+    <section class="w3l-index3" id="about">
+        <div class="midd-w3 py-5">
+            <div class="container py-lg-5 py-md-3 py-2">
+                <div class="row">
+                    <div class="col-md-9">
+                                        <input type="hidden" id="share-website-info" data-name="" data-url="">
+                  				  				  				<div id="navCategory"> <h5 class="catalogue">目录</h5> <ul class="first_class_ul"> <li><a href="#_label0" rel="nofollow">Keras中构建RNN的重要函数</a></li> <ul class="second_class_ul"> <li><a href="#_lab2_0_0" rel="nofollow">1、SimpleRNN</a></li> <li><a href="#_lab2_0_1" rel="nofollow">2、model.train_on_batch</a></li> </ul> <li><a href="#_label1" rel="nofollow">全部代码</a></li> <ul class="second_class_ul"></ul> </ul> </div> <p class="maodian"><a name="_label0" rel="nofollow"></a></p> <h2>Keras中构建RNN的重要函数</h2> <p class="maodian"><a name="_lab2_0_0" rel="nofollow"></a></p> <h3>1、SimpleRNN</h3> <p>SimpleRNN用于在Keras中构建普通的简单RNN层，在使用前需要import。</p> <div class="ay1code"> <pre class="brush:py;">from keras.layers import SimpleRNN</pre> </div> <p>在实际使用时，需要用到几个参数。</p> <div class="ay1code"> <pre class="brush:py;">model.add(      SimpleRNN(          batch_input_shape = (BATCH_SIZE,TIME_STEPS,INPUT_SIZE),          output_dim = CELL_SIZE,      )  )  </pre> </div> <p>其中，batch_input_shape代表RNN输入数据的shape，shape的内容分别是每一次训练使用的BATCH，TIME_STEPS表示这个RNN按顺序输入的时间点的数量，INPUT_SIZE表示每一个时间点的输入数据大小。<br />CELL_SIZE代表训练每一个时间点的神经元数量。</p> <p class="maodian"><a name="_lab2_0_1" rel="nofollow"></a></p> <h3>2、model.train_on_batch</h3> <p>与之前的训练CNN网络和普通分类网络不同，RNN网络在建立时就规定了batch_input_shape，所以训练的时候也需要一定量一定量的传入训练数据。<br />model.train_on_batch在使用前需要对数据进行处理。获取指定BATCH大小的训练集。</p> <div class="ay1code"> <pre class="brush:py;">X_batch = X_train[index_start:index_start + BATCH_SIZE,:,:]  Y_batch = Y_train[index_start:index_start + BATCH_SIZE,:]  index_start += BATCH_SIZE  </pre> </div> <p>具体训练过程如下：</p> <div class="ay1code"> <pre class="brush:py;">for i in range(500):      X_batch = X_train[index_start:index_start + BATCH_SIZE,:,:]      Y_batch = Y_train[index_start:index_start + BATCH_SIZE,:]      index_start += BATCH_SIZE      cost = model.train_on_batch(X_batch,Y_batch)      if index_start &gt;= X_train.shape[0]:          index_start = 0      if i%100 == 0:          ## acc          cost,accuracy = model.evaluate(X_test,Y_test,batch_size=50)          ## W,b = model.layers[0].get_weights()          print("accuracy:",accuracy)          x = X_test[1].reshape(1,28,28)  </pre> </div> <p class="maodian"><a name="_label1" rel="nofollow"></a></p> <h2>全部代码</h2> <p>这是一个RNN神经网络的例子，用于识别手写体。</p> <div class="ay1code"> <pre class="brush:py;">import numpy as np  from keras.models import Sequential  from keras.layers import SimpleRNN,Activation,Dense ## 全连接层  from keras.datasets import mnist  from keras.utils import np_utils  from keras.optimizers import Adam  TIME_STEPS = 28  INPUT_SIZE = 28  BATCH_SIZE = 50  index_start = 0  OUTPUT_SIZE = 10  CELL_SIZE = 75  LR = 1e-3  (X_train,Y_train),(X_test,Y_test) = mnist.load_data()  X_train = X_train.reshape(-1,28,28)/255  X_test = X_test.reshape(-1,28,28)/255  Y_train = np_utils.to_categorical(Y_train,num_classes= 10)  Y_test = np_utils.to_categorical(Y_test,num_classes= 10)  model = Sequential()  # conv1  model.add(      SimpleRNN(          batch_input_shape = (BATCH_SIZE,TIME_STEPS,INPUT_SIZE),          output_dim = CELL_SIZE,      )  )  model.add(Dense(OUTPUT_SIZE))  model.add(Activation("softmax"))  adam = Adam(LR)  ## compile  model.compile(loss = 'categorical_crossentropy',optimizer = adam,metrics = ['accuracy'])  ## tarin  for i in range(500):      X_batch = X_train[index_start:index_start + BATCH_SIZE,:,:]      Y_batch = Y_train[index_start:index_start + BATCH_SIZE,:]      index_start += BATCH_SIZE      cost = model.train_on_batch(X_batch,Y_batch)      if index_start &gt;= X_train.shape[0]:          index_start = 0      if i%100 == 0:          ## acc          cost,accuracy = model.evaluate(X_test,Y_test,batch_size=50)          ## W,b = model.layers[0].get_weights()          print("accuracy:",accuracy)  </pre> </div> <p>实验结果为：</p> <div class="ay1code"> <pre class="brush:plain;">10000/10000 [==============================] - 1s 147us/step  accuracy: 0.09329999938607215  …………………………  10000/10000 [==============================] - 1s 112us/step  accuracy: 0.9395000022649765  10000/10000 [==============================] - 1s 109us/step  accuracy: 0.9422999995946885  10000/10000 [==============================] - 1s 114us/step  accuracy: 0.9534000000357628  10000/10000 [==============================] - 1s 112us/step  accuracy: 0.9566000008583069  10000/10000 [==============================] - 1s 113us/step  accuracy: 0.950799999833107  10000/10000 [==============================] - 1s 116us/step  10000/10000 [==============================] - 1s 112us/step  accuracy: 0.9474999988079071  10000/10000 [==============================] - 1s 111us/step  accuracy: 0.9515000003576278  10000/10000 [==============================] - 1s 114us/step  accuracy: 0.9288999977707862  10000/10000 [==============================] - 1s 115us/step  accuracy: 0.9487999993562698  </pre> </div> 			                <div class="clearfix"></div>
+                <div class="col-md-12 mt-5">
+                                        <p>上一个：<a href="/news/article-46618.htm">国内动物疫苗龙头企业排行榜最新 国内动物疫苗龙头企业排行榜最新名单</a></p>
+                                        <p>下一个：<a href="/news/article-47138.htm">新手养猫基础知识知乎（新手养猫入门必备攻略）</a></p>
+                                    </div>
+                                    </div>
+                    <div class="col-md-3">
+                        <div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">热门文章</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2"><a href="/news/article-36732.htm" title="动物疫苗贵吗现在多少钱啊（动物疫苗一般多少钱）">动物疫苗贵吗现在多少钱啊（动物疫苗一般多少钱）</a></li>
+                        <li class="py-2"><a href="/news/article-30528.htm" title="pyqt5入门到基本按钮弹窗，多窗口实现等">pyqt5入门到基本按钮弹窗，多窗口实现等</a></li>
+                        <li class="py-2"><a href="/news/article-30009.htm" title="附近领养猫的地方（附近领养猫的地方电话）">附近领养猫的地方（附近领养猫的地方电话）</a></li>
+                        <li class="py-2"><a href="/news/article-36137.htm" title="动物医院连锁机构 动物医院连锁机构有哪些">动物医院连锁机构 动物医院连锁机构有哪些</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-12-29-latest-loon-node.htm" title="「12月29日」最高速度19.9M/S，2024年Github Loon每天更新免费机场订阅节点链接">「12月29日」最高速度19.9M/S，2024年Github Loon每天更新免费机场订阅节点链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-12-15-loon-node.htm" title="「12月15日」最高速度21M/S，2024年Github Loon每天更新免费机场订阅节点链接">「12月15日」最高速度21M/S，2024年Github Loon每天更新免费机场订阅节点链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-10-20-loon-windows.htm" title="「10月20日」最高速度20.4M/S，2024年Github Loon每天更新免费机场订阅节点链接">「10月20日」最高速度20.4M/S，2024年Github Loon每天更新免费机场订阅节点链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-10-28-linux-loon-github.htm" title="「10月28日」最高速度19.3M/S，2024年Github Loon每天更新免费机场订阅节点链接">「10月28日」最高速度19.3M/S，2024年Github Loon每天更新免费机场订阅节点链接</a></li>
+                        <li class="py-2"><a href="/news/article-34822.htm" title="动物疫苗的作用原理是什么 动物疫苗的作用原理是什么呢">动物疫苗的作用原理是什么 动物疫苗的作用原理是什么呢</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-10-10-free-high-speed-nodes.htm" title="「10月10日」最高速度19.5M/S，2024年Github Loon每天更新免费机场订阅节点链接">「10月10日」最高速度19.5M/S，2024年Github Loon每天更新免费机场订阅节点链接</a></li>
+                    </ul>
+    </div>
+</div>
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">归纳</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">84</span> <a href="/date/2025-01/" title="2025-01 归档">2025-01</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">93</span> <a href="/date/2024-12/" title="2024-12 归档">2024-12</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">34</span> <a href="/date/2024-11/" title="2024-11 归档">2024-11</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">25</span> <a href="/date/2024-10/" title="2024-10 归档">2024-10</a></h4>
+            </li>
+                    </ul>
+    </div>
+</div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- //section -->    
+        <!-- footer17 -->
+    <section class="footer-17">
+        <div class="footer17_sur py-5">
+            <div class="copyright text-center">
+                <div class="container">
+                    <p class="copy-footer-29">
+                            <p>
+                                <a href="/">首页</a> | 
+                                <a href="/free-node/">免费节点</a> | 
+                                <a href="/news/">新闻资讯</a> |
+                                <a href="/about-us.htm">关于我们</a> |
+                                <a href="/disclaimer.htm">免责申明</a> |
+                                <a href="/privacy.htm">隐私申明</a> |
+                                <a href="/sitemap.xml">网站地图</a>
+                            </p>
+                        Github Loon节点订阅官网 版权所有 Powered by WordPress
+                    </p>
+                </div>
+            </div>
+            <!-- move top -->
+            <button onclick="topFunction()" id="movetop" title="Go to top">
+                &#10548;
+            </button>
+            <script>
+            // When the user scrolls down 20px from the top of the document, show the button
+            window.onscroll = function() {
+                scrollFunction()
+            };
+
+            function scrollFunction() {
+                if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+                    document.getElementById("movetop").style.display = "block";
+                } else {
+                    document.getElementById("movetop").style.display = "none";
+                }
+            }
+
+            // When the user clicks on the button, scroll to the top of the document
+            function topFunction() {
+                document.body.scrollTop = 0;
+                document.documentElement.scrollTop = 0;
+            }
+            </script>
+            <!-- /move top -->
+        </div>
+    </section>
+    <!-- //footer17 -->
+    <!-- Template JavaScript -->
+    <script src="/assets/website/js/frontend/githubloon/jquery-3.5.1.min.js"></script>
+    <script src="/assets/website/js/frontend/githubloon/theme-change.js"></script><!-- theme switch js (light and dark)-->
+    <!-- pricing tabs js -->
+    <script src="/assets/website/js/frontend/githubloon/tabs.js"></script>
+    <!-- owlcarousel -->
+    <script src="/assets/website/js/frontend/githubloon/owl.carousel.js"></script>
+    <!-- script for tesimonials carousel slider -->
+    <script>
+    $(document).ready(function() {
+        $("#owl-demo1").owlCarousel({
+            loop: true,
+            nav: false,
+            margin: 50,
+            responsiveClass: true,
+            responsive: {
+                0: {
+                    items: 1,
+                    nav: false
+                },
+                736: {
+                    items: 2,
+                    nav: false
+                }
+            }
+        })
+    })
+    </script>
+    <!-- //script for tesimonials carousel slider -->
+    <!-- script for tesimonials agency carousel slider -->
+    <script>
+    $(document).ready(function() {
+        $("#owl-agency").owlCarousel({
+            loop: true,
+            nav: false,
+            margin: 50,
+            responsiveClass: true,
+            responsive: {
+                0: {
+                    items: 1,
+                    nav: false
+                },
+                736: {
+                    items: 1,
+                    nav: false
+                }
+            }
+        })
+    })
+    </script>
+    <!-- //script for tesimonials agency carousel slider -->
+    <!-- magnific popup -->
+    <script src="/assets/website/js/frontend/githubloon/jquery.magnific-popup.min.js"></script>
+    <script>
+    $(document).ready(function() {
+        $('.popup-with-zoom-anim').magnificPopup({
+            type: 'inline',
+
+            fixedContentPos: false,
+            fixedBgPos: true,
+
+            overflowY: 'auto',
+
+            closeBtnInside: true,
+            preloader: false,
+
+            midClick: true,
+            removalDelay: 300,
+            mainClass: 'my-mfp-zoom-in'
+        });
+
+        $('.popup-with-move-anim').magnificPopup({
+            type: 'inline',
+
+            fixedContentPos: false,
+            fixedBgPos: true,
+
+            overflowY: 'auto',
+
+            closeBtnInside: true,
+            preloader: false,
+
+            midClick: true,
+            removalDelay: 300,
+            mainClass: 'my-mfp-slide-bottom'
+        });
+    });
+    </script>
+    <!-- //magnific popup -->
+    <!-- disable body scroll which navbar is in active -->
+    <script>
+    $(function() {
+        $('.navbar-toggler').click(function() {
+            $('body').toggleClass('noscroll');
+        })
+    });
+    </script>
+    <!-- disable body scroll which navbar is in active -->
+    <!--/MENU-JS-->
+    <script>
+    $(window).on("scroll", function() {
+        var scroll = $(window).scrollTop();
+
+        if (scroll >= 80) {
+            $("#site-header").addClass("nav-fixed");
+        } else {
+            $("#site-header").removeClass("nav-fixed");
+        }
+    });
+
+    //Main navigation Active Class Add Remove
+    $(".navbar-toggler").on("click", function() {
+        $("header").toggleClass("active");
+    });
+    $(document).on("ready", function() {
+        if ($(window).width() > 991) {
+            $("header").removeClass("active");
+        }
+        $(window).on("resize", function() {
+            if ($(window).width() > 991) {
+                $("header").removeClass("active");
+            }
+        });
+    });
+    </script>
+    <!--//MENU-JS-->
+    <script src="/assets/website/js/frontend/githubloon/bootstrap.min.js"></script>
+    <script src="https://www.freeclashnode.com/assets/js/frontend/invite-url.js"></script><script src="/assets/website/js/frontend/G.js"></script>
+</body>
+
+</html>
