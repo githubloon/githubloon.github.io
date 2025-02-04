@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="zh-CN">
+<html xml:lang="zh-CN" lang="zh-CN">
 
 <head>
         <link rel="canonical" href="https://githubloon.github.io/news/article-28177.htm" />
@@ -9,6 +9,34 @@
     <title>一个Shell小脚本精准统计Mysql每张表的行数实现</title>
         <meta name="description" content="前言 对于开发或者运维人员来说，Mysql数据库每张表的数量肯定是要了解下，有助于我们清理无用数据或者了解哪张表比较占用空间。 另外多次统计表的行数，还能发现Mysql表的增量情况，能够预测表未来会有" />
         <link rel="icon" href="/assets/website/img/githubloon/favicon.ico" type="image/x-icon"/>
+
+    <meta name="author" content="Github Loon节点订阅官网">
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://githubloon.github.io/news/article-28177.htm" />
+    <meta property="og:site_name" content="Github Loon节点订阅官网" />
+    <meta property="og:title" content="一个Shell小脚本精准统计Mysql每张表的行数实现" />
+    <meta property="og:image" content="https://githubloon.github.io/uploads/20240820/d5e257b1c73f2b705acf05bf0336c682.webp" />
+        <meta property="og:release_date" content="2024-12-19T09:55:55" />
+    <meta property="og:updated_time" content="2024-12-19T09:55:55" />
+        <meta property="og:description" content="前言 对于开发或者运维人员来说，Mysql数据库每张表的数量肯定是要了解下，有助于我们清理无用数据或者了解哪张表比较占用空间。 另外多次统计表的行数，还能发现Mysql表的增量情况，能够预测表未来会有" />
+        
+    <meta name="applicable-device" content="pc,mobile" />
+    <meta name="renderer" content="webkit" />
+    <meta name="force-rendering" content="webkit" />
+    <meta http-equiv="Cache-Control" content="no-transform" />
+    <meta name="robots" content="max-image-preview:large" />
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-title" content="一个Shell小脚本精准统计Mysql每张表的行数实现">
+    <meta name="format-detection" content="telephone=no">
+
+    <link rel="dns-prefetch" href="https:/www.googletagmanager.com">
+    <link rel="dns-prefetch" href="https://www.googleadservices.com">
+    <link rel="dns-prefetch" href="https://www.google-analytics.com">
+    <link rel="dns-prefetch" href="https://pagead2.googlesyndication.com">
+    <link rel="dns-prefetch" href="https://cm.g.doubleclick.net">
+    <link rel="dns-prefetch" href="https://fonts.googleapis.com">
+
     <!-- Google fonts -->
     <link href="//fonts.googleapis.com/css2?family=DM+Sans:wght@400;700&display=swap" rel="stylesheet">
     <!-- Template CSS -->
@@ -114,16 +142,16 @@
     </div>
     <div class="panel-body">
         <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
-                        <li class="py-2"><a href="/news/article-23996.htm" title="动物疫苗种类及研究进展情况怎么写（动物疫苗的发展现状）">动物疫苗种类及研究进展情况怎么写（动物疫苗的发展现状）</a></li>
-                        <li class="py-2"><a href="/free-nodes/2024-11-7-linux-loon-github.htm" title="「11月7日」最高速度22.7M/S，2024年Github Loon每天更新免费机场订阅节点链接">「11月7日」最高速度22.7M/S，2024年Github Loon每天更新免费机场订阅节点链接</a></li>
-                        <li class="py-2"><a href="/news/article-22615.htm" title="数据结构-有向无环图的拓扑排序（拓扑排序的简单应用）_在线工具">数据结构-有向无环图的拓扑排序（拓扑排序的简单应用）_在线工具</a></li>
-                        <li class="py-2"><a href="/free-nodes/2024-10-18-today-loon-node.htm" title="「10月18日」最高速度19.6M/S，2024年Github Loon每天更新免费机场订阅节点链接">「10月18日」最高速度19.6M/S，2024年Github Loon每天更新免费机场订阅节点链接</a></li>
-                        <li class="py-2"><a href="/news/article-20785.htm" title="5千元小投资加盟店（5千元小投资加盟店福建）">5千元小投资加盟店（5千元小投资加盟店福建）</a></li>
-                        <li class="py-2"><a href="/free-nodes/2024-12-21-free-high-speed-nodes.htm" title="「12月21日」最高速度21.3M/S，2024年Github Loon每天更新免费机场订阅节点链接">「12月21日」最高速度21.3M/S，2024年Github Loon每天更新免费机场订阅节点链接</a></li>
-                        <li class="py-2"><a href="/news/article-26778.htm" title="Java.UtilsJAVA 8 时间工具类">Java.UtilsJAVA 8 时间工具类</a></li>
-                        <li class="py-2"><a href="/news/article-24927.htm" title="宠物店利润和成本分析图（宠物店的利润率）">宠物店利润和成本分析图（宠物店的利润率）</a></li>
-                        <li class="py-2"><a href="/free-nodes/2024-10-30-loon-node-github.htm" title="「10月30日」最高速度19.4M/S，2024年Github Loon每天更新免费机场订阅节点链接">「10月30日」最高速度19.4M/S，2024年Github Loon每天更新免费机场订阅节点链接</a></li>
-                        <li class="py-2"><a href="/free-nodes/2024-12-10-today-loon-node.htm" title="「12月10日」最高速度21.4M/S，2024年Github Loon每天更新免费机场订阅节点链接">「12月10日」最高速度21.4M/S，2024年Github Loon每天更新免费机场订阅节点链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-12-31-linux-loon-github.htm" title="「12月31日」最高速度22.7M/S，2025年Github Loon每天更新免费机场订阅节点链接">「12月31日」最高速度22.7M/S，2025年Github Loon每天更新免费机场订阅节点链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-1-25-loon-github.htm" title="「1月25日」最高速度18.2M/S，2025年Github Loon每天更新免费机场订阅节点链接">「1月25日」最高速度18.2M/S，2025年Github Loon每天更新免费机场订阅节点链接</a></li>
+                        <li class="py-2"><a href="/news/article-38203.htm" title="建议穷人养的10种猫价格（宠物猫穷养）">建议穷人养的10种猫价格（宠物猫穷养）</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-12-26-latest-loon-node.htm" title="「12月26日」最高速度20.6M/S，2024年Github Loon每天更新免费机场订阅节点链接">「12月26日」最高速度20.6M/S，2024年Github Loon每天更新免费机场订阅节点链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-1-16-linux-loon-github.htm" title="「1月16日」最高速度21.2M/S，2025年Github Loon每天更新免费机场订阅节点链接">「1月16日」最高速度21.2M/S，2025年Github Loon每天更新免费机场订阅节点链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-1-22-latest-loon-node.htm" title="「1月22日」最高速度18.2M/S，2025年Github Loon每天更新免费机场订阅节点链接">「1月22日」最高速度18.2M/S，2025年Github Loon每天更新免费机场订阅节点链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-11-22-loon-node-share.htm" title="「11月22日」最高速度19.7M/S，2024年Github Loon每天更新免费机场订阅节点链接">「11月22日」最高速度19.7M/S，2024年Github Loon每天更新免费机场订阅节点链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-11-30-today-loon-node.htm" title="「11月30日」最高速度20.4M/S，2024年Github Loon每天更新免费机场订阅节点链接">「11月30日」最高速度20.4M/S，2024年Github Loon每天更新免费机场订阅节点链接</a></li>
+                        <li class="py-2"><a href="/news/article-44656.htm" title="猫咪注射疫苗要多少钱（猫***疫苗多少钱）">猫咪注射疫苗要多少钱（猫***疫苗多少钱）</a></li>
+                        <li class="py-2"><a href="/news/article-48091.htm" title="宠物寄养条例（宠物寄养条例和保管条例区别）">宠物寄养条例（宠物寄养条例和保管条例区别）</a></li>
                     </ul>
     </div>
 </div>
@@ -135,22 +163,16 @@
     <div class="panel-body">
         <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
                         <li class="py-2">
-                <h4><span class="badge" style="float: right;">3</span> <a href="/date/2025-01/" title="2025-01 归档">2025-01</a></h4>
+                <h4><span class="badge" style="float: right;">6</span> <a href="/date/2025-02/" title="2025-02 归档">2025-02</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">93</span> <a href="/date/2025-01/" title="2025-01 归档">2025-01</a></h4>
             </li>
                         <li class="py-2">
                 <h4><span class="badge" style="float: right;">93</span> <a href="/date/2024-12/" title="2024-12 归档">2024-12</a></h4>
             </li>
                         <li class="py-2">
-                <h4><span class="badge" style="float: right;">34</span> <a href="/date/2024-11/" title="2024-11 归档">2024-11</a></h4>
-            </li>
-                        <li class="py-2">
-                <h4><span class="badge" style="float: right;">31</span> <a href="/date/2024-10/" title="2024-10 归档">2024-10</a></h4>
-            </li>
-                        <li class="py-2">
-                <h4><span class="badge" style="float: right;">30</span> <a href="/date/2024-09/" title="2024-09 归档">2024-09</a></h4>
-            </li>
-                        <li class="py-2">
-                <h4><span class="badge" style="float: right;">12</span> <a href="/date/2024-08/" title="2024-08 归档">2024-08</a></h4>
+                <h4><span class="badge" style="float: right;">30</span> <a href="/date/2024-11/" title="2024-11 归档">2024-11</a></h4>
             </li>
                     </ul>
     </div>

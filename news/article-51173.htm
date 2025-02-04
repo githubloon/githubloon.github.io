@@ -1,0 +1,364 @@
+<!doctype html>
+<html xml:lang="zh-CN" lang="zh-CN">
+
+<head>
+        <link rel="canonical" href="https://githubloon.github.io/news/article-51173.htm" />
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>PyQt5 按钮Button 添加事件(信号/槽)</title>
+        <meta name="description" content="本文基于PyQt5 按钮Buttons样式设计，针对按钮添加响应的点击事件触发。       *.UI 源码 &lt;?xml version="1.0" encoding="UTF-8"?&gt; " />
+        <link rel="icon" href="/assets/website/img/githubloon/favicon.ico" type="image/x-icon"/>
+
+    <meta name="author" content="Github Loon节点订阅官网">
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://githubloon.github.io/news/article-51173.htm" />
+    <meta property="og:site_name" content="Github Loon节点订阅官网" />
+    <meta property="og:title" content="PyQt5 按钮Button 添加事件(信号/槽)" />
+    <meta property="og:image" content="https://githubloon.github.io/uploads/20240820/ab2d3e58a42dfd69fcd0f41381461b69.webp" />
+        <meta property="og:release_date" content="2025-02-04T00:31:29" />
+    <meta property="og:updated_time" content="2025-02-04T00:31:29" />
+        <meta property="og:description" content="本文基于PyQt5 按钮Buttons样式设计，针对按钮添加响应的点击事件触发。       *.UI 源码 &lt;?xml version="1.0" encoding="UTF-8"?&gt; " />
+        
+    <meta name="applicable-device" content="pc,mobile" />
+    <meta name="renderer" content="webkit" />
+    <meta name="force-rendering" content="webkit" />
+    <meta http-equiv="Cache-Control" content="no-transform" />
+    <meta name="robots" content="max-image-preview:large" />
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-title" content="PyQt5 按钮Button 添加事件(信号/槽)">
+    <meta name="format-detection" content="telephone=no">
+
+    <link rel="dns-prefetch" href="https:/www.googletagmanager.com">
+    <link rel="dns-prefetch" href="https://www.googleadservices.com">
+    <link rel="dns-prefetch" href="https://www.google-analytics.com">
+    <link rel="dns-prefetch" href="https://pagead2.googlesyndication.com">
+    <link rel="dns-prefetch" href="https://cm.g.doubleclick.net">
+    <link rel="dns-prefetch" href="https://fonts.googleapis.com">
+
+    <!-- Google fonts -->
+    <link href="//fonts.googleapis.com/css2?family=DM+Sans:wght@400;700&display=swap" rel="stylesheet">
+    <!-- Template CSS -->
+    <link rel="stylesheet" href="/assets/website/css/githubloon/style-starter.css">
+    <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-9MPH6JPQCT"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-9MPH6JPQCT');
+</script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3332997411212854"
+     crossorigin="anonymous"></script>
+</head>
+
+<body data-page="detail">
+        <div class="header-saas">
+        <!-- header -->
+        <header id="site-header" class="fixed-top">
+            <div class="container">
+                <nav class="navbar navbar-expand-lg stroke">
+                    <a class="navbar-brand" href="/">
+                                        <span>Github Loon</span>
+                                        </a>
+                    <button class="navbar-toggler  collapsed bg-gradient" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon fa icon-expand fa-bars"></span>
+                        <span class="navbar-toggler-icon fa icon-close fa-times"></span>
+                        </span>
+                    </button>
+                    <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
+                        <ul class="navbar-nav ml-auto">
+                                                        <li class="nav-item">
+                                <a class="nav-link" href="/">首页</a>
+                            </li>
+                                                        <li class="nav-item">
+                                <a class="nav-link" href="/free-nodes/">免费节点</a>
+                            </li>
+                                                        <li class="nav-item">
+                                <a class="nav-link" href="/paid-subscribe/">推荐机场</a>
+                            </li>
+                                                        <li class="nav-item">
+                                <a class="nav-link" href="/news/">新闻资讯</a>
+                            </li>
+                                                        <li class="nav-item">
+                                <a class="nav-link" href="#">关于</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="#">联系</a>
+                            </li>
+                        </ul>
+                    </div>
+                    <!-- toggle switch for light and dark theme -->
+                    <div class="mobile-position">
+                        <nav class="navigation">
+                            <div class="theme-switch-wrapper">
+                                <label class="theme-switch" for="checkbox">
+                                    <input type="checkbox" id="checkbox">
+                                    <div class="mode-container">
+                                        <i class="gg-sun"></i>
+                                        <i class="gg-moon"></i>
+                                    </div>
+                                </label>
+                            </div>
+                        </nav>
+                    </div>
+                    <!-- //toggle switch for light and dark theme -->
+                </nav>
+            </div>
+        </header>
+        <!-- //header -->
+    </div>
+    <div class="innerblock">
+    </div>
+    <!-- contact-form 2 -->
+    <section class="w3l-contact-2 py-5" id="contact">
+        <div class="container py-lg-4 py-md-3 py-2">
+            <div class="title-content text-center">
+                <h1 class="title-toobig">PyQt5 按钮Button 添加事件(信号/槽)</h1>
+                <p class="mt-md-4 mt-3 mx-lg-5 px-lg-5">
+                    <a href="/">首页</a> / <a href="/news/">新闻资讯</a> / 正文
+                </p>
+            </div>
+    </section>
+    <!-- section -->
+    <section class="w3l-index3" id="about">
+        <div class="midd-w3 py-5">
+            <div class="container py-lg-5 py-md-3 py-2">
+                <div class="row">
+                    <div class="col-md-9">
+                                        <input type="hidden" id="share-website-info" data-name="" data-url="">
+                  				  				  				<div id="content_views" class="htmledit_views"> <p>本文基于<a href="http://www.m6000.cn/wp-content/themes/begin%20lts/inc/go.php?url=https://blog.csdn.net/zhouzhiwengang/article/details/119732734"  title="PyQt5 按钮Buttons样式设计" rel="nofollow">PyQt5 按钮Buttons样式设计</a>，针对按钮添加响应的点击事件触发。</p> </h1> <p><img fetchpriority="high" decoding="async" alt="" height="250" src="http://img.555519.xyz/uploads/20230109/a9bfb10d301adb08cb09511f214c4b35.jpg"></p> </h1> <p><img decoding="async" alt="" height="409" src="http://img.555519.xyz/uploads/20230109/9bdd0cc129b101d17145762c0e548bb9.jpg"></p> </h1> <p><img decoding="async" alt="" height="396" src="http://img.555519.xyz/uploads/20230109/f66c5b2fa095f590bee0b137777315aa.jpg"></p> <h2>*.UI 源码</h2> <pre><code>&lt;?xml version="1.0" encoding="UTF-8"?&gt; &lt;ui version="4.0"&gt;  &lt;class&gt;MainWindow&lt;/class&gt;  &lt;widget class="QMainWindow" name="MainWindow"&gt;   &lt;property name="geometry"&gt;    &lt;rect&gt;     &lt;x&gt;0&lt;/x&gt;     &lt;y&gt;0&lt;/y&gt;     &lt;width&gt;800&lt;/width&gt;     &lt;height&gt;600&lt;/height&gt;    &lt;/rect&gt;   &lt;/property&gt;   &lt;property name="windowTitle"&gt;    &lt;string&gt;MainWindow&lt;/string&gt;   &lt;/property&gt;   &lt;widget class="QWidget" name="centralwidget"&gt;    &lt;widget class="QWidget" name="horizontalLayoutWidget"&gt;     &lt;property name="geometry"&gt;      &lt;rect&gt;       &lt;x&gt;20&lt;/x&gt;       &lt;y&gt;30&lt;/y&gt;       &lt;width&gt;478&lt;/width&gt;       &lt;height&gt;80&lt;/height&gt;      &lt;/rect&gt;     &lt;/property&gt;     &lt;layout class="QHBoxLayout" name="horizontalLayout"&gt;      &lt;item&gt;       &lt;widget class="QPushButton" name="pushButton_5"&gt;        &lt;property name="minimumSize"&gt;         &lt;size&gt;          &lt;width&gt;0&lt;/width&gt;          &lt;height&gt;48&lt;/height&gt;         &lt;/size&gt;        &lt;/property&gt;        &lt;property name="text"&gt;         &lt;string&gt;PushButton&lt;/string&gt;        &lt;/property&gt;       &lt;/widget&gt;      &lt;/item&gt;      &lt;item&gt;       &lt;widget class="QPushButton" name="pushButton_4"&gt;        &lt;property name="minimumSize"&gt;         &lt;size&gt;          &lt;width&gt;0&lt;/width&gt;          &lt;height&gt;48&lt;/height&gt;         &lt;/size&gt;        &lt;/property&gt;        &lt;property name="text"&gt;         &lt;string&gt;PushButton&lt;/string&gt;        &lt;/property&gt;       &lt;/widget&gt;      &lt;/item&gt;      &lt;item&gt;       &lt;widget class="QPushButton" name="pushButton_3"&gt;        &lt;property name="minimumSize"&gt;         &lt;size&gt;          &lt;width&gt;0&lt;/width&gt;          &lt;height&gt;48&lt;/height&gt;         &lt;/size&gt;        &lt;/property&gt;        &lt;property name="text"&gt;         &lt;string&gt;PushButton&lt;/string&gt;        &lt;/property&gt;       &lt;/widget&gt;      &lt;/item&gt;      &lt;item&gt;       &lt;widget class="QPushButton" name="pushButton_2"&gt;        &lt;property name="minimumSize"&gt;         &lt;size&gt;          &lt;width&gt;0&lt;/width&gt;          &lt;height&gt;48&lt;/height&gt;         &lt;/size&gt;        &lt;/property&gt;        &lt;property name="text"&gt;         &lt;string&gt;PushButton&lt;/string&gt;        &lt;/property&gt;       &lt;/widget&gt;      &lt;/item&gt;      &lt;item&gt;       &lt;widget class="QPushButton" name="pushButton"&gt;        &lt;property name="minimumSize"&gt;         &lt;size&gt;          &lt;width&gt;0&lt;/width&gt;          &lt;height&gt;48&lt;/height&gt;         &lt;/size&gt;        &lt;/property&gt;        &lt;property name="text"&gt;         &lt;string&gt;PushButton&lt;/string&gt;        &lt;/property&gt;       &lt;/widget&gt;      &lt;/item&gt;     &lt;/layout&gt;    &lt;/widget&gt;    &lt;widget class="QWidget" name="horizontalLayoutWidget_2"&gt;     &lt;property name="geometry"&gt;      &lt;rect&gt;       &lt;x&gt;20&lt;/x&gt;       &lt;y&gt;110&lt;/y&gt;       &lt;width&gt;478&lt;/width&gt;       &lt;height&gt;80&lt;/height&gt;      &lt;/rect&gt;     &lt;/property&gt;     &lt;layout class="QHBoxLayout" name="horizontalLayout_2"&gt;      &lt;item&gt;       &lt;widget class="QPlainTextEdit" name="plainTextEdit"/&gt;      &lt;/item&gt;     &lt;/layout&gt;    &lt;/widget&gt;   &lt;/widget&gt;  &lt;/widget&gt;  &lt;resources/&gt;  &lt;connections&gt;   &lt;connection&gt;    &lt;sender&gt;pushButton&lt;/sender&gt;    &lt;signal&gt;clicked()&lt;/signal&gt;    &lt;receiver&gt;plainTextEdit&lt;/receiver&gt;    &lt;slot&gt;zoomIn()&lt;/slot&gt;    &lt;hints&gt;     &lt;hint type="sourcelabel"&gt;      &lt;x&gt;362&lt;/x&gt;      &lt;y&gt;39&lt;/y&gt;     &lt;/hint&gt;     &lt;hint type="destinationlabel"&gt;      &lt;x&gt;258&lt;/x&gt;      &lt;y&gt;149&lt;/y&gt;     &lt;/hint&gt;    &lt;/hints&gt;   &lt;/connection&gt;   &lt;connection&gt;    &lt;sender&gt;pushButton_2&lt;/sender&gt;    &lt;signal&gt;clicked()&lt;/signal&gt;    &lt;receiver&gt;plainTextEdit&lt;/receiver&gt;    &lt;slot&gt;zoomIn()&lt;/slot&gt;    &lt;hints&gt;     &lt;hint type="sourcelabel"&gt;      &lt;x&gt;355&lt;/x&gt;      &lt;y&gt;69&lt;/y&gt;     &lt;/hint&gt;     &lt;hint type="destinationlabel"&gt;      &lt;x&gt;258&lt;/x&gt;      &lt;y&gt;149&lt;/y&gt;     &lt;/hint&gt;    &lt;/hints&gt;   &lt;/connection&gt;   &lt;connection&gt;    &lt;sender&gt;pushButton_3&lt;/sender&gt;    &lt;signal&gt;clicked()&lt;/signal&gt;    &lt;receiver&gt;plainTextEdit&lt;/receiver&gt;    &lt;slot&gt;zoomIn()&lt;/slot&gt;    &lt;hints&gt;     &lt;hint type="sourcelabel"&gt;      &lt;x&gt;258&lt;/x&gt;      &lt;y&gt;69&lt;/y&gt;     &lt;/hint&gt;     &lt;hint type="destinationlabel"&gt;      &lt;x&gt;258&lt;/x&gt;      &lt;y&gt;149&lt;/y&gt;     &lt;/hint&gt;    &lt;/hints&gt;   &lt;/connection&gt;   &lt;connection&gt;    &lt;sender&gt;pushButton_4&lt;/sender&gt;    &lt;signal&gt;clicked()&lt;/signal&gt;    &lt;receiver&gt;plainTextEdit&lt;/receiver&gt;    &lt;slot&gt;zoomIn()&lt;/slot&gt;    &lt;hints&gt;     &lt;hint type="sourcelabel"&gt;      &lt;x&gt;162&lt;/x&gt;      &lt;y&gt;69&lt;/y&gt;     &lt;/hint&gt;     &lt;hint type="destinationlabel"&gt;      &lt;x&gt;258&lt;/x&gt;      &lt;y&gt;149&lt;/y&gt;     &lt;/hint&gt;    &lt;/hints&gt;   &lt;/connection&gt;   &lt;connection&gt;    &lt;sender&gt;pushButton_5&lt;/sender&gt;    &lt;signal&gt;clicked()&lt;/signal&gt;    &lt;receiver&gt;plainTextEdit&lt;/receiver&gt;    &lt;slot&gt;zoomIn()&lt;/slot&gt;    &lt;hints&gt;     &lt;hint type="sourcelabel"&gt;      &lt;x&gt;65&lt;/x&gt;      &lt;y&gt;69&lt;/y&gt;     &lt;/hint&gt;     &lt;hint type="destinationlabel"&gt;      &lt;x&gt;258&lt;/x&gt;      &lt;y&gt;149&lt;/y&gt;     &lt;/hint&gt;    &lt;/hints&gt;   &lt;/connection&gt;  &lt;/connections&gt; &lt;/ui&gt; </code></pre> <h2>*.UI 源码 转换为*.py</h2> <pre><code># -*- coding: utf-8 -*-  # Form implementation generated from reading ui file 'untitled2.ui' # # Created by: PyQt5 UI code generator 5.15.4 # # WARNING: Any manual changes made to this file will be lost when pyuic5 is # run again.  Do not edit this file unless you know what you are doing. import sys  from PyQt5 import QtCore, QtGui, QtWidgets from PyQt5.QtWidgets import QApplication, QMainWindow  StyleSheet = """ /*这里是通用设置，所有按钮都有效，不过后面的可以覆盖这个*/ QPushButton {     border: none; /*去掉边框*/ } /* QPushButton#xxx 或者 #xx 都表示通过设置的objectName来指定 */ QPushButton#pushButton {     background-color: #f44336; /*背景颜色*/ } #pushButton:hover {     background-color: #e57373; /*鼠标悬停时背景颜色*/ } /*注意pressed一定要放在hover的后面，否则没有效果*/ #pushButton:pressed {     background-color: #ffcdd2; /*鼠标按下不放时背景颜色*/ } #pushButton_2 {     background-color: #4caf50;     border-radius: 5px; /*圆角*/ } #pushButton_2:hover {     background-color: #81c784; } #pushButton_2:pressed {     background-color: #c8e6c9; } #pushButton_3 {     background-color: #2196f3;     /*限制最小最大尺寸*/     min-width: 96px;     max-width: 96px;     min-height: 96px;     max-height: 96px;     border-radius: 48px; /*圆形*/ } #pushButton_3:hover {     background-color: #64b5f6; } #pushButton_3:pressed {     background-color: #bbdefb; } #pushButton_4 {     max-height: 48px;     border-top-right-radius: 20px; /*右上角圆角*/     border-bottom-left-radius: 20px; /*左下角圆角*/     background-color: #ff9800; } #pushButton_4:hover {     background-color: #ffb74d; } #pushButton_4:pressed {     background-color: #ffe0b2; } /*根据文字内容来区分按钮,同理还可以根据其它属性来区分*/ #pushButton_5 {     color: white; /*文字颜色*/     background-color: #9c27b0; } """   class Ui_MainWindow(object):     def setupUi(self, MainWindow):         MainWindow.setObjectName("MainWindow")         MainWindow.resize(800, 600)         self.centralwidget = QtWidgets.QWidget(MainWindow)         self.centralwidget.setObjectName("centralwidget")         self.horizontalLayoutWidget = QtWidgets.QWidget(self.centralwidget)         self.horizontalLayoutWidget.setGeometry(QtCore.QRect(20, 30, 478, 80))         self.horizontalLayoutWidget.setObjectName("horizontalLayoutWidget")         self.horizontalLayout = QtWidgets.QHBoxLayout(self.horizontalLayoutWidget)         self.horizontalLayout.setContentsMargins(0, 0, 0, 0)         self.horizontalLayout.setObjectName("horizontalLayout")         self.pushButton_5 = QtWidgets.QPushButton(self.horizontalLayoutWidget)         self.pushButton_5.setMinimumSize(QtCore.QSize(0, 48))         self.pushButton_5.setObjectName("pushButton_5")         self.horizontalLayout.addWidget(self.pushButton_5)         self.pushButton_4 = QtWidgets.QPushButton(self.horizontalLayoutWidget)         self.pushButton_4.setMinimumSize(QtCore.QSize(0, 48))         self.pushButton_4.setObjectName("pushButton_4")         self.horizontalLayout.addWidget(self.pushButton_4)         self.pushButton_3 = QtWidgets.QPushButton(self.horizontalLayoutWidget)         self.pushButton_3.setMinimumSize(QtCore.QSize(0, 48))         self.pushButton_3.setObjectName("pushButton_3")         self.horizontalLayout.addWidget(self.pushButton_3)         self.pushButton_2 = QtWidgets.QPushButton(self.horizontalLayoutWidget)         self.pushButton_2.setMinimumSize(QtCore.QSize(0, 48))         self.pushButton_2.setObjectName("pushButton_2")         self.horizontalLayout.addWidget(self.pushButton_2)         self.pushButton = QtWidgets.QPushButton(self.horizontalLayoutWidget)         self.pushButton.setMinimumSize(QtCore.QSize(0, 48))         self.pushButton.setObjectName("pushButton")         self.horizontalLayout.addWidget(self.pushButton)         self.horizontalLayoutWidget_2 = QtWidgets.QWidget(self.centralwidget)         self.horizontalLayoutWidget_2.setGeometry(QtCore.QRect(20, 110, 478, 80))         self.horizontalLayoutWidget_2.setObjectName("horizontalLayoutWidget_2")         self.horizontalLayout_2 = QtWidgets.QHBoxLayout(self.horizontalLayoutWidget_2)         self.horizontalLayout_2.setContentsMargins(0, 0, 0, 0)         self.horizontalLayout_2.setObjectName("horizontalLayout_2")         self.plainTextEdit = QtWidgets.QPlainTextEdit(self.horizontalLayoutWidget_2)         self.plainTextEdit.setObjectName("plainTextEdit")         self.horizontalLayout_2.addWidget(self.plainTextEdit)         MainWindow.setCentralWidget(self.centralwidget)          self.retranslateUi(MainWindow)         # Qt Designer 设计器自动生成相关事件代码(信号/槽)         # self.pushButton.clicked.connect(self.plainTextEdit.zoomIn)         # self.pushButton_2.clicked.connect(self.plainTextEdit.zoomIn)         # self.pushButton_3.clicked.connect(self.plainTextEdit.zoomIn)         # self.pushButton_4.clicked.connect(self.plainTextEdit.zoomIn)         # self.pushButton_5.clicked.connect(self.plainTextEdit.zoomIn)         # 自定义函数进行相关(信号/槽)事件绑定         self.pushButton.clicked.connect(self.onClicked)         self.pushButton_2.clicked.connect(self.onPressed)         self.pushButton_3.clicked.connect(self.onReleased)         self.pushButton_4.clicked.connect(self.onToggled)         self.pushButton_5.clicked.connect(self.onToggled)         QtCore.QMetaObject.connectSlotsByName(MainWindow)      def retranslateUi(self, MainWindow):         _translate = QtCore.QCoreApplication.translate         MainWindow.setWindowTitle(_translate("MainWindow", "MainWindow"))         self.pushButton_5.setText(_translate("MainWindow", "PushButton"))         self.pushButton_4.setText(_translate("MainWindow", "PushButton"))         self.pushButton_3.setText(_translate("MainWindow", "PushButton"))         self.pushButton_2.setText(_translate("MainWindow", "PushButton"))         self.pushButton.setText(_translate("MainWindow", "PushButton"))      # 自定义按钮点击触发事件     def onClicked(self):         self.plainTextEdit.appendPlainText(             '按钮{0}被点击'.format(self.pushButton.objectName()))      def onPressed(self):         self.plainTextEdit.appendPlainText(             '按钮{0}被按下'.format(self.pushButton_2.objectName()))      def onReleased(self):         self.plainTextEdit.appendPlainText(             '按钮{0}被释放'.format(self.pushButton_3.objectName()))      def onToggled(self, checked):         self.plainTextEdit.appendPlainText(             '按钮{0}被选中：{1}'.format(self.pushButton_4.objectName(), checked))   if __name__ == '__main__':     app = QApplication(sys.argv)     app.setStyleSheet(StyleSheet)     MainWindow = QMainWindow()     ui = Ui_MainWindow()     ui.setupUi(MainWindow)     MainWindow.show()     sys.exit(app.exec_()) </code></pre> <p>&nbsp;重点:</p> <p>1、通过组件的ObjectName + 应用app的setStyleSheet(StyleSheet) 实现自定义样式绑定</p> <p>2、通过组件的Clicked.connect() 绑定自定义函数。</p> <p>&nbsp; &nbsp; &nbsp; &nbsp; # 自定义函数进行相关(信号/槽)事件绑定<br /> &nbsp; &nbsp; &nbsp; &nbsp; self.pushButton.clicked.connect(self.onClicked)&nbsp; # pushButton 绑定onClicked 函数<br /> &nbsp; &nbsp; &nbsp; &nbsp; self.pushButton_2.clicked.connect(self.onPressed)# pushButton_2绑定onPressed函数<br /> &nbsp; &nbsp; &nbsp; &nbsp; self.pushButton_3.clicked.connect(self.onReleased)# pushButton_3绑定onReleased函数<br /> &nbsp; &nbsp; &nbsp; &nbsp; self.pushButton_4.clicked.connect(self.onToggled)# pushButton_4绑定onToggled函数<br /> &nbsp; &nbsp; &nbsp; &nbsp; self.pushButton_5.clicked.connect(self.onToggled)# pushButton_5 绑定onToggled函数</p> </p></div> 			                <div class="clearfix"></div>
+                <div class="col-md-12 mt-5">
+                                        <p>上一个：<a href="/news/article-50631.htm">宠物狗粮销售招聘要求（狗粮招聘业务）</a></p>
+                                        <p>下一个：<a href="/news/article-51174.htm">杭州免费领养宠物狗（杭州哪里可以免费领养狗）</a></p>
+                                    </div>
+                                    </div>
+                    <div class="col-md-3">
+                        <div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">热门文章</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2"><a href="/free-nodes/2024-12-18-free-node-subscribe-links.htm" title="「12月18日」最高速度19.3M/S，2024年Github Loon每天更新免费机场订阅节点链接">「12月18日」最高速度19.3M/S，2024年Github Loon每天更新免费机场订阅节点链接</a></li>
+                        <li class="py-2"><a href="/news/article-31977.htm" title="狗粮批发市场进货渠道小包装有哪些呢（狗粮在哪进货）">狗粮批发市场进货渠道小包装有哪些呢（狗粮在哪进货）</a></li>
+                        <li class="py-2"><a href="/news/article-49599.htm" title="本人长期上门回收宠物猫昆明（昆明收购宠物猫）">本人长期上门回收宠物猫昆明（昆明收购宠物猫）</a></li>
+                        <li class="py-2"><a href="/news/article-35085.htm" title="被猫抓伤了多久过安全期打疫苗有用（被猫抓伤多久打疫苗有效）">被猫抓伤了多久过安全期打疫苗有用（被猫抓伤多久打疫苗有效）</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-11-24-loon-node.htm" title="「11月24日」最高速度21.9M/S，2024年Github Loon每天更新免费机场订阅节点链接">「11月24日」最高速度21.9M/S，2024年Github Loon每天更新免费机场订阅节点链接</a></li>
+                        <li class="py-2"><a href="/news/article-50115.htm" title="JavaScript使用递归从数组中删除连续的重复条目详解">JavaScript使用递归从数组中删除连续的重复条目详解</a></li>
+                        <li class="py-2"><a href="/news/article-41182.htm" title="0元开网店无货源（0元开网店无货源拼多多可以吗）">0元开网店无货源（0元开网店无货源拼多多可以吗）</a></li>
+                        <li class="py-2"><a href="/news/article-31371.htm" title="Python——Fibonacci斐波那契数列的函数fib(n) 输出前20项（每项宽度5字符位置，右对齐），每行输出10个 递归和非递归实现">Python——Fibonacci斐波那契数列的函数fib(n) 输出前20项（每项宽度5字符位置，右对齐），每行输出10个 递归和非递归实现</a></li>
+                        <li class="py-2"><a href="/news/article-32449.htm" title="宠物粮食店名称大全集 宠物粮食店名称大全集图片">宠物粮食店名称大全集 宠物粮食店名称大全集图片</a></li>
+                        <li class="py-2"><a href="/news/article-21246.htm" title="做宠物粮食的上市公司 做宠物粮食的上市公司有哪些">做宠物粮食的上市公司 做宠物粮食的上市公司有哪些</a></li>
+                    </ul>
+    </div>
+</div>
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">归纳</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">12</span> <a href="/date/2025-02/" title="2025-02 归档">2025-02</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">93</span> <a href="/date/2025-01/" title="2025-01 归档">2025-01</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">93</span> <a href="/date/2024-12/" title="2024-12 归档">2024-12</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">30</span> <a href="/date/2024-11/" title="2024-11 归档">2024-11</a></h4>
+            </li>
+                    </ul>
+    </div>
+</div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- //section -->    
+        <!-- footer17 -->
+    <section class="footer-17">
+        <div class="footer17_sur py-5">
+            <div class="copyright text-center">
+                <div class="container">
+                    <p class="copy-footer-29">
+                            <p>
+                                <a href="/">首页</a> | 
+                                <a href="/free-node/">免费节点</a> | 
+                                <a href="/news/">新闻资讯</a> |
+                                <a href="/about-us.htm">关于我们</a> |
+                                <a href="/disclaimer.htm">免责申明</a> |
+                                <a href="/privacy.htm">隐私申明</a> |
+                                <a href="/sitemap.xml">网站地图</a>
+                            </p>
+                        Github Loon节点订阅官网 版权所有 Powered by WordPress
+                    </p>
+                </div>
+            </div>
+            <!-- move top -->
+            <button onclick="topFunction()" id="movetop" title="Go to top">
+                &#10548;
+            </button>
+            <script>
+            // When the user scrolls down 20px from the top of the document, show the button
+            window.onscroll = function() {
+                scrollFunction()
+            };
+
+            function scrollFunction() {
+                if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+                    document.getElementById("movetop").style.display = "block";
+                } else {
+                    document.getElementById("movetop").style.display = "none";
+                }
+            }
+
+            // When the user clicks on the button, scroll to the top of the document
+            function topFunction() {
+                document.body.scrollTop = 0;
+                document.documentElement.scrollTop = 0;
+            }
+            </script>
+            <!-- /move top -->
+        </div>
+    </section>
+    <!-- //footer17 -->
+    <!-- Template JavaScript -->
+    <script src="/assets/website/js/frontend/githubloon/jquery-3.5.1.min.js"></script>
+    <script src="/assets/website/js/frontend/githubloon/theme-change.js"></script><!-- theme switch js (light and dark)-->
+    <!-- pricing tabs js -->
+    <script src="/assets/website/js/frontend/githubloon/tabs.js"></script>
+    <!-- owlcarousel -->
+    <script src="/assets/website/js/frontend/githubloon/owl.carousel.js"></script>
+    <!-- script for tesimonials carousel slider -->
+    <script>
+    $(document).ready(function() {
+        $("#owl-demo1").owlCarousel({
+            loop: true,
+            nav: false,
+            margin: 50,
+            responsiveClass: true,
+            responsive: {
+                0: {
+                    items: 1,
+                    nav: false
+                },
+                736: {
+                    items: 2,
+                    nav: false
+                }
+            }
+        })
+    })
+    </script>
+    <!-- //script for tesimonials carousel slider -->
+    <!-- script for tesimonials agency carousel slider -->
+    <script>
+    $(document).ready(function() {
+        $("#owl-agency").owlCarousel({
+            loop: true,
+            nav: false,
+            margin: 50,
+            responsiveClass: true,
+            responsive: {
+                0: {
+                    items: 1,
+                    nav: false
+                },
+                736: {
+                    items: 1,
+                    nav: false
+                }
+            }
+        })
+    })
+    </script>
+    <!-- //script for tesimonials agency carousel slider -->
+    <!-- magnific popup -->
+    <script src="/assets/website/js/frontend/githubloon/jquery.magnific-popup.min.js"></script>
+    <script>
+    $(document).ready(function() {
+        $('.popup-with-zoom-anim').magnificPopup({
+            type: 'inline',
+
+            fixedContentPos: false,
+            fixedBgPos: true,
+
+            overflowY: 'auto',
+
+            closeBtnInside: true,
+            preloader: false,
+
+            midClick: true,
+            removalDelay: 300,
+            mainClass: 'my-mfp-zoom-in'
+        });
+
+        $('.popup-with-move-anim').magnificPopup({
+            type: 'inline',
+
+            fixedContentPos: false,
+            fixedBgPos: true,
+
+            overflowY: 'auto',
+
+            closeBtnInside: true,
+            preloader: false,
+
+            midClick: true,
+            removalDelay: 300,
+            mainClass: 'my-mfp-slide-bottom'
+        });
+    });
+    </script>
+    <!-- //magnific popup -->
+    <!-- disable body scroll which navbar is in active -->
+    <script>
+    $(function() {
+        $('.navbar-toggler').click(function() {
+            $('body').toggleClass('noscroll');
+        })
+    });
+    </script>
+    <!-- disable body scroll which navbar is in active -->
+    <!--/MENU-JS-->
+    <script>
+    $(window).on("scroll", function() {
+        var scroll = $(window).scrollTop();
+
+        if (scroll >= 80) {
+            $("#site-header").addClass("nav-fixed");
+        } else {
+            $("#site-header").removeClass("nav-fixed");
+        }
+    });
+
+    //Main navigation Active Class Add Remove
+    $(".navbar-toggler").on("click", function() {
+        $("header").toggleClass("active");
+    });
+    $(document).on("ready", function() {
+        if ($(window).width() > 991) {
+            $("header").removeClass("active");
+        }
+        $(window).on("resize", function() {
+            if ($(window).width() > 991) {
+                $("header").removeClass("active");
+            }
+        });
+    });
+    </script>
+    <!--//MENU-JS-->
+    <script src="/assets/website/js/frontend/githubloon/bootstrap.min.js"></script>
+    <script src="https://www.freeclashnode.com/assets/js/frontend/invite-url.js"></script><script src="/assets/website/js/frontend/G.js"></script>
+</body>
+
+</html>
