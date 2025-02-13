@@ -1,0 +1,361 @@
+<!doctype html>
+<html xml:lang="zh-CN" lang="zh-CN">
+
+<head>
+        <link rel="canonical" href="https://githubloon.github.io/news/article-54935.htm" />
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Python格式化字符串方法——以%占位操作符为例</title>
+        <meta name="description" content="#Python格式化字符串方法——以%占位操作符为例  ''' 在python的使用过程中，有时需要将输出的字符串做统一规定，因此需要提前编写一个字符串的模板。 模板中有格式符，这些格式符为最后输的字" />
+        <link rel="icon" href="/assets/website/img/githubloon/favicon.ico" type="image/x-icon"/>
+
+    <meta name="author" content="Github Loon节点订阅官网">
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://githubloon.github.io/news/article-54935.htm" />
+    <meta property="og:site_name" content="Github Loon节点订阅官网" />
+    <meta property="og:title" content="Python格式化字符串方法——以%占位操作符为例" />
+    <meta property="og:image" content="https://githubloon.github.io/uploads/20240820/b70c063137195cafec9a2902ad42d288.webp" />
+        <meta property="og:release_date" content="2025-02-11T05:44:29" />
+    <meta property="og:updated_time" content="2025-02-11T05:44:29" />
+        <meta property="og:description" content="#Python格式化字符串方法——以%占位操作符为例  ''' 在python的使用过程中，有时需要将输出的字符串做统一规定，因此需要提前编写一个字符串的模板。 模板中有格式符，这些格式符为最后输的字" />
+        
+    <meta name="applicable-device" content="pc,mobile" />
+    <meta name="renderer" content="webkit" />
+    <meta name="force-rendering" content="webkit" />
+    <meta http-equiv="Cache-Control" content="no-transform" />
+    <meta name="robots" content="max-image-preview:large" />
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-title" content="Python格式化字符串方法——以%占位操作符为例">
+    <meta name="format-detection" content="telephone=no">
+
+    <link rel="dns-prefetch" href="https:/www.googletagmanager.com">
+    <link rel="dns-prefetch" href="https://www.googleadservices.com">
+    <link rel="dns-prefetch" href="https://www.google-analytics.com">
+    <link rel="dns-prefetch" href="https://pagead2.googlesyndication.com">
+    <link rel="dns-prefetch" href="https://cm.g.doubleclick.net">
+    <link rel="dns-prefetch" href="https://fonts.googleapis.com">
+
+    <!-- Google fonts -->
+    <link href="//fonts.googleapis.com/css2?family=DM+Sans:wght@400;700&display=swap" rel="stylesheet">
+    <!-- Template CSS -->
+    <link rel="stylesheet" href="/assets/website/css/githubloon/style-starter.css">
+    <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-9MPH6JPQCT"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-9MPH6JPQCT');
+</script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3332997411212854"
+     crossorigin="anonymous"></script>
+</head>
+
+<body data-page="detail">
+        <div class="header-saas">
+        <!-- header -->
+        <header id="site-header" class="fixed-top">
+            <div class="container">
+                <nav class="navbar navbar-expand-lg stroke">
+                    <a class="navbar-brand" href="/">
+                                        <span>Github Loon</span>
+                                        </a>
+                    <button class="navbar-toggler  collapsed bg-gradient" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon fa icon-expand fa-bars"></span>
+                        <span class="navbar-toggler-icon fa icon-close fa-times"></span>
+                        </span>
+                    </button>
+                    <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
+                        <ul class="navbar-nav ml-auto">
+                                                        <li class="nav-item">
+                                <a class="nav-link" href="/">首页</a>
+                            </li>
+                                                        <li class="nav-item">
+                                <a class="nav-link" href="/free-nodes/">免费节点</a>
+                            </li>
+                                                        <li class="nav-item">
+                                <a class="nav-link" href="/paid-subscribe/">推荐机场</a>
+                            </li>
+                                                        <li class="nav-item">
+                                <a class="nav-link" href="/client.htm">客户端</a>
+                            </li>
+                                                        <li class="nav-item">
+                                <a class="nav-link" href="/news/">新闻资讯</a>
+                            </li>
+                                                    </ul>
+                    </div>
+                    <!-- toggle switch for light and dark theme -->
+                    <div class="mobile-position">
+                        <nav class="navigation">
+                            <div class="theme-switch-wrapper">
+                                <label class="theme-switch" for="checkbox">
+                                    <input type="checkbox" id="checkbox">
+                                    <div class="mode-container">
+                                        <i class="gg-sun"></i>
+                                        <i class="gg-moon"></i>
+                                    </div>
+                                </label>
+                            </div>
+                        </nav>
+                    </div>
+                    <!-- //toggle switch for light and dark theme -->
+                </nav>
+            </div>
+        </header>
+        <!-- //header -->
+    </div>
+    <div class="innerblock">
+    </div>
+    <!-- contact-form 2 -->
+    <section class="w3l-contact-2 py-5" id="contact">
+        <div class="container py-lg-4 py-md-3 py-2">
+            <div class="title-content text-center">
+                <h1 class="title-toobig">Python格式化字符串方法——以%占位操作符为例</h1>
+                <p class="mt-md-4 mt-3 mx-lg-5 px-lg-5">
+                    <a href="/">首页</a> / <a href="/news/">新闻资讯</a> / 正文
+                </p>
+            </div>
+    </section>
+    <!-- section -->
+    <section class="w3l-index3" id="about">
+        <div class="midd-w3 py-5">
+            <div class="container py-lg-5 py-md-3 py-2">
+                <div class="row">
+                    <div class="col-md-9">
+                                        <input type="hidden" id="share-website-info" data-name="" data-url="">
+                  				  				  				<div id="content_views" class="markdown_views prism-atom-one-dark"> <pre><code class="prism language-python"><span class="token comment">#Python格式化字符串方法——以%占位操作符为例</span>  <span class="token triple-quoted-string string">''' 在python的使用过程中，有时需要将输出的字符串做统一规定，因此需要提前编写一个字符串的模板。 模板中有格式符，这些格式符为最后输的字符串预先占据位置， 并规定其应该呈现的格式，包括字符的位置、对齐方式、空位补充方式等。 Python中内置的%操作符可用于格式化字符串操作，控制字符串的呈现格式。 Python中还有其他的格式化字符串的方式，但%操作符的使用是最方便的。  %格式符的语法：%[(name)][flags][width].[precision]typecode。  (name)参数：当使用字典作为真实值的存放容器，name在此对应输出值关联的字典的键名，必须使用小括号将键名括起来, 如果字典中不存在该键,则引发异常，否则输出该键对应的值； flags可以有+,-,' '或0。 +表示应该包含数字的正负号。-表示左对齐，没有则表示右对齐。 ' '为一个空格，表示在正数的左侧填充一个空格，从而与负数对齐。0表示使用0填充； width表示该输出值占用的宽度； precision表示小数点后精度； typecode表示输出值的类型，  具体含义如下： %s             字符串 (采用str()的显示) %r             字符串 (采用repr()的显示) #repr() 函数将对象转化为供解释器读取的形式,输出的字符加引号。 %c             单个字符 %b             二进制整数 %d,%i          十进制整数 %o             八进制整数 %x,%X          十六进制整数 %e,%E          指数 (基底写为e,E) %f,%F          浮点数 %g,%G          指数或浮点数 (根据显示长度) %u             无符号数（没有细查文档，经测试可以输出负数） %%             字符"%" '''</span>   <span class="token comment"># 例1：</span> <span class="token comment">#%格式符的语法：%[(name)][flags][width].[precision]typecode。</span> example_1 <span class="token operator">=</span> <span class="token string">"I'm %s, I'm %d years old."</span> <span class="token operator">%</span> <span class="token punctuation">(</span><span class="token string">'wrh'</span><span class="token punctuation">,</span> <span class="token number">29</span><span class="token punctuation">)</span> <span class="token keyword">print</span><span class="token punctuation">(</span>example_1<span class="token punctuation">)</span> <span class="token triple-quoted-string string">''' 输出结果： I'm wrh, I'm 29 years old. '''</span>  <span class="token comment">#例2：</span> <span class="token comment">#%格式符的语法：%[(name)][flags][width].[precision]typecode。</span> example_2 <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token string">"I'm %(name)s, I'm %(age)d years old."</span> <span class="token operator">%</span> <span class="token punctuation">{<!-- --></span><span class="token string">'name'</span><span class="token punctuation">:</span><span class="token string">'wrh'</span><span class="token punctuation">,</span> <span class="token string">'age'</span><span class="token punctuation">:</span><span class="token number">29</span><span class="token punctuation">}</span><span class="token punctuation">)</span> <span class="token keyword">print</span><span class="token punctuation">(</span>example_2<span class="token punctuation">)</span> <span class="token triple-quoted-string string">''' 输出结果： I'm wrh, I'm 29 years old. '''</span>  <span class="token comment">#例3：</span> <span class="token comment">#%格式符的语法：%[(name)][flags][width].[precision]typecode。</span> <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">"%+10x"</span> <span class="token operator">%</span> <span class="token number">10</span><span class="token punctuation">)</span> <span class="token comment">#+表示应该包含数字的正负号，10表示宽度，表示十六进制（10的十六进制是a）</span> <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">"%04d"</span> <span class="token operator">%</span> <span class="token number">5</span><span class="token punctuation">)</span> <span class="token comment">#0表示用0填充，4表示宽度，d表示十进制整数</span> <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">"%6.3f"</span> <span class="token operator">%</span> <span class="token number">2.3</span><span class="token punctuation">)</span> <span class="token comment">#6表示宽度，3表示精确到小数点后三位，f表示浮点数</span> <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">"%.*f"</span> <span class="token operator">%</span> <span class="token punctuation">(</span><span class="token number">4</span><span class="token punctuation">,</span> <span class="token number">1.2</span><span class="token punctuation">)</span><span class="token punctuation">)</span>  <span class="token comment">#width, precision为两个整数。我们可以利用*，来动态代入这两个量。4表示精确到小数点后四位。</span> <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">"%*.f"</span> <span class="token operator">%</span> <span class="token punctuation">(</span><span class="token number">4</span><span class="token punctuation">,</span> <span class="token number">1.2</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token comment">#width, precision为两个整数。我们可以利用*，来动态代入这两个量。4表示宽度为4。</span> <span class="token triple-quoted-string string">''' 输出结果：         +a 0005  2.300 1.2000    1 '''</span>  <span class="token comment">#例4</span> <span class="token comment">#%格式符的语法：%[(name)][flags][width].[precision]typecode。</span> a <span class="token operator">=</span> <span class="token string">'30c'</span> F <span class="token operator">=</span> <span class="token number">1.8</span><span class="token operator">*</span><span class="token builtin">float</span><span class="token punctuation">(</span>a<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">:</span><span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">)</span> <span class="token operator">+</span> <span class="token number">32</span> <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">"%.1fF"</span> <span class="token operator">%</span> F<span class="token punctuation">)</span> <span class="token comment">#精确到小数点后1位，浮点数，第一个F为固定字符，第二个F是所要格式化的字符变量。</span>  <span class="token triple-quoted-string string">''' 输出结果： 86.0F '''</span>  <span class="token comment">#练习题：</span>  <span class="token comment">#假设：学生信息存放在一个字典数据中，格式如下：</span> student<span class="token operator">=</span><span class="token punctuation">{<!-- --></span><span class="token string">'name'</span><span class="token punctuation">:</span><span class="token string">'小明'</span><span class="token punctuation">,</span><span class="token string">'class'</span><span class="token punctuation">:</span><span class="token number">20190301</span><span class="token punctuation">,</span><span class="token string">'score'</span><span class="token punctuation">:</span><span class="token number">597.5</span><span class="token punctuation">}</span> <span class="token comment">#1.输出学生姓名，右对齐，直接使用真实值</span> <span class="token comment">#%格式符的语法：%[(name)][flags][width].[precision]typecode。</span> <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">'%s同学'</span> <span class="token operator">%</span> student<span class="token punctuation">[</span><span class="token string">'name'</span><span class="token punctuation">]</span><span class="token punctuation">)</span> <span class="token comment">#2.左对齐，名字占用4个长度，班级10个长度，分数7个长度的浮点数，真实值使用元组存储</span> <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">'%10s班 %-4s同学，总分:%7.2f'</span> <span class="token operator">%</span> <span class="token punctuation">(</span>student<span class="token punctuation">[</span><span class="token string">'class'</span><span class="token punctuation">]</span><span class="token punctuation">,</span>student<span class="token punctuation">[</span><span class="token string">'name'</span><span class="token punctuation">]</span><span class="token punctuation">,</span>student<span class="token punctuation">[</span><span class="token string">'score'</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token comment">#3.#右对齐其他格式与上例同，只是格式化字符串和真实值存放在变量中，输出时格式化处理</span> <span class="token builtin">format</span><span class="token operator">=</span><span class="token string">'%10s班 %-4s同学，总分:%7.2f'</span> value<span class="token operator">=</span><span class="token punctuation">(</span>student<span class="token punctuation">[</span><span class="token string">'class'</span><span class="token punctuation">]</span><span class="token punctuation">,</span>student<span class="token punctuation">[</span><span class="token string">'name'</span><span class="token punctuation">]</span><span class="token punctuation">,</span>student<span class="token punctuation">[</span><span class="token string">'score'</span><span class="token punctuation">]</span><span class="token punctuation">)</span> <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token builtin">format</span> <span class="token operator">%</span> value<span class="token punctuation">)</span> <span class="token comment">#4.右对齐其他格式与上例同，只是格式化字符串和真实值存放在变量中，将格式化处理结果存放到变量再输出</span> <span class="token builtin">format</span><span class="token operator">=</span><span class="token string">'%10s班 %-4s同学，总分:%7.2f'</span> value<span class="token operator">=</span><span class="token punctuation">(</span>student<span class="token punctuation">[</span><span class="token string">'class'</span><span class="token punctuation">]</span><span class="token punctuation">,</span>student<span class="token punctuation">[</span><span class="token string">'name'</span><span class="token punctuation">]</span><span class="token punctuation">,</span>student<span class="token punctuation">[</span><span class="token string">'score'</span><span class="token punctuation">]</span><span class="token punctuation">)</span> output<span class="token operator">=</span><span class="token builtin">format</span> <span class="token operator">%</span> value <span class="token keyword">print</span><span class="token punctuation">(</span>output<span class="token punctuation">)</span> <span class="token comment">#5.使用字典存放真实值,直接格式化输出</span> <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">'%(class)10s班 %(name)-4s同学，总分:%(score)7.2f'</span> <span class="token operator">%</span> student<span class="token punctuation">)</span> <span class="token comment">#6.使字典存放真实值，用变量方式存放格式化字符串</span> <span class="token builtin">format</span><span class="token operator">=</span><span class="token string">'%(class)10s班 %(name)-4s同学，总分:%(score)7.2f'</span> output<span class="token operator">=</span> <span class="token builtin">format</span> <span class="token operator">%</span> student <span class="token keyword">print</span><span class="token punctuation">(</span>output<span class="token punctuation">)</span>  <span class="token triple-quoted-string string">''' 输出结果：   小明同学   20190301班 小明  同学，总分: 597.50   20190301班 小明  同学，总分: 597.50   20190301班 小明  同学，总分: 597.50   20190301班 小明  同学，总分: 597.50   20190301班 小明  同学，总分: 597.50  '''</span> </code></pre> </p></div> 			                <div class="clearfix"></div>
+                <div class="col-md-12 mt-5">
+                                        <p>上一个：<a href="/news/article-54373.htm">美联众合动物医院在哪里 美联众合动物医院总院在哪</a></p>
+                                        <p>下一个：<a href="/news/article-54937.htm">微信小程序开发笔记2——自定义导航栏组件</a></p>
+                                    </div>
+                                    </div>
+                    <div class="col-md-3">
+                        <div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">热门文章</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2"><a href="/free-nodes/2024-11-28-free-loon-node.htm" title="「11月28日」最高速度21M/S，2024年Github Loon每天更新免费机场订阅节点链接">「11月28日」最高速度21M/S，2024年Github Loon每天更新免费机场订阅节点链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-11-13-free-node-subscribe-links.htm" title="「11月13日」最高速度20.8M/S，2024年Github Loon每天更新免费机场订阅节点链接">「11月13日」最高速度20.8M/S，2024年Github Loon每天更新免费机场订阅节点链接</a></li>
+                        <li class="py-2"><a href="/news/article-40675.htm" title="C语言字符串、字符数组、字符指针">C语言字符串、字符数组、字符指针</a></li>
+                        <li class="py-2"><a href="/news/article-43651.htm" title="被宠物猫抓伤轻微出血（被宠物猫抓伤轻微出血多长时间内打针）">被宠物猫抓伤轻微出血（被宠物猫抓伤轻微出血多长时间内打针）</a></li>
+                        <li class="py-2"><a href="/news/article-30009.htm" title="附近领养猫的地方（附近领养猫的地方电话）">附近领养猫的地方（附近领养猫的地方电话）</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-1-25-loon-github.htm" title="「1月25日」最高速度18.2M/S，2025年Github Loon每天更新免费机场订阅节点链接">「1月25日」最高速度18.2M/S，2025年Github Loon每天更新免费机场订阅节点链接</a></li>
+                        <li class="py-2"><a href="/news/article-19412.htm" title="Java8 接口新特性">Java8 接口新特性</a></li>
+                        <li class="py-2"><a href="/news/article-48091.htm" title="宠物寄养条例（宠物寄养条例和保管条例区别）">宠物寄养条例（宠物寄养条例和保管条例区别）</a></li>
+                        <li class="py-2"><a href="/news/article-24407.htm" title="办宠物医院需要什么资质（宠物医院开办批准手续）">办宠物医院需要什么资质（宠物医院开办批准手续）</a></li>
+                        <li class="py-2"><a href="/news/article-46618.htm" title="国内动物疫苗龙头企业排行榜最新 国内动物疫苗龙头企业排行榜最新名单">国内动物疫苗龙头企业排行榜最新 国内动物疫苗龙头企业排行榜最新名单</a></li>
+                    </ul>
+    </div>
+</div>
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">归纳</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">39</span> <a href="/date/2025-02/" title="2025-02 归档">2025-02</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">93</span> <a href="/date/2025-01/" title="2025-01 归档">2025-01</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">93</span> <a href="/date/2024-12/" title="2024-12 归档">2024-12</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">30</span> <a href="/date/2024-11/" title="2024-11 归档">2024-11</a></h4>
+            </li>
+                    </ul>
+    </div>
+</div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- //section -->    
+        <!-- footer17 -->
+    <section class="footer-17">
+        <div class="footer17_sur py-5">
+            <div class="copyright text-center">
+                <div class="container">
+                    <p class="copy-footer-29">
+                            <p>
+                                <a href="/">首页</a> | 
+                                <a href="/free-node/">免费节点</a> | 
+                                <a href="/news/">新闻资讯</a> |
+                                <a href="/about-us.htm">关于我们</a> |
+                                <a href="/disclaimer.htm">免责申明</a> |
+                                <a href="/privacy.htm">隐私申明</a> |
+                                <a href="/sitemap.xml">网站地图</a>
+                            </p>
+                        Github Loon节点订阅官网 版权所有 Powered by WordPress
+                    </p>
+                </div>
+            </div>
+            <!-- move top -->
+            <button onclick="topFunction()" id="movetop" title="Go to top">
+                &#10548;
+            </button>
+            <script>
+            // When the user scrolls down 20px from the top of the document, show the button
+            window.onscroll = function() {
+                scrollFunction()
+            };
+
+            function scrollFunction() {
+                if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+                    document.getElementById("movetop").style.display = "block";
+                } else {
+                    document.getElementById("movetop").style.display = "none";
+                }
+            }
+
+            // When the user clicks on the button, scroll to the top of the document
+            function topFunction() {
+                document.body.scrollTop = 0;
+                document.documentElement.scrollTop = 0;
+            }
+            </script>
+            <!-- /move top -->
+        </div>
+    </section>
+    <!-- //footer17 -->
+    <!-- Template JavaScript -->
+    <script src="/assets/website/js/frontend/githubloon/jquery-3.5.1.min.js"></script>
+    <script src="/assets/website/js/frontend/githubloon/theme-change.js"></script><!-- theme switch js (light and dark)-->
+    <!-- pricing tabs js -->
+    <script src="/assets/website/js/frontend/githubloon/tabs.js"></script>
+    <!-- owlcarousel -->
+    <script src="/assets/website/js/frontend/githubloon/owl.carousel.js"></script>
+    <!-- script for tesimonials carousel slider -->
+    <script>
+    $(document).ready(function() {
+        $("#owl-demo1").owlCarousel({
+            loop: true,
+            nav: false,
+            margin: 50,
+            responsiveClass: true,
+            responsive: {
+                0: {
+                    items: 1,
+                    nav: false
+                },
+                736: {
+                    items: 2,
+                    nav: false
+                }
+            }
+        })
+    })
+    </script>
+    <!-- //script for tesimonials carousel slider -->
+    <!-- script for tesimonials agency carousel slider -->
+    <script>
+    $(document).ready(function() {
+        $("#owl-agency").owlCarousel({
+            loop: true,
+            nav: false,
+            margin: 50,
+            responsiveClass: true,
+            responsive: {
+                0: {
+                    items: 1,
+                    nav: false
+                },
+                736: {
+                    items: 1,
+                    nav: false
+                }
+            }
+        })
+    })
+    </script>
+    <!-- //script for tesimonials agency carousel slider -->
+    <!-- magnific popup -->
+    <script src="/assets/website/js/frontend/githubloon/jquery.magnific-popup.min.js"></script>
+    <script>
+    $(document).ready(function() {
+        $('.popup-with-zoom-anim').magnificPopup({
+            type: 'inline',
+
+            fixedContentPos: false,
+            fixedBgPos: true,
+
+            overflowY: 'auto',
+
+            closeBtnInside: true,
+            preloader: false,
+
+            midClick: true,
+            removalDelay: 300,
+            mainClass: 'my-mfp-zoom-in'
+        });
+
+        $('.popup-with-move-anim').magnificPopup({
+            type: 'inline',
+
+            fixedContentPos: false,
+            fixedBgPos: true,
+
+            overflowY: 'auto',
+
+            closeBtnInside: true,
+            preloader: false,
+
+            midClick: true,
+            removalDelay: 300,
+            mainClass: 'my-mfp-slide-bottom'
+        });
+    });
+    </script>
+    <!-- //magnific popup -->
+    <!-- disable body scroll which navbar is in active -->
+    <script>
+    $(function() {
+        $('.navbar-toggler').click(function() {
+            $('body').toggleClass('noscroll');
+        })
+    });
+    </script>
+    <!-- disable body scroll which navbar is in active -->
+    <!--/MENU-JS-->
+    <script>
+    $(window).on("scroll", function() {
+        var scroll = $(window).scrollTop();
+
+        if (scroll >= 80) {
+            $("#site-header").addClass("nav-fixed");
+        } else {
+            $("#site-header").removeClass("nav-fixed");
+        }
+    });
+
+    //Main navigation Active Class Add Remove
+    $(".navbar-toggler").on("click", function() {
+        $("header").toggleClass("active");
+    });
+    $(document).on("ready", function() {
+        if ($(window).width() > 991) {
+            $("header").removeClass("active");
+        }
+        $(window).on("resize", function() {
+            if ($(window).width() > 991) {
+                $("header").removeClass("active");
+            }
+        });
+    });
+    </script>
+    <!--//MENU-JS-->
+    <script src="/assets/website/js/frontend/githubloon/bootstrap.min.js"></script>
+    <script src="https://www.freeclashnode.com/assets/js/frontend/invite-url.js"></script><script src="/assets/website/js/frontend/G.js"></script>
+</body>
+
+</html>
