@@ -1,0 +1,361 @@
+<!doctype html>
+<html xml:lang="zh-CN" lang="zh-CN">
+
+<head>
+        <link rel="canonical" href="https://githubloon.github.io/news/article-57739.htm" />
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>SpringCloud Sleuth分布式请求链路追踪</title>
+        <meta name="description" content="1.1 为什么会出现这个技术？需要解决哪些问题？ 在微服务框架中，一个由客户端发起的请求在后端系统中会经过多个不同的服务节点调用来协同产生最后的请求结果，每一个前段请求都会形成一条复杂的分布式服务调用" />
+        <link rel="icon" href="/assets/website/img/githubloon/favicon.ico" type="image/x-icon"/>
+
+    <meta name="author" content="Github Loon节点订阅官网">
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://githubloon.github.io/news/article-57739.htm" />
+    <meta property="og:site_name" content="Github Loon节点订阅官网" />
+    <meta property="og:title" content="SpringCloud Sleuth分布式请求链路追踪" />
+    <meta property="og:image" content="https://githubloon.github.io/uploads/20240820/47048b0a307e9c90841ce44adc370255.webp" />
+        <meta property="og:release_date" content="2025-02-16T07:22:32" />
+    <meta property="og:updated_time" content="2025-02-16T07:22:32" />
+        <meta property="og:description" content="1.1 为什么会出现这个技术？需要解决哪些问题？ 在微服务框架中，一个由客户端发起的请求在后端系统中会经过多个不同的服务节点调用来协同产生最后的请求结果，每一个前段请求都会形成一条复杂的分布式服务调用" />
+        
+    <meta name="applicable-device" content="pc,mobile" />
+    <meta name="renderer" content="webkit" />
+    <meta name="force-rendering" content="webkit" />
+    <meta http-equiv="Cache-Control" content="no-transform" />
+    <meta name="robots" content="max-image-preview:large" />
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-title" content="SpringCloud Sleuth分布式请求链路追踪">
+    <meta name="format-detection" content="telephone=no">
+
+    <link rel="dns-prefetch" href="https:/www.googletagmanager.com">
+    <link rel="dns-prefetch" href="https://www.googleadservices.com">
+    <link rel="dns-prefetch" href="https://www.google-analytics.com">
+    <link rel="dns-prefetch" href="https://pagead2.googlesyndication.com">
+    <link rel="dns-prefetch" href="https://cm.g.doubleclick.net">
+    <link rel="dns-prefetch" href="https://fonts.googleapis.com">
+
+    <!-- Google fonts -->
+    <link href="//fonts.googleapis.com/css2?family=DM+Sans:wght@400;700&display=swap" rel="stylesheet">
+    <!-- Template CSS -->
+    <link rel="stylesheet" href="/assets/website/css/githubloon/style-starter.css">
+    <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-9MPH6JPQCT"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-9MPH6JPQCT');
+</script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3332997411212854"
+     crossorigin="anonymous"></script>
+</head>
+
+<body data-page="detail">
+        <div class="header-saas">
+        <!-- header -->
+        <header id="site-header" class="fixed-top">
+            <div class="container">
+                <nav class="navbar navbar-expand-lg stroke">
+                    <a class="navbar-brand" href="/">
+                                        <span>Github Loon</span>
+                                        </a>
+                    <button class="navbar-toggler  collapsed bg-gradient" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon fa icon-expand fa-bars"></span>
+                        <span class="navbar-toggler-icon fa icon-close fa-times"></span>
+                        </span>
+                    </button>
+                    <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
+                        <ul class="navbar-nav ml-auto">
+                                                        <li class="nav-item">
+                                <a class="nav-link" href="/">首页</a>
+                            </li>
+                                                        <li class="nav-item">
+                                <a class="nav-link" href="/free-nodes/">免费节点</a>
+                            </li>
+                                                        <li class="nav-item">
+                                <a class="nav-link" href="/paid-subscribe/">推荐机场</a>
+                            </li>
+                                                        <li class="nav-item">
+                                <a class="nav-link" href="/client.htm">客户端</a>
+                            </li>
+                                                        <li class="nav-item">
+                                <a class="nav-link" href="/news/">新闻资讯</a>
+                            </li>
+                                                    </ul>
+                    </div>
+                    <!-- toggle switch for light and dark theme -->
+                    <div class="mobile-position">
+                        <nav class="navigation">
+                            <div class="theme-switch-wrapper">
+                                <label class="theme-switch" for="checkbox">
+                                    <input type="checkbox" id="checkbox">
+                                    <div class="mode-container">
+                                        <i class="gg-sun"></i>
+                                        <i class="gg-moon"></i>
+                                    </div>
+                                </label>
+                            </div>
+                        </nav>
+                    </div>
+                    <!-- //toggle switch for light and dark theme -->
+                </nav>
+            </div>
+        </header>
+        <!-- //header -->
+    </div>
+    <div class="innerblock">
+    </div>
+    <!-- contact-form 2 -->
+    <section class="w3l-contact-2 py-5" id="contact">
+        <div class="container py-lg-4 py-md-3 py-2">
+            <div class="title-content text-center">
+                <h1 class="title-toobig">SpringCloud Sleuth分布式请求链路追踪</h1>
+                <p class="mt-md-4 mt-3 mx-lg-5 px-lg-5">
+                    <a href="/">首页</a> / <a href="/news/">新闻资讯</a> / 正文
+                </p>
+            </div>
+    </section>
+    <!-- section -->
+    <section class="w3l-index3" id="about">
+        <div class="midd-w3 py-5">
+            <div class="container py-lg-5 py-md-3 py-2">
+                <div class="row">
+                    <div class="col-md-9">
+                                        <input type="hidden" id="share-website-info" data-name="" data-url="">
+                  				  				  				<div id="content_views" class="htmledit_views"> </h1> <h2>1.1 为什么会出现这个技术？需要解决哪些问题？</h2> <p>在微服务框架中，一个由客户端发起的请求在后端系统中会经过多个不同的服务节点调用来协同产生最后的请求结果，每一个前段请求都会形成一条复杂的分布式服务调用链路，链路中的任何一环出现高延时或错误都会引起整个请求最后的失败。</p> <p><img fetchpriority="high" decoding="async" alt="" height="467" src="http://img.555519.xyz/uploads/20221201/59db15943b0adbb941c11c94ea4951cb.jpg"></p> <p><img decoding="async" alt="" height="624" src="http://img.555519.xyz/uploads/20221201/127183019d9fe8e0a698d5201b7a6984.jpg"></p> <h2>1.2 是什么</h2> <p><a href="http://www.m6000.cn/wp-content/themes/begin%20lts/inc/go.php?url=https://github.com/spring-cloud/spring-cloud-sleuth"  rel="nofollow">https://github.com/spring-cloud/spring-cloud-sleuth</a></p> <p>Spring Cloud Sleuth提供了一套完整的服务跟踪解决方案</p> <p>在分布式系统中提供追踪解决方案并且兼容支持了zipkin</p> <h2>1.3 解决</h2> <p><img decoding="async" alt="" height="574" src="http://img.555519.xyz/uploads/20221201/b6f47de498488d77259841d355afde00.jpg"></p> </h1> <h2>2.1 zipkin</h2> <p>SpringCloud从F版起已不需要自己构建Zipkin server了，只需要调用jar包即可</p> <p><a href="http://www.m6000.cn/wp-content/themes/begin%20lts/inc/go.php?url=https://dl.bintray.com/openzipkin/maven/io/zipkin/java/zipkin-server/"  rel="nofollow">https://dl.bintray.com/openzipkin/maven/io/zipkin/java/zipkin-server/</a></p> <p>zipkin-server-2.12.9.exec.jar</p> <h3>2.1.1 运行jar</h3> <p>java -jar zipkin-server-2.12.9.exec.jar</p> <p><img loading="lazy" decoding="async" alt="" height="920" src="http://img.555519.xyz/uploads/20221201/f9197aa0476849c371440407901528c4.jpg"></p> <h3>2.1.2&nbsp;运行控制台</h3> <p><strong>http://localhost:9411/zipkin/</strong></p> <p><img loading="lazy" decoding="async" alt="" height="393" src="http://img.555519.xyz/uploads/20221201/a0bb19d953ea85bec6ee8a6707995b7e.jpg"></p> <p><strong>术语</strong></p> <p><strong>完整的调用链路</strong></p> <p><img loading="lazy" decoding="async" alt="" height="542" src="http://img.555519.xyz/uploads/20221201/fd5d537f57318a3ff694537179cbb86d.jpg"></p> <p><img loading="lazy" decoding="async" alt="" height="582" src="http://img.555519.xyz/uploads/20221201/d180703006ed8ec8619213e98d64a047.jpg"></p> <p><strong>名词解释</strong></p> <p>Trace:类似于树结构的Span集合，表示一条调用链路，存在唯一标识。</p> <p>span：表示调用链路来源，通俗的理解span就是一次请求信息。</p> <h2>2.2 服务提供者</h2> <p>cloud-provider-payment8001</p> <h3>2.2.1 POM</h3> <pre><code>&lt;?xml version="1.0" encoding="UTF-8"?&gt; &lt;project xmlns="http://maven.apache.org/POM/4.0.0"          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd"&gt;     &lt;parent&gt;         &lt;artifactId&gt;cloud2020&lt;/artifactId&gt;         &lt;groupId&gt;com.atguigu.springcloud&lt;/groupId&gt;         &lt;version&gt;1.0-SNAPSHOT&lt;/version&gt;     &lt;/parent&gt;     &lt;modelVersion&gt;4.0.0&lt;/modelVersion&gt;      &lt;artifactId&gt;cloud-provider-payment8001&lt;/artifactId&gt;      &lt;dependencies&gt;         &lt;!--包含了sleuth+zipkin--&gt;         &lt;dependency&gt;             &lt;groupId&gt;org.springframework.cloud&lt;/groupId&gt;             &lt;artifactId&gt;spring-cloud-starter-zipkin&lt;/artifactId&gt;         &lt;/dependency&gt;          &lt;dependency&gt;             &lt;groupId&gt;org.springframework.cloud&lt;/groupId&gt;             &lt;artifactId&gt;spring-cloud-starter-netflix-eureka-client&lt;/artifactId&gt;         &lt;/dependency&gt;          &lt;dependency&gt;             &lt;groupId&gt;com.atguigu.springcloud&lt;/groupId&gt;             &lt;artifactId&gt;cloud-api-commons&lt;/artifactId&gt;             &lt;version&gt;${project.version}&lt;/version&gt;         &lt;/dependency&gt;           &lt;!-- https://mvnrepository.com/artifact/org.springframework.boot/spring-boot-starter-web --&gt;         &lt;dependency&gt;             &lt;groupId&gt;org.springframework.boot&lt;/groupId&gt;             &lt;artifactId&gt;spring-boot-starter-web&lt;/artifactId&gt;         &lt;/dependency&gt;          &lt;!-- https://mvnrepository.com/artifact/org.springframework.boot/spring-boot-starter-web --&gt;         &lt;dependency&gt;             &lt;groupId&gt;org.springframework.boot&lt;/groupId&gt;             &lt;artifactId&gt;spring-boot-starter-actuator&lt;/artifactId&gt;         &lt;/dependency&gt;          &lt;!-- https://mvnrepository.com/artifact/org.springframework.boot/spring-boot-starter-web --&gt;         &lt;dependency&gt;             &lt;groupId&gt;org.mybatis.spring.boot&lt;/groupId&gt;             &lt;artifactId&gt;mybatis-spring-boot-starter&lt;/artifactId&gt;         &lt;/dependency&gt;          &lt;!-- https://mvnrepository.com/artifact/com.alibaba/druid --&gt;         &lt;dependency&gt;             &lt;groupId&gt;com.alibaba&lt;/groupId&gt;             &lt;artifactId&gt;druid-spring-boot-starter&lt;/artifactId&gt;             &lt;version&gt;1.1.10&lt;/version&gt;         &lt;/dependency&gt;         &lt;!-- https://mvnrepository.com/artifact/mysql/mysql-connector-java --&gt;         &lt;dependency&gt;             &lt;groupId&gt;mysql&lt;/groupId&gt;             &lt;artifactId&gt;mysql-connector-java&lt;/artifactId&gt;         &lt;/dependency&gt;          &lt;!-- https://mvnrepository.com/artifact/org.springframework.boot/spring-boot-starter-jdbc --&gt;         &lt;dependency&gt;             &lt;groupId&gt;org.springframework.boot&lt;/groupId&gt;             &lt;artifactId&gt;spring-boot-starter-jdbc&lt;/artifactId&gt;         &lt;/dependency&gt;          &lt;!-- https://mvnrepository.com/artifact/org.springframework.boot/spring-boot-devtools --&gt;         &lt;dependency&gt;             &lt;groupId&gt;org.springframework.boot&lt;/groupId&gt;             &lt;artifactId&gt;spring-boot-devtools&lt;/artifactId&gt;             &lt;scope&gt;runtime&lt;/scope&gt;             &lt;optional&gt;true&lt;/optional&gt;         &lt;/dependency&gt;          &lt;!-- https://mvnrepository.com/artifact/org.projectlombok/lombok --&gt;         &lt;dependency&gt;             &lt;groupId&gt;org.projectlombok&lt;/groupId&gt;             &lt;artifactId&gt;lombok&lt;/artifactId&gt;             &lt;optional&gt;true&lt;/optional&gt;         &lt;/dependency&gt;          &lt;!-- https://mvnrepository.com/artifact/org.springframework.boot/spring-boot-starter-test --&gt;         &lt;dependency&gt;             &lt;groupId&gt;org.springframework.boot&lt;/groupId&gt;             &lt;artifactId&gt;spring-boot-starter-test&lt;/artifactId&gt;             &lt;scope&gt;test&lt;/scope&gt;         &lt;/dependency&gt; &lt;!--        &lt;dependency&gt;--&gt; &lt;!--            &lt;groupId&gt;org.springframework.cloud&lt;/groupId&gt;--&gt; &lt;!--            &lt;artifactId&gt;spring-cloud-gateway-core&lt;/artifactId&gt;--&gt; &lt;!--        &lt;/dependency&gt;--&gt;       &lt;/dependencies&gt;   &lt;/project&gt;</code></pre> <h3>2.2.2 YML</h3> <pre><code>server:   port: 8001   spring:   application:     name: cloud-payment-service   zipkin:     base-url: http://localhost:9411   sleuth:     sampler:       #采样率值介于0到1之间，1则表示全部采集       probability: 1   datasource:     type: com.alibaba.druid.pool.DruidDataSource     driver-class-name: org.gjt.mm.mysql.Driver  # mysql驱动包     url: jdbc:mysql://localhost:3306/cloud2020?useUnicode=true&amp;characterEncoding=utf-8&amp;useSSL=false     username: root     password: root  eureka:   client:     #表示是否将自己注册进EurekaServer默认为true     register-with-eureka: true     #是否从EurekaServer抓取已有的注册信息，默认为true。单节点无所谓，集群必须设置为true才能配合ribbon使用负载均衡     fetchRegistry: true     service-url: #      defaultZone: http://localhost:7001/eureka #单机版       defaultZone: http://eureka7001.com:7001/eureka,http://eureka7002.com:7002/eureka#集群版   instance:     instance-id: payment8001     #访问路径可以显示IP地址     prefer-ip-address: true     #Eureka客户端向服务端发送心跳的时间间隔，单位为妙（默认是30秒)     lease-renewal-interval-in-seconds: 1     #Eureka服务端在收到最后一次心跳后等待时间上限，单位为秒（默认是90秒），超时将剔除服务     lease-expiration-duration-in-seconds: 2    mybatis:   mapperLocations: classpath:mapper/*.xml   type-aliases-package: com.atguigu.springcloud.entities #所有Entity别名类所在包</code></pre> <h3>2.2.3业务类PyamentController</h3> <pre><code class="language-java">package com.atguigu.springcloud.controller;  import com.atguigu.springcloud.entities.CommonResult; import com.atguigu.springcloud.entities.Payment; import com.atguigu.springcloud.service.PaymentService; import lombok.extern.slf4j.Slf4j; import org.springframework.beans.factory.annotation.Value; import org.springframework.cloud.client.ServiceInstance; import org.springframework.cloud.client.discovery.DiscoveryClient; import org.springframework.web.bind.annotation.*;  import javax.annotation.Resource; import java.util.List; import java.util.concurrent.TimeUnit;  @RestController @Slf4j public class PaymentController {      @Resource     private PaymentService paymentService;      @Value("${server.port}")     private String serverPort;      @Resource     private DiscoveryClient discoveryClient;      @GetMapping(value = "/payment/discovery")     public Object discovery() {         List&lt;String&gt; services = discoveryClient.getServices();         for (String element : services) {             log.info("********element: " + element);         }         List&lt;ServiceInstance&gt; instances = discoveryClient.getInstances("CLOUD-PAYMENT-SERVICE");         for (ServiceInstance instance : instances) {             log.info(instance.getServiceId()+"\t"+instance.getHost()+"\t"+instance.getPort()+"\t"+instance.getUri());         }         return this.discoveryClient;     }      @GetMapping(value = "/payment/lb")     public String getPaymentLB() {         return serverPort;     }      @PostMapping(value = "/payment/create")     public CommonResult create(@RequestBody Payment payment) {         int result = paymentService.create(payment);         log.info("*****插入结果：" + result + "****哈哈");         if (result &gt; 0) {  //成功             return new CommonResult(200, "插入数据库成功,serverPort: " + serverPort, result);         } else {             return new CommonResult(444, "插入数据库失败", null);         }     }      @GetMapping(value = "/payment/get/{id}")     public CommonResult&lt;Payment&gt; getPaymentById(@PathVariable("id") Long id) {         Payment payment = paymentService.getPaymentById(id);         log.info("*****查询结果：" + payment + "哈哈哈");         if (payment != null) {  //说明有数据，能查询成功             return new CommonResult(200, "查询成功,serverPort: " + serverPort, payment);         } else {             return new CommonResult(444, "没有对应记录，查询ID：" + id, null);         }     }      @GetMapping(value = "/payment/feign/timeout")     public String paymentFeignTimeout() {         try {             TimeUnit.SECONDS.sleep(3);         } catch (InterruptedException e) {             e.printStackTrace();         }         return serverPort;     }      @GetMapping("/payment/zipkin")     public String paymentZipkin() {         return "hi, I'm paymentZipkin server fall back, welcome to here";     } }</code></pre> <h2>2.3 服务消费者(调用方)</h2> <p>cloud-consumer-order80</p> <h3>2.3.1 POM</h3> <pre><code> &lt;!--包含了sleuth+zipkin--&gt;         &lt;dependency&gt;             &lt;groupId&gt;org.springframework.cloud&lt;/groupId&gt;             &lt;artifactId&gt;spring-cloud-starter-zipkin&lt;/artifactId&gt;         &lt;/dependency&gt;</code></pre> <h3>2.3.2 YML</h3> <pre><code>server:   port: 80  spring:   application:     name: cloud-order-service   zipkin:     base-url: http://localhost:9411   sleuth:     sampler:       #采样率值介于0到1之间，1则表示全部采集       probability: 1  eureka:   client:     #表示是否将自己注册进EurekaServer默认为true     register-with-eureka: true     #是否从EurekaServer抓取已有的注册信息，默认为true。单节点无所谓，集群必须设置为true才能配合ribbon使用负载均衡     fetchRegistry: true     service-url:       #      defaultZone: http://localhost:7001/eureka #单机版       defaultZone: http://eureka7001.com:7001/eureka,http://eureka7002.com:7002/eureka#集群版</code></pre> <h3>2.3.3 业务类PaymentController</h3> <pre><code class="language-java">package com.atguigu.springcloud.controller;  import com.atguigu.springcloud.entities.CommonResult; import com.atguigu.springcloud.entities.Payment; import lombok.extern.slf4j.Slf4j; import org.springframework.http.ResponseEntity; import org.springframework.web.bind.annotation.GetMapping; import org.springframework.web.bind.annotation.PathVariable; import org.springframework.web.bind.annotation.RestController; import org.springframework.web.client.RestTemplate;  import javax.annotation.Resource;  @RestController @Slf4j public class OrderController {     //不能写死 //    public static final String PAYMENT_URL = "http://localhost:8001";     //注册中心上获取     public static final String PAYMENT_URL = "http://CLOUD-PAYMENT-SERVICE";      @Resource     private RestTemplate restTemplate;      @GetMapping("/consumer/payment/create")     public CommonResult&lt;Payment&gt; create(Payment payment) { //        return restTemplate.postForObject(PAYMENT_URL + "/payment/create", payment, CommonResult.class);         return restTemplate.postForEntity(PAYMENT_URL+"/payment/create", payment, CommonResult.class).getBody();     }  //    返回对象为响应体中数据转化成的对象，基本上可以理解为Json     @GetMapping("/consumer/payment/get/{id}")     public CommonResult&lt;Payment&gt; getPayment(@PathVariable("id") Long id) {         return restTemplate.getForObject(PAYMENT_URL + "/payment/get/" + id, CommonResult.class);     }  //    返回对象为ResponseEntity对象，包含了响应中的一些重要信息，比如响应头、响应状态码、响应体等     @GetMapping("/consumer/payment/getForEntity/{id}")     public CommonResult&lt;Payment&gt; getPayment2(@PathVariable("id") Long id) {         ResponseEntity&lt;CommonResult&gt; entity = restTemplate.getForEntity(PAYMENT_URL + "/payment/get/" + id, CommonResult.class);         if (entity.getStatusCode().is2xxSuccessful()) {             log.info(entity.getStatusCode()+"\t"+entity.getHeaders());             CommonResult body = entity.getBody();             return body;         } else {             return new CommonResult&lt;&gt;(444, "操作失败");         }     }      // ====================&gt; zipkin+sleuth     @GetMapping("/consumer/payment/zipkin")     public String paymentZipkin()     {         String result = restTemplate.getForObject("http://localhost:8001"+"/payment/zipkin/", String.class);         return result;     }   }</code></pre> <h2>2.4 依次启动eureka7001/8001/80</h2> <p>80调用8001几次测试下</p> <h2>2.5 打开浏览器访问http//localhost:9411</h2> <p><a href="http://www.m6000.cn/wp-content/themes/begin%20lts/inc/go.php?url=http://localhost/consumer/payment/zipkin"  rel="nofollow">http://localhost/consumer/payment/zipkin</a></p> <p>会出现以下界面</p> <p><img loading="lazy" decoding="async" alt="" height="508" src="http://img.555519.xyz/uploads/20221201/97c94a9d0f1c033bd43fbae4dd584ede.jpg"></p> <p><img loading="lazy" decoding="async" alt="" height="449" src="http://img.555519.xyz/uploads/20221201/eefeeedbdcbf76767b689c12450877fb.jpg"></p> </div> 			                <div class="clearfix"></div>
+                <div class="col-md-12 mt-5">
+                                        <p>上一个：<a href="/news/article-57170.htm">有没有可以免费领养宠物的软件（可以免费领养宠物的软件叫什么）</a></p>
+                                        <p>下一个：<a href="/news/article-57740.htm">猫养多久认家比较合适（猫养多久认家比较合适呢）</a></p>
+                                    </div>
+                                    </div>
+                    <div class="col-md-3">
+                        <div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">热门文章</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2"><a href="/news/article-19412.htm" title="Java8 接口新特性">Java8 接口新特性</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-2-15-free-subscribe-node.htm" title="「2月15日」最高速度19.7M/S，2025年Github Loon每天更新免费机场订阅节点链接">「2月15日」最高速度19.7M/S，2025年Github Loon每天更新免费机场订阅节点链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-11-15-free-node-subscribe.htm" title="「11月15日」最高速度22.5M/S，2024年Github Loon每天更新免费机场订阅节点链接">「11月15日」最高速度22.5M/S，2024年Github Loon每天更新免费机场订阅节点链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-12-28-node-share-links.htm" title="「12月28日」最高速度21.8M/S，2024年Github Loon每天更新免费机场订阅节点链接">「12月28日」最高速度21.8M/S，2024年Github Loon每天更新免费机场订阅节点链接</a></li>
+                        <li class="py-2"><a href="/news/article-19868.htm" title="动物医院诊疗许可证办理要求标准是什么（动物医院办理条件）">动物医院诊疗许可证办理要求标准是什么（动物医院办理条件）</a></li>
+                        <li class="py-2"><a href="/news/article-43651.htm" title="被宠物猫抓伤轻微出血（被宠物猫抓伤轻微出血多长时间内打针）">被宠物猫抓伤轻微出血（被宠物猫抓伤轻微出血多长时间内打针）</a></li>
+                        <li class="py-2"><a href="/news/article-31010.htm" title="狗粮加工厂赚钱吗知乎推荐（狗粮 加工）">狗粮加工厂赚钱吗知乎推荐（狗粮 加工）</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-1-26-free-loon-node.htm" title="「1月26日」最高速度20.9M/S，2025年Github Loon每天更新免费机场订阅节点链接">「1月26日」最高速度20.9M/S，2025年Github Loon每天更新免费机场订阅节点链接</a></li>
+                        <li class="py-2"><a href="/news/article-44205.htm" title="猫三联一针和三针的区别图片（猫三联一共几针多少钱）">猫三联一针和三针的区别图片（猫三联一共几针多少钱）</a></li>
+                        <li class="py-2"><a href="/news/article-29104.htm" title="女人养猫会怎么样呢（女人养猫咪会命不好吗）">女人养猫会怎么样呢（女人养猫咪会命不好吗）</a></li>
+                    </ul>
+    </div>
+</div>
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">归纳</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">48</span> <a href="/date/2025-02/" title="2025-02 归档">2025-02</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">93</span> <a href="/date/2025-01/" title="2025-01 归档">2025-01</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">93</span> <a href="/date/2024-12/" title="2024-12 归档">2024-12</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">30</span> <a href="/date/2024-11/" title="2024-11 归档">2024-11</a></h4>
+            </li>
+                    </ul>
+    </div>
+</div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- //section -->    
+        <!-- footer17 -->
+    <section class="footer-17">
+        <div class="footer17_sur py-5">
+            <div class="copyright text-center">
+                <div class="container">
+                    <p class="copy-footer-29">
+                            <p>
+                                <a href="/">首页</a> | 
+                                <a href="/free-node/">免费节点</a> | 
+                                <a href="/news/">新闻资讯</a> |
+                                <a href="/about-us.htm">关于我们</a> |
+                                <a href="/disclaimer.htm">免责申明</a> |
+                                <a href="/privacy.htm">隐私申明</a> |
+                                <a href="/sitemap.xml">网站地图</a>
+                            </p>
+                        Github Loon节点订阅官网 版权所有 Powered by WordPress
+                    </p>
+                </div>
+            </div>
+            <!-- move top -->
+            <button onclick="topFunction()" id="movetop" title="Go to top">
+                &#10548;
+            </button>
+            <script>
+            // When the user scrolls down 20px from the top of the document, show the button
+            window.onscroll = function() {
+                scrollFunction()
+            };
+
+            function scrollFunction() {
+                if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+                    document.getElementById("movetop").style.display = "block";
+                } else {
+                    document.getElementById("movetop").style.display = "none";
+                }
+            }
+
+            // When the user clicks on the button, scroll to the top of the document
+            function topFunction() {
+                document.body.scrollTop = 0;
+                document.documentElement.scrollTop = 0;
+            }
+            </script>
+            <!-- /move top -->
+        </div>
+    </section>
+    <!-- //footer17 -->
+    <!-- Template JavaScript -->
+    <script src="/assets/website/js/frontend/githubloon/jquery-3.5.1.min.js"></script>
+    <script src="/assets/website/js/frontend/githubloon/theme-change.js"></script><!-- theme switch js (light and dark)-->
+    <!-- pricing tabs js -->
+    <script src="/assets/website/js/frontend/githubloon/tabs.js"></script>
+    <!-- owlcarousel -->
+    <script src="/assets/website/js/frontend/githubloon/owl.carousel.js"></script>
+    <!-- script for tesimonials carousel slider -->
+    <script>
+    $(document).ready(function() {
+        $("#owl-demo1").owlCarousel({
+            loop: true,
+            nav: false,
+            margin: 50,
+            responsiveClass: true,
+            responsive: {
+                0: {
+                    items: 1,
+                    nav: false
+                },
+                736: {
+                    items: 2,
+                    nav: false
+                }
+            }
+        })
+    })
+    </script>
+    <!-- //script for tesimonials carousel slider -->
+    <!-- script for tesimonials agency carousel slider -->
+    <script>
+    $(document).ready(function() {
+        $("#owl-agency").owlCarousel({
+            loop: true,
+            nav: false,
+            margin: 50,
+            responsiveClass: true,
+            responsive: {
+                0: {
+                    items: 1,
+                    nav: false
+                },
+                736: {
+                    items: 1,
+                    nav: false
+                }
+            }
+        })
+    })
+    </script>
+    <!-- //script for tesimonials agency carousel slider -->
+    <!-- magnific popup -->
+    <script src="/assets/website/js/frontend/githubloon/jquery.magnific-popup.min.js"></script>
+    <script>
+    $(document).ready(function() {
+        $('.popup-with-zoom-anim').magnificPopup({
+            type: 'inline',
+
+            fixedContentPos: false,
+            fixedBgPos: true,
+
+            overflowY: 'auto',
+
+            closeBtnInside: true,
+            preloader: false,
+
+            midClick: true,
+            removalDelay: 300,
+            mainClass: 'my-mfp-zoom-in'
+        });
+
+        $('.popup-with-move-anim').magnificPopup({
+            type: 'inline',
+
+            fixedContentPos: false,
+            fixedBgPos: true,
+
+            overflowY: 'auto',
+
+            closeBtnInside: true,
+            preloader: false,
+
+            midClick: true,
+            removalDelay: 300,
+            mainClass: 'my-mfp-slide-bottom'
+        });
+    });
+    </script>
+    <!-- //magnific popup -->
+    <!-- disable body scroll which navbar is in active -->
+    <script>
+    $(function() {
+        $('.navbar-toggler').click(function() {
+            $('body').toggleClass('noscroll');
+        })
+    });
+    </script>
+    <!-- disable body scroll which navbar is in active -->
+    <!--/MENU-JS-->
+    <script>
+    $(window).on("scroll", function() {
+        var scroll = $(window).scrollTop();
+
+        if (scroll >= 80) {
+            $("#site-header").addClass("nav-fixed");
+        } else {
+            $("#site-header").removeClass("nav-fixed");
+        }
+    });
+
+    //Main navigation Active Class Add Remove
+    $(".navbar-toggler").on("click", function() {
+        $("header").toggleClass("active");
+    });
+    $(document).on("ready", function() {
+        if ($(window).width() > 991) {
+            $("header").removeClass("active");
+        }
+        $(window).on("resize", function() {
+            if ($(window).width() > 991) {
+                $("header").removeClass("active");
+            }
+        });
+    });
+    </script>
+    <!--//MENU-JS-->
+    <script src="/assets/website/js/frontend/githubloon/bootstrap.min.js"></script>
+    <script src="https://www.freeclashnode.com/assets/js/frontend/invite-url.js"></script><script src="/assets/website/js/frontend/G.js"></script>
+</body>
+
+</html>
