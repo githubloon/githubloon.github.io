@@ -1,0 +1,358 @@
+<!doctype html>
+<html xml:lang="zh-CN" lang="zh-CN">
+
+<head>
+        <link rel="canonical" href="https://githubloon.github.io/news/article-68561.htm" />
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Vant indexBar 索引栏用法和搜索条件的功能</title>
+        <meta name="description" content="小菜鸟一枚,第一次尝试这写项目中的遇到的问题.(多总结,俗话说:好记性不如个烂笔头~~) 最近在做移动端页面,其中遇到类似于查找联系人的功能,先看ui图吧, 看到这样的图立马想起来通讯录的功能,因为移" />
+        <link rel="icon" href="/assets/website/img/githubloon/favicon.ico" type="image/x-icon"/>
+
+    <meta name="author" content="Github Loon节点订阅官网">
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://githubloon.github.io/news/article-68561.htm" />
+    <meta property="og:site_name" content="Github Loon节点订阅官网" />
+    <meta property="og:title" content="Vant indexBar 索引栏用法和搜索条件的功能" />
+    <meta property="og:image" content="https://githubloon.github.io/uploads/20240820/c06f83e14f22adf7153c305da375393f.webp" />
+        <meta property="og:release_date" content="2025-03-06T11:03:36" />
+    <meta property="og:updated_time" content="2025-03-06T11:03:36" />
+        <meta property="og:description" content="小菜鸟一枚,第一次尝试这写项目中的遇到的问题.(多总结,俗话说:好记性不如个烂笔头~~) 最近在做移动端页面,其中遇到类似于查找联系人的功能,先看ui图吧, 看到这样的图立马想起来通讯录的功能,因为移" />
+        
+    <meta name="applicable-device" content="pc,mobile" />
+    <meta name="renderer" content="webkit" />
+    <meta name="force-rendering" content="webkit" />
+    <meta http-equiv="Cache-Control" content="no-transform" />
+    <meta name="robots" content="max-image-preview:large" />
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-title" content="Vant indexBar 索引栏用法和搜索条件的功能">
+    <meta name="format-detection" content="telephone=no">
+
+    <link rel="dns-prefetch" href="https:/www.googletagmanager.com">
+    <link rel="dns-prefetch" href="https://www.googleadservices.com">
+    <link rel="dns-prefetch" href="https://www.google-analytics.com">
+    <link rel="dns-prefetch" href="https://pagead2.googlesyndication.com">
+    <link rel="dns-prefetch" href="https://cm.g.doubleclick.net">
+    <link rel="dns-prefetch" href="https://fonts.googleapis.com">
+
+    <!-- Google fonts -->
+    <link href="//fonts.googleapis.com/css2?family=DM+Sans:wght@400;700&display=swap" rel="stylesheet">
+    <!-- Template CSS -->
+    <link rel="stylesheet" href="/assets/website/css/githubloon/style-starter.css">
+    <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-9MPH6JPQCT"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-9MPH6JPQCT');
+</script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3332997411212854"
+     crossorigin="anonymous"></script>
+</head>
+
+<body data-page="detail">
+        <div class="header-saas">
+        <!-- header -->
+        <header id="site-header" class="fixed-top">
+            <div class="container">
+                <nav class="navbar navbar-expand-lg stroke">
+                    <a class="navbar-brand" href="/">
+                                        <span>Github Loon</span>
+                                        </a>
+                    <button class="navbar-toggler  collapsed bg-gradient" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon fa icon-expand fa-bars"></span>
+                        <span class="navbar-toggler-icon fa icon-close fa-times"></span>
+                        </span>
+                    </button>
+                    <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
+                        <ul class="navbar-nav ml-auto">
+                                                        <li class="nav-item">
+                                <a class="nav-link" href="/">首页</a>
+                            </li>
+                                                        <li class="nav-item">
+                                <a class="nav-link" href="/free-nodes/">免费节点</a>
+                            </li>
+                                                        <li class="nav-item">
+                                <a class="nav-link" href="/paid-subscribe/">推荐机场</a>
+                            </li>
+                                                        <li class="nav-item">
+                                <a class="nav-link" href="/client.htm">客户端</a>
+                            </li>
+                                                        <li class="nav-item">
+                                <a class="nav-link" href="/news/">新闻资讯</a>
+                            </li>
+                                                    </ul>
+                    </div>
+                    <!-- toggle switch for light and dark theme -->
+                    <div class="mobile-position">
+                        <nav class="navigation">
+                            <div class="theme-switch-wrapper">
+                                <label class="theme-switch" for="checkbox">
+                                    <input type="checkbox" id="checkbox">
+                                    <div class="mode-container">
+                                        <i class="gg-sun"></i>
+                                        <i class="gg-moon"></i>
+                                    </div>
+                                </label>
+                            </div>
+                        </nav>
+                    </div>
+                    <!-- //toggle switch for light and dark theme -->
+                </nav>
+            </div>
+        </header>
+        <!-- //header -->
+    </div>
+    <div class="innerblock">
+    </div>
+    <!-- contact-form 2 -->
+    <section class="w3l-contact-2 py-5" id="contact">
+        <div class="container py-lg-4 py-md-3 py-2">
+            <div class="title-content text-center">
+                <h1 class="title-toobig">Vant indexBar 索引栏用法和搜索条件的功能</h1>
+                <p class="mt-md-4 mt-3 mx-lg-5 px-lg-5">
+                    <a href="/">首页</a> / <a href="/news/">新闻资讯</a> / 正文
+                </p>
+            </div>
+    </section>
+    <!-- section -->
+    <section class="w3l-index3" id="about">
+        <div class="midd-w3 py-5">
+            <div class="container py-lg-5 py-md-3 py-2">
+                <div class="row">
+                    <div class="col-md-9">
+                                        <input type="hidden" id="share-website-info" data-name="" data-url="">
+                  				  				  				<div id="content_views" class="markdown_views prism-atom-one-dark"> <p>小菜鸟一枚,第一次尝试这写项目中的遇到的问题.(多总结,俗话说:好记性不如个烂笔头~~)<br /> 最近在做移动端页面,其中遇到类似于查找联系人的功能,先看ui图吧,<br /><img decoding="async" src="http://img.555519.xyz/uploads3/20220904/329e0dfe779d7343cf3c7bd334793e0d.jpg" alt="Vant indexBar 索引栏用法和搜索条件的功能"><br /> 看到这样的图立马想起来通讯录的功能,因为移动端用的是Vant的框架,所以呢~就用了indexBar的索引栏,</p> <p>链接如下:<a href="http://www.m6000.cn/wp-content/themes/begin%20lts/inc/go.php?url=https://vant-contrib.gitee.io/vant/#/zh-CN/index-bar"  rel="nofollow">添加链接描述</a></p> <h2><a id="indexBar_7" rel="nofollow"></a>官网的indexBar的基础用法是下面这样的:</h2> <pre><code class="prism language-javascript"><span class="token operator">&lt;</span>van<span class="token operator">-</span>index<span class="token operator">-</span>bar<span class="token operator">&gt;</span><span class="token operator">&lt;</span>van<span class="token operator">-</span>index<span class="token operator">-</span>anchor index<span class="token operator">=</span><span class="token string">"A"</span><span class="token operator">/</span><span class="token operator">&gt;</span><span class="token comment">//这里是每一类型行的标题</span><span class="token operator">&lt;</span>van<span class="token operator">-</span>cell title<span class="token operator">=</span><span class="token string">"文本"</span><span class="token operator">/</span><span class="token operator">&gt;</span><span class="token comment">//这里是每一类型下行内容的标题</span><span class="token operator">&lt;</span>van<span class="token operator">-</span>cell title<span class="token operator">=</span><span class="token string">"文本"</span><span class="token operator">/</span><span class="token operator">&gt;</span><span class="token operator">&lt;</span>van<span class="token operator">-</span>cell title<span class="token operator">=</span><span class="token string">"文本"</span><span class="token operator">/</span><span class="token operator">&gt;</span><span class="token operator">&lt;</span>van<span class="token operator">-</span>index<span class="token operator">-</span>anchor index<span class="token operator">=</span><span class="token string">"B"</span><span class="token operator">/</span><span class="token operator">&gt;</span><span class="token operator">&lt;</span>van<span class="token operator">-</span>cell title<span class="token operator">=</span><span class="token string">"文本"</span><span class="token operator">/</span><span class="token operator">&gt;</span><span class="token operator">&lt;</span>van<span class="token operator">-</span>cell title<span class="token operator">=</span><span class="token string">"文本"</span><span class="token operator">/</span><span class="token operator">&gt;</span><span class="token operator">&lt;</span>van<span class="token operator">-</span>cell title<span class="token operator">=</span><span class="token string">"文本"</span><span class="token operator">/</span><span class="token operator">&gt;</span><span class="token operator">...</span><span class="token operator">&lt;</span><span class="token operator">/</span>van<span class="token operator">-</span>index<span class="token operator">-</span>bar<span class="token operator">&gt;</span></code></pre> <p>根据上面官网的例子呢,目前达不到项目的中的样式和需求,那么在仔细看下内容这里 这熟悉吗?</p> <p>想了解更多的van-cell,可访问这个链接:<a href="http://www.m6000.cn/wp-content/themes/begin%20lts/inc/go.php?url=https://vant-contrib.gitee.io/vant/#/zh-CN/cell"  rel="nofollow">添加链接描述</a></p> <p>下面就说我是怎么写这块的HTML的吧.</p> <pre><code class="prism language-javascript"><span class="token operator">&lt;</span>van<span class="token operator">-</span>index<span class="token operator">-</span>bar<span class="token punctuation">:</span>index<span class="token operator">-</span>list<span class="token operator">=</span><span class="token string">"Object.keys(contactPersonData)"</span><span class="token operator">&gt;</span><span class="token operator">&lt;</span>template v<span class="token operator">-</span><span class="token keyword">for</span><span class="token operator">=</span><span class="token string">"(item, index) in Object.entries(contactPersonData)"</span><span class="token operator">&gt;</span><span class="token operator">&lt;</span>van<span class="token operator">-</span>index<span class="token operator">-</span>anchor<span class="token punctuation">:</span>index<span class="token operator">=</span><span class="token string">"item[0]"</span><span class="token punctuation">:</span>key<span class="token operator">=</span><span class="token string">"index"</span><span class="token operator">&gt;</span><span class="token punctuation">{<!-- --></span><span class="token punctuation">{<!-- --></span> item<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">}</span><span class="token punctuation">}</span><span class="token operator">&lt;</span><span class="token operator">/</span>van<span class="token operator">-</span>index<span class="token operator">-</span>anchor<span class="token operator">&gt;</span><span class="token operator">&lt;</span>van<span class="token operator">-</span>cell center<span class="token punctuation">:</span>title<span class="token operator">=</span><span class="token string">"`${valItem.realName} 【${valItem.account}】`"</span><span class="token punctuation">:</span>label<span class="token operator">=</span><span class="token string">"onTitle(valItem)"</span>  v<span class="token operator">-</span><span class="token keyword">for</span><span class="token operator">=</span><span class="token string">"(valItem, index) in item[1]"</span><span class="token punctuation">:</span>key<span class="token operator">=</span><span class="token string">"index"</span><span class="token operator">&gt;</span><span class="token operator">&lt;</span>template #icon<span class="token operator">&gt;</span><span class="token operator">&lt;</span>van<span class="token operator">-</span>image  round<span class="token punctuation">:</span>src<span class="token operator">=</span><span class="token string">"valItem.headImageSequence"</span><span class="token operator">/</span><span class="token operator">&gt;</span><span class="token operator">&lt;</span><span class="token operator">/</span>template<span class="token operator">&gt;</span><span class="token operator">&lt;</span><span class="token operator">/</span>van<span class="token operator">-</span>cell<span class="token operator">&gt;</span><span class="token operator">&lt;</span><span class="token operator">/</span>template<span class="token operator">&gt;</span><span class="token operator">&lt;</span><span class="token operator">/</span>van<span class="token operator">-</span>index<span class="token operator">-</span>bar<span class="token operator">&gt;</span></code></pre> <blockquote> <p><strong>注释解说</strong><br /> (1) Object.keys 是ES6中的方法,是获取对象的key值的.(2) Object.entries 返回一个数组,可以把一个对象的键值以数组的形式遍历出来<br /> 例如:<br /> var obj = { foo: ‘bar’, baz: 42 };<br /> console.log(Object.entries(obj));<br /> 得到的结果是:<br /> (3)<code>${valItem.realName} 【${valItem.account}】</code> ``和${} 也是ES6中的知识点啦.模板字符串嘛.<br /> 比之前的用 + 拼接方便好多了~<sup>_</sup><br /> (4) &lt;template #icon&gt; 因为这我们需要图片.所以用了自定义的插槽用来定义写头像图片啦,具体的看vant<br /> 官网的标签的用法~</p> </blockquote> <p>UI图上有搜索框,下拉选择,因为项目中封装了组件,所以这里的代码中只展示的indexBar的代码啦.</p> <blockquote> <p><strong>后台返回的数据</strong></p> </blockquote> <p><img decoding="async" src="http://img.555519.xyz/uploads3/20220904/d2c7f9981dea17f4379548c0759388f5.jpg" alt="Vant indexBar 索引栏用法和搜索条件的功能"><br /> 因为后台返回的数据不是我们想要的,所以先转换成我们想要的数据格式:</p> <p><img decoding="async" src="http://img.555519.xyz/uploads3/20220904/0047ee027c463660dbc6a770366df60e.jpg" alt="Vant indexBar 索引栏用法和搜索条件的功能"></p> <blockquote> <p><strong>数据格式化的方法</strong></p> </blockquote> <pre><code class="prism language-javascript"><span class="token comment">// 获取联系人</span><span class="token keyword">let</span> ListOfApproversData<span class="token operator">=</span><span class="token keyword">await</span><span class="token keyword">this</span><span class="token punctuation">.</span>$axios<span class="token punctuation">.</span><span class="token keyword">get</span><span class="token punctuation">(</span><span class="token constant">URL</span>路径<span class="token punctuation">,</span> query<span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token comment">// 存放所有联系人</span><span class="token keyword">let</span> AllContactPerson<span class="token operator">=</span><span class="token punctuation">{<!-- --></span><span class="token punctuation">}</span><span class="token punctuation">;</span><span class="token comment">// 遍历获取来的数据，来做索引值的分配</span>    ListOfApproversData<span class="token punctuation">.</span>body<span class="token punctuation">.</span><span class="token function">map</span><span class="token punctuation">(</span><span class="token punctuation">(</span>item<span class="token punctuation">)</span><span class="token operator">=&gt;</span><span class="token punctuation">{<!-- --></span><span class="token comment">// 取出当前联系人的首字母并且转换为打大写</span><span class="token keyword">let</span> Initials<span class="token operator">=</span> item<span class="token punctuation">.</span>namePinyin<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">.</span><span class="token function">toUpperCase</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token comment">// 如果项目集合里面有当前字母项则直接push一个对象如果没有则创建一个新的并赋值;</span><span class="token keyword">if</span><span class="token punctuation">(</span>AllContactPerson<span class="token punctuation">[</span>Initials<span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">{<!-- --></span>                AllContactPerson<span class="token punctuation">[</span>Initials<span class="token punctuation">]</span><span class="token punctuation">.</span><span class="token function">push</span><span class="token punctuation">(</span>item<span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token punctuation">}</span><span class="token keyword">else</span><span class="token punctuation">{<!-- --></span>                    AllContactPerson<span class="token punctuation">[</span>Initials<span class="token punctuation">]</span><span class="token operator">=</span><span class="token punctuation">[</span>item<span class="token punctuation">]</span><span class="token punctuation">;</span><span class="token punctuation">}</span><span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token keyword">this</span><span class="token punctuation">.</span>contactPersonData<span class="token operator">=</span> AllContactPerson<span class="token punctuation">;</span></code></pre> <blockquote> <p><strong>全部代码</strong></p> </blockquote> <pre><code class="prism language-javascript"><span class="token operator">&lt;</span>style lang<span class="token operator">=</span><span class="token string">"less"</span> module<span class="token operator">&gt;</span><span class="token punctuation">.</span>GetContactsWarp<span class="token punctuation">{<!-- --></span>   width<span class="token punctuation">:</span><span class="token number">100</span><span class="token operator">%</span><span class="token punctuation">;</span>   height<span class="token punctuation">:</span><span class="token number">100</span><span class="token operator">%</span><span class="token punctuation">;</span>    position<span class="token punctuation">:</span> relative<span class="token punctuation">;</span>    overflow<span class="token punctuation">:</span> auto<span class="token punctuation">;</span><span class="token punctuation">.</span>Avatar<span class="token punctuation">{<!-- --></span>         @wh<span class="token punctuation">:</span><span class="token number">39</span>px<span class="token punctuation">;</span>          width<span class="token punctuation">:</span> @wh<span class="token punctuation">;</span>          height<span class="token punctuation">:</span> @wh<span class="token punctuation">;</span>         margin<span class="token operator">-</span>right<span class="token punctuation">:</span><span class="token number">5</span>px<span class="token punctuation">;</span><span class="token punctuation">}</span><span class="token punctuation">}</span><span class="token operator">&lt;</span><span class="token operator">/</span>style<span class="token operator">&gt;</span><span class="token operator">&lt;</span>style lang<span class="token operator">=</span><span class="token string">"less"</span><span class="token operator">&gt;</span><span class="token punctuation">.</span>GetContactsWarp<span class="token punctuation">{<!-- --></span><span class="token punctuation">.</span>van<span class="token operator">-</span>cell<span class="token punctuation">{<!-- --></span><span class="token punctuation">.</span>van<span class="token operator">-</span>cell__title<span class="token punctuation">{<!-- --></span><span class="token operator">&amp;</span><span class="token operator">&gt;</span> span<span class="token punctuation">{<!-- --></span>                     font<span class="token operator">-</span>size<span class="token punctuation">:</span><span class="token number">14</span>px<span class="token punctuation">;</span>                     font<span class="token operator">-</span>weight<span class="token punctuation">:</span><span class="token number">500</span><span class="token punctuation">;</span>                     color<span class="token punctuation">:</span> #<span class="token number">252631</span><span class="token punctuation">;</span><span class="token punctuation">}</span><span class="token punctuation">.</span>van<span class="token operator">-</span>cell__label<span class="token punctuation">{<!-- --></span>                 font<span class="token operator">-</span>size<span class="token punctuation">:</span><span class="token number">12</span>px<span class="token punctuation">;</span>                   font<span class="token operator">-</span>weight<span class="token punctuation">:</span><span class="token number">400</span><span class="token punctuation">;</span>                    color<span class="token punctuation">:</span> #<span class="token number">98</span>a9bc<span class="token punctuation">;</span><span class="token punctuation">}</span><span class="token punctuation">}</span><span class="token punctuation">}</span><span class="token punctuation">.</span>van<span class="token operator">-</span>cell<span class="token punctuation">:</span><span class="token punctuation">:</span>after<span class="token punctuation">{<!-- --></span>                border<span class="token operator">-</span>bottom<span class="token punctuation">:</span><span class="token number">1</span>px solid #ddd<span class="token punctuation">;</span><span class="token punctuation">}</span><span class="token punctuation">.</span>ClassLast<span class="token punctuation">:</span><span class="token punctuation">:</span>after<span class="token punctuation">{<!-- --></span>              border<span class="token operator">-</span>bottom<span class="token punctuation">:</span> none<span class="token punctuation">;</span><span class="token punctuation">}</span><span class="token punctuation">}</span><span class="token operator">&lt;</span><span class="token operator">/</span>style<span class="token operator">&gt;</span><span class="token operator">&lt;</span>template<span class="token operator">&gt;</span><span class="token operator">&lt;</span>div<span class="token punctuation">:</span><span class="token keyword">class</span><span class="token operator">=</span><span class="token string">"[$style.GetContactsWarp, 'GetContactsWarp']"</span><span class="token operator">&gt;</span><span class="token operator">&lt;</span>van<span class="token operator">-</span>index<span class="token operator">-</span>bar<span class="token punctuation">:</span>index<span class="token operator">-</span>list<span class="token operator">=</span><span class="token string">"Object.keys(contactPersonData)"</span><span class="token operator">&gt;</span><span class="token operator">&lt;</span>template v<span class="token operator">-</span><span class="token keyword">for</span><span class="token operator">=</span><span class="token string">"(item, index) in Object.entries(contactPersonData)"</span><span class="token operator">&gt;</span><span class="token operator">&lt;</span>van<span class="token operator">-</span>index<span class="token operator">-</span>anchor<span class="token punctuation">:</span>index<span class="token operator">=</span><span class="token string">"item[0]"</span><span class="token punctuation">:</span>key<span class="token operator">=</span><span class="token string">"index"</span><span class="token operator">&gt;</span><span class="token punctuation">{<!-- --></span><span class="token punctuation">{<!-- --></span> item<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">}</span><span class="token punctuation">}</span><span class="token operator">&lt;</span><span class="token operator">/</span>van<span class="token operator">-</span>index<span class="token operator">-</span>anchor<span class="token operator">&gt;</span><span class="token operator">&lt;</span>van<span class="token operator">-</span>cell<span class="token punctuation">:</span><span class="token keyword">class</span><span class="token operator">=</span><span class="token string">"[item[1].length == index + 1 ? 'ClassLast' : '']"</span> center<span class="token punctuation">:</span>title<span class="token operator">=</span><span class="token string">"`${valItem.realName} 【${valItem.account}】`"</span><span class="token punctuation">:</span>label<span class="token operator">=</span><span class="token string">"onTitle(valItem)"</span>  v<span class="token operator">-</span><span class="token keyword">for</span><span class="token operator">=</span><span class="token string">"(valItem, index) in item[1]"</span><span class="token punctuation">:</span>key<span class="token operator">=</span><span class="token string">"index"</span><span class="token operator">&gt;</span><span class="token operator">&lt;</span>template #icon<span class="token operator">&gt;</span><span class="token operator">&lt;</span>van<span class="token operator">-</span>image<span class="token punctuation">:</span><span class="token keyword">class</span><span class="token operator">=</span><span class="token string">"[$style.Avatar]"</span> round<span class="token punctuation">:</span>src<span class="token operator">=</span><span class="token string">"valItem.headImageSequence"</span><span class="token operator">/</span><span class="token operator">&gt;</span><span class="token operator">&lt;</span><span class="token operator">/</span>template<span class="token operator">&gt;</span><span class="token operator">&lt;</span><span class="token operator">/</span>van<span class="token operator">-</span>cell<span class="token operator">&gt;</span><span class="token operator">&lt;</span><span class="token operator">/</span>template<span class="token operator">&gt;</span><span class="token operator">&lt;</span><span class="token operator">/</span>van<span class="token operator">-</span>index<span class="token operator">-</span>bar<span class="token operator">&gt;</span><span class="token operator">&lt;</span><span class="token operator">/</span>div<span class="token operator">&gt;</span><span class="token operator">&lt;</span><span class="token operator">/</span>template<span class="token operator">&gt;</span><span class="token operator">&lt;</span>script<span class="token operator">&gt;</span><span class="token keyword">export</span><span class="token keyword">default</span><span class="token punctuation">{<!-- --></span>     name<span class="token punctuation">:</span><span class="token string">"GetContacts"</span><span class="token punctuation">,</span><span class="token function">data</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{<!-- --></span><span class="token keyword">return</span><span class="token punctuation">{<!-- --></span>           contactPersonData<span class="token punctuation">:</span><span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">,</span><span class="token comment">//列表数据</span><span class="token punctuation">}</span><span class="token punctuation">;</span><span class="token punctuation">}</span><span class="token punctuation">,</span>    methods<span class="token punctuation">:</span><span class="token punctuation">{<!-- --></span><span class="token function">onTitle</span><span class="token punctuation">(</span>item<span class="token punctuation">)</span><span class="token punctuation">{<!-- --></span><span class="token keyword">let</span> str<span class="token operator">=</span><span class="token template-string"><span class="token string">`</span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">${<!-- --></span>item<span class="token punctuation">.</span>departmentName<span class="token operator">||</span><span class="token string">'暂无部门信息'</span><span class="token interpolation-punctuation punctuation">}</span></span><span class="token string"> 丨</span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">${<!-- --></span> item<span class="token punctuation">.</span>organizationName<span class="token operator">||</span><span class="token string">'暂无单位信息'</span><span class="token interpolation-punctuation punctuation">}</span></span><span class="token string"> 丨</span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">${<!-- --></span>item<span class="token punctuation">.</span>stationName<span class="token operator">||</span><span class="token string">'暂无职位信息'</span><span class="token interpolation-punctuation punctuation">}</span></span><span class="token string">`</span></span><span class="token keyword">return</span> str<span class="token punctuation">}</span><span class="token punctuation">,</span><span class="token keyword">async</span><span class="token function">GetAListOfApprovers</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{<!-- --></span><span class="token comment">// 获取联系人</span><span class="token keyword">let</span> ListOfApproversData<span class="token operator">=</span><span class="token keyword">await</span><span class="token keyword">this</span><span class="token punctuation">.</span>$axios<span class="token punctuation">.</span><span class="token keyword">get</span><span class="token punctuation">(</span><span class="token constant">URL</span>路径<span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token comment">// 判断获取联系人是否成功</span><span class="token keyword">if</span><span class="token punctuation">(</span>ListOfApproversData<span class="token punctuation">.</span>status<span class="token operator">==</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">{<!-- --></span><span class="token comment">// 存放所有联系人</span><span class="token keyword">let</span> AllContactPerson<span class="token operator">=</span><span class="token punctuation">{<!-- --></span><span class="token punctuation">}</span><span class="token punctuation">;</span><span class="token comment">// 遍历获取来的数据，来做索引值的分配</span>       ListOfApproversData<span class="token punctuation">.</span>body<span class="token punctuation">.</span><span class="token function">map</span><span class="token punctuation">(</span><span class="token punctuation">(</span>item<span class="token punctuation">)</span><span class="token operator">=&gt;</span><span class="token punctuation">{<!-- --></span><span class="token comment">// 取出当前联系人的首字母并且转换为打大写</span><span class="token keyword">let</span> Initials<span class="token operator">=</span> item<span class="token punctuation">.</span>namePinyin<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">.</span><span class="token function">toUpperCase</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token comment">// 如果项目集合里面有当前字母项则直接push一个对象如果没有则创建一个新的并赋值;</span><span class="token keyword">if</span><span class="token punctuation">(</span>AllContactPerson<span class="token punctuation">[</span>Initials<span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">{<!-- --></span>               AllContactPerson<span class="token punctuation">[</span>Initials<span class="token punctuation">]</span><span class="token punctuation">.</span><span class="token function">push</span><span class="token punctuation">(</span>item<span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token punctuation">}</span><span class="token keyword">else</span><span class="token punctuation">{<!-- --></span>               AllContactPerson<span class="token punctuation">[</span>Initials<span class="token punctuation">]</span><span class="token operator">=</span><span class="token punctuation">[</span>item<span class="token punctuation">]</span><span class="token punctuation">;</span><span class="token punctuation">}</span><span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token keyword">this</span><span class="token punctuation">.</span>contactPersonData<span class="token operator">=</span> AllContactPerson<span class="token punctuation">;</span><span class="token punctuation">}</span><span class="token punctuation">}</span><span class="token punctuation">,</span><span class="token punctuation">}</span><span class="token punctuation">,</span><span class="token punctuation">}</span><span class="token punctuation">;</span><span class="token operator">&lt;</span><span class="token operator">/</span>script<span class="token operator">&gt;</span></code></pre> <p>之前也看到网上也有这样的案例,但是发现在操作搜索功能的时候不算友好,所以就放弃了,自己上手搬砖吧~搜索的功能就把input框的val值传给后台就OK了.唯一的缺点是在点击右边的时候,里的不固定到顶部,后期在想想怎么改吧,<br /> ps:当后台返回数据很多(成千条时,不能用分页,因为这牵扯到了右边的列表索引),有什么好的处理法么~~ლ(′◉❥◉｀ლ) ,第一次写.不对的地方请各位大佬指教喔</p> </div> 			                <div class="clearfix"></div>
+                <div class="col-md-12 mt-5">
+                                        <p>上一个：<a href="/news/article-67922.htm">东北农大动物医院电话号码 东北农大动物医院电话号码是多少</a></p>
+                                        <p>下一个：<a href="/news/article-68562.htm">宠物食品加工厂要投资多少亿 宠物食品加工厂要投资多少亿元</a></p>
+                                    </div>
+                                    </div>
+                    <div class="col-md-3">
+                        <div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">热门文章</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2"><a href="/news/article-35612.htm" title="猫的疫苗三针隔多久打第二针呢（猫3针疫苗多久打）">猫的疫苗三针隔多久打第二针呢（猫3针疫苗多久打）</a></li>
+                        <li class="py-2"><a href="/news/article-42166.htm" title="宠物食品公司生产招聘（宠物食品厂家招聘业务员）">宠物食品公司生产招聘（宠物食品厂家招聘业务员）</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-1-29-loon-github.htm" title="「1月29日」最高速度23M/S，2025年Github Loon每天更新免费机场订阅节点链接">「1月29日」最高速度23M/S，2025年Github Loon每天更新免费机场订阅节点链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-2-23-free-node-subscribe.htm" title="「2月23日」最高速度19.4M/S，2025年Github Loon每天更新免费机场订阅节点链接">「2月23日」最高速度19.4M/S，2025年Github Loon每天更新免费机场订阅节点链接</a></li>
+                        <li class="py-2"><a href="/news/article-39197.htm" title="宠物猫疫苗多少钱一次啊（宠物猫疫苗多少钱一次啊）">宠物猫疫苗多少钱一次啊（宠物猫疫苗多少钱一次啊）</a></li>
+                        <li class="py-2"><a href="/news/article-38203.htm" title="建议穷人养的10种猫价格（宠物猫穷养）">建议穷人养的10种猫价格（宠物猫穷养）</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-1-31-loon-github.htm" title="「1月31日」最高速度20M/S，2025年Github Loon每天更新免费机场订阅节点链接">「1月31日」最高速度20M/S，2025年Github Loon每天更新免费机场订阅节点链接</a></li>
+                        <li class="py-2"><a href="/news/article-60025.htm" title="一文弄懂Spring Boot应用分层构建Docker Image镜像">一文弄懂Spring Boot应用分层构建Docker Image镜像</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-1-11-loon-windows.htm" title="「1月11日」最高速度18.6M/S，2025年Github Loon每天更新免费机场订阅节点链接">「1月11日」最高速度18.6M/S，2025年Github Loon每天更新免费机场订阅节点链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-2-10-latest-loon-node.htm" title="「2月10日」最高速度18M/S，2025年Github Loon每天更新免费机场订阅节点链接">「2月10日」最高速度18M/S，2025年Github Loon每天更新免费机场订阅节点链接</a></li>
+                    </ul>
+    </div>
+</div>
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">归纳</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">24</span> <a href="/date/2025-03/" title="2025-03 归档">2025-03</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">84</span> <a href="/date/2025-02/" title="2025-02 归档">2025-02</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">84</span> <a href="/date/2025-01/" title="2025-01 归档">2025-01</a></h4>
+            </li>
+                    </ul>
+    </div>
+</div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- //section -->    
+        <!-- footer17 -->
+    <section class="footer-17">
+        <div class="footer17_sur py-5">
+            <div class="copyright text-center">
+                <div class="container">
+                    <p class="copy-footer-29">
+                            <p>
+                                <a href="/">首页</a> | 
+                                <a href="/free-node/">免费节点</a> | 
+                                <a href="/news/">新闻资讯</a> |
+                                <a href="/about-us.htm">关于我们</a> |
+                                <a href="/disclaimer.htm">免责申明</a> |
+                                <a href="/privacy.htm">隐私申明</a> |
+                                <a href="/sitemap.xml">网站地图</a>
+                            </p>
+                        Github Loon节点订阅官网 版权所有 Powered by WordPress
+                    </p>
+                </div>
+            </div>
+            <!-- move top -->
+            <button onclick="topFunction()" id="movetop" title="Go to top">
+                &#10548;
+            </button>
+            <script>
+            // When the user scrolls down 20px from the top of the document, show the button
+            window.onscroll = function() {
+                scrollFunction()
+            };
+
+            function scrollFunction() {
+                if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+                    document.getElementById("movetop").style.display = "block";
+                } else {
+                    document.getElementById("movetop").style.display = "none";
+                }
+            }
+
+            // When the user clicks on the button, scroll to the top of the document
+            function topFunction() {
+                document.body.scrollTop = 0;
+                document.documentElement.scrollTop = 0;
+            }
+            </script>
+            <!-- /move top -->
+        </div>
+    </section>
+    <!-- //footer17 -->
+    <!-- Template JavaScript -->
+    <script src="/assets/website/js/frontend/githubloon/jquery-3.5.1.min.js"></script>
+    <script src="/assets/website/js/frontend/githubloon/theme-change.js"></script><!-- theme switch js (light and dark)-->
+    <!-- pricing tabs js -->
+    <script src="/assets/website/js/frontend/githubloon/tabs.js"></script>
+    <!-- owlcarousel -->
+    <script src="/assets/website/js/frontend/githubloon/owl.carousel.js"></script>
+    <!-- script for tesimonials carousel slider -->
+    <script>
+    $(document).ready(function() {
+        $("#owl-demo1").owlCarousel({
+            loop: true,
+            nav: false,
+            margin: 50,
+            responsiveClass: true,
+            responsive: {
+                0: {
+                    items: 1,
+                    nav: false
+                },
+                736: {
+                    items: 2,
+                    nav: false
+                }
+            }
+        })
+    })
+    </script>
+    <!-- //script for tesimonials carousel slider -->
+    <!-- script for tesimonials agency carousel slider -->
+    <script>
+    $(document).ready(function() {
+        $("#owl-agency").owlCarousel({
+            loop: true,
+            nav: false,
+            margin: 50,
+            responsiveClass: true,
+            responsive: {
+                0: {
+                    items: 1,
+                    nav: false
+                },
+                736: {
+                    items: 1,
+                    nav: false
+                }
+            }
+        })
+    })
+    </script>
+    <!-- //script for tesimonials agency carousel slider -->
+    <!-- magnific popup -->
+    <script src="/assets/website/js/frontend/githubloon/jquery.magnific-popup.min.js"></script>
+    <script>
+    $(document).ready(function() {
+        $('.popup-with-zoom-anim').magnificPopup({
+            type: 'inline',
+
+            fixedContentPos: false,
+            fixedBgPos: true,
+
+            overflowY: 'auto',
+
+            closeBtnInside: true,
+            preloader: false,
+
+            midClick: true,
+            removalDelay: 300,
+            mainClass: 'my-mfp-zoom-in'
+        });
+
+        $('.popup-with-move-anim').magnificPopup({
+            type: 'inline',
+
+            fixedContentPos: false,
+            fixedBgPos: true,
+
+            overflowY: 'auto',
+
+            closeBtnInside: true,
+            preloader: false,
+
+            midClick: true,
+            removalDelay: 300,
+            mainClass: 'my-mfp-slide-bottom'
+        });
+    });
+    </script>
+    <!-- //magnific popup -->
+    <!-- disable body scroll which navbar is in active -->
+    <script>
+    $(function() {
+        $('.navbar-toggler').click(function() {
+            $('body').toggleClass('noscroll');
+        })
+    });
+    </script>
+    <!-- disable body scroll which navbar is in active -->
+    <!--/MENU-JS-->
+    <script>
+    $(window).on("scroll", function() {
+        var scroll = $(window).scrollTop();
+
+        if (scroll >= 80) {
+            $("#site-header").addClass("nav-fixed");
+        } else {
+            $("#site-header").removeClass("nav-fixed");
+        }
+    });
+
+    //Main navigation Active Class Add Remove
+    $(".navbar-toggler").on("click", function() {
+        $("header").toggleClass("active");
+    });
+    $(document).on("ready", function() {
+        if ($(window).width() > 991) {
+            $("header").removeClass("active");
+        }
+        $(window).on("resize", function() {
+            if ($(window).width() > 991) {
+                $("header").removeClass("active");
+            }
+        });
+    });
+    </script>
+    <!--//MENU-JS-->
+    <script src="/assets/website/js/frontend/githubloon/bootstrap.min.js"></script>
+    <script src="https://www.freeclashnode.com/assets/js/frontend/invite-url.js"></script><script src="/assets/website/js/frontend/G.js"></script>
+</body>
+
+</html>
