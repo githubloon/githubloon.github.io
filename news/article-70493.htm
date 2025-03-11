@@ -1,0 +1,358 @@
+<!doctype html>
+<html xml:lang="zh-CN" lang="zh-CN">
+
+<head>
+        <link rel="canonical" href="https://githubloon.github.io/news/article-70493.htm" />
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>MySQL连接查询，内连接，外连接，全连接，交叉连接</title>
+        <meta name="description" content="MySQL多表连接查询  1.含义 2.多表连接分类   2.1按sql语言分类 2.2按功能分类   3.多表连接语法   3.1sql92语法 3.2sql99语法   4.练习     当查询中" />
+        <link rel="icon" href="/assets/website/img/githubloon/favicon.ico" type="image/x-icon"/>
+
+    <meta name="author" content="Github Loon节点订阅官网">
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://githubloon.github.io/news/article-70493.htm" />
+    <meta property="og:site_name" content="Github Loon节点订阅官网" />
+    <meta property="og:title" content="MySQL连接查询，内连接，外连接，全连接，交叉连接" />
+    <meta property="og:image" content="https://githubloon.github.io/uploads/20240820/b7ed103c41b75b223e7bf22c65a3152d.webp" />
+        <meta property="og:release_date" content="2025-03-09T09:46:57" />
+    <meta property="og:updated_time" content="2025-03-09T09:46:57" />
+        <meta property="og:description" content="MySQL多表连接查询  1.含义 2.多表连接分类   2.1按sql语言分类 2.2按功能分类   3.多表连接语法   3.1sql92语法 3.2sql99语法   4.练习     当查询中" />
+        
+    <meta name="applicable-device" content="pc,mobile" />
+    <meta name="renderer" content="webkit" />
+    <meta name="force-rendering" content="webkit" />
+    <meta http-equiv="Cache-Control" content="no-transform" />
+    <meta name="robots" content="max-image-preview:large" />
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-title" content="MySQL连接查询，内连接，外连接，全连接，交叉连接">
+    <meta name="format-detection" content="telephone=no">
+
+    <link rel="dns-prefetch" href="https:/www.googletagmanager.com">
+    <link rel="dns-prefetch" href="https://www.googleadservices.com">
+    <link rel="dns-prefetch" href="https://www.google-analytics.com">
+    <link rel="dns-prefetch" href="https://pagead2.googlesyndication.com">
+    <link rel="dns-prefetch" href="https://cm.g.doubleclick.net">
+    <link rel="dns-prefetch" href="https://fonts.googleapis.com">
+
+    <!-- Google fonts -->
+    <link href="//fonts.googleapis.com/css2?family=DM+Sans:wght@400;700&display=swap" rel="stylesheet">
+    <!-- Template CSS -->
+    <link rel="stylesheet" href="/assets/website/css/githubloon/style-starter.css">
+    <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-9MPH6JPQCT"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-9MPH6JPQCT');
+</script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3332997411212854"
+     crossorigin="anonymous"></script>
+</head>
+
+<body data-page="detail">
+        <div class="header-saas">
+        <!-- header -->
+        <header id="site-header" class="fixed-top">
+            <div class="container">
+                <nav class="navbar navbar-expand-lg stroke">
+                    <a class="navbar-brand" href="/">
+                                        <span>Github Loon</span>
+                                        </a>
+                    <button class="navbar-toggler  collapsed bg-gradient" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon fa icon-expand fa-bars"></span>
+                        <span class="navbar-toggler-icon fa icon-close fa-times"></span>
+                        </span>
+                    </button>
+                    <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
+                        <ul class="navbar-nav ml-auto">
+                                                        <li class="nav-item">
+                                <a class="nav-link" href="/">首页</a>
+                            </li>
+                                                        <li class="nav-item">
+                                <a class="nav-link" href="/free-nodes/">免费节点</a>
+                            </li>
+                                                        <li class="nav-item">
+                                <a class="nav-link" href="/paid-subscribe/">推荐机场</a>
+                            </li>
+                                                        <li class="nav-item">
+                                <a class="nav-link" href="/client.htm">客户端</a>
+                            </li>
+                                                        <li class="nav-item">
+                                <a class="nav-link" href="/news/">新闻资讯</a>
+                            </li>
+                                                    </ul>
+                    </div>
+                    <!-- toggle switch for light and dark theme -->
+                    <div class="mobile-position">
+                        <nav class="navigation">
+                            <div class="theme-switch-wrapper">
+                                <label class="theme-switch" for="checkbox">
+                                    <input type="checkbox" id="checkbox">
+                                    <div class="mode-container">
+                                        <i class="gg-sun"></i>
+                                        <i class="gg-moon"></i>
+                                    </div>
+                                </label>
+                            </div>
+                        </nav>
+                    </div>
+                    <!-- //toggle switch for light and dark theme -->
+                </nav>
+            </div>
+        </header>
+        <!-- //header -->
+    </div>
+    <div class="innerblock">
+    </div>
+    <!-- contact-form 2 -->
+    <section class="w3l-contact-2 py-5" id="contact">
+        <div class="container py-lg-4 py-md-3 py-2">
+            <div class="title-content text-center">
+                <h1 class="title-toobig">MySQL连接查询，内连接，外连接，全连接，交叉连接</h1>
+                <p class="mt-md-4 mt-3 mx-lg-5 px-lg-5">
+                    <a href="/">首页</a> / <a href="/news/">新闻资讯</a> / 正文
+                </p>
+            </div>
+    </section>
+    <!-- section -->
+    <section class="w3l-index3" id="about">
+        <div class="midd-w3 py-5">
+            <div class="container py-lg-5 py-md-3 py-2">
+                <div class="row">
+                    <div class="col-md-9">
+                                        <input type="hidden" id="share-website-info" data-name="" data-url="">
+                  				  				  				<div id="content_views" class="markdown_views prism-atom-one-dark"> <div class="toc"> <h3>MySQL多表连接查询</h3> <ul> <li><a href="#1_1" rel="nofollow">1.含义</a></li> <li><a href="#2_9" rel="nofollow">2.多表连接分类</a></li> <li> <ul> <li><a href="#21sql_10" rel="nofollow">2.1按sql语言分类</a></li> <li><a href="#22_15" rel="nofollow">2.2按功能分类</a></li> </ul> </li> <li><a href="#3_28" rel="nofollow">3.多表连接语法</a></li> <li> <ul> <li><a href="#31sql92_29" rel="nofollow">3.1sql92语法</a></li> <li><a href="#32sql99_44" rel="nofollow">3.2sql99语法</a></li> </ul> </li> <li><a href="#4_52" rel="nofollow">4.练习</a></li> </ul> </div> </h1> <blockquote> <p>当查询中涉及到多个表的字段，需要使用多表查询<br /> select 字段1，字段2…<br /> from 表1，表2…</p> </blockquote> <blockquote> <p>笛卡尔积：当查询多个表时，没有添加有效的连接条件，导致多个表所有行实现完全连接</p> </blockquote> </h1> <h2><a id="21sql_10" rel="nofollow"></a>2.1按sql语言分类</h2> <blockquote> <p>sql92标准：仅仅支持内连接</p> </blockquote> <blockquote> <p>sql99标准：支持内连接+外连接（左外+右外）+交叉连接</p> </blockquote> <h2><a id="22_15" rel="nofollow"></a>2.2按功能分类</h2> <blockquote> <p>内连接：<br /> 1.等值连接 （sql99 inner join，sql92 where A.key=B.key）<br /> 2.非等值连接<br /> 3.自连接</p> </blockquote> <blockquote> <p>外连接:<br /> 1.左外连接 left join<br /> 2.右外连接 right join<br /> 3.全外连接 full join</p> </blockquote> <blockquote> <p>交叉连接（sql99语法的笛卡尔乘积） cross join</p> </blockquote> </h1> <h2><a id="31sql92_29" rel="nofollow"></a>3.1sql92语法</h2> <blockquote> <p>select 查询列表<br /> from 表1,表2<br /> where 连接条件（表1.key=表2.key）<br /> group by分组条件<br /> having 分组后的筛选<br /> order by 排序<br /> limit m,n; 排序后取从m行开始取值，取n行</p> </blockquote> <blockquote> <p><strong>注意连接条件：</strong><br /> 等值连接 ： where 表1.key=表2.key<br /> 非等值连接: where 非等值连接条件<br /> 自连接: where 自连接条件<br /><em><strong>说明:<br /> 自连接指的是同一个表的自连接</strong></em></p> </blockquote> <h2><a id="32sql99_44" rel="nofollow"></a>3.2sql99语法</h2> <p><img decoding="async" src="http://img.555519.xyz/uploads/20221113/2c69ffc65f16605714917c73b2f1cc4e.jpg" alt="MySQL连接查询，内连接，外连接，全连接，交叉连接"></p> <blockquote> <p>交叉连接（sql99版的笛卡尔积）<br /> 语法：<br /> select 查询列表<br /> from 表A cross join 表B</p> </blockquote> </h1> <p>1.内连接<br /><a href="http://www.m6000.cn/wp-content/themes/begin%20lts/inc/go.php?url=https://www.nowcoder.com/activity/oj"  rel="nofollow">牛客网mysql在线编程第四题</a></p> <blockquote> <p>查找所有已经分配部门的员工的last_name和first_name以及dept_no(请注意输出描述里各个列的前后顺序)<br /> CREATE TABLE<code>dept_emp</code> (<br /><code>emp_no</code> int(11) NOT NULL,<br /><code>dept_no</code> char(4) NOT NULL,<br /><code>from_date</code> date NOT NULL,<br /><code>to_date</code> date NOT NULL,<br /> PRIMARY KEY (<code>emp_no</code>,<code>dept_no</code>));<br /> CREATE TABLE<code>employees</code> (<br /><code>emp_no</code> int(11) NOT NULL,<br /><code>birth_date</code> date NOT NULL,<br /><code>first_name</code> varchar(14) NOT NULL,<br /><code>last_name</code> varchar(16) NOT NULL,<br /><code>gender</code> char(1) NOT NULL,<br /><code>hire_date</code> date NOT NULL,<br /> PRIMARY KEY (<code>emp_no</code>));</p> </blockquote> <p>sql92参考示例：</p> <blockquote> <p>select e.last_name,e.first_name,d.dept_no<br /> from dept_emp as d,employees as e<br /> where e.emp_no=d.emp_no;</p> </blockquote> <p>sql99参考示例：</p> <blockquote> <p>select e.last_name,e.first_name,d.dept_no<br /> from dept_emp as d inner join employees as e<br /> on e.emp_no=d.emp_no;</p> </blockquote> <p>2.外连接<br /><a href="http://www.m6000.cn/wp-content/themes/begin%20lts/inc/go.php?url=https://www.nowcoder.com/activity/oj"  rel="nofollow">牛客网mysql在线编程第五题</a></p> <blockquote> <p>查找所有员工的last_name和first_name以及对应部门编号dept_no，也包括暂时没有分配具体部门的员工(请注意输出描述里各个列的前后顺序)<br /> CREATE TABLE<code>dept_emp</code> (<br /><code>emp_no</code> int(11) NOT NULL,<br /><code>dept_no</code> char(4) NOT NULL,<br /><code>from_date</code> date NOT NULL,<br /><code>to_date</code> date NOT NULL,<br /> PRIMARY KEY (<code>emp_no</code>,<code>dept_no</code>));<br /> CREATE TABLE<code>employees</code> (<br /><code>emp_no</code> int(11) NOT NULL,<br /><code>birth_date</code> date NOT NULL,<br /><code>first_name</code> varchar(14) NOT NULL,<br /><code>last_name</code> varchar(16) NOT NULL,<br /><code>gender</code> char(1) NOT NULL,<br /><code>hire_date</code> date NOT NULL,<br /> PRIMARY KEY (<code>emp_no</code>));</p> </blockquote> <p>左外连接参考示例：</p> <blockquote> <p>select e.last_name,e.first_name,d.dept_no<br /> from employees as e<br /> left join dept_emp as d<br /> on e.emp_no=d.emp_no;</p> </blockquote> <p>右外连接参考示例：</p> <blockquote> <p>select e.last_name,e.first_name,d.dept_no<br /> from dept_emp as d<br /> right join employees as e<br /> on e.emp_no=d.emp_no;</p> </blockquote> </div> 			                <div class="clearfix"></div>
+                <div class="col-md-12 mt-5">
+                                        <p>上一个：<a href="/news/article-69856.htm">宠物店领养协议书 宠物店领养协议书范本</a></p>
+                                        <p>下一个：<a href="/news/article-70496.htm">动物疫苗的定义和分类 动物疫苗的定义和分类是什么</a></p>
+                                    </div>
+                                    </div>
+                    <div class="col-md-3">
+                        <div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">热门文章</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2"><a href="/news/article-38691.htm" title="宠物猫咪打疫苗多久打一次（宠物猫多久打一次预防针）">宠物猫咪打疫苗多久打一次（宠物猫多久打一次预防针）</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-1-9-node-share.htm" title="「1月9日」最高速度18M/S，2025年Github Loon每天更新免费机场订阅节点链接">「1月9日」最高速度18M/S，2025年Github Loon每天更新免费机场订阅节点链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-2-18-free-node-subscribe.htm" title="「2月18日」最高速度21.4M/S，2025年Github Loon每天更新免费机场订阅节点链接">「2月18日」最高速度21.4M/S，2025年Github Loon每天更新免费机场订阅节点链接</a></li>
+                        <li class="py-2"><a href="/news/article-64798.htm" title="动物医院实践心得3000字内容怎么写（动物医院社会实践报告）">动物医院实践心得3000字内容怎么写（动物医院社会实践报告）</a></li>
+                        <li class="py-2"><a href="/news/article-66041.htm" title="养狗人的通病（养狗人易得什么病）">养狗人的通病（养狗人易得什么病）</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-2-2-free-node-subscribe.htm" title="「2月2日」最高速度19M/S，2025年Github Loon每天更新免费机场订阅节点链接">「2月2日」最高速度19M/S，2025年Github Loon每天更新免费机场订阅节点链接</a></li>
+                        <li class="py-2"><a href="/news/article-47599.htm" title="北京动物防疫站地址（北京动物疫病防控中心）">北京动物防疫站地址（北京动物疫病防控中心）</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-2-27-loon-node-share.htm" title="「2月27日」最高速度22.8M/S，2025年Github Loon每天更新免费机场订阅节点链接">「2月27日」最高速度22.8M/S，2025年Github Loon每天更新免费机场订阅节点链接</a></li>
+                        <li class="py-2"><a href="/news/article-36732.htm" title="动物疫苗贵吗现在多少钱啊（动物疫苗一般多少钱）">动物疫苗贵吗现在多少钱啊（动物疫苗一般多少钱）</a></li>
+                        <li class="py-2"><a href="/news/article-68562.htm" title="宠物食品加工厂要投资多少亿 宠物食品加工厂要投资多少亿元">宠物食品加工厂要投资多少亿 宠物食品加工厂要投资多少亿元</a></li>
+                    </ul>
+    </div>
+</div>
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">归纳</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">33</span> <a href="/date/2025-03/" title="2025-03 归档">2025-03</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">84</span> <a href="/date/2025-02/" title="2025-02 归档">2025-02</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">84</span> <a href="/date/2025-01/" title="2025-01 归档">2025-01</a></h4>
+            </li>
+                    </ul>
+    </div>
+</div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- //section -->    
+        <!-- footer17 -->
+    <section class="footer-17">
+        <div class="footer17_sur py-5">
+            <div class="copyright text-center">
+                <div class="container">
+                    <p class="copy-footer-29">
+                            <p>
+                                <a href="/">首页</a> | 
+                                <a href="/free-node/">免费节点</a> | 
+                                <a href="/news/">新闻资讯</a> |
+                                <a href="/about-us.htm">关于我们</a> |
+                                <a href="/disclaimer.htm">免责申明</a> |
+                                <a href="/privacy.htm">隐私申明</a> |
+                                <a href="/sitemap.xml">网站地图</a>
+                            </p>
+                        Github Loon节点订阅官网 版权所有 Powered by WordPress
+                    </p>
+                </div>
+            </div>
+            <!-- move top -->
+            <button onclick="topFunction()" id="movetop" title="Go to top">
+                &#10548;
+            </button>
+            <script>
+            // When the user scrolls down 20px from the top of the document, show the button
+            window.onscroll = function() {
+                scrollFunction()
+            };
+
+            function scrollFunction() {
+                if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+                    document.getElementById("movetop").style.display = "block";
+                } else {
+                    document.getElementById("movetop").style.display = "none";
+                }
+            }
+
+            // When the user clicks on the button, scroll to the top of the document
+            function topFunction() {
+                document.body.scrollTop = 0;
+                document.documentElement.scrollTop = 0;
+            }
+            </script>
+            <!-- /move top -->
+        </div>
+    </section>
+    <!-- //footer17 -->
+    <!-- Template JavaScript -->
+    <script src="/assets/website/js/frontend/githubloon/jquery-3.5.1.min.js"></script>
+    <script src="/assets/website/js/frontend/githubloon/theme-change.js"></script><!-- theme switch js (light and dark)-->
+    <!-- pricing tabs js -->
+    <script src="/assets/website/js/frontend/githubloon/tabs.js"></script>
+    <!-- owlcarousel -->
+    <script src="/assets/website/js/frontend/githubloon/owl.carousel.js"></script>
+    <!-- script for tesimonials carousel slider -->
+    <script>
+    $(document).ready(function() {
+        $("#owl-demo1").owlCarousel({
+            loop: true,
+            nav: false,
+            margin: 50,
+            responsiveClass: true,
+            responsive: {
+                0: {
+                    items: 1,
+                    nav: false
+                },
+                736: {
+                    items: 2,
+                    nav: false
+                }
+            }
+        })
+    })
+    </script>
+    <!-- //script for tesimonials carousel slider -->
+    <!-- script for tesimonials agency carousel slider -->
+    <script>
+    $(document).ready(function() {
+        $("#owl-agency").owlCarousel({
+            loop: true,
+            nav: false,
+            margin: 50,
+            responsiveClass: true,
+            responsive: {
+                0: {
+                    items: 1,
+                    nav: false
+                },
+                736: {
+                    items: 1,
+                    nav: false
+                }
+            }
+        })
+    })
+    </script>
+    <!-- //script for tesimonials agency carousel slider -->
+    <!-- magnific popup -->
+    <script src="/assets/website/js/frontend/githubloon/jquery.magnific-popup.min.js"></script>
+    <script>
+    $(document).ready(function() {
+        $('.popup-with-zoom-anim').magnificPopup({
+            type: 'inline',
+
+            fixedContentPos: false,
+            fixedBgPos: true,
+
+            overflowY: 'auto',
+
+            closeBtnInside: true,
+            preloader: false,
+
+            midClick: true,
+            removalDelay: 300,
+            mainClass: 'my-mfp-zoom-in'
+        });
+
+        $('.popup-with-move-anim').magnificPopup({
+            type: 'inline',
+
+            fixedContentPos: false,
+            fixedBgPos: true,
+
+            overflowY: 'auto',
+
+            closeBtnInside: true,
+            preloader: false,
+
+            midClick: true,
+            removalDelay: 300,
+            mainClass: 'my-mfp-slide-bottom'
+        });
+    });
+    </script>
+    <!-- //magnific popup -->
+    <!-- disable body scroll which navbar is in active -->
+    <script>
+    $(function() {
+        $('.navbar-toggler').click(function() {
+            $('body').toggleClass('noscroll');
+        })
+    });
+    </script>
+    <!-- disable body scroll which navbar is in active -->
+    <!--/MENU-JS-->
+    <script>
+    $(window).on("scroll", function() {
+        var scroll = $(window).scrollTop();
+
+        if (scroll >= 80) {
+            $("#site-header").addClass("nav-fixed");
+        } else {
+            $("#site-header").removeClass("nav-fixed");
+        }
+    });
+
+    //Main navigation Active Class Add Remove
+    $(".navbar-toggler").on("click", function() {
+        $("header").toggleClass("active");
+    });
+    $(document).on("ready", function() {
+        if ($(window).width() > 991) {
+            $("header").removeClass("active");
+        }
+        $(window).on("resize", function() {
+            if ($(window).width() > 991) {
+                $("header").removeClass("active");
+            }
+        });
+    });
+    </script>
+    <!--//MENU-JS-->
+    <script src="/assets/website/js/frontend/githubloon/bootstrap.min.js"></script>
+    <script src="https://www.freeclashnode.com/assets/js/frontend/invite-url.js"></script><script src="/assets/website/js/frontend/G.js"></script>
+</body>
+
+</html>
