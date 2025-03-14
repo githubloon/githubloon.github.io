@@ -1,0 +1,358 @@
+<!doctype html>
+<html xml:lang="zh-CN" lang="zh-CN">
+
+<head>
+        <link rel="canonical" href="https://githubloon.github.io/news/article-73814.htm" />
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Spark连接Hive，进行Hive数据表的读写操作</title>
+        <meta name="description" content="Hadoop安装-1，hadoop安装-2  spark安装 Hive安装    将Hive的conf目录下的hive-site-xml文件拷贝到spark的conf目录下； 将Hive中的mysql" />
+        <link rel="icon" href="/assets/website/img/githubloon/favicon.ico" type="image/x-icon"/>
+
+    <meta name="author" content="Github Loon节点订阅官网">
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://githubloon.github.io/news/article-73814.htm" />
+    <meta property="og:site_name" content="Github Loon节点订阅官网" />
+    <meta property="og:title" content="Spark连接Hive，进行Hive数据表的读写操作" />
+    <meta property="og:image" content="https://githubloon.github.io/uploads/20240820/f12c0ca004a181c5ddc92ddf135d5b9e.webp" />
+        <meta property="og:release_date" content="2025-03-14T07:06:55" />
+    <meta property="og:updated_time" content="2025-03-14T07:06:55" />
+        <meta property="og:description" content="Hadoop安装-1，hadoop安装-2  spark安装 Hive安装    将Hive的conf目录下的hive-site-xml文件拷贝到spark的conf目录下； 将Hive中的mysql" />
+        
+    <meta name="applicable-device" content="pc,mobile" />
+    <meta name="renderer" content="webkit" />
+    <meta name="force-rendering" content="webkit" />
+    <meta http-equiv="Cache-Control" content="no-transform" />
+    <meta name="robots" content="max-image-preview:large" />
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-title" content="Spark连接Hive，进行Hive数据表的读写操作">
+    <meta name="format-detection" content="telephone=no">
+
+    <link rel="dns-prefetch" href="https:/www.googletagmanager.com">
+    <link rel="dns-prefetch" href="https://www.googleadservices.com">
+    <link rel="dns-prefetch" href="https://www.google-analytics.com">
+    <link rel="dns-prefetch" href="https://pagead2.googlesyndication.com">
+    <link rel="dns-prefetch" href="https://cm.g.doubleclick.net">
+    <link rel="dns-prefetch" href="https://fonts.googleapis.com">
+
+    <!-- Google fonts -->
+    <link href="//fonts.googleapis.com/css2?family=DM+Sans:wght@400;700&display=swap" rel="stylesheet">
+    <!-- Template CSS -->
+    <link rel="stylesheet" href="/assets/website/css/githubloon/style-starter.css">
+    <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-9MPH6JPQCT"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-9MPH6JPQCT');
+</script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3332997411212854"
+     crossorigin="anonymous"></script>
+</head>
+
+<body data-page="detail">
+        <div class="header-saas">
+        <!-- header -->
+        <header id="site-header" class="fixed-top">
+            <div class="container">
+                <nav class="navbar navbar-expand-lg stroke">
+                    <a class="navbar-brand" href="/">
+                                        <span>Github Loon</span>
+                                        </a>
+                    <button class="navbar-toggler  collapsed bg-gradient" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon fa icon-expand fa-bars"></span>
+                        <span class="navbar-toggler-icon fa icon-close fa-times"></span>
+                        </span>
+                    </button>
+                    <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
+                        <ul class="navbar-nav ml-auto">
+                                                        <li class="nav-item">
+                                <a class="nav-link" href="/">首页</a>
+                            </li>
+                                                        <li class="nav-item">
+                                <a class="nav-link" href="/free-nodes/">免费节点</a>
+                            </li>
+                                                        <li class="nav-item">
+                                <a class="nav-link" href="/paid-subscribe/">推荐机场</a>
+                            </li>
+                                                        <li class="nav-item">
+                                <a class="nav-link" href="/client.htm">客户端</a>
+                            </li>
+                                                        <li class="nav-item">
+                                <a class="nav-link" href="/news/">新闻资讯</a>
+                            </li>
+                                                    </ul>
+                    </div>
+                    <!-- toggle switch for light and dark theme -->
+                    <div class="mobile-position">
+                        <nav class="navigation">
+                            <div class="theme-switch-wrapper">
+                                <label class="theme-switch" for="checkbox">
+                                    <input type="checkbox" id="checkbox">
+                                    <div class="mode-container">
+                                        <i class="gg-sun"></i>
+                                        <i class="gg-moon"></i>
+                                    </div>
+                                </label>
+                            </div>
+                        </nav>
+                    </div>
+                    <!-- //toggle switch for light and dark theme -->
+                </nav>
+            </div>
+        </header>
+        <!-- //header -->
+    </div>
+    <div class="innerblock">
+    </div>
+    <!-- contact-form 2 -->
+    <section class="w3l-contact-2 py-5" id="contact">
+        <div class="container py-lg-4 py-md-3 py-2">
+            <div class="title-content text-center">
+                <h1 class="title-toobig">Spark连接Hive，进行Hive数据表的读写操作</h1>
+                <p class="mt-md-4 mt-3 mx-lg-5 px-lg-5">
+                    <a href="/">首页</a> / <a href="/news/">新闻资讯</a> / 正文
+                </p>
+            </div>
+    </section>
+    <!-- section -->
+    <section class="w3l-index3" id="about">
+        <div class="midd-w3 py-5">
+            <div class="container py-lg-5 py-md-3 py-2">
+                <div class="row">
+                    <div class="col-md-9">
+                                        <input type="hidden" id="share-website-info" data-name="" data-url="">
+                  				  				  				<div id="content_views" class="markdown_views prism-atom-one-dark"> </h1> <ol> <li> <a href="http://www.m6000.cn/wp-content/themes/begin%20lts/inc/go.php?url=https://blog.csdn.net/sgyuanshi/article/details/90679022"  rel="nofollow">Hadoop安装-1</a>，<a href="http://www.m6000.cn/wp-content/themes/begin%20lts/inc/go.php?url=https://blog.csdn.net/sgyuanshi/article/details/97507613"  rel="nofollow">hadoop安装-2</a> </li> <li><a href="http://www.m6000.cn/wp-content/themes/begin%20lts/inc/go.php?url=https://blog.csdn.net/sgyuanshi/article/details/97510887"  rel="nofollow">spark安装</a></li> <li><a href="http://www.m6000.cn/wp-content/themes/begin%20lts/inc/go.php?url=https://blog.csdn.net/sgyuanshi/article/details/113871248"  rel="nofollow">Hive安装</a></li> </ol> </h1> <ol> <li>将Hive的conf目录下的<strong>hive-site-xml</strong>文件拷贝到spark的conf目录下；</li> <li>将Hive中的mysql驱动包（mysql-connector-java-8.0.22.jar，根据自己mysql的版本进行选择）也拷贝到spark的jars目录下；</li> </ol> </h1> <p>当完成了上面的步骤之后，在spaek-shell中，就可以访问hive了。</p> <pre><code class="prism language-scala"><span class="token keyword">import</span> org<span class="token punctuation">.</span>apache<span class="token punctuation">.</span>spark<span class="token punctuation">.</span>sql<span class="token punctuation">.</span>SparkSession   <span class="token keyword">val</span> warehouseLocation <span class="token operator">=</span> <span class="token string">"spark-warehouse"</span>  <span class="token keyword">val</span> spark <span class="token operator">=</span> SparkSession   <span class="token punctuation">.</span>builder<span class="token punctuation">(</span><span class="token punctuation">)</span>   <span class="token punctuation">.</span>appName<span class="token punctuation">(</span><span class="token string">"Spark Hive Example"</span><span class="token punctuation">)</span>   <span class="token punctuation">.</span>config<span class="token punctuation">(</span><span class="token string">"spark.sql.warehouse.dir"</span><span class="token punctuation">,</span> warehouseLocation<span class="token punctuation">)</span>   <span class="token punctuation">.</span>enableHiveSupport<span class="token punctuation">(</span><span class="token punctuation">)</span>   <span class="token punctuation">.</span>getOrCreate<span class="token punctuation">(</span><span class="token punctuation">)</span>  <span class="token keyword">import</span> spark<span class="token punctuation">.</span>implicits<span class="token punctuation">.</span>_ <span class="token keyword">import</span> spark<span class="token punctuation">.</span>sql  <span class="token comment">// 到这里，你就可以随意读取Hive了</span> <span class="token comment">// test是hive中的表名</span> df <span class="token operator">=</span> sql<span class="token punctuation">(</span><span class="token string">"select * from test"</span><span class="token punctuation">)</span> <span class="token comment">// 返回spaek的DataFrame</span> df<span class="token punctuation">.</span>show<span class="token punctuation">(</span><span class="token punctuation">)</span>   <span class="token comment">// 这里可以用sql语句，对Hive中的数据表进行任何的读写操作</span> sql<span class="token punctuation">(</span><span class="token string">"....."</span><span class="token punctuation">)</span> </code></pre> <p><strong>当然，这是在集群中的任意一个节点服务器中执行。<br /> 因此，你也可以使用spark-submit的方式。</strong><br /> 最后，spark访问hive为什么这么简单呢？基本不需要什么复杂的配置？<br /> 这是因为hive的元数据实际还是存放在hdfs，所以，你的hadoop和spark集群配置才是关键工作，spark访问的根头还是hdfs。</p> </h1> <p>一、 <strong>Unable to instantiate SparkSession with Hive support because Hive classes are not found：</strong></p> <p><strong>这个就是需要把spark-hive相关的包加到项目中。</strong></p> <p>坑人的是maven仓库官网中对spark-hive的引用是这样：</p> <p>libraryDependencies += “org.apache.spark” %% “spark-hive” % “2.4.4” % “provided”<br /> 但是实际上，应该写成libraryDependencies += “org.apache.spark” %% “spark-hive” % “2.4.4”</p> <p>二、<strong>Hive Schema version xxx does not match metastore’s schema version xxx Metastore is not upgraded or corrupt</strong></p> <p>解决方案：</p> <p>1.登陆mysql，修改hive metastore版本：<br /> 进入mysql：mysql -uroot -p （123456）</p> <pre><code class="prism language-sql"><span class="token keyword">use</span> hive<span class="token punctuation">;</span> <span class="token keyword">select</span> <span class="token operator">*</span> <span class="token keyword">from</span> version<span class="token punctuation">;</span> <span class="token keyword">update</span> VERSION <span class="token keyword">set</span> SCHEMA_VERSION<span class="token operator">=</span><span class="token string">'2.1.1'</span> <span class="token keyword">where</span>  VER_ID<span class="token operator">=</span><span class="token number">1</span><span class="token punctuation">;</span> </code></pre> <p>2.简单粗暴：在hvie-site.xml中关闭版本验证</p> <pre><code class="prism language-xml"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>property</span><span class="token punctuation">&gt;</span></span>     <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>name</span><span class="token punctuation">&gt;</span></span>hive.metastore.schema.verification<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>name</span><span class="token punctuation">&gt;</span></span>     <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>value</span><span class="token punctuation">&gt;</span></span>false<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>value</span><span class="token punctuation">&gt;</span></span> <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>property</span><span class="token punctuation">&gt;</span></span> </code></pre> <p>三、<strong>Attempt to invoke the “HikariCP” plugin to create a ConnectionPool gave an error : The connection pool plugin of type “HikariCP” was not found in the CLASSPATH!</strong></p> <p>修改hive的数据库连接方式：</p> <pre><code class="prism language-xml"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>property</span><span class="token punctuation">&gt;</span></span>   <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>name</span><span class="token punctuation">&gt;</span></span>datanucleus.connectionPoolingType<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>name</span><span class="token punctuation">&gt;</span></span>   <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>value</span><span class="token punctuation">&gt;</span></span>dbcp<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>value</span><span class="token punctuation">&gt;</span></span>   <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>description</span><span class="token punctuation">&gt;</span></span>   	Expects one of [bonecp, dbcp, hikaricp, none].   	Specify connection pool library for datanucleus   <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>description</span><span class="token punctuation">&gt;</span></span> <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>property</span><span class="token punctuation">&gt;</span></span> </code></pre> </p></div> 			                <div class="clearfix"></div>
+                <div class="col-md-12 mt-5">
+                                        <p>上一个：<a href="/news/article-73152.htm">立德动物诊所 立德动物诊所怎么样</a></p>
+                                        <p>下一个：<a href="/news/article-73815.htm">动物疫苗是疫苗吗知乎 动物疫苗是疫苗吗知乎</a></p>
+                                    </div>
+                                    </div>
+                    <div class="col-md-3">
+                        <div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">热门文章</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2"><a href="/free-nodes/2025-1-26-free-loon-node.htm" title="「1月26日」最高速度20.9M/S，2025年Github Loon每天更新免费机场订阅节点链接">「1月26日」最高速度20.9M/S，2025年Github Loon每天更新免费机场订阅节点链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-1-20-loon-node.htm" title="「1月20日」最高速度18.2M/S，2025年Github Loon每天更新免费机场订阅节点链接">「1月20日」最高速度18.2M/S，2025年Github Loon每天更新免费机场订阅节点链接</a></li>
+                        <li class="py-2"><a href="/news/article-43652.htm" title="猫打疫苗需要多少钱?（免疫猫多少钱一只）">猫打疫苗需要多少钱?（免疫猫多少钱一只）</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-3-14-loon-windows.htm" title="「3月14日」最高速度21.7M/S，2025年Github Loon每天更新免费机场订阅节点链接">「3月14日」最高速度21.7M/S，2025年Github Loon每天更新免费机场订阅节点链接</a></li>
+                        <li class="py-2"><a href="/news/article-51174.htm" title="杭州免费领养宠物狗（杭州哪里可以免费领养狗）">杭州免费领养宠物狗（杭州哪里可以免费领养狗）</a></li>
+                        <li class="py-2"><a href="/news/article-57170.htm" title="有没有可以免费领养宠物的软件（可以免费领养宠物的软件叫什么）">有没有可以免费领养宠物的软件（可以免费领养宠物的软件叫什么）</a></li>
+                        <li class="py-2"><a href="/news/article-52226.htm" title="宠物领养市场调查问卷怎么写（宠物领养数据）">宠物领养市场调查问卷怎么写（宠物领养数据）</a></li>
+                        <li class="py-2"><a href="/news/article-37215.htm" title="MySQL之内连接、外连接的含义和具体使用">MySQL之内连接、外连接的含义和具体使用</a></li>
+                        <li class="py-2"><a href="/news/article-42653.htm" title="被猫抓了把血挤出来了并打疫苗（被猫抓了把血挤出来了并打疫苗可以吗）">被猫抓了把血挤出来了并打疫苗（被猫抓了把血挤出来了并打疫苗可以吗）</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-1-7-free-high-speed-nodes.htm" title="「1月7日」最高速度19.9M/S，2025年Github Loon每天更新免费机场订阅节点链接">「1月7日」最高速度19.9M/S，2025年Github Loon每天更新免费机场订阅节点链接</a></li>
+                    </ul>
+    </div>
+</div>
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">归纳</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">42</span> <a href="/date/2025-03/" title="2025-03 归档">2025-03</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">84</span> <a href="/date/2025-02/" title="2025-02 归档">2025-02</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">84</span> <a href="/date/2025-01/" title="2025-01 归档">2025-01</a></h4>
+            </li>
+                    </ul>
+    </div>
+</div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- //section -->    
+        <!-- footer17 -->
+    <section class="footer-17">
+        <div class="footer17_sur py-5">
+            <div class="copyright text-center">
+                <div class="container">
+                    <p class="copy-footer-29">
+                            <p>
+                                <a href="/">首页</a> | 
+                                <a href="/free-node/">免费节点</a> | 
+                                <a href="/news/">新闻资讯</a> |
+                                <a href="/about-us.htm">关于我们</a> |
+                                <a href="/disclaimer.htm">免责申明</a> |
+                                <a href="/privacy.htm">隐私申明</a> |
+                                <a href="/sitemap.xml">网站地图</a>
+                            </p>
+                        Github Loon节点订阅官网 版权所有 Powered by WordPress
+                    </p>
+                </div>
+            </div>
+            <!-- move top -->
+            <button onclick="topFunction()" id="movetop" title="Go to top">
+                &#10548;
+            </button>
+            <script>
+            // When the user scrolls down 20px from the top of the document, show the button
+            window.onscroll = function() {
+                scrollFunction()
+            };
+
+            function scrollFunction() {
+                if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+                    document.getElementById("movetop").style.display = "block";
+                } else {
+                    document.getElementById("movetop").style.display = "none";
+                }
+            }
+
+            // When the user clicks on the button, scroll to the top of the document
+            function topFunction() {
+                document.body.scrollTop = 0;
+                document.documentElement.scrollTop = 0;
+            }
+            </script>
+            <!-- /move top -->
+        </div>
+    </section>
+    <!-- //footer17 -->
+    <!-- Template JavaScript -->
+    <script src="/assets/website/js/frontend/githubloon/jquery-3.5.1.min.js"></script>
+    <script src="/assets/website/js/frontend/githubloon/theme-change.js"></script><!-- theme switch js (light and dark)-->
+    <!-- pricing tabs js -->
+    <script src="/assets/website/js/frontend/githubloon/tabs.js"></script>
+    <!-- owlcarousel -->
+    <script src="/assets/website/js/frontend/githubloon/owl.carousel.js"></script>
+    <!-- script for tesimonials carousel slider -->
+    <script>
+    $(document).ready(function() {
+        $("#owl-demo1").owlCarousel({
+            loop: true,
+            nav: false,
+            margin: 50,
+            responsiveClass: true,
+            responsive: {
+                0: {
+                    items: 1,
+                    nav: false
+                },
+                736: {
+                    items: 2,
+                    nav: false
+                }
+            }
+        })
+    })
+    </script>
+    <!-- //script for tesimonials carousel slider -->
+    <!-- script for tesimonials agency carousel slider -->
+    <script>
+    $(document).ready(function() {
+        $("#owl-agency").owlCarousel({
+            loop: true,
+            nav: false,
+            margin: 50,
+            responsiveClass: true,
+            responsive: {
+                0: {
+                    items: 1,
+                    nav: false
+                },
+                736: {
+                    items: 1,
+                    nav: false
+                }
+            }
+        })
+    })
+    </script>
+    <!-- //script for tesimonials agency carousel slider -->
+    <!-- magnific popup -->
+    <script src="/assets/website/js/frontend/githubloon/jquery.magnific-popup.min.js"></script>
+    <script>
+    $(document).ready(function() {
+        $('.popup-with-zoom-anim').magnificPopup({
+            type: 'inline',
+
+            fixedContentPos: false,
+            fixedBgPos: true,
+
+            overflowY: 'auto',
+
+            closeBtnInside: true,
+            preloader: false,
+
+            midClick: true,
+            removalDelay: 300,
+            mainClass: 'my-mfp-zoom-in'
+        });
+
+        $('.popup-with-move-anim').magnificPopup({
+            type: 'inline',
+
+            fixedContentPos: false,
+            fixedBgPos: true,
+
+            overflowY: 'auto',
+
+            closeBtnInside: true,
+            preloader: false,
+
+            midClick: true,
+            removalDelay: 300,
+            mainClass: 'my-mfp-slide-bottom'
+        });
+    });
+    </script>
+    <!-- //magnific popup -->
+    <!-- disable body scroll which navbar is in active -->
+    <script>
+    $(function() {
+        $('.navbar-toggler').click(function() {
+            $('body').toggleClass('noscroll');
+        })
+    });
+    </script>
+    <!-- disable body scroll which navbar is in active -->
+    <!--/MENU-JS-->
+    <script>
+    $(window).on("scroll", function() {
+        var scroll = $(window).scrollTop();
+
+        if (scroll >= 80) {
+            $("#site-header").addClass("nav-fixed");
+        } else {
+            $("#site-header").removeClass("nav-fixed");
+        }
+    });
+
+    //Main navigation Active Class Add Remove
+    $(".navbar-toggler").on("click", function() {
+        $("header").toggleClass("active");
+    });
+    $(document).on("ready", function() {
+        if ($(window).width() > 991) {
+            $("header").removeClass("active");
+        }
+        $(window).on("resize", function() {
+            if ($(window).width() > 991) {
+                $("header").removeClass("active");
+            }
+        });
+    });
+    </script>
+    <!--//MENU-JS-->
+    <script src="/assets/website/js/frontend/githubloon/bootstrap.min.js"></script>
+    <script src="https://www.freeclashnode.com/assets/js/frontend/invite-url.js"></script><script src="/assets/website/js/frontend/G.js"></script>
+</body>
+
+</html>
