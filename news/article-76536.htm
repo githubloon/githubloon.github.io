@@ -1,0 +1,358 @@
+<!doctype html>
+<html xml:lang="zh-CN" lang="zh-CN">
+
+<head>
+        <link rel="canonical" href="https://githubloon.github.io/news/article-76536.htm" />
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>ES6可选链操作符和空值合并运算符</title>
+        <meta name="description" content="目录  1、?.操作符 2、?? 操作符    ES5中我们判断一个对象是否存在一个属性并输出： let user={name:'yancy',age:20}//方法一：&amp;&amp;let p" />
+        <link rel="icon" href="/assets/website/img/githubloon/favicon.ico" type="image/x-icon"/>
+
+    <meta name="author" content="Github Loon节点订阅官网">
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://githubloon.github.io/news/article-76536.htm" />
+    <meta property="og:site_name" content="Github Loon节点订阅官网" />
+    <meta property="og:title" content="ES6可选链操作符和空值合并运算符" />
+    <meta property="og:image" content="https://githubloon.github.io/uploads/20240820/ab2d3e58a42dfd69fcd0f41381461b69.webp" />
+        <meta property="og:release_date" content="2025-03-18T06:13:59" />
+    <meta property="og:updated_time" content="2025-03-18T06:13:59" />
+        <meta property="og:description" content="目录  1、?.操作符 2、?? 操作符    ES5中我们判断一个对象是否存在一个属性并输出： let user={name:'yancy',age:20}//方法一：&amp;&amp;let p" />
+        
+    <meta name="applicable-device" content="pc,mobile" />
+    <meta name="renderer" content="webkit" />
+    <meta name="force-rendering" content="webkit" />
+    <meta http-equiv="Cache-Control" content="no-transform" />
+    <meta name="robots" content="max-image-preview:large" />
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-title" content="ES6可选链操作符和空值合并运算符">
+    <meta name="format-detection" content="telephone=no">
+
+    <link rel="dns-prefetch" href="https:/www.googletagmanager.com">
+    <link rel="dns-prefetch" href="https://www.googleadservices.com">
+    <link rel="dns-prefetch" href="https://www.google-analytics.com">
+    <link rel="dns-prefetch" href="https://pagead2.googlesyndication.com">
+    <link rel="dns-prefetch" href="https://cm.g.doubleclick.net">
+    <link rel="dns-prefetch" href="https://fonts.googleapis.com">
+
+    <!-- Google fonts -->
+    <link href="//fonts.googleapis.com/css2?family=DM+Sans:wght@400;700&display=swap" rel="stylesheet">
+    <!-- Template CSS -->
+    <link rel="stylesheet" href="/assets/website/css/githubloon/style-starter.css">
+    <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-9MPH6JPQCT"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-9MPH6JPQCT');
+</script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3332997411212854"
+     crossorigin="anonymous"></script>
+</head>
+
+<body data-page="detail">
+        <div class="header-saas">
+        <!-- header -->
+        <header id="site-header" class="fixed-top">
+            <div class="container">
+                <nav class="navbar navbar-expand-lg stroke">
+                    <a class="navbar-brand" href="/">
+                                        <span>Github Loon</span>
+                                        </a>
+                    <button class="navbar-toggler  collapsed bg-gradient" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon fa icon-expand fa-bars"></span>
+                        <span class="navbar-toggler-icon fa icon-close fa-times"></span>
+                        </span>
+                    </button>
+                    <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
+                        <ul class="navbar-nav ml-auto">
+                                                        <li class="nav-item">
+                                <a class="nav-link" href="/">首页</a>
+                            </li>
+                                                        <li class="nav-item">
+                                <a class="nav-link" href="/free-nodes/">免费节点</a>
+                            </li>
+                                                        <li class="nav-item">
+                                <a class="nav-link" href="/paid-subscribe/">推荐机场</a>
+                            </li>
+                                                        <li class="nav-item">
+                                <a class="nav-link" href="/client.htm">客户端</a>
+                            </li>
+                                                        <li class="nav-item">
+                                <a class="nav-link" href="/news/">新闻资讯</a>
+                            </li>
+                                                    </ul>
+                    </div>
+                    <!-- toggle switch for light and dark theme -->
+                    <div class="mobile-position">
+                        <nav class="navigation">
+                            <div class="theme-switch-wrapper">
+                                <label class="theme-switch" for="checkbox">
+                                    <input type="checkbox" id="checkbox">
+                                    <div class="mode-container">
+                                        <i class="gg-sun"></i>
+                                        <i class="gg-moon"></i>
+                                    </div>
+                                </label>
+                            </div>
+                        </nav>
+                    </div>
+                    <!-- //toggle switch for light and dark theme -->
+                </nav>
+            </div>
+        </header>
+        <!-- //header -->
+    </div>
+    <div class="innerblock">
+    </div>
+    <!-- contact-form 2 -->
+    <section class="w3l-contact-2 py-5" id="contact">
+        <div class="container py-lg-4 py-md-3 py-2">
+            <div class="title-content text-center">
+                <h1 class="title-toobig">ES6可选链操作符和空值合并运算符</h1>
+                <p class="mt-md-4 mt-3 mx-lg-5 px-lg-5">
+                    <a href="/">首页</a> / <a href="/news/">新闻资讯</a> / 正文
+                </p>
+            </div>
+    </section>
+    <!-- section -->
+    <section class="w3l-index3" id="about">
+        <div class="midd-w3 py-5">
+            <div class="container py-lg-5 py-md-3 py-2">
+                <div class="row">
+                    <div class="col-md-9">
+                                        <input type="hidden" id="share-website-info" data-name="" data-url="">
+                  				  				  				<div id="content_views" class="markdown_views prism-atom-one-light"> <div class="toc"> <h3>目录</h3> <ul> <li><a href="#1_2" rel="nofollow">1、?.操作符</a></li> <li><a href="#2__46" rel="nofollow">2、?? 操作符</a></li> </ul> </div> </h1> <p>ES5中我们判断一个对象是否存在一个属性并输出：</p> <pre><code class="prism language-javascript"><span class="token keyword">let</span> user<span class="token operator">=</span><span class="token punctuation">{<!-- --></span><span class="token literal-property property">name</span><span class="token operator">:</span><span class="token string">'yancy'</span><span class="token punctuation">,</span><span class="token literal-property property">age</span><span class="token operator">:</span><span class="token number">20</span><span class="token punctuation">}</span><span class="token comment">//方法一：&amp;&amp;</span><span class="token keyword">let</span> person_name<span class="token operator">=</span> user<span class="token operator">&amp;&amp;</span> user<span class="token punctuation">.</span>name<span class="token punctuation">;</span> console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>person_name<span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token comment">//方法二：三元运算符</span><span class="token keyword">let</span> person_name_2<span class="token operator">=</span> user<span class="token operator">?</span><span class="token punctuation">(</span>user<span class="token punctuation">.</span>name<span class="token operator">?</span> user<span class="token punctuation">.</span>name<span class="token operator">:</span><span class="token keyword">undefined</span><span class="token punctuation">)</span><span class="token operator">:</span><span class="token keyword">undefined</span><span class="token punctuation">;</span> console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>person_name_2<span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre> <p>mdn中&amp;&amp;运算符的描述：<br /><img decoding="async" src="http://img.555519.xyz/uploads3/20220706/b0bf8e5c9de73437be91bb7cd12f8640.jpg" alt="ES6可选链操作符和空值合并运算符"></p> <p>ES6中使用了?.运算符，直接在链式调用的时候判断，左侧的对象是否为null或者undefined。如果是，就不再往下运算，直接返回undefined：<br /><img decoding="async" src="http://img.555519.xyz/uploads3/20220706/d9e5de0534d2e7f05a7fe10bdfd6eb3a.jpg" alt="ES6可选链操作符和空值合并运算符"></p> <pre><code class="prism language-javascript"> obj<span class="token operator">?.</span>prop<span class="token comment">// 对象属性</span>    obj<span class="token operator">?.</span><span class="token punctuation">[</span>expr<span class="token punctuation">]</span><span class="token comment">// 同上 [expr]是对象属性表达式</span>    obj<span class="token operator">?.</span>func<span class="token operator">?.</span><span class="token punctuation">(</span><span class="token operator">...</span>args<span class="token punctuation">)</span><span class="token comment">// 函数或对象方法的调用</span></code></pre> <p>具体使用：</p> <pre><code class="prism language-javascript"><span class="token keyword">let</span> user<span class="token operator">=</span><span class="token punctuation">{<!-- --></span><span class="token literal-property property">name</span><span class="token operator">:</span><span class="token string">'yancy'</span><span class="token punctuation">,</span><span class="token literal-property property">age</span><span class="token operator">:</span><span class="token number">20</span><span class="token punctuation">}</span>  console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>user<span class="token operator">?.</span>name<span class="token punctuation">)</span></code></pre> <p>即user?.name会判断user中是否存在name属性，如果存在，返回user.name，否则返回undefined。</p> </h1> <p>?? 是Null判断符。<br /> ES5中||缺陷：左侧有部分假值，如：‘’ false 0 都使默认值生效，这明显不符合逻辑的，假如我们需要的值就是’’ false 0 怎么办 ？<br /> 这是mdn中||的描述：<br /><img decoding="async" src="http://img.555519.xyz/uploads3/20220706/faf252d59d844f4ffbe82bf3c9e5c62a.jpg" alt="ES6可选链操作符和空值合并运算符"></p> <p>比如：</p> <pre><code class="prism language-javascript"><span class="token keyword">let</span> res<span class="token operator">=</span><span class="token number">0</span><span class="token operator">||</span><span class="token number">1</span><span class="token punctuation">;</span> console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>res<span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token comment">//1</span></code></pre> <p>可以看到，当左侧为0时，那么判断为’假’，就会继续判断右侧的1，并返回。但是有的时候，我们认为0并不是’假’，而是只判断是否为null或者undefined为假。</p> <p>使用??操作符号：<br /><img decoding="async" src="http://img.555519.xyz/uploads3/20220706/83bfe10bcf534479086b212bfe9ee437.jpg" alt="ES6可选链操作符和空值合并运算符"></p> <pre><code class="prism language-javascript"><span class="token keyword">let</span> res<span class="token operator">=</span><span class="token number">0</span><span class="token operator">??</span><span class="token number">1</span><span class="token punctuation">;</span> console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>res<span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token comment">//0</span><span class="token keyword">let</span> res2<span class="token operator">=</span><span class="token keyword">null</span><span class="token operator">??</span><span class="token number">1</span><span class="token punctuation">;</span> console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>res2<span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token comment">//1</span></code></pre> <p>即??和||的主要区别是只认为null和undefined的为假值，而其他的，例如0、‘’、false，是’真值’。</p> </div> 			                <div class="clearfix"></div>
+                <div class="col-md-12 mt-5">
+                                        <p>上一个：<a href="/news/article-76535.htm">SQL知识梳理之关系模型（一）</a></p>
+                                        <p>下一个：<a href="/news/article-77211.htm">宠物粮食上市公司龙头股票 宠物粮食上市公司龙头股票有哪些</a></p>
+                                    </div>
+                                    </div>
+                    <div class="col-md-3">
+                        <div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">热门文章</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2"><a href="/news/article-49110.htm" title="vue中给buttion按钮添加键盘回车（enter）事件">vue中给buttion按钮添加键盘回车（enter）事件</a></li>
+                        <li class="py-2"><a href="/news/article-52227.htm" title="猫给人传染的8种病哪些不能治（猫给人传染的病都有哪些）">猫给人传染的8种病哪些不能治（猫给人传染的病都有哪些）</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-3-11-loon-node.htm" title="「3月11日」最高速度18.7M/S，2025年Github Loon每天更新免费机场订阅节点链接">「3月11日」最高速度18.7M/S，2025年Github Loon每天更新免费机场订阅节点链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-2-7-free-loon-node.htm" title="「2月7日」最高速度21M/S，2025年Github Loon每天更新免费机场订阅节点链接">「2月7日」最高速度21M/S，2025年Github Loon每天更新免费机场订阅节点链接</a></li>
+                        <li class="py-2"><a href="/news/article-43652.htm" title="猫打疫苗需要多少钱?（免疫猫多少钱一只）">猫打疫苗需要多少钱?（免疫猫多少钱一只）</a></li>
+                        <li class="py-2"><a href="/news/article-55482.htm" title="葫芦岛流浪狗领养（葫芦岛流浪动物救助站）">葫芦岛流浪狗领养（葫芦岛流浪动物救助站）</a></li>
+                        <li class="py-2"><a href="/news/article-69854.htm" title="用浏览器快速开启Docker的体验之旅 &#8211; 陈希章 _在线工具">用浏览器快速开启Docker的体验之旅 &#8211; 陈希章 _在线工具</a></li>
+                        <li class="py-2"><a href="/news/article-64191.htm" title="pymysql增删改查之insert操作">pymysql增删改查之insert操作</a></li>
+                        <li class="py-2"><a href="/news/article-48092.htm" title="宠物粮食加工厂需要执照吗知乎 宠物粮食加工厂需要执照吗知乎">宠物粮食加工厂需要执照吗知乎 宠物粮食加工厂需要执照吗知乎</a></li>
+                        <li class="py-2"><a href="/news/article-72482.htm" title="猫咪体外驱虫怎么用视频（猫咪体外驱虫剂怎么用）">猫咪体外驱虫怎么用视频（猫咪体外驱虫剂怎么用）</a></li>
+                    </ul>
+    </div>
+</div>
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">归纳</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">60</span> <a href="/date/2025-03/" title="2025-03 归档">2025-03</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">84</span> <a href="/date/2025-02/" title="2025-02 归档">2025-02</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">84</span> <a href="/date/2025-01/" title="2025-01 归档">2025-01</a></h4>
+            </li>
+                    </ul>
+    </div>
+</div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- //section -->    
+        <!-- footer17 -->
+    <section class="footer-17">
+        <div class="footer17_sur py-5">
+            <div class="copyright text-center">
+                <div class="container">
+                    <p class="copy-footer-29">
+                            <p>
+                                <a href="/">首页</a> | 
+                                <a href="/free-node/">免费节点</a> | 
+                                <a href="/news/">新闻资讯</a> |
+                                <a href="/about-us.htm">关于我们</a> |
+                                <a href="/disclaimer.htm">免责申明</a> |
+                                <a href="/privacy.htm">隐私申明</a> |
+                                <a href="/sitemap.xml">网站地图</a>
+                            </p>
+                        Github Loon节点订阅官网 版权所有 Powered by WordPress
+                    </p>
+                </div>
+            </div>
+            <!-- move top -->
+            <button onclick="topFunction()" id="movetop" title="Go to top">
+                &#10548;
+            </button>
+            <script>
+            // When the user scrolls down 20px from the top of the document, show the button
+            window.onscroll = function() {
+                scrollFunction()
+            };
+
+            function scrollFunction() {
+                if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+                    document.getElementById("movetop").style.display = "block";
+                } else {
+                    document.getElementById("movetop").style.display = "none";
+                }
+            }
+
+            // When the user clicks on the button, scroll to the top of the document
+            function topFunction() {
+                document.body.scrollTop = 0;
+                document.documentElement.scrollTop = 0;
+            }
+            </script>
+            <!-- /move top -->
+        </div>
+    </section>
+    <!-- //footer17 -->
+    <!-- Template JavaScript -->
+    <script src="/assets/website/js/frontend/githubloon/jquery-3.5.1.min.js"></script>
+    <script src="/assets/website/js/frontend/githubloon/theme-change.js"></script><!-- theme switch js (light and dark)-->
+    <!-- pricing tabs js -->
+    <script src="/assets/website/js/frontend/githubloon/tabs.js"></script>
+    <!-- owlcarousel -->
+    <script src="/assets/website/js/frontend/githubloon/owl.carousel.js"></script>
+    <!-- script for tesimonials carousel slider -->
+    <script>
+    $(document).ready(function() {
+        $("#owl-demo1").owlCarousel({
+            loop: true,
+            nav: false,
+            margin: 50,
+            responsiveClass: true,
+            responsive: {
+                0: {
+                    items: 1,
+                    nav: false
+                },
+                736: {
+                    items: 2,
+                    nav: false
+                }
+            }
+        })
+    })
+    </script>
+    <!-- //script for tesimonials carousel slider -->
+    <!-- script for tesimonials agency carousel slider -->
+    <script>
+    $(document).ready(function() {
+        $("#owl-agency").owlCarousel({
+            loop: true,
+            nav: false,
+            margin: 50,
+            responsiveClass: true,
+            responsive: {
+                0: {
+                    items: 1,
+                    nav: false
+                },
+                736: {
+                    items: 1,
+                    nav: false
+                }
+            }
+        })
+    })
+    </script>
+    <!-- //script for tesimonials agency carousel slider -->
+    <!-- magnific popup -->
+    <script src="/assets/website/js/frontend/githubloon/jquery.magnific-popup.min.js"></script>
+    <script>
+    $(document).ready(function() {
+        $('.popup-with-zoom-anim').magnificPopup({
+            type: 'inline',
+
+            fixedContentPos: false,
+            fixedBgPos: true,
+
+            overflowY: 'auto',
+
+            closeBtnInside: true,
+            preloader: false,
+
+            midClick: true,
+            removalDelay: 300,
+            mainClass: 'my-mfp-zoom-in'
+        });
+
+        $('.popup-with-move-anim').magnificPopup({
+            type: 'inline',
+
+            fixedContentPos: false,
+            fixedBgPos: true,
+
+            overflowY: 'auto',
+
+            closeBtnInside: true,
+            preloader: false,
+
+            midClick: true,
+            removalDelay: 300,
+            mainClass: 'my-mfp-slide-bottom'
+        });
+    });
+    </script>
+    <!-- //magnific popup -->
+    <!-- disable body scroll which navbar is in active -->
+    <script>
+    $(function() {
+        $('.navbar-toggler').click(function() {
+            $('body').toggleClass('noscroll');
+        })
+    });
+    </script>
+    <!-- disable body scroll which navbar is in active -->
+    <!--/MENU-JS-->
+    <script>
+    $(window).on("scroll", function() {
+        var scroll = $(window).scrollTop();
+
+        if (scroll >= 80) {
+            $("#site-header").addClass("nav-fixed");
+        } else {
+            $("#site-header").removeClass("nav-fixed");
+        }
+    });
+
+    //Main navigation Active Class Add Remove
+    $(".navbar-toggler").on("click", function() {
+        $("header").toggleClass("active");
+    });
+    $(document).on("ready", function() {
+        if ($(window).width() > 991) {
+            $("header").removeClass("active");
+        }
+        $(window).on("resize", function() {
+            if ($(window).width() > 991) {
+                $("header").removeClass("active");
+            }
+        });
+    });
+    </script>
+    <!--//MENU-JS-->
+    <script src="/assets/website/js/frontend/githubloon/bootstrap.min.js"></script>
+    <script src="https://www.freeclashnode.com/assets/js/frontend/invite-url.js"></script><script src="/assets/website/js/frontend/G.js"></script>
+</body>
+
+</html>
