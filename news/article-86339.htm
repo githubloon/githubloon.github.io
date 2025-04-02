@@ -1,0 +1,355 @@
+<!doctype html>
+<html xml:lang="zh-CN" lang="zh-CN">
+
+<head>
+        <link rel="canonical" href="https://githubloon.github.io/news/article-86339.htm" />
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>进程,内核线程,用户线程,协程,纤程&#8230;&#8230;操作系统世界观</title>
+        <meta name="description" content="每一个学习操作系统的人都不可避免地要接触进程,线程(内核线程|用户线程),协程,纤程等概念。针对这些概念有很多经典的问题，诸如进程和线程的区别等等。一开始我觉得辨析这些概念似乎有纠结"茴"字有几种写法" />
+        <link rel="icon" href="/assets/website/img/githubloon/favicon.ico" type="image/x-icon"/>
+
+    <meta name="author" content="Github Loon节点订阅官网">
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://githubloon.github.io/news/article-86339.htm" />
+    <meta property="og:site_name" content="Github Loon节点订阅官网" />
+    <meta property="og:title" content="进程,内核线程,用户线程,协程,纤程&#8230;&#8230;操作系统世界观" />
+    <meta property="og:image" content="https://githubloon.github.io/uploads/20240820/47048b0a307e9c90841ce44adc370255.webp" />
+        <meta property="og:release_date" content="2025-04-01T09:50:18" />
+    <meta property="og:updated_time" content="2025-04-01T09:50:18" />
+        <meta property="og:description" content="每一个学习操作系统的人都不可避免地要接触进程,线程(内核线程|用户线程),协程,纤程等概念。针对这些概念有很多经典的问题，诸如进程和线程的区别等等。一开始我觉得辨析这些概念似乎有纠结"茴"字有几种写法" />
+        
+    <meta name="applicable-device" content="pc,mobile" />
+    <meta name="renderer" content="webkit" />
+    <meta name="force-rendering" content="webkit" />
+    <meta http-equiv="Cache-Control" content="no-transform" />
+    <meta name="robots" content="max-image-preview:large" />
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-title" content="进程,内核线程,用户线程,协程,纤程&#8230;&#8230;操作系统世界观">
+    <meta name="format-detection" content="telephone=no">
+
+    <link rel="dns-prefetch" href="https:/www.googletagmanager.com">
+    <link rel="dns-prefetch" href="https://www.googleadservices.com">
+    <link rel="dns-prefetch" href="https://www.google-analytics.com">
+    <link rel="dns-prefetch" href="https://pagead2.googlesyndication.com">
+    <link rel="dns-prefetch" href="https://cm.g.doubleclick.net">
+    <link rel="dns-prefetch" href="https://fonts.googleapis.com">
+
+    <!-- Google fonts -->
+    <link href="//fonts.googleapis.com/css2?family=DM+Sans:wght@400;700&display=swap" rel="stylesheet">
+    <!-- Template CSS -->
+    <link rel="stylesheet" href="/assets/website/css/githubloon/style-starter.css">
+    <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-9MPH6JPQCT"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-9MPH6JPQCT');
+</script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3332997411212854"
+     crossorigin="anonymous"></script>
+</head>
+
+<body data-page="detail">
+        <div class="header-saas">
+        <!-- header -->
+        <header id="site-header" class="fixed-top">
+            <div class="container">
+                <nav class="navbar navbar-expand-lg stroke">
+                    <a class="navbar-brand" href="/">
+                                        <span>Github Loon</span>
+                                        </a>
+                    <button class="navbar-toggler  collapsed bg-gradient" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon fa icon-expand fa-bars"></span>
+                        <span class="navbar-toggler-icon fa icon-close fa-times"></span>
+                        </span>
+                    </button>
+                    <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
+                        <ul class="navbar-nav ml-auto">
+                                                        <li class="nav-item">
+                                <a class="nav-link" href="/">首页</a>
+                            </li>
+                                                        <li class="nav-item">
+                                <a class="nav-link" href="/free-nodes/">免费节点</a>
+                            </li>
+                                                        <li class="nav-item">
+                                <a class="nav-link" href="/paid-subscribe/">推荐机场</a>
+                            </li>
+                                                        <li class="nav-item">
+                                <a class="nav-link" href="/client.htm">客户端</a>
+                            </li>
+                                                        <li class="nav-item">
+                                <a class="nav-link" href="/news/">新闻资讯</a>
+                            </li>
+                                                    </ul>
+                    </div>
+                    <!-- toggle switch for light and dark theme -->
+                    <div class="mobile-position">
+                        <nav class="navigation">
+                            <div class="theme-switch-wrapper">
+                                <label class="theme-switch" for="checkbox">
+                                    <input type="checkbox" id="checkbox">
+                                    <div class="mode-container">
+                                        <i class="gg-sun"></i>
+                                        <i class="gg-moon"></i>
+                                    </div>
+                                </label>
+                            </div>
+                        </nav>
+                    </div>
+                    <!-- //toggle switch for light and dark theme -->
+                </nav>
+            </div>
+        </header>
+        <!-- //header -->
+    </div>
+    <div class="innerblock">
+    </div>
+    <!-- contact-form 2 -->
+    <section class="w3l-contact-2 py-5" id="contact">
+        <div class="container py-lg-4 py-md-3 py-2">
+            <div class="title-content text-center">
+                <h1 class="title-toobig">进程,内核线程,用户线程,协程,纤程&#8230;&#8230;操作系统世界观</h1>
+                <p class="mt-md-4 mt-3 mx-lg-5 px-lg-5">
+                    <a href="/">首页</a> / <a href="/news/">新闻资讯</a> / 正文
+                </p>
+            </div>
+    </section>
+    <!-- section -->
+    <section class="w3l-index3" id="about">
+        <div class="midd-w3 py-5">
+            <div class="container py-lg-5 py-md-3 py-2">
+                <div class="row">
+                    <div class="col-md-9">
+                                        <input type="hidden" id="share-website-info" data-name="" data-url="">
+                  				  				  				<p>每一个学习操作系统的人都不可避免地要接触进程,线程(内核线程|用户线程),协程,纤程等概念。针对这些概念有很多经典的问题，诸如进程和线程的区别等等。一开始我觉得辨析这些概念似乎有纠结"茴"字有几种写法之嫌，对理解操作系统无益。但当我想要写一个自己的操作系统内核时，发现这些概念含混不清是我将真实操作系统中的技巧映射到自己代码的最大障碍。</p> <div class="toc"> <div class="toc-container-header">目录</div> <ul> <li><a href="#1-%E6%9C%80%E7%BB%8F%E5%85%B8%E8%BF%9B%E7%A8%8B%E4%B8%8E%E7%BA%BF%E7%A8%8B%E7%9A%84%E5%8C%BA%E5%88%AB" rel="nofollow">1. 最经典:进程与线程的区别</a></li> <li><a href="#2-%E5%86%85%E6%A0%B8%E7%9C%BC%E4%B8%AD%E7%9A%84%E8%BF%9B%E7%A8%8B%E5%92%8C%E7%BA%BF%E7%A8%8B" rel="nofollow">2. 内核眼中的进程和线程</a></li> <li><a href="#3-%E5%86%85%E6%A0%B8%E7%BA%BF%E7%A8%8B%E4%B8%8E%E7%94%A8%E6%88%B7%E6%80%81%E7%BA%BF%E7%A8%8B" rel="nofollow">3. 内核线程与用户态线程</a></li> <li><a href="#4-%E5%8D%8F%E7%A8%8B%E7%BA%A4%E7%A8%8B%E5%92%8C%E5%85%B6%E5%AE%83" rel="nofollow">4. 协程,纤程和其它...</a></li> </ul> </div> <h2 id="1-最经典进程与线程的区别">1. 最经典:进程与线程的区别</h2> <p>简单来说，<strong>进程</strong>是操作系统分配资源的最小单位，<strong>线程</strong>是操作系统调度的最小单位。</p> <p>早期的操作系统并没有线程，进程是操作系统运行程序的最小单位，但随着多处理器的普及，进程这一抽象显得很笨重<sup class="footnote-ref"><a href="#fn1" id="fnref1" rel="nofollow">[1]</a></sup>:</p> <ul> <li>创建进程需要独立的地址空间，载入数据和代码段，初始化堆栈。即使通过<code>fork()</code>创建进程也需要大量拷贝。</li> <li>由于地址空间的隔离，不同进程之间通信要么以页为单位维护公共映射，要么采用信号量等开销较大的进程间通信机制。</li> </ul> <p>因此，当有一些轻量级的并发任务时，线程的概念呼之欲出:<strong>拥有独立的执行流但共享地址空间</strong>。</p> <h2 id="2-内核眼中的进程和线程">2. 内核眼中的进程和线程</h2> <p>我们知道了线程是操作系统调度的最小单位，从状态机的视角来看一个线程持有的状态无非就是寄存器、栈、线程局部变量。可是当操作系统在两个进程之间切换时，不可避免地要涉及进程特有的状态(比如通知父进程子进程的状态改变等)。如果仅在切换线程时维护线程的上下文，似乎进程的抽象减弱了。</p> <p>实际上，以Linux为例，它在创建线程时是通过<code>clone()</code>这一系统调用。clone是用来创建进程的，不过在创建线程时会加上精细的控制选项使得新创建出来的进程和之前的进程拥有相同的pid,地址空间等等<sup class="footnote-ref"><a href="#fn1" id="fnref1:1" rel="nofollow">[1:1]</a></sup>。</p> <p><img decoding="async" src="http://img.555519.xyz/uploads3/20220509/712e8e055c92f5ad197dea21bc08720c.jpg" alt="进程,内核线程,用户线程,协程,纤程......操作系统世界观"></p> <p>可以看出，操作系统内核并不像上面所说的泾渭分明地区分进程与线程。更进一步地，在操作系统眼中它调度的是<strong>任务</strong><sup class="footnote-ref"><a href="#fn2" id="fnref2" rel="nofollow">[2]</a></sup>，<strong>任务</strong>有进程/线程的全部信息，而内核并不知道一次调度是在同一进程的不同线程，还是涉及了不同进程切换。</p> <h2 id="3-内核线程与用户态线程">3. 内核线程与用户态线程</h2> <p>我们似乎从程序和内核两个角度搞清楚了进程与线程的区别。但一个新概念的引入将会打乱上面的分析:<strong>内核线程和用户线程</strong>。</p> <p>这两个线程最核心的区别就是调度器是内核还是在用户态。</p> <p>很多教科书上会提到，操作系统真正能调度的其实是内核线程，用户线程只有通过内核线程才能访问操作系统的资源。而内核线程与用户线程的关联又可分为多对一、一对一、多对多...<sup class="footnote-ref"><a href="#fn1" id="fnref1:2" rel="nofollow">[1:2]</a></sup></p> <p><img decoding="async" src="http://img.555519.xyz/uploads3/20220509/f33e2affe11e2ed3409c56f252e40423.jpg" alt="进程,内核线程,用户线程,协程,纤程......操作系统世界观"></p> <p>在我们已经熟知的概念里，我们通过<code>pthreads</code>创建的线程直接被操作系统调度而且也可以主动陷入内核啊，那他们到底是用户线程还是内核线程？</p> <p>事实上，<code>POSIX threads</code>只是一组公共接口，它创建的是用户态线程，不过实现因操作系统而异。这组接口并没有规定创建的线程采用哪种方式被调度，换句话说它也可以只在用户态发生调度(接口并没有规定)。只是大部分操作系统(Linux, BSD等)的实现都采用上图中的一对一模型，让我们产生了一种用户态线程也直接受操作系统内核调度的错觉。</p> <p>以上图的多对一模型为例，我们可以看看pthreads的另一种实现方式:</p> <ul> <li>有一个专门的调度线程<code>master thread</code>，它与唯一的内核线程相连</li> <li>其它用户态线程的执行受master thread调度，当控制权交给master thread时，它可以通过线程信号终止其它线程的执行完成调度。</li> </ul> <p>即使我们知道了Linux采用一对一模型，但还存在一个问题:到底什么是内核线程？它是区别于用户线程额外的实体还是用户线程陷入内核后就摇身一变成为了内核线程？</p> <p>为了解释这个概念，需要创造一些新名词:</p> <ul> <li><code>native threads</code>:在一对一模型中，用户线程陷入内核后变成native threads</li> <li><code>kernel threads</code>:操作系统创建的用于执行额外工作的线程，比如回收资源等等</li> </ul> <p>区分开这两个名词，这个问题的答案已经很清楚了。用户态线程陷入内核后会发生栈切换等操作，实际上变成了内核中的线程，它会执行系统调用、被调度等等。但它和对应的用户态线程不会同时存在。</p> <p>操作系统内核有时还需要自己创建一些线程执行额外的工作，这些线程我称之为<code>kernel threads</code>，它们区别于操作系统上运行的用户线程，是可以并行执行也是完全不同的实体。</p> <p>从操作系统调度的角度来说，它们都是内核线程(<code>任务</code>)，但从功能上来说有必要区分开。</p> <p>最后还有一点边角问题，为什么说操作系统只调度内核线程？</p> <p>实际上即使是用户线程，每次陷入内核后都会变成native threads，而操作系统调度的也都是陷入内核后的线程所以这么说也不足为怪了。</p> <h2 id="4-协程纤程和其它">4. 协程,纤程和其它...</h2> <p>在现在主流操作系统采用一对一模型的情况下，协程纤程其实更像是前面所谓的<strong>用户态线程</strong>，它们的调度真正地发生在用户态。</p> <p>调度发生在用户态，好处是更加轻量级，上下文较短。坏处自然是只能主动地申请调度了。</p> <p><em>在这里不去展开这些名词的概念了。进程进化到线程，线程进化到协程、纤程，本质上都是针对特定workload的一种删减。</em></p> <hr class="footnotes-sep"/> <section class="footnotes"> <ol class="footnotes-list"> <li id="fn1" class="footnote-item"> <p><a href="http://www.m6000.cn/wp-content/themes/begin%20lts/inc/go.php?url=https://ipads.se.sjtu.edu.cn/mospi/"  target="_blank" rel="nofollow">https://ipads.se.sjtu.edu.cn/mospi/</a><a href="#fnref1" class="footnote-backref" rel="nofollow">↩︎</a><a href="#fnref1:1" class="footnote-backref" rel="nofollow">↩︎</a><a href="#fnref1:2" class="footnote-backref" rel="nofollow">↩︎</a></p> </li> <li id="fn2" class="footnote-item"> <p><a href="http://www.m6000.cn/wp-content/themes/begin%20lts/inc/go.php?url=https://docs.huihoo.com/doxygen/linux/kernel/3.7/structtask__struct.html"  target="_blank" rel="nofollow">https://docs.huihoo.com/doxygen/linux/kernel/3.7/structtask__struct.html</a><a href="#fnref2" class="footnote-backref" rel="nofollow">↩︎</a></p> </li> </ol> </section> 			                <div class="clearfix"></div>
+                <div class="col-md-12 mt-5">
+                                        <p>上一个：<a href="/news/article-85608.htm">仓鼠去宠物医院贵吗知乎推荐（宠物医院给仓鼠看病贵吗）</a></p>
+                                        <p>下一个：<a href="/news/article-86340.htm">我所在的城市有一家宠物医院英文怎么写 我所在的城市有一家宠物医院英文怎么写</a></p>
+                                    </div>
+                                    </div>
+                    <div class="col-md-3">
+                        <div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">热门文章</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2"><a href="/news/article-87046.htm" title="动物疫苗经销商有哪些（动物疫苗代理）">动物疫苗经销商有哪些（动物疫苗代理）</a></li>
+                        <li class="py-2"><a href="/news/article-77896.htm" title="动物医院运营管理工作内容（动物医院运营管理工作内容怎么写）">动物医院运营管理工作内容（动物医院运营管理工作内容怎么写）</a></li>
+                        <li class="py-2"><a href="/news/article-79257.htm" title="自己能给宠物&#25171;&#38024;吗多少钱（宠物的针可以自己打吗）">自己能给宠物&#25171;&#38024;吗多少钱（宠物的针可以自己打吗）</a></li>
+                        <li class="py-2"><a href="/news/article-74482.htm" title="重庆免费领养猫咪的正规机构（重庆领养猫猫的地方）">重庆免费领养猫咪的正规机构（重庆领养猫猫的地方）</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-3-4-today-loon-node.htm" title="「3月4日」最高速度22.9M/S，2025年Github Loon每天更新免费机场订阅节点链接">「3月4日」最高速度22.9M/S，2025年Github Loon每天更新免费机场订阅节点链接</a></li>
+                        <li class="py-2"><a href="/news/article-73152.htm" title="立德动物诊所 立德动物诊所怎么样">立德动物诊所 立德动物诊所怎么样</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-3-14-loon-windows.htm" title="「3月14日」最高速度21.7M/S，2025年Github Loon每天更新免费机场订阅节点链接">「3月14日」最高速度21.7M/S，2025年Github Loon每天更新免费机场订阅节点链接</a></li>
+                        <li class="py-2"><a href="/news/article-84198.htm" title="成都动物免疫中心（成都动物疫苗接种点）">成都动物免疫中心（成都动物疫苗接种点）</a></li>
+                        <li class="py-2"><a href="/news/article-71182.htm" title="动物疫苗接种工作简报怎么写范文（秋季动物疫苗注射工作简报）">动物疫苗接种工作简报怎么写范文（秋季动物疫苗注射工作简报）</a></li>
+                        <li class="py-2"><a href="/news/article-73150.htm" title="PHP $ _GET">PHP $ _GET</a></li>
+                    </ul>
+    </div>
+</div>
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">归纳</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">6</span> <a href="/date/2025-04/" title="2025-04 归档">2025-04</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">90</span> <a href="/date/2025-03/" title="2025-03 归档">2025-03</a></h4>
+            </li>
+                    </ul>
+    </div>
+</div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- //section -->    
+        <!-- footer17 -->
+    <section class="footer-17">
+        <div class="footer17_sur py-5">
+            <div class="copyright text-center">
+                <div class="container">
+                    <p class="copy-footer-29">
+                            <p>
+                                <a href="/">首页</a> | 
+                                <a href="/free-node/">免费节点</a> | 
+                                <a href="/news/">新闻资讯</a> |
+                                <a href="/about-us.htm">关于我们</a> |
+                                <a href="/disclaimer.htm">免责申明</a> |
+                                <a href="/privacy.htm">隐私申明</a> |
+                                <a href="/sitemap.xml">网站地图</a>
+                            </p>
+                        Github Loon节点订阅官网 版权所有 Powered by WordPress
+                    </p>
+                </div>
+            </div>
+            <!-- move top -->
+            <button onclick="topFunction()" id="movetop" title="Go to top">
+                &#10548;
+            </button>
+            <script>
+            // When the user scrolls down 20px from the top of the document, show the button
+            window.onscroll = function() {
+                scrollFunction()
+            };
+
+            function scrollFunction() {
+                if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+                    document.getElementById("movetop").style.display = "block";
+                } else {
+                    document.getElementById("movetop").style.display = "none";
+                }
+            }
+
+            // When the user clicks on the button, scroll to the top of the document
+            function topFunction() {
+                document.body.scrollTop = 0;
+                document.documentElement.scrollTop = 0;
+            }
+            </script>
+            <!-- /move top -->
+        </div>
+    </section>
+    <!-- //footer17 -->
+    <!-- Template JavaScript -->
+    <script src="/assets/website/js/frontend/githubloon/jquery-3.5.1.min.js"></script>
+    <script src="/assets/website/js/frontend/githubloon/theme-change.js"></script><!-- theme switch js (light and dark)-->
+    <!-- pricing tabs js -->
+    <script src="/assets/website/js/frontend/githubloon/tabs.js"></script>
+    <!-- owlcarousel -->
+    <script src="/assets/website/js/frontend/githubloon/owl.carousel.js"></script>
+    <!-- script for tesimonials carousel slider -->
+    <script>
+    $(document).ready(function() {
+        $("#owl-demo1").owlCarousel({
+            loop: true,
+            nav: false,
+            margin: 50,
+            responsiveClass: true,
+            responsive: {
+                0: {
+                    items: 1,
+                    nav: false
+                },
+                736: {
+                    items: 2,
+                    nav: false
+                }
+            }
+        })
+    })
+    </script>
+    <!-- //script for tesimonials carousel slider -->
+    <!-- script for tesimonials agency carousel slider -->
+    <script>
+    $(document).ready(function() {
+        $("#owl-agency").owlCarousel({
+            loop: true,
+            nav: false,
+            margin: 50,
+            responsiveClass: true,
+            responsive: {
+                0: {
+                    items: 1,
+                    nav: false
+                },
+                736: {
+                    items: 1,
+                    nav: false
+                }
+            }
+        })
+    })
+    </script>
+    <!-- //script for tesimonials agency carousel slider -->
+    <!-- magnific popup -->
+    <script src="/assets/website/js/frontend/githubloon/jquery.magnific-popup.min.js"></script>
+    <script>
+    $(document).ready(function() {
+        $('.popup-with-zoom-anim').magnificPopup({
+            type: 'inline',
+
+            fixedContentPos: false,
+            fixedBgPos: true,
+
+            overflowY: 'auto',
+
+            closeBtnInside: true,
+            preloader: false,
+
+            midClick: true,
+            removalDelay: 300,
+            mainClass: 'my-mfp-zoom-in'
+        });
+
+        $('.popup-with-move-anim').magnificPopup({
+            type: 'inline',
+
+            fixedContentPos: false,
+            fixedBgPos: true,
+
+            overflowY: 'auto',
+
+            closeBtnInside: true,
+            preloader: false,
+
+            midClick: true,
+            removalDelay: 300,
+            mainClass: 'my-mfp-slide-bottom'
+        });
+    });
+    </script>
+    <!-- //magnific popup -->
+    <!-- disable body scroll which navbar is in active -->
+    <script>
+    $(function() {
+        $('.navbar-toggler').click(function() {
+            $('body').toggleClass('noscroll');
+        })
+    });
+    </script>
+    <!-- disable body scroll which navbar is in active -->
+    <!--/MENU-JS-->
+    <script>
+    $(window).on("scroll", function() {
+        var scroll = $(window).scrollTop();
+
+        if (scroll >= 80) {
+            $("#site-header").addClass("nav-fixed");
+        } else {
+            $("#site-header").removeClass("nav-fixed");
+        }
+    });
+
+    //Main navigation Active Class Add Remove
+    $(".navbar-toggler").on("click", function() {
+        $("header").toggleClass("active");
+    });
+    $(document).on("ready", function() {
+        if ($(window).width() > 991) {
+            $("header").removeClass("active");
+        }
+        $(window).on("resize", function() {
+            if ($(window).width() > 991) {
+                $("header").removeClass("active");
+            }
+        });
+    });
+    </script>
+    <!--//MENU-JS-->
+    <script src="/assets/website/js/frontend/githubloon/bootstrap.min.js"></script>
+    <script src="https://www.freeclashnode.com/assets/js/frontend/invite-url.js"></script><script src="/assets/website/js/frontend/G.js"></script>
+</body>
+
+</html>
