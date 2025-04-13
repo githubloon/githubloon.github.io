@@ -1,0 +1,357 @@
+<!doctype html>
+<html xml:lang="zh-CN" lang="zh-CN">
+
+<head>
+        <link rel="canonical" href="https://githubloon.github.io/news/article-92922.htm" />
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>vite多页面配置项目实战_vue.js</title>
+        <meta name="description" content="目录  目录结构 多页面使用时，vite配置项中注意点 vite.config.js 配置，仅供参考 访问 总结   最近有多页面项目需要重构，就想试试使用vite，但是网上很多方法不太全面踩了不少的" />
+        <link rel="icon" href="/assets/website/img/githubloon/favicon.ico" type="image/x-icon"/>
+
+    <meta name="author" content="Github Loon节点订阅官网">
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://githubloon.github.io/news/article-92922.htm" />
+    <meta property="og:site_name" content="Github Loon节点订阅官网" />
+    <meta property="og:title" content="vite多页面配置项目实战_vue.js" />
+    <meta property="og:image" content="https://githubloon.github.io/uploads/20240820/fb5b8352b6d2fce9b518617f2267bd27.webp" />
+        <meta property="og:release_date" content="2025-04-10T08:19:51" />
+    <meta property="og:updated_time" content="2025-04-10T08:19:51" />
+        <meta property="og:description" content="目录  目录结构 多页面使用时，vite配置项中注意点 vite.config.js 配置，仅供参考 访问 总结   最近有多页面项目需要重构，就想试试使用vite，但是网上很多方法不太全面踩了不少的" />
+        
+    <meta name="applicable-device" content="pc,mobile" />
+    <meta name="renderer" content="webkit" />
+    <meta name="force-rendering" content="webkit" />
+    <meta http-equiv="Cache-Control" content="no-transform" />
+    <meta name="robots" content="max-image-preview:large" />
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-title" content="vite多页面配置项目实战_vue.js">
+    <meta name="format-detection" content="telephone=no">
+
+    <link rel="dns-prefetch" href="https:/www.googletagmanager.com">
+    <link rel="dns-prefetch" href="https://www.googleadservices.com">
+    <link rel="dns-prefetch" href="https://www.google-analytics.com">
+    <link rel="dns-prefetch" href="https://pagead2.googlesyndication.com">
+    <link rel="dns-prefetch" href="https://cm.g.doubleclick.net">
+    <link rel="dns-prefetch" href="https://fonts.googleapis.com">
+
+    <!-- Google fonts -->
+    <link href="//fonts.googleapis.com/css2?family=DM+Sans:wght@400;700&display=swap" rel="stylesheet">
+    <!-- Template CSS -->
+    <link rel="stylesheet" href="/assets/website/css/githubloon/style-starter.css">
+    <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-9MPH6JPQCT"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-9MPH6JPQCT');
+</script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3332997411212854"
+     crossorigin="anonymous"></script>
+</head>
+
+<body data-page="detail">
+        <div class="header-saas">
+        <!-- header -->
+        <header id="site-header" class="fixed-top">
+            <div class="container">
+                <nav class="navbar navbar-expand-lg stroke">
+                    <a class="navbar-brand" href="/">
+                                        <span>Github Loon</span>
+                                        </a>
+                    <button class="navbar-toggler  collapsed bg-gradient" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon fa icon-expand fa-bars"></span>
+                        <span class="navbar-toggler-icon fa icon-close fa-times"></span>
+                        </span>
+                    </button>
+                    <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
+                        <ul class="navbar-nav ml-auto">
+                                                        <li class="nav-item">
+                                <a class="nav-link" href="/">首页</a>
+                            </li>
+                                                        <li class="nav-item">
+                                <a class="nav-link" href="/free-nodes/">免费节点</a>
+                            </li>
+                                                        <li class="nav-item">
+                                <a class="nav-link" href="/paid-subscribe/">推荐机场</a>
+                            </li>
+                                                        <li class="nav-item">
+                                <a class="nav-link" href="/client.htm">客户端</a>
+                            </li>
+                                                        <li class="nav-item">
+                                <a class="nav-link" href="/news/">新闻资讯</a>
+                            </li>
+                                                    </ul>
+                    </div>
+                    <!-- toggle switch for light and dark theme -->
+                    <div class="mobile-position">
+                        <nav class="navigation">
+                            <div class="theme-switch-wrapper">
+                                <label class="theme-switch" for="checkbox">
+                                    <input type="checkbox" id="checkbox">
+                                    <div class="mode-container">
+                                        <i class="gg-sun"></i>
+                                        <i class="gg-moon"></i>
+                                    </div>
+                                </label>
+                            </div>
+                        </nav>
+                    </div>
+                    <!-- //toggle switch for light and dark theme -->
+                </nav>
+            </div>
+        </header>
+        <!-- //header -->
+    </div>
+    <div class="innerblock">
+    </div>
+    <!-- contact-form 2 -->
+    <section class="w3l-contact-2 py-5" id="contact">
+        <div class="container py-lg-4 py-md-3 py-2">
+            <div class="title-content text-center">
+                <h1 class="title-toobig">vite多页面配置项目实战_vue.js</h1>
+                <p class="mt-md-4 mt-3 mx-lg-5 px-lg-5">
+                    <a href="/">首页</a> / <a href="/news/">新闻资讯</a> / 正文
+                </p>
+            </div>
+    </section>
+    <!-- section -->
+    <section class="w3l-index3" id="about">
+        <div class="midd-w3 py-5">
+            <div class="container py-lg-5 py-md-3 py-2">
+                <div class="row">
+                    <div class="col-md-9">
+                                        <input type="hidden" id="share-website-info" data-name="" data-url="">
+                  				  				  				<div id="navCategory"> <h5 class="catalogue">目录</h5> <ul class="first_class_ul"> <li><a href="#_label0" rel="nofollow">目录结构</a></li> <li><a href="#_label1" rel="nofollow">多页面使用时，vite配置项中注意点</a></li> <li><a href="#_label2" rel="nofollow">vite.config.js 配置，仅供参考</a></li> <li><a href="#_label3" rel="nofollow">访问</a></li> <li><a href="#_label4" rel="nofollow">总结</a></li> </ul> </div> <p>最近有多页面项目需要重构，就想试试使用vite，但是网上很多方法不太全面踩了不少的坑，网上的多页面配置方案也不少，我只给出了我成功配置并在使用的方案</p> <p class="maodian"><a name="_label0" rel="nofollow"></a></p> <h2>目录结构</h2> <div class="ay1code"> <pre class="brush:js;">{      dist: // 存放打包后的文件,      node_modules: ,      src: {          assets: // 一些静态文件,          components: // 公用组件,          index: { // 页面1              index.html,              main.js,              App.vue,              ...          },          page: { // 页面2              index.html,              main.js,              App.vue,              ...          },          ...          index.html // 用于页面初始进入时重定向      },      package.json: ,      vite.config.js: // 配置文件  }</pre> </div> <p>Tips：在src中放一个index.html是为了编译或打包后，输入localhost:3000/能够直接跳转到需要展示的页面，而不是出现文件目录或空白页面，对应代码为：</p> <div class="ay1code"> <pre class="brush:xhtml;">&lt;!DOCTYPE html&gt;  &lt;html lang="en"&gt;  &lt;head&gt;      &lt;meta charset="UTF-8"&gt;      &lt;title&gt;vite多页面&lt;/title&gt;  &lt;/head&gt;  &lt;body&gt;  &lt;script&gt;    window.location.href = 'index/index.html' // 需要重定向的页面  &lt;/script&gt;  &lt;/body&gt;  &lt;/html&gt;  </pre> </div> <p class="maodian"><a name="_label1" rel="nofollow"></a></p> <h2>多页面使用时，vite配置项中注意点</h2> <ol> <li>修改root参数为多页面的根目录：./src/，根据不同目录结构而修改</li> <li>配置base参数为/，不然打包后js文件的访问路径会出问题</li> <li>将build.outDir原输入路径dist改为../dist，根据root参数配置层级不同而对应修改</li> <li>rollupOptions.input中配置多个页面的输入，以下为我使用的配置项</li> </ol> <div class="ay1code"> <pre class="brush:js;">{      admin: path.resolve(__dirname, 'src/index.html'), // 用于页面重定向      index: path.resolve(__dirname, 'src/index/index.html'), // 页面一      page: path.resolve(__dirname, 'src/page/index.html'), // 页面二  }  </pre> </div> <p class="maodian"><a name="_label2" rel="nofollow"></a></p> <h2>vite.config.js 配置，仅供参考</h2> <p>直接上我的配置，东西有点多，仅供参考</p> <div class="ay1code"> <pre class="brush:js;">import {    defineConfig  } from 'vite'  import vue from '@vitejs/plugin-vue'  import path from 'path'  export default defineConfig({    // 服务    server: {      // 服务器主机名      host: '0.0.0.0',      // 端口号      port: 3000,      // 设为 true 时若端口已被占用则会直接退出，      // 而不是尝试下移一格端口      strictPort: false,      // http.createServer() 配置项      // https: '',      proxy: {        '/api': {          target: 'http://...............',          changeOrigin: true,          rewrite: (path) =&gt; {            return path.replace(/^\/api/, '')          }        }      },        // 开发服务器配置 CORS      // boolean | CorsOptions      cors: {},      // 设置为 true 强制使依赖构建      // force: true,      // 禁用或配置HMR连接      hmr: {},      // 传递给 chokidar 的文件系统监视器选项      watch: {}    },      // 项目根目录    // root: process.cwd(),    root: './src/',    // 项目部署的基础路径    base: '/',    // 环境配置    mode: 'development',    // 全局变量替换 Record&lt;string, string&gt;    define: {},    // 插件    plugins: [vue()],    // 静态资源服务文件夹    publicDir: 'public',      resolve: {      alias: {        '@': path.resolve(__dirname, 'src'),        'components': path.resolve(__dirname, 'src/components')      },      dedupe: [],      // 情景导出package.json 配置中的 exports 字段      conditions: [],      // 解析package.json 中的字段      mainFields: ['module', 'jsnext:main', 'jsnext'],      // 导入时想要省略的扩展名列表      extensions: ['.mjs', '.js', '.ts', '.jsx', '.tsx', '.json', '.vue']    },      css: {      // 配置css modules 的行为， 选项被传递给postcss-modules      modules: {},      // PostCSS 配置（格式同postcss.config.js）      // postcss-load-config 的插件配置      postcss: {},      // 指定传递给 CSS 预处理器的选项      preprocessorOptions: {      }    },      json: {      // 是否支持从 .json 文件中进行按名导入      namedExports: true,      // 若设置为 true, 导入的 JSON 会被转换为 export default JSON.parse("...") 会比转译成对象字面量性能更好      // 尤其是当 JSON 文件较大时      // 开启此项， 则会禁用按名导入      stringify: false    },      // 继承自 esbuild 转换选项， 最常见的用例是自定义 JSX    esbuild: {      jsxFactory: 'h',      jsxFragment: 'Fragment',      jsxInject: `import React from 'react'`    },      // 静态资源处理   字符串 || 正则表达式    assetsInclude: '',    // 调整控制台输出的级别 'info' | 'warn' | 'error' | 'silent'    logLevel: 'info',    // 设为 false 可以避免 Vite 清屏而错过在终端中打印某些关键信息    clearScreen: true,      build: {      // 浏览器兼容性 ‘esnext' | 'modules'      target: 'modules',      //输出路径      outDir: '../dist',      // 生成静态资源的存放路径      assetsDir: '../assets',      // 小于此阈值的导入或引用资源将内联为 base64 编码， 以避免额外的http请求， 设置为 0, 可以完全禁用此项，      assetsInlineLimit: 4096,      // 启动 / 禁用 CSS 代码拆分      cssCodeSplit: true,      // 构建后是否生成 soutrce map 文件      sourcemap: false,      // 自定义底层的 Rollup 打包配置      rollupOptions: {        input: {          admin: path.resolve(__dirname, 'src/index.html'),          page: path.resolve(__dirname, 'src/page/index.html'),          index: path.resolve(__dirname, 'src/index/index.html'),        },        output: {          chunkFileNames: 'static/js/[name]-[hash].js',          entryFileNames: 'static/js/[name]-[hash].js',          assetFileNames: 'static/[ext]/[name]-[hash].[ext]',        }      },        // @rollup/plugin-commonjs 插件的选项      commonjsOptions: {},        // 构建的库      // lib: { entry: string, name?: string, formats?: ('es' | 'cjs' | 'umd' | 'iife')[], fileName?: string },        // 当设置为 true, 构建后将会生成 manifest.json 文件      manifest: false,        // 设置为 false 可以禁用最小化混淆      // 或是用来指定是应用哪种混淆器      // boolean | 'terser' | 'esbuild'      minify: 'terser',        // 传递给 Terser 的更多 minify 选项      terserOptions: {},        // 设置为false 来禁用将构建好的文件写入磁盘      write: true,        // 默认情况下 若 outDir 在 root 目录下， 则 Vite 会在构建时清空该目录。      emptyOutDir: true,        // 启用 / 禁用 brotli 压缩大小报告      brotliSize: false,        // chunk 大小警告的限制      chunkSizeWarningLimit: 500    }  })  </pre> </div> <p class="maodian"><a name="_label3" rel="nofollow"></a></p> <h2>访问</h2> <p>页面一：http://localhost:3000/index/index.html</p> <p>页面二：http://localhost:3000/page/index.html</p> <p class="maodian"><a name="_label4" rel="nofollow"></a></p> <h2>总结</h2> 			                <div class="clearfix"></div>
+                <div class="col-md-12 mt-5">
+                                        <p>上一个：<a href="/news/article-92206.htm">附近养宠物狗基地（附近养宠物狗基地地址）</a></p>
+                                        <p>下一个：<a href="/news/article-92923.htm">动物防疫可以打疫苗吗多少钱一针（动物防疫打针收费吗）</a></p>
+                                    </div>
+                                    </div>
+                    <div class="col-md-3">
+                        <div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">热门文章</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2"><a href="/free-nodes/2025-3-30-loon-node-github.htm" title="「3月30日」最高速度20.3M/S，2025年Github Loon每天更新免费机场订阅节点链接">「3月30日」最高速度20.3M/S，2025年Github Loon每天更新免费机场订阅节点链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-3-24-free-node-subscribe.htm" title="「3月24日」最高速度21.1M/S，2025年Github Loon每天更新免费机场订阅节点链接">「3月24日」最高速度21.1M/S，2025年Github Loon每天更新免费机场订阅节点链接</a></li>
+                        <li class="py-2"><a href="/news/article-79258.htm" title="瑞派宠物医院（瑞派宠物医院管理股份有限公司）">瑞派宠物医院（瑞派宠物医院管理股份有限公司）</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-4-11-loon-node-github.htm" title="「4月11日」最高速度21.8M/S，2025年Github Loon每天更新免费机场订阅节点链接">「4月11日」最高速度21.8M/S，2025年Github Loon每天更新免费机场订阅节点链接</a></li>
+                        <li class="py-2"><a href="/news/article-75171.htm" title="SpringBoot自定义控制层参数解析_在线工具">SpringBoot自定义控制层参数解析_在线工具</a></li>
+                        <li class="py-2"><a href="/news/article-71181.htm" title="猫粮制作机器多少钱一台 猫粮制作机器多少钱一台啊">猫粮制作机器多少钱一台 猫粮制作机器多少钱一台啊</a></li>
+                        <li class="py-2"><a href="/news/article-77896.htm" title="动物医院运营管理工作内容（动物医院运营管理工作内容怎么写）">动物医院运营管理工作内容（动物医院运营管理工作内容怎么写）</a></li>
+                        <li class="py-2"><a href="/news/article-84882.htm" title="上海宠物救助站领养宠物（宠物救助站领养宠物安徽）">上海宠物救助站领养宠物（宠物救助站领养宠物安徽）</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-4-10-free-node-subscribe.htm" title="「4月10日」最高速度19.4M/S，2025年Github Loon每天更新免费机场订阅节点链接">「4月10日」最高速度19.4M/S，2025年Github Loon每天更新免费机场订阅节点链接</a></li>
+                        <li class="py-2"><a href="/news/article-71821.htm" title="北京动物观赏医院电话号码（北京观赏宠物医院电话）">北京动物观赏医院电话号码（北京观赏宠物医院电话）</a></li>
+                    </ul>
+    </div>
+</div>
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">归纳</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">36</span> <a href="/date/2025-04/" title="2025-04 归档">2025-04</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">90</span> <a href="/date/2025-03/" title="2025-03 归档">2025-03</a></h4>
+            </li>
+                    </ul>
+    </div>
+</div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- //section -->    
+        <!-- footer17 -->
+    <section class="footer-17">
+        <div class="footer17_sur py-5">
+            <div class="copyright text-center">
+                <div class="container">
+                    <p class="copy-footer-29">
+                                            <p>
+                                                <a href="/">首页</a> |
+                                                <a href="/free-nodes/">免费节点</a> |
+                                                <a href="/paid-subscribe/">推荐机场</a> |
+                                                <a href="/client.htm">客户端</a> |
+                                                <a href="/news/">新闻资讯</a> |
+                                                <a href="/about-us.htm">关于我们</a> |
+                        <a href="/disclaimer.htm">免责申明</a> |
+                        <a href="/privacy.htm">隐私申明</a> |
+                        <a href="/sitemap.xml">网站地图</a>
+                    </p>
+                        Github Loon节点订阅官网 版权所有 Powered by WordPress
+                    </p>
+                </div>
+            </div>
+            <!-- move top -->
+            <button onclick="topFunction()" id="movetop" title="Go to top">
+                &#10548;
+            </button>
+            <script>
+            // When the user scrolls down 20px from the top of the document, show the button
+            window.onscroll = function() {
+                scrollFunction()
+            };
+
+            function scrollFunction() {
+                if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+                    document.getElementById("movetop").style.display = "block";
+                } else {
+                    document.getElementById("movetop").style.display = "none";
+                }
+            }
+
+            // When the user clicks on the button, scroll to the top of the document
+            function topFunction() {
+                document.body.scrollTop = 0;
+                document.documentElement.scrollTop = 0;
+            }
+            </script>
+            <!-- /move top -->
+        </div>
+    </section>
+    <!-- //footer17 -->
+    <!-- Template JavaScript -->
+    <script src="/assets/website/js/frontend/githubloon/jquery-3.5.1.min.js"></script>
+    <script src="/assets/website/js/frontend/githubloon/theme-change.js"></script><!-- theme switch js (light and dark)-->
+    <!-- pricing tabs js -->
+    <script src="/assets/website/js/frontend/githubloon/tabs.js"></script>
+    <!-- owlcarousel -->
+    <script src="/assets/website/js/frontend/githubloon/owl.carousel.js"></script>
+    <!-- script for tesimonials carousel slider -->
+    <script>
+    $(document).ready(function() {
+        $("#owl-demo1").owlCarousel({
+            loop: true,
+            nav: false,
+            margin: 50,
+            responsiveClass: true,
+            responsive: {
+                0: {
+                    items: 1,
+                    nav: false
+                },
+                736: {
+                    items: 2,
+                    nav: false
+                }
+            }
+        })
+    })
+    </script>
+    <!-- //script for tesimonials carousel slider -->
+    <!-- script for tesimonials agency carousel slider -->
+    <script>
+    $(document).ready(function() {
+        $("#owl-agency").owlCarousel({
+            loop: true,
+            nav: false,
+            margin: 50,
+            responsiveClass: true,
+            responsive: {
+                0: {
+                    items: 1,
+                    nav: false
+                },
+                736: {
+                    items: 1,
+                    nav: false
+                }
+            }
+        })
+    })
+    </script>
+    <!-- //script for tesimonials agency carousel slider -->
+    <!-- magnific popup -->
+    <script src="/assets/website/js/frontend/githubloon/jquery.magnific-popup.min.js"></script>
+    <script>
+    $(document).ready(function() {
+        $('.popup-with-zoom-anim').magnificPopup({
+            type: 'inline',
+
+            fixedContentPos: false,
+            fixedBgPos: true,
+
+            overflowY: 'auto',
+
+            closeBtnInside: true,
+            preloader: false,
+
+            midClick: true,
+            removalDelay: 300,
+            mainClass: 'my-mfp-zoom-in'
+        });
+
+        $('.popup-with-move-anim').magnificPopup({
+            type: 'inline',
+
+            fixedContentPos: false,
+            fixedBgPos: true,
+
+            overflowY: 'auto',
+
+            closeBtnInside: true,
+            preloader: false,
+
+            midClick: true,
+            removalDelay: 300,
+            mainClass: 'my-mfp-slide-bottom'
+        });
+    });
+    </script>
+    <!-- //magnific popup -->
+    <!-- disable body scroll which navbar is in active -->
+    <script>
+    $(function() {
+        $('.navbar-toggler').click(function() {
+            $('body').toggleClass('noscroll');
+        })
+    });
+    </script>
+    <!-- disable body scroll which navbar is in active -->
+    <!--/MENU-JS-->
+    <script>
+    $(window).on("scroll", function() {
+        var scroll = $(window).scrollTop();
+
+        if (scroll >= 80) {
+            $("#site-header").addClass("nav-fixed");
+        } else {
+            $("#site-header").removeClass("nav-fixed");
+        }
+    });
+
+    //Main navigation Active Class Add Remove
+    $(".navbar-toggler").on("click", function() {
+        $("header").toggleClass("active");
+    });
+    $(document).on("ready", function() {
+        if ($(window).width() > 991) {
+            $("header").removeClass("active");
+        }
+        $(window).on("resize", function() {
+            if ($(window).width() > 991) {
+                $("header").removeClass("active");
+            }
+        });
+    });
+    </script>
+    <!--//MENU-JS-->
+    <script src="/assets/website/js/frontend/githubloon/bootstrap.min.js"></script>
+    <script src="https://www.freeclashnode.com/assets/js/frontend/invite-url.js"></script><script src="/assets/website/js/frontend/G.js"></script>
+</body>
+
+</html>
