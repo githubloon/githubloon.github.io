@@ -1,4 +1,4 @@
-# 「8月6日」最高速度18M/S，2025年Github Loon每天更新免费机场订阅节点链接  更新时间 2025-08-06 08:49:39
+# 「8月12日」最高速度21.9M/S，2025年Github Loon每天更新免费机场订阅节点链接  更新时间 2025-08-12 08:58:56
 所有免费clash节点都爬取自网络，请勿用于非法用途 。节点地址：<a href="https://githubloon.github.io" target="_blank">点击跳转</a>
 
 ## clash使用教程：
@@ -9,23 +9,23 @@
 
 ### Clash订阅链接
 
-- https://githubloon.github.io/uploads/2025/08/0-20250806.yaml
-- https://githubloon.github.io/uploads/2025/08/1-20250806.yaml
-- https://githubloon.github.io/uploads/2025/08/2-20250806.yaml
-- https://githubloon.github.io/uploads/2025/08/3-20250806.yaml
-- https://githubloon.github.io/uploads/2025/08/4-20250806.yaml
+- https://githubloon.github.io/uploads/2025/08/0-20250812.yaml
+- https://githubloon.github.io/uploads/2025/08/1-20250812.yaml
+- https://githubloon.github.io/uploads/2025/08/2-20250812.yaml
+- https://githubloon.github.io/uploads/2025/08/3-20250812.yaml
+- https://githubloon.github.io/uploads/2025/08/4-20250812.yaml
 
 ### V2ray订阅链接
 
-- https://githubloon.github.io/uploads/2025/08/0-20250806.txt
-- https://githubloon.github.io/uploads/2025/08/1-20250806.txt
-- https://githubloon.github.io/uploads/2025/08/2-20250806.txt
-- https://githubloon.github.io/uploads/2025/08/3-20250806.txt
-- https://githubloon.github.io/uploads/2025/08/4-20250806.txt
+- https://githubloon.github.io/uploads/2025/08/0-20250812.txt
+- https://githubloon.github.io/uploads/2025/08/1-20250812.txt
+- https://githubloon.github.io/uploads/2025/08/2-20250812.txt
+- https://githubloon.github.io/uploads/2025/08/3-20250812.txt
+- https://githubloon.github.io/uploads/2025/08/4-20250812.txt
 
 ### Sing-box订阅链接
 
-- https://githubloon.github.io/uploads/2025/08/20250806.json
+- https://githubloon.github.io/uploads/2025/08/20250812.json
 
 ## 更多clash节点订阅 ：
 
