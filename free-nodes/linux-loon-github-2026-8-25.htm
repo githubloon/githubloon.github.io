@@ -310,19 +310,9 @@ A：v2ray支持丰富协议、灵活配置及智能路由，适应各种复杂�
     </div>
 <h4>FAQ</h4>
 <div class="panel panel-default">
-    <div class="panel-heading"><h5>V2Ray 的 Routing 设置可以实现什么？</h5></div>
+    <div class="panel-heading"><h5>Netch 无法代理游戏怎么办？</h5></div>
     <div class="panel-body">
-        V2Ray 的 Routing 系统支持基于域名、IP、端口或协议的智能分流。用户可以指定特定网站直连、部分服务走代理，还能创建黑白名单，实现灵活的网络访问控制。<hr />    </div>
-</div>
-<div class="panel panel-default">
-    <div class="panel-heading"><h5>Potatso Lite 支持手动和二维码导入节点吗？</h5></div>
-    <div class="panel-body">
-        支持。用户可以手动添加节点信息，或者通过扫描节点二维码导入节点。虽然不支持自动订阅更新，但足够满足轻量用户对节点管理和分流的需求。<hr />    </div>
-</div>
-<div class="panel panel-default">
-    <div class="panel-heading"><h5>VLESS + XTLS 在高延迟网络中如何优化连接？</h5></div>
-    <div class="panel-body">
-        XTLS 模式通过减少握手和加密开销降低延迟。结合策略组和多节点切换，可在高延迟或不稳定网络环境下保证网页浏览、视频播放和游戏连接稳定，提高用户体验。<hr />    </div>
+        若 Netch 无法代理游戏，需检查游戏进程是否被正确捕获，以及防火墙是否阻止了 TUN 模式。可尝试以管理员身份运行程序，或切换为 Socks 模式重新导入节点。<hr />    </div>
 </div>
 <div class="panel panel-default">
     <div class="panel-heading"><h5>Trojan TLS 伪装如何降低被封锁风险？</h5></div>
@@ -335,9 +325,9 @@ A：v2ray支持丰富协议、灵活配置及智能路由，适应各种复杂�
         检查服务器防火墙是否开放对应端口，同时确认客户端和服务器端端口一致。还可以尝试更换节点或端口，确保 TLS 证书有效以保证连接成功。<hr />    </div>
 </div>
 <div class="panel panel-default">
-    <div class="panel-heading"><h5>Netch 无法代理游戏怎么办？</h5></div>
+    <div class="panel-heading"><h5>Mihomo 的 Web Dashboard 有哪些功能？</h5></div>
     <div class="panel-body">
-        若 Netch 无法代理游戏，需检查游戏进程是否被正确捕获，以及防火墙是否阻止了 TUN 模式。可尝试以管理员身份运行程序，或切换为 Socks 模式重新导入节点。<hr />    </div>
+        Mihomo 的 Web 控制面板允许用户可视化管理节点、分流规则、日志查看与系统状态监控。可通过浏览器访问 Dashboard 地址进行远程管理，方便多设备统一控制。<hr />    </div>
 </div>
 <div class="panel panel-default">
     <div class="panel-heading"><h5>如何使用 Sing-box 配合 Clash Rules 实现精细分流？</h5></div>
@@ -345,9 +335,19 @@ A：v2ray支持丰富协议、灵活配置及智能路由，适应各种复杂�
         将 Clash 的 rules 段提取出来转换为 Sing-box 的 routing 格式，或直接引用 rule-providers 源。Sing-box 的路由引擎支持更复杂的条件匹配，可结合 GeoIP 与 keyword 实现精细分流策略。<hr />    </div>
 </div>
 <div class="panel panel-default">
-    <div class="panel-heading"><h5>Mihomo 的 Web Dashboard 有哪些功能？</h5></div>
+    <div class="panel-heading"><h5>VLESS + XTLS 在高延迟网络中如何优化连接？</h5></div>
     <div class="panel-body">
-        Mihomo 的 Web 控制面板允许用户可视化管理节点、分流规则、日志查看与系统状态监控。可通过浏览器访问 Dashboard 地址进行远程管理，方便多设备统一控制。<hr />    </div>
+        XTLS 模式通过减少握手和加密开销降低延迟。结合策略组和多节点切换，可在高延迟或不稳定网络环境下保证网页浏览、视频播放和游戏连接稳定，提高用户体验。<hr />    </div>
+</div>
+<div class="panel panel-default">
+    <div class="panel-heading"><h5>Nekobox 是否支持跨客户端节点管理？</h5></div>
+    <div class="panel-body">
+        支持。Nekobox 可以独立管理 Shadowsocks、Clash 等客户端节点，互不干扰。结合策略组，可实现多客户端流量分流和网络优化，提高节点管理效率和使用便利性。<hr />    </div>
+</div>
+<div class="panel panel-default">
+    <div class="panel-heading"><h5>Potatso Lite 支持手动和二维码导入节点吗？</h5></div>
+    <div class="panel-body">
+        支持。用户可以手动添加节点信息，或者通过扫描节点二维码导入节点。虽然不支持自动订阅更新，但足够满足轻量用户对节点管理和分流的需求。<hr />    </div>
 </div>
 <div class="panel panel-default">
     <div class="panel-heading"><h5>VMess 协议的核心优势是什么？</h5></div>
@@ -355,9 +355,9 @@ A：v2ray支持丰富协议、灵活配置及智能路由，适应各种复杂�
         VMess 是 V2Ray 项目的核心协议，支持加密、认证和多路复用功能。它能有效防止中间人攻击和流量识别，具有较高的安全性和灵活性，是目前科学上网中最常见的加密协议之一。<hr />    </div>
 </div>
 <div class="panel panel-default">
-    <div class="panel-heading"><h5>Nekobox 是否支持跨客户端节点管理？</h5></div>
+    <div class="panel-heading"><h5>V2Ray 的 Routing 设置可以实现什么？</h5></div>
     <div class="panel-body">
-        支持。Nekobox 可以独立管理 Shadowsocks、Clash 等客户端节点，互不干扰。结合策略组，可实现多客户端流量分流和网络优化，提高节点管理效率和使用便利性。    </div>
+        V2Ray 的 Routing 系统支持基于域名、IP、端口或协议的智能分流。用户可以指定特定网站直连、部分服务走代理，还能创建黑白名单，实现灵活的网络访问控制。    </div>
 </div>
 <div class="panel panel-default mt-5">
     <div class="panel-heading">
@@ -405,16 +405,16 @@ A：v2ray支持丰富协议、灵活配置及智能路由，适应各种复杂�
     </div>
     <div class="panel-body">
         <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
-                        <li class="py-2"><a href="/free-nodes/2026-8-2-free-node-subscribe.htm" title="「8月2日」最高速度19.1M/S，2025年Github Loon每天更新免费机场订阅节点链接">「8月2日」最高速度19.1M/S，2025年Github Loon每天更新免费机场订阅节点链接</a><hr /></li>
-                        <li class="py-2"><a href="/free-nodes/2026-7-24-node-share.htm" title="「7月24日」最高速度22.8M/S，2025年Github Loon每天更新免费机场订阅节点链接">「7月24日」最高速度22.8M/S，2025年Github Loon每天更新免费机场订阅节点链接</a><hr /></li>
-                        <li class="py-2"><a href="/free-nodes/today-loon-node-2026-8-7.htm" title="「8月7日」最高速度19.6M/S，2025年Github Loon每天更新免费机场订阅节点链接">「8月7日」最高速度19.6M/S，2025年Github Loon每天更新免费机场订阅节点链接</a><hr /></li>
-                        <li class="py-2"><a href="/free-nodes/free-high-speed-nodes-2026-8-3.htm" title="「8月3日」最高速度21.8M/S，2025年Github Loon每天更新免费机场订阅节点链接">「8月3日」最高速度21.8M/S，2025年Github Loon每天更新免费机场订阅节点链接</a><hr /></li>
+                        <li class="py-2"><a href="/free-nodes/free-high-speed-nodes-2026-8-19.htm" title="「8月19日」最高速度18.1M/S，2025年Github Loon每天更新免费机场订阅节点链接">「8月19日」最高速度18.1M/S，2025年Github Loon每天更新免费机场订阅节点链接</a><hr /></li>
+                        <li class="py-2"><a href="/free-nodes/2026-8-22-free-node-subscribe.htm" title="「8月22日」最高速度19.7M/S，2025年Github Loon每天更新免费机场订阅节点链接">「8月22日」最高速度19.7M/S，2025年Github Loon每天更新免费机场订阅节点链接</a><hr /></li>
+                        <li class="py-2"><a href="/free-nodes/2026-8-10-loon-node-github.htm" title="「8月10日」最高速度20.2M/S，2025年Github Loon每天更新免费机场订阅节点链接">「8月10日」最高速度20.2M/S，2025年Github Loon每天更新免费机场订阅节点链接</a><hr /></li>
                         <li class="py-2"><a href="/free-nodes/2026-8-18-loon-windows.htm" title="「8月18日」最高速度21.9M/S，2025年Github Loon每天更新免费机场订阅节点链接">「8月18日」最高速度21.9M/S，2025年Github Loon每天更新免费机场订阅节点链接</a><hr /></li>
-                        <li class="py-2"><a href="/free-nodes/node-share-links-2026-8-9.htm" title="「8月9日」最高速度21.8M/S，2025年Github Loon每天更新免费机场订阅节点链接">「8月9日」最高速度21.8M/S，2025年Github Loon每天更新免费机场订阅节点链接</a><hr /></li>
-                        <li class="py-2"><a href="/free-nodes/linux-loon-github-2026-7-29.htm" title="「7月29日」最高速度22.6M/S，2025年Github Loon每天更新免费机场订阅节点链接">「7月29日」最高速度22.6M/S，2025年Github Loon每天更新免费机场订阅节点链接</a><hr /></li>
-                        <li class="py-2"><a href="/free-nodes/2026-7-23-loon-node.htm" title="「7月23日」最高速度21.4M/S，2025年Github Loon每天更新免费机场订阅节点链接">「7月23日」最高速度21.4M/S，2025年Github Loon每天更新免费机场订阅节点链接</a><hr /></li>
-                        <li class="py-2"><a href="/free-nodes/2026-7-26-latest-loon-node.htm" title="「7月26日」最高速度20.2M/S，2025年Github Loon每天更新免费机场订阅节点链接">「7月26日」最高速度20.2M/S，2025年Github Loon每天更新免费机场订阅节点链接</a><hr /></li>
-                        <li class="py-2"><a href="/free-nodes/2026-7-30-loon-node-github.htm" title="「7月30日」最高速度20.4M/S，2025年Github Loon每天更新免费机场订阅节点链接">「7月30日」最高速度20.4M/S，2025年Github Loon每天更新免费机场订阅节点链接</a><hr /></li>
+                        <li class="py-2"><a href="/free-nodes/2026-8-30-loon-windows.htm" title="「8月30日」最高速度18.9M/S，2025年Github Loon每天更新免费机场订阅节点链接">「8月30日」最高速度18.9M/S，2025年Github Loon每天更新免费机场订阅节点链接</a><hr /></li>
+                        <li class="py-2"><a href="/free-nodes/2026-8-26-loon-windows.htm" title="「8月26日」最高速度18.9M/S，2025年Github Loon每天更新免费机场订阅节点链接">「8月26日」最高速度18.9M/S，2025年Github Loon每天更新免费机场订阅节点链接</a><hr /></li>
+                        <li class="py-2"><a href="/free-nodes/2026-9-2-free-node-subscribe.htm" title="「9月2日」最高速度18.8M/S，2025年Github Loon每天更新免费机场订阅节点链接">「9月2日」最高速度18.8M/S，2025年Github Loon每天更新免费机场订阅节点链接</a><hr /></li>
+                        <li class="py-2"><a href="/free-nodes/2026-8-12-loon-node-github.htm" title="「8月12日」最高速度19.1M/S，2025年Github Loon每天更新免费机场订阅节点链接">「8月12日」最高速度19.1M/S，2025年Github Loon每天更新免费机场订阅节点链接</a><hr /></li>
+                        <li class="py-2"><a href="/free-nodes/loon-node-2026-8-31.htm" title="「8月31日」最高速度21.9M/S，2025年Github Loon每天更新免费机场订阅节点链接">「8月31日」最高速度21.9M/S，2025年Github Loon每天更新免费机场订阅节点链接</a><hr /></li>
+                        <li class="py-2"><a href="/free-nodes/free-node-subscribe-links-2026-8-13.htm" title="「8月13日」最高速度21.1M/S，2025年Github Loon每天更新免费机场订阅节点链接">「8月13日」最高速度21.1M/S，2025年Github Loon每天更新免费机场订阅节点链接</a><hr /></li>
                     </ul>
     </div>
 </div>
@@ -426,10 +426,10 @@ A：v2ray支持丰富协议、灵活配置及智能路由，适应各种复杂�
     <div class="panel-body">
         <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
                         <li class="py-2">
-                <h4><span class="badge" style="float: right;">28</span> <a href="/date/2026-08/" title="2026-08 归档">2026-08</a></h4>
+                <h4><span class="badge" style="float: right;">4</span> <a href="/date/2026-09/" title="2026-09 归档">2026-09</a></h4>
             </li>
                         <li class="py-2">
-                <h4><span class="badge" style="float: right;">13</span> <a href="/date/2026-07/" title="2026-07 归档">2026-07</a></h4>
+                <h4><span class="badge" style="float: right;">26</span> <a href="/date/2026-08/" title="2026-08 归档">2026-08</a></h4>
             </li>
                     </ul>
     </div>
